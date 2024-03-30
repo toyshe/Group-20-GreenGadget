@@ -36,7 +36,7 @@ describe("app", () => {
           });
         });
     });
-    test("POST 201: returns an object containing the user details of the newly created user", () => {
+    test("POST 201: returns an object containing the user details of the newly created user: customer", () => {
       const newUser = {
         username: "test",
         name: "test data",
@@ -44,6 +44,11 @@ describe("app", () => {
         email: "test@example.come",
         phone: "07890765432",
         user_type: "customer",
+        house_number: "10",
+        street: "Downing street",
+        city: "London",
+        postcode: "SW1A 2AA",
+        country: "United Kingdom",
       };
       return request(app)
         .post("/users")
@@ -56,6 +61,11 @@ describe("app", () => {
           expect(users.email).toBe("test@example.come");
           expect(users.phone).toBe("07890765432")
           expect(users.user_type).toBe("customer");
+          expect(users.house_number).toBe("10");
+          expect(users.street).toBe("Downing street");
+          expect(users.city).toBe("London");
+          expect(users.postcode).toBe("SW1A 2AA");
+          expect(users.country).toBe("United Kingdom");
         });
     });
   });
