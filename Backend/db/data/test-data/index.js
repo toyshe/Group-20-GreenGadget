@@ -1,10 +1,11 @@
 const initializeUserData = require("./users.js");
 
-initializeUserData()
+const userDataPromise = initializeUserData()
   .then((hashedUserData) => {
-    exports.userData = hashedUserData;
-    return hashedUserData
+    return hashedUserData;
   })
   .catch((error) => {
     console.error("Error initializing user data:", error);
   });
+
+module.exports = { userDataPromise };

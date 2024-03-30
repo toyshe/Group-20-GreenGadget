@@ -2,6 +2,7 @@ const db = require("../connection");
 const format = require("pg-format");
 const { seedUsers } = require("../../utils/utils");
 const initializeUserData = require("../data/test-data/users");
+const { userDataPromise } = require("../data/test-data/index");
 
 // const seed = async ({ userData }) => {
 //   await db.query(`DROP TABLE IF EXISTS users CASCADE`);
@@ -180,7 +181,9 @@ const seed = ({ userData }) => {
                         )`);
     })
     .then(() => {
-      console.log(userData);
+      return userDataPromise;
+    })
+    .then((userData) => {
       const insertUsersQueryStr = format(
         `INSERT INTO users (username, name, password, email, user_type, phone, house_number, street, city, postcode, country, utr) VALUES %L RETURNING *;`,
         userData.map(
@@ -196,7 +199,7 @@ const seed = ({ userData }) => {
             postcode,
             country,
             user_type,
-            utr
+            utr,
           }) => [
             username,
             name,
@@ -209,7 +212,7 @@ const seed = ({ userData }) => {
             city,
             postcode,
             country,
-            utr
+            utr,
           ]
         )
       );
