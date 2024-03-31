@@ -1,0 +1,53 @@
+{
+  "GET /api": {
+    "description": "serves up a list of all the available endpoints"
+  },
+  "GET /users": {
+    "description": "serves up a list of all available users"
+  },
+  "POST /users": {
+    "description": "allows new users to join",
+    "exampleResponse for admins": {
+      "username": "admin",
+      "name": "admin test",
+      "password": "passwordAdmin",
+      "email": "admintest@test.com",
+      "phone": "07986543216",
+      "user_type": "admin"
+    },
+    "exampleResponse for customers": {
+      "username": "test",
+      "name": "test data",
+      "password": "testpw",
+      "email": "test@example.come",
+      "phone": "07890765432",
+      "user_type": "customer",
+      "house_number": "10",
+      "street": "Downing street",
+      "city": "London",
+      "postcode": "SW1A 2AA",
+      "country": "United Kingdom"
+    },
+    "exampleResponse for shopkeepers": {
+      "username": "test",
+      "name": "test data",
+      "password": "testpw",
+      "email": "test@example.com",
+      "phone": "07890765432",
+      "house_number": "10",
+      "street": "Downing street",
+      "city": "London",
+      "postcode": "SW1A 2AA",
+      "country": "United Kingdom",
+      "user_type": "shopkeeper",
+      "utr": "1234567890"
+    }
+  },
+  "POST /login": {
+    "description": "checks authentication of a user trying to log in",
+    "exampleResponse": {
+      "usernameOrEmail": "happyamy",
+      "password": "happyamypw"
+    }
+  }
+}
