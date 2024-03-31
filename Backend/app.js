@@ -1,14 +1,28 @@
-const express = require('express');
+const express = require("express");
 
 const cors = require("cors");
-const { getUsers, postUsers } = require('./controllers/users.controllers');
+const {
+  getUsers,
+  postUsers,
+  getUserLogin,
+} = require("./controllers/users.controllers");
+const { psqlErrors, customErrors } = require("./error-handling");
+const { getApi } = require("./controllers/api.controller");
 
 const app = express();
 
 app.use(express.json());
 
-app.get('/users', getUsers)
+app.get("/api", getApi)
 
-app.post('/users', postUsers)
+app.get("/users", getUsers);
 
-module.exports = app
+app.post("/users", postUsers);
+
+app.post("/login", getUserLogin);
+
+app.use(psqlErrors);
+
+app.use(customErrors);
+
+module.exports = app;

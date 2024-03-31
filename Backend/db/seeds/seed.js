@@ -108,21 +108,21 @@ const seed = ({ userData }) => {
       return db.query(
         `CREATE TABLE users (
         user_id SERIAL PRIMARY KEY,
-        username VARCHAR(50) NOT NULL,
+        username VARCHAR(50) UNIQUE NOT NULL,
         name VARCHAR(100) NOT NULL,
         password VARCHAR(100) NOT NULL,
         email VARCHAR(200) UNIQUE NOT NULL,
-            user_type VARCHAR(20) NOT NULL CHECK (user_type IN ('customer', 'shopkeeper', 'admin')),
-            phone VARCHAR UNIQUE NOT NULL,
-            house_number VARCHAR(20),
-            street VARCHAR(200),
-            city VARCHAR(200),
-            postcode VARCHAR(20),
-            country VARCHAR(200),
-            utr VARCHAR(11),
-            CONSTRAINT check_utr_for_shopkeeper CHECK ((user_type = 'shopkeeper' AND utr IS NOT NULL) OR user_type != 'shopkeeper'),
-            CONSTRAINT check_address_for_customers_shopkeepers CHECK (((user_type = 'customer' OR user_type = 'shopkeeper') AND (house_number IS NOT NULL OR street IS NOT NULL OR city IS NOT NULL OR postcode IS NOT NULL OR country IS NOT NULL)) OR user_type = 'admin')
-            )`
+        user_type VARCHAR(20) NOT NULL CHECK (user_type IN ('customer', 'shopkeeper', 'admin')),
+        phone VARCHAR UNIQUE NOT NULL,
+        house_number VARCHAR(20),
+        street VARCHAR(200),
+        city VARCHAR(200),
+        postcode VARCHAR(20),
+        country VARCHAR(200),
+        utr VARCHAR(11),
+        CONSTRAINT check_utr_for_shopkeeper CHECK ((user_type = 'shopkeeper' AND utr IS NOT NULL) OR user_type != 'shopkeeper'),
+        CONSTRAINT check_address_for_customers_shopkeepers CHECK (((user_type = 'customer' OR user_type = 'shopkeeper') AND (house_number IS NOT NULL OR street IS NOT NULL OR city IS NOT NULL OR postcode IS NOT NULL OR country IS NOT NULL)) OR user_type = 'admin')
+        )`
       );
     })
     .then(() => {

@@ -1,6 +1,4 @@
 const bcrypt = require("bcrypt");
-const format = require("pg-format");
-
 
 async function hashPassword(password) {
   try {
@@ -35,41 +33,10 @@ async function seedUsers(userData) {
       return { ...user, password: hashedPassword };
     })
   )
-  // .then(() => {
-  //   const insertUsersQueryStr = format(
-  //     `INSERT INTO users (username, name, password, email, user_type, phone, house_number, street, city, postcode, country) VALUES %L RETURNING *;`,
-  //     hashedUserData.map(
-  //       ({
-  //         username,
-  //         name,
-  //         password,
-  //         email,
-  //         user_type,
-  //         phone,
-  //         house_number,
-  //         street,
-  //         city,
-  //         postcode,
-  //         country,
-  //       }) => [
-  //         username,
-  //         name,
-  //         password,
-  //         email,
-  //         user_type,
-  //         phone,
-  //         house_number,
-  //         street,
-  //         city,
-  //         postcode,
-  //         country,
-  //       ]
-  //     )
-  //   );
-  // });
-
-  // Execute the insert query and return the result
-  // return db.query(insertUsersQueryStr);
 }
 
-module.exports = { hashPasswords, seedUsers };
+function comparePasswords(password, hashedPassword) {
+  return bcrypt.compare(password, hashedPassword);
+}
+
+module.exports = { hashPasswords, seedUsers, hashPassword, comparePasswords };
