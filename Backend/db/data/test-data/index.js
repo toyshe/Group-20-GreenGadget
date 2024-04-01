@@ -1,5 +1,6 @@
 const initializeUserData = require("./users.js");
 const electronicsData = require("./electronics.js");
+const categoriesData = require("./categories.js")
 
 const userDataPromise = initializeUserData()
   .then((hashedUserData) => {
@@ -9,4 +10,4 @@ const userDataPromise = initializeUserData()
     console.error("Error initializing user data:", error);
   });
 
-module.exports = { userDataPromise, electronicsData };
+module.exports = { userDataPromise, electronicsData, categoriesData };
