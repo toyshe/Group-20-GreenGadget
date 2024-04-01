@@ -254,5 +254,54 @@ describe("app", () => {
         })
       })
     })
+    test("POST 201: returns an object containing the details of the newly created electronic", () => {
+      const newElectronic = {
+        name: "test electronic", 
+        model: "test model", 
+        price: 100.00,
+        description: "test description",
+        storage: "test storage",
+        electronics_type: "Phone",
+        img_url: "test url",
+        shopkeeper_username: "grahamcracker"
+      }
+      return request(app).post('/electronics').send(newElectronic).expect(201).then(({body: {electronics}}) => {
+        expect(electronics.name).toBe("test electronic")
+        expect(electronics.model).toBe("test model")
+        expect(electronics.price).toBe(100.00)
+        expect(electronics.description).toBe("test description")
+        expect(electronics.storage).toBe("test storage")
+        expect(electronics.electronics_type).toBe("Phone")
+        expect(electronics.img_url).toBe("test url")
+        expect(electronics.shopkeeper_id).toBe(6)
+      })
+    })
+    test("POST 400: returns error message when constraint is broken", () => {
+      const newElectronic = {
+        name: "test electronic", 
+        storage: "test storage",
+        electronics_type: "Phone",
+        img_url: "test url",
+        shopkeeper_username: "grahamcracker"
+      }
+      return request(app).post('/electronics').send(newElectronic).expect(400).then(({body}) => {
+        expect(body.msg).toBe("Bad request")
+      })
+    })
+    test("POST 400: returns an error message if the shopkeeper does no exist", () => {
+      const newElectronic = {
+        name: "test electronic", 
+        model: "test model", 
+        price: 100.00,
+        description: "test description",
+        storage: "test storage",
+        electronics_type: "Phone",
+        img_url: "test url",
+        shopkeeper_username: "grahamcrackers"
+      }
+      return request(app).post("/electronics").send(newElectronic).expect(400).then(({body}) => {
+        expect(body.msg).toBe("Shopkeeper does not exist")
+      })
+    })
   })
 });
