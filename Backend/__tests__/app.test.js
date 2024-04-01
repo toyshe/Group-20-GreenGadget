@@ -238,4 +238,21 @@ describe("app", () => {
         });
     });
   });
+  describe("/electronics", () => {
+    test("GET 200: returns an object containing all electronics", () => {
+      return request(app).get("/electronics").expect(200).then(({body : {electronics}}) => {
+        expect(electronics.length).toBe(10)
+        electronics.forEach((electronic) => {
+          expect(electronic).toHaveProperty("name")
+          expect(electronic).toHaveProperty("model")
+          expect(electronic).toHaveProperty("price")
+          expect(electronic).toHaveProperty("description")
+          expect(electronic).toHaveProperty("img_url")
+          expect(electronic).toHaveProperty("storage")
+          expect(electronic).toHaveProperty("electronics_type")
+          expect(electronic).toHaveProperty("shopkeeper_id")
+        })
+      })
+    })
+  })
 });
