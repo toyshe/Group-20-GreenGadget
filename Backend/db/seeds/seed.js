@@ -2,6 +2,7 @@ const db = require("../connection");
 const format = require("pg-format");
 const { formatElectronics, createRef } = require("../../utils/utils");
 const { userDataPromise, electronicsData } = require("../data/test-data/index");
+const categories = require("../data/test-data/categories");
 
 const seed = () => {
   return db
@@ -26,6 +27,9 @@ const seed = () => {
     })
     .then(() => {
       return db.query(`DROP TABLE IF EXISTS bids`);
+    })
+    .then(() => {
+      return db.query(`DROP TABLE IF EXISTS categories`)
     })
     .then(() => {
       return db.query(
@@ -54,7 +58,7 @@ const seed = () => {
         name VARCHAR(100) NOT NULL,
         model VARCHAR NOT NULL,
         electronics_type VARCHAR(20) NOT NULL,
-        storage VARCHAR NOT NULL,
+        storage_in_gb INT NOT NULL,
         description TEXT NOT NULL,
         price FLOAT NOT NULL,
         img_url VARCHAR(200) NOT NULL,
@@ -107,6 +111,17 @@ const seed = () => {
         )`);
     })
     .then(() => {
+      return db.query(`CREATE TABLE categories (
+        slug VARCHAR PRIMARY KEY,
+        description VARCHAR
+      )`)
+    })
+    .then(() => {
+      const insertCategoriesQueryStr = format(`INSERT INTO categories (slug, description) VALUES %L RETURNING *;`, 
+      categories.map(({slug, description}) => [slug, description]))
+      return db.query(insertCategoriesQueryStr)
+    })
+    .then(() => {
       return userDataPromise;
     })
     .then((userData) => {
@@ -123,8 +138,8 @@ const seed = () => {
       const shopkeeperIdLookup = createRef(rows,'username','user_id');
       const formatElectronicsData = formatElectronics(electronicsData, shopkeeperIdLookup)
 
-      const insertElectronicsQuery = format(`INSERT INTO electronics (name, model, electronics_type, storage, description, price, img_url, shopkeeper_id) VALUES %L RETURNING *;`, formatElectronicsData.map(({name, model, electronics_type, storage, description, price, img_url, shopkeeper_id}) => [
-        name, model, electronics_type, storage, description, price, img_url, shopkeeper_id,
+      const insertElectronicsQuery = format(`INSERT INTO electronics (name, model, electronics_type, storage_in_gb, description, price, img_url, shopkeeper_id) VALUES %L RETURNING *;`, formatElectronicsData.map(({name, model, electronics_type, storage_in_gb, description, price, img_url, shopkeeper_id}) => [
+        name, model, electronics_type, storage_in_gb, description, price, img_url, shopkeeper_id,
       ]));
       return db.query(insertElectronicsQuery);
     })

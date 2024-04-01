@@ -248,7 +248,7 @@ describe("app", () => {
           expect(electronic).toHaveProperty("price")
           expect(electronic).toHaveProperty("description")
           expect(electronic).toHaveProperty("img_url")
-          expect(electronic).toHaveProperty("storage")
+          expect(electronic).toHaveProperty("storage_in_gb")
           expect(electronic).toHaveProperty("electronics_type")
           expect(electronic).toHaveProperty("shopkeeper_id")
         })
@@ -260,7 +260,7 @@ describe("app", () => {
         model: "test model", 
         price: 100.00,
         description: "test description",
-        storage: "test storage",
+        storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
         shopkeeper_username: "grahamcracker"
@@ -270,7 +270,7 @@ describe("app", () => {
         expect(electronics.model).toBe("test model")
         expect(electronics.price).toBe(100.00)
         expect(electronics.description).toBe("test description")
-        expect(electronics.storage).toBe("test storage")
+        expect(electronics.storage_in_gb).toBe(128)
         expect(electronics.electronics_type).toBe("Phone")
         expect(electronics.img_url).toBe("test url")
         expect(electronics.shopkeeper_id).toBe(6)
@@ -279,7 +279,7 @@ describe("app", () => {
     test("POST 400: returns error message when constraint is broken", () => {
       const newElectronic = {
         name: "test electronic", 
-        storage: "test storage",
+        storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
         shopkeeper_username: "grahamcracker"
@@ -294,13 +294,64 @@ describe("app", () => {
         model: "test model", 
         price: 100.00,
         description: "test description",
-        storage: "test storage",
+        storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
         shopkeeper_username: "grahamcrackers"
       }
       return request(app).post("/electronics").send(newElectronic).expect(400).then(({body}) => {
         expect(body.msg).toBe("Shopkeeper does not exist")
+      })
+    })
+    test("GET 200: returns an object of all electronics filtered by electronics_type query", () => {
+      return request(app).get('/electronics?electronics_type=Laptop').expect(200).then(({body: {electronics}}) => {
+        expect(electronics).toHaveLength(5)
+        electronics.forEach((electronic) => {
+          expect(electronic.electronics_type).toBe("Laptop")
+        })
+      })
+    })
+    test("GET 400: returns error message if an invalid electronics_type is given", () => {
+      return request(app).get('/electronics?electronics_type=not-a-valid-query').expect(400).then(({body}) => {
+        expect(body.msg).toBe("Invalid query")
+      })
+    })
+    test("GET 200: returns all electronics sorted by price ascending", () => {
+      return request(app).get('/electronics?sort_by=price').expect(200).then(({body: {electronics}}) => {
+        expect(electronics).toHaveLength(10)
+        expect(electronics).toBeSortedBy('price')
+      })
+    })
+    test("GET 400: returns error message if given invalid sort_by queries", () => {
+      return request(app).get("/electronics?sort_by=invalid_sort_by").expect(400).then(({body}) => {
+        expect(body.msg).toBe("Invalid query")
+      })
+    })
+    test("GET 400: returns error message if given invalid order queries", () => {
+      return request(app).get("/electronics?order=invalid_order").expect(400).then(({body}) => {
+        expect(body.msg).toBe("Invalid query")
+      })
+    })
+    test("GET 200: returns all the electronics by a certain shopkeeper", () => {
+      return request(app).get("/electronics?shopkeeper=grahamcracker").expect(200).then(({body: {electronics}}) => {
+        expect(electronics).toHaveLength(5)
+        electronics.forEach((electronic) => {
+          expect(electronic.shopkeeper_id).toBe(6)
+        })
+      })
+    })
+    test("GET 400: returns error message if given an invalid shopkeeper query", () => {
+      return request(app).get('/electronics?shopkeeper=invalid_shopkeeper').expect(400).then(({body}) => {
+        expect(body.msg).toBe("Invalid query")
+      })
+    })
+    test("GET 200: returns all the electronics filtered by electronics_type query and shopkeeper_query", () => {
+      return request(app).get('/electronics?electronics_type=Phone&&shopkeeper=stevens').expect(200).then(({body: {electronics}}) => {
+        expect(electronics).toHaveLength(2)
+        electronics.forEach((electronic) => {
+          expect(electronic.shopkeeper_id).toBe(5)
+          expect(electronic.electronics_type).toBe('Phone')
+        })
       })
     })
   })
