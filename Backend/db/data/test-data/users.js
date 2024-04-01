@@ -1,5 +1,4 @@
-const { hashPasswords } = require("../../../utils/utils");
-
+const {hashPasswords} = require("../../../utils/utils")
 const userData = [
   {
     username: "butter_bridge",

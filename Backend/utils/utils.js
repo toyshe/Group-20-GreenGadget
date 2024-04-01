@@ -39,4 +39,20 @@ function comparePasswords(password, hashedPassword) {
   return bcrypt.compare(password, hashedPassword);
 }
 
-module.exports = { hashPasswords, seedUsers, hashPassword, comparePasswords };
+const createRef = (arr, key, value) => {
+  return arr.reduce((ref, element) => {
+    ref[element[key]] = element[value];
+    return ref;
+  }, {})
+}
+
+const formatElectronics = (electronics, idLookup) => {
+  return electronics.map(({shopkeeper_username, ...restOfElectronics}) => {
+    const shopkeeper_id = idLookup[shopkeeper_username];
+    return {
+      shopkeeper_id, ...restOfElectronics
+    }
+  })
+}
+
+module.exports = { hashPasswords, seedUsers, hashPassword, comparePasswords, createRef, formatElectronics };
