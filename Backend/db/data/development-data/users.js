@@ -1,7 +1,7 @@
 
 const { hashPasswords } = require("../../../utils/utils");
 
-const userdatadummy = [
+const userData = [
     {
       username: "jsmith21",
       name: "John Smith",
