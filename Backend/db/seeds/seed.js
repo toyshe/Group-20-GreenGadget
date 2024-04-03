@@ -62,6 +62,7 @@ const seed = () => {
         description TEXT NOT NULL,
         price FLOAT NOT NULL,
         img_url VARCHAR(200) NOT NULL,
+        quantity INT NOT NULL DEFAULT 1,
         shopkeeper_id SERIAL REFERENCES users(user_id)
         )`);
     })
@@ -138,8 +139,8 @@ const seed = () => {
       const shopkeeperIdLookup = createRef(rows,'username','user_id');
       const formatElectronicsData = formatElectronics(electronicsData, shopkeeperIdLookup)
 
-      const insertElectronicsQuery = format(`INSERT INTO electronics (name, model, electronics_type, storage_in_gb, description, price, img_url, shopkeeper_id) VALUES %L RETURNING *;`, formatElectronicsData.map(({name, model, electronics_type, storage_in_gb, description, price, img_url, shopkeeper_id}) => [
-        name, model, electronics_type, storage_in_gb, description, price, img_url, shopkeeper_id,
+      const insertElectronicsQuery = format(`INSERT INTO electronics (name, model, electronics_type, storage_in_gb, description, price, img_url, quantity, shopkeeper_id) VALUES %L RETURNING *;`, formatElectronicsData.map(({name, model, electronics_type, storage_in_gb, description, price, img_url, quantity, shopkeeper_id}) => [
+        name, model, electronics_type, storage_in_gb, description, price, img_url, quantity, shopkeeper_id,
       ]));
       return db.query(insertElectronicsQuery);
     })
