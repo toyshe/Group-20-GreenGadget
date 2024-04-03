@@ -2,7 +2,7 @@ const db = require("../connection");
 const format = require("pg-format");
 const { formatElectronics, createRef } = require("../../utils/utils");
 
-const seed = ({userDataPromise, electronicsData, categoriesData}) => {
+const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
   return db
     .query(`DROP TABLE IF EXISTS users CASCADE`)
     .then(() => {
@@ -27,7 +27,7 @@ const seed = ({userDataPromise, electronicsData, categoriesData}) => {
       return db.query(`DROP TABLE IF EXISTS bids`);
     })
     .then(() => {
-      return db.query(`DROP TABLE IF EXISTS categories`)
+      return db.query(`DROP TABLE IF EXISTS categories`);
     })
     .then(() => {
       return db.query(
@@ -51,11 +51,17 @@ const seed = ({userDataPromise, electronicsData, categoriesData}) => {
       );
     })
     .then(() => {
+      return db.query(`CREATE TABLE categories (
+        slug VARCHAR PRIMARY KEY,
+        description VARCHAR
+      )`);
+    })
+    .then(() => {
       return db.query(`CREATE TABLE electronics (
         electronics_id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
         model VARCHAR NOT NULL,
-        electronics_type VARCHAR(20) NOT NULL,
+        electronics_type VARCHAR(20) NOT NULL REFERENCES categories(slug),
         storage_in_gb INT NOT NULL,
         description TEXT NOT NULL,
         price FLOAT NOT NULL,
@@ -109,16 +115,13 @@ const seed = ({userDataPromise, electronicsData, categoriesData}) => {
         timestamp TIMESTAMP DEFAULT NOW()
         )`);
     })
+
     .then(() => {
-      return db.query(`CREATE TABLE categories (
-        slug VARCHAR PRIMARY KEY,
-        description VARCHAR
-      )`)
-    })
-    .then(() => {
-      const insertCategoriesQueryStr = format(`INSERT INTO categories (slug, description) VALUES %L RETURNING *;`, 
-      categoriesData.map(({slug, description}) => [slug, description]))
-      return db.query(insertCategoriesQueryStr)
+      const insertCategoriesQueryStr = format(
+        `INSERT INTO categories (slug, description) VALUES %L RETURNING *;`,
+        categoriesData.map(({ slug, description }) => [slug, description])
+      );
+      return db.query(insertCategoriesQueryStr);
     })
     .then(() => {
       return userDataPromise;
@@ -127,21 +130,72 @@ const seed = ({userDataPromise, electronicsData, categoriesData}) => {
       const insertUsersQueryStr = format(
         `INSERT INTO users (username, name, password, email, user_type, phone, house_number, street, city, postcode, country, utr) VALUES %L RETURNING *;`,
         userData.map(
-          ({username, name, password, email, phone, house_number, street, city, postcode, country, user_type, utr}) => [
-            username, name, password, email, user_type, phone, house_number, street, city, postcode, country, utr,
+          ({
+            username,
+            name,
+            password,
+            email,
+            phone,
+            house_number,
+            street,
+            city,
+            postcode,
+            country,
+            user_type,
+            utr,
+          }) => [
+            username,
+            name,
+            password,
+            email,
+            user_type,
+            phone,
+            house_number,
+            street,
+            city,
+            postcode,
+            country,
+            utr,
           ]
         )
       );
       return db.query(insertUsersQueryStr);
-    }).then(({rows}) => {
-      const shopkeeperIdLookup = createRef(rows,'username','user_id');
-      const formatElectronicsData = formatElectronics(electronicsData, shopkeeperIdLookup)
-
-      const insertElectronicsQuery = format(`INSERT INTO electronics (name, model, electronics_type, storage_in_gb, description, price, img_url, quantity, shopkeeper_id) VALUES %L RETURNING *;`, formatElectronicsData.map(({name, model, electronics_type, storage_in_gb, description, price, img_url, quantity, shopkeeper_id}) => [
-        name, model, electronics_type, storage_in_gb, description, price, img_url, quantity, shopkeeper_id,
-      ]));
-      return db.query(insertElectronicsQuery);
     })
+    .then(({ rows }) => {
+      const shopkeeperIdLookup = createRef(rows, "username", "user_id");
+      const formatElectronicsData = formatElectronics(
+        electronicsData,
+        shopkeeperIdLookup
+      );
+
+      const insertElectronicsQuery = format(
+        `INSERT INTO electronics (name, model, electronics_type, storage_in_gb, description, price, img_url, quantity, shopkeeper_id) VALUES %L RETURNING *;`,
+        formatElectronicsData.map(
+          ({
+            name,
+            model,
+            electronics_type,
+            storage_in_gb,
+            description,
+            price,
+            img_url,
+            quantity,
+            shopkeeper_id,
+          }) => [
+            name,
+            model,
+            electronics_type,
+            storage_in_gb,
+            description,
+            price,
+            img_url,
+            quantity,
+            shopkeeper_id,
+          ]
+        )
+      );
+      return db.query(insertElectronicsQuery);
+    });
 };
 
 module.exports = seed;
