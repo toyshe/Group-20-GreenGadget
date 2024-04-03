@@ -51,6 +51,7 @@ exports.insertElectronics = ({
   electronics_type,
   storage_in_gb,
   img_url,
+  quantity,
   shopkeeper_username,
 }) => {
   return db
@@ -68,7 +69,7 @@ exports.insertElectronics = ({
     })
     .then((user_id) => {
       return db.query(
-        `INSERT INTO electronics (name, model, price, description, electronics_type, storage_in_gb, img_url, shopkeeper_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+        `INSERT INTO electronics (name, model, price, description, electronics_type, storage_in_gb, img_url, quantity, shopkeeper_id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
         [
           name,
           model,
@@ -77,6 +78,7 @@ exports.insertElectronics = ({
           electronics_type,
           storage_in_gb,
           img_url,
+          quantity,
           user_id,
         ]
       );

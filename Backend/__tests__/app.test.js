@@ -250,6 +250,7 @@ describe("app", () => {
           expect(electronic).toHaveProperty("img_url")
           expect(electronic).toHaveProperty("storage_in_gb")
           expect(electronic).toHaveProperty("electronics_type")
+          expect(electronic).toHaveProperty("quantity")
           expect(electronic).toHaveProperty("shopkeeper_id")
         })
       })
@@ -263,6 +264,7 @@ describe("app", () => {
         storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
+        quantity: 3,
         shopkeeper_username: "grahamcracker"
       }
       return request(app).post('/electronics').send(newElectronic).expect(201).then(({body: {electronics}}) => {
@@ -273,6 +275,7 @@ describe("app", () => {
         expect(electronics.storage_in_gb).toBe(128)
         expect(electronics.electronics_type).toBe("Phone")
         expect(electronics.img_url).toBe("test url")
+        expect(electronics.quantity).toBe(3)
         expect(electronics.shopkeeper_id).toBe(6)
       })
     })
@@ -297,6 +300,7 @@ describe("app", () => {
         storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
+        quantity: 7,
         shopkeeper_username: "grahamcrackers"
       }
       return request(app).post("/electronics").send(newElectronic).expect(400).then(({body}) => {
