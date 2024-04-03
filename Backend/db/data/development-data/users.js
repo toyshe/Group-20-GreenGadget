@@ -1,9 +1,9 @@
 const userdatadummy = [
     {
-      username: "user1",
+      username: "jsmith21",
       name: "John Smith",
-      password: "password123",
-      email: "john.smith@example.com",
+      password: "9#G@5qZb2!",
+      email: "john.smith@outlook.com",
       phone: "07123456789",
       house_number: "1",
       street: "Main Street",
@@ -14,10 +14,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user2",
+      username: "emilyjohnson",
       name: "Emily Johnson",
-      password: "password456",
-      email: "emily.johnson@example.com",
+      password: "8*F1r3w@ll9",
+      email: "emily.johnson@outlook.com",
       phone: "07123456780",
       house_number: "2",
       street: "High Street",
@@ -28,10 +28,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user3",
+      username: "emmab756",
       name: "Emma Brown",
-      password: "password789",
-      email: "emma.brown@example.com",
+      password: "!P@55C0d3$",
+      email: "emma.brown@outlook.com",
       phone: "07123456781",
       house_number: "3",
       street: "Park Avenue",
@@ -42,10 +42,10 @@ const userdatadummy = [
      
     },
     {
-      username: "user4",
+      username: "mw456216",
       name: "Michael Wilson",
-      password: "passwordabc",
-      email: "michael.wilson@example.com",
+      password: "J$#kL9&2p@!",
+      email: "michael.wilson@outlook.com",
       phone: "07123456782",
       house_number: "4",
       street: "Broadway",
@@ -56,10 +56,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user5",
+      username: "staylor12",
       name: "Sophia Taylor",
-      password: "passworddef",
-      email: "sophia.taylor@example.com",
+      password: "Tr0ub4dor&3",
+      email: "sophia.taylor@outlook.com",
       phone: "07123456783",
       house_number: "5",
       street: "Victoria Road",
@@ -70,10 +70,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user6",
+      username: "davwies145",
       name: "William Davies",
-      password: "passwordghi",
-      email: "william.davies@example.com",
+      password: "7dR!ve_#M3CraZY",
+      email: "william.davies@outlook.com",
       phone: "07123456784",
       house_number: "6",
       street: "Church Street",
@@ -84,10 +84,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user7",
+      username: "olivia7evans",
       name: "Olivia Evans",
-      password: "passwordjkl",
-      email: "olivia.evans@example.com",
+      password: "B3stP@ssw0rd3v3r!",
+      email: "olivia.evans@outlook.com",
       phone: "07123456785",
       house_number: "7",
       street: "Queen's Road",
@@ -98,10 +98,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user8",
+      username: "daniel70456",
       name: "Daniel Clark",
-      password: "passwordmno",
-      email: "daniel.clark@example.com",
+      password: "P@ssC0d3!2024",
+      email: "daniel.clark@outlook.com",
       phone: "07123456786",
       house_number: "8",
       street: "King Street",
@@ -112,10 +112,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user9",
+      username: "isabellaz74",
       name: "Isabella Martinez",
-      password: "passwordpqr",
-      email: "isabella.martinez@example.com",
+      password: "Fr13nds4L1f3!",
+      email: "isabella.martinez@outlook.com",
       phone: "07123456787",
       house_number: "9",
       street: "Market Street",
@@ -126,10 +126,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user10",
+      username: "cartere756",
       name: "Ethan Carter",
-      password: "passwordstu",
-      email: "ethan.carter@example.com",
+      password: "5t@yS@f3&Secur3",
+      email: "ethan.carter@outlook.com",
       phone: "07123456788",
       house_number: "10",
       street: "Highland Road",
@@ -140,10 +140,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user11",
+      username: "phillipsava",
       name: "Ava Phillips",
-      password: "passwordvwx",
-      email: "ava.phillips@example.com",
+      password: "#S3cureP@ssW0rd",
+      email: "ava.phillips@outlook.com",
       phone: "07123456789",
       house_number: "11",
       street: "Ocean Avenue",
@@ -154,10 +154,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user12",
+      username: "jamesrodriguez10",
       name: "James Rodriguez",
-      password: "passwordyz",
-      email: "james.rodriguez@example.com",
+      password: "$uperP@ssw0rd!",
+      email: "james.rodriguez@outlook.com",
       phone: "07123456790",
       house_number: "12",
       street: "Sunset Boulevard",
@@ -168,10 +168,10 @@ const userdatadummy = [
       
     },
     {
-      username: "user13",
+      username: "fostermia45",
       name: "Mia Foster",
-      password: "password1234",
-      email: "mia.foster@example.com",
+      password: "C0mp1exP@55w0rd!",
+      email: "mia.foster@outlook.com",
       phone: "07123456791",
       house_number: "13",
       street: "Park Lane",
@@ -182,10 +182,10 @@ const userdatadummy = [
       utr : "8456541464",
     },
     {
-      username: "user14",
+      username: "alexander66",
       name: "Alexander Bailey",
-      password: "password5678",
-      email: "alexander.bailey@example.com",
+      password: "P@ssw0rd123$ecur3",
+      email: "alexander.bailey@outlook.com",
       phone: "07123456792",
       house_number: "14",
       street: "Grove Street",
@@ -196,10 +196,10 @@ const userdatadummy = [
       utr : "8456541467",
     },
     {
-      username: "user15",
+      username: "redd36",
       name: "Charlotte Reed",
-      password: "password9012",
-      email: "charlotte.reed@example.com",
+      password: "$4f3&$0undP@55",
+      email: "charlotte.reed@outlook.com",
       phone: "07123456793",
       house_number: "15",
       street: "Hillside Avenue",
@@ -210,10 +210,10 @@ const userdatadummy = [
       utr : "8456541415",
     },
     {
-      username: "user16",
+      username: "wrightB478",
       name: "Benjamin Wright",
-      password: "password3456",
-      email: "benjamin.wright@example.com",
+      password: "#F0rt1f13dP@55",
+      email: "benjamin.wright@outlook.com",
       phone: "07123456794",
       house_number: "16",
       street: "Riverside Drive",
@@ -224,10 +224,10 @@ const userdatadummy = [
       utr : "8456541469",
     },
     {
-      username: "user17",
+      username: "amelia49",
       name: "Amelia Harris",
-      password: "password7890",
-      email: "amelia.harris@example.com",
+      password: "3ncrypT1on#K3y",
+      email: "amelia.harris@outlook.com",
       phone: "07123456795",
       house_number: "17",
       street: "Mill Road",
@@ -241,7 +241,7 @@ const userdatadummy = [
       username: "admin",
       name: "John David",
       password: "David5078",
-      email: "john.david@example.com",
+      email: "john.david@outlook.com",
       phone: "07123456745",
       user_type: "admin",
     }
