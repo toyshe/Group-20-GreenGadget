@@ -1,3 +1,6 @@
+
+const { hashPasswords } = require("../../../utils/utils");
+
 const userdatadummy = [
     {
       username: "jsmith21",
@@ -246,6 +249,10 @@ const userdatadummy = [
       user_type: "admin",
     }
   ];
-  
 
-  
+async function initializeUserData() {
+  const hashedUserData = await hashPasswords(userData);
+  return hashedUserData;
+}
+
+module.exports = initializeUserData;
