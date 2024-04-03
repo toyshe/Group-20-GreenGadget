@@ -1,10 +1,8 @@
 const db = require("../connection");
 const format = require("pg-format");
 const { formatElectronics, createRef } = require("../../utils/utils");
-const { userDataPromise, electronicsData } = require("../data/test-data/index");
-const categories = require("../data/test-data/categories");
 
-const seed = () => {
+const seed = ({userDataPromise, electronicsData, categoriesData}) => {
   return db
     .query(`DROP TABLE IF EXISTS users CASCADE`)
     .then(() => {
@@ -119,7 +117,7 @@ const seed = () => {
     })
     .then(() => {
       const insertCategoriesQueryStr = format(`INSERT INTO categories (slug, description) VALUES %L RETURNING *;`, 
-      categories.map(({slug, description}) => [slug, description]))
+      categoriesData.map(({slug, description}) => [slug, description]))
       return db.query(insertCategoriesQueryStr)
     })
     .then(() => {
