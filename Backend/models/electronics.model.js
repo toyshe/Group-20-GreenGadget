@@ -26,11 +26,10 @@ exports.findElectronics = (
   }
 
   if (shopkeeper) {
-    if(electronics_type){
-        queryStr += ' AND'
-    }
-    else{
-        queryStr += ' WHERE'
+    if (electronics_type) {
+      queryStr += " AND";
+    } else {
+      queryStr += " WHERE";
     }
     queryStr += ` users.username = $${queryParameters.length + 1}`;
     queryParameters.push(shopkeeper);
@@ -84,6 +83,29 @@ exports.insertElectronics = ({
       );
     })
     .then(({ rows }) => {
+      return rows[0];
+    });
+};
+
+exports.findElectronicById = (id) => {
+  return db.query(`SELECT * FROM electronics WHERE electronics_id = $1`, [id]).then(({rows}) => {
+    if(rows.length === 0){
+      return Promise.reject({status: 404, msg: "electronics_id not found"})
+    }
+    return rows[0]
+  })
+}
+
+exports.updateElectronicsById = (id, updatedQuantity) => {
+  return db
+    .query(
+      `UPDATE electronics SET quantity = quantity + $1 WHERE electronics_id = $2 RETURNING *`,
+      [updatedQuantity, id]
+    )
+    .then(({ rows }) => {
+      if(rows.length === 0){
+        return Promise.reject({status: 404, msg: "electronics_id not found"})
+      }
       return rows[0];
     });
 };
