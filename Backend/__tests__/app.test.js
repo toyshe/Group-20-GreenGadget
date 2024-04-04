@@ -513,4 +513,18 @@ describe("app", () => {
         });
     });
   });
+  describe("/categories", () => {
+    test("GET 200: returns an object of all categories", () => {
+      return request(app)
+        .get("/categories")
+        .expect(200)
+        .then(({ body: { categories } }) => {
+          expect(categories).toHaveLength(2);
+          categories.forEach((category) => {
+            expect(category).toHaveProperty('slug');
+            expect(category).toHaveProperty("description");
+          });
+        });
+    });
+  });
 });
