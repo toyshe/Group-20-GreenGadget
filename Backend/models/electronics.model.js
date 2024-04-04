@@ -89,6 +89,9 @@ exports.insertElectronics = ({
 
 exports.findElectronicById = (id) => {
   return db.query(`SELECT * FROM electronics WHERE electronics_id = $1`, [id]).then(({rows}) => {
+    if(rows.length === 0){
+      return Promise.reject({status: 404, msg: "electronics_id not found"})
+    }
     return rows[0]
   })
 }
