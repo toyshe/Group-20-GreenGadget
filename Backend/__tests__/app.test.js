@@ -473,5 +473,44 @@ describe("app", () => {
           expect(body.msg).toBe("Bad request");
         });
     });
+    test("PATCH 200: deletes an electronic if the the quantity after patch is 0", () => {
+      const updatedQuantity = { updatedQuantity: -3 };
+      return request(app)
+        .patch("/electronics/2")
+        .send(updatedQuantity)
+        .expect(200)
+        .then(() => {
+          return request(app).get("/electronics/2").expect(404);
+        });
+    });
+    test("PATCH 400: returns error message if the quantity returned is negative", () => {
+      const updatedQuantity = { updatedQuantity: -10 };
+      return request(app)
+        .patch("/electronics/2")
+        .send(updatedQuantity)
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Not enough of item");
+        });
+    });
+    test("DELETE 204: deletes an electronic given an id", () => {
+      return request(app).delete("/electronics/2").expect(204);
+    });
+    test("DELETE 400: returns error message if given an invalid id", () => {
+      return request(app)
+        .delete("/electronics/not-a-valid-id")
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Bad request");
+        });
+    });
+    test("DELETE 404: returns not found if the id does not exist", () => {
+      return request(app)
+        .delete("/electronics/1000")
+        .expect(404)
+        .then(({ body }) => {
+          expect(body.msg).toBe("electronics_id not found");
+        });
+    });
   });
 });

@@ -1,3 +1,4 @@
+const { deleteElectronicsById } = require("../controllers/electronics.controller");
 const db = require("../db/connection");
 
 exports.findElectronics = (
@@ -88,13 +89,15 @@ exports.insertElectronics = ({
 };
 
 exports.findElectronicById = (id) => {
-  return db.query(`SELECT * FROM electronics WHERE electronics_id = $1`, [id]).then(({rows}) => {
-    if(rows.length === 0){
-      return Promise.reject({status: 404, msg: "electronics_id not found"})
-    }
-    return rows[0]
-  })
-}
+  return db
+    .query(`SELECT * FROM electronics WHERE electronics_id = $1`, [id])
+    .then(({ rows }) => {
+      if (rows.length === 0) {
+        return Promise.reject({ status: 404, msg: "electronics_id not found" });
+      }
+      return rows[0];
+    });
+};
 
 exports.updateElectronicsById = (id, updatedQuantity) => {
   return db
@@ -103,9 +106,25 @@ exports.updateElectronicsById = (id, updatedQuantity) => {
       [updatedQuantity, id]
     )
     .then(({ rows }) => {
-      if(rows.length === 0){
-        return Promise.reject({status: 404, msg: "electronics_id not found"})
+      if(rows.length !== 0 && rows[0].quantity === 0) {
+        return this.removeElectronicsById(rows[0].electronics_id)
+      }
+      else if (rows.length === 0) {
+        return Promise.reject({ status: 404, msg: "electronics_id not found" });
+      }
+      else if(rows[0].quantity < 0) {
+        return Promise.reject({ status: 400, msg: "Not enough of item" });
       }
       return rows[0];
+    });
+};
+
+exports.removeElectronicsById = (id) => {
+  return db
+    .query(`DELETE FROM electronics WHERE electronics_id = $1`, [id])
+    .then(({ rowCount }) => {
+      if (rowCount === 0) {
+        return Promise.reject({ status: 404, msg: "electronics_id not found" });
+      }
     });
 };
