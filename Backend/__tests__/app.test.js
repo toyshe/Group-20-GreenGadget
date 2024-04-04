@@ -526,5 +526,20 @@ describe("app", () => {
           });
         });
     });
+    test("POST 201: returns an object containing the newly created category", () => {
+      const newCategory = {
+        slug: "test slug",
+        description: "testing posting a new category"
+      }
+      return request(app).post("/categories").send(newCategory).expect(201).then(({body: {category}}) => {
+        expect(category).toMatchObject(newCategory)
+      })
+    })
+    test("POST 400: returns error message if given an incomplete category", () => {
+      const newCategory = {slug: 'test slug'}
+      return request(app).post("/categories").send(newCategory).expect(400).then(({body}) => {
+        expect(body.msg).toBe("Bad request")
+      })
+    })
   });
 });

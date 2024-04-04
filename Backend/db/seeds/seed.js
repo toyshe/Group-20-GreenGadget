@@ -53,7 +53,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
     .then(() => {
       return db.query(`CREATE TABLE categories (
         slug VARCHAR PRIMARY KEY,
-        description VARCHAR
+        description VARCHAR NOT NULL
       )`);
     })
     .then(() => {
