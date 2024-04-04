@@ -416,6 +416,22 @@ describe("app", () => {
           expect(electronic.quantity).toBe(6);
         });
     });
+    test("GET 400: returns error message if given an invalid id", () => {
+      return request(app)
+        .get("/electronics/not-a-valid-id")
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Bad request");
+        });
+    });
+    test("GET 404: returns error message if given an id that does not exist", () => {
+      return request(app)
+        .get("/electronics/1000")
+        .expect(404)
+        .then(({ body }) => {
+          expect(body.msg).toBe("electronics_id not found");
+        });
+    });
     test("PATCH 200: changes the quantity of an electronic", () => {
       const updatedQuantity = { updatedQuantity: 1 };
       return request(app)

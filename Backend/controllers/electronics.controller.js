@@ -54,6 +54,8 @@ exports.getElectronicById = (req, res, next) => {
     const {electronics_id} = req.params;
     findElectronicById(electronics_id).then((electronic) => {
         res.status(200).send({ electronic });
+    }).catch((err) => {
+        next(err)
     })
 }
 
