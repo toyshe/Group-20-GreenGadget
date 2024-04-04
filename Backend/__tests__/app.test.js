@@ -240,123 +240,222 @@ describe("app", () => {
   });
   describe("/electronics", () => {
     test("GET 200: returns an object containing all electronics", () => {
-      return request(app).get("/electronics").expect(200).then(({body : {electronics}}) => {
-        expect(electronics.length).toBe(10)
-        electronics.forEach((electronic) => {
-          expect(electronic).toHaveProperty("name")
-          expect(electronic).toHaveProperty("model")
-          expect(electronic).toHaveProperty("price")
-          expect(electronic).toHaveProperty("description")
-          expect(electronic).toHaveProperty("img_url")
-          expect(electronic).toHaveProperty("storage_in_gb")
-          expect(electronic).toHaveProperty("electronics_type")
-          expect(electronic).toHaveProperty("quantity")
-          expect(electronic).toHaveProperty("shopkeeper_id")
-        })
-      })
-    })
+      return request(app)
+        .get("/electronics")
+        .expect(200)
+        .then(({ body: { electronics } }) => {
+          expect(electronics.length).toBe(10);
+          electronics.forEach((electronic) => {
+            expect(electronic).toHaveProperty("name");
+            expect(electronic).toHaveProperty("model");
+            expect(electronic).toHaveProperty("price");
+            expect(electronic).toHaveProperty("description");
+            expect(electronic).toHaveProperty("img_url");
+            expect(electronic).toHaveProperty("storage_in_gb");
+            expect(electronic).toHaveProperty("electronics_type");
+            expect(electronic).toHaveProperty("quantity");
+            expect(electronic).toHaveProperty("shopkeeper_id");
+          });
+        });
+    });
     test("POST 201: returns an object containing the details of the newly created electronic", () => {
       const newElectronic = {
-        name: "test electronic", 
-        model: "test model", 
-        price: 100.00,
+        name: "test electronic",
+        model: "test model",
+        price: 100.0,
         description: "test description",
         storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
         quantity: 3,
-        shopkeeper_username: "grahamcracker"
-      }
-      return request(app).post('/electronics').send(newElectronic).expect(201).then(({body: {electronics}}) => {
-        expect(electronics.name).toBe("test electronic")
-        expect(electronics.model).toBe("test model")
-        expect(electronics.price).toBe(100.00)
-        expect(electronics.description).toBe("test description")
-        expect(electronics.storage_in_gb).toBe(128)
-        expect(electronics.electronics_type).toBe("Phone")
-        expect(electronics.img_url).toBe("test url")
-        expect(electronics.quantity).toBe(3)
-        expect(electronics.shopkeeper_id).toBe(6)
-      })
-    })
+        shopkeeper_username: "grahamcracker",
+      };
+      return request(app)
+        .post("/electronics")
+        .send(newElectronic)
+        .expect(201)
+        .then(({ body: { electronics } }) => {
+          expect(electronics.name).toBe("test electronic");
+          expect(electronics.model).toBe("test model");
+          expect(electronics.price).toBe(100.0);
+          expect(electronics.description).toBe("test description");
+          expect(electronics.storage_in_gb).toBe(128);
+          expect(electronics.electronics_type).toBe("Phone");
+          expect(electronics.img_url).toBe("test url");
+          expect(electronics.quantity).toBe(3);
+          expect(electronics.shopkeeper_id).toBe(6);
+        });
+    });
     test("POST 400: returns error message when constraint is broken", () => {
       const newElectronic = {
-        name: "test electronic", 
+        name: "test electronic",
         storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
-        shopkeeper_username: "grahamcracker"
-      }
-      return request(app).post('/electronics').send(newElectronic).expect(400).then(({body}) => {
-        expect(body.msg).toBe("Bad request")
-      })
-    })
+        shopkeeper_username: "grahamcracker",
+      };
+      return request(app)
+        .post("/electronics")
+        .send(newElectronic)
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Bad request");
+        });
+    });
     test("POST 400: returns an error message if the shopkeeper does no exist", () => {
       const newElectronic = {
-        name: "test electronic", 
-        model: "test model", 
-        price: 100.00,
+        name: "test electronic",
+        model: "test model",
+        price: 100.0,
         description: "test description",
         storage_in_gb: 128,
         electronics_type: "Phone",
         img_url: "test url",
         quantity: 7,
-        shopkeeper_username: "grahamcrackers"
-      }
-      return request(app).post("/electronics").send(newElectronic).expect(400).then(({body}) => {
-        expect(body.msg).toBe("Shopkeeper does not exist")
-      })
-    })
+        shopkeeper_username: "grahamcrackers",
+      };
+      return request(app)
+        .post("/electronics")
+        .send(newElectronic)
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Shopkeeper does not exist");
+        });
+    });
     test("GET 200: returns an object of all electronics filtered by electronics_type query", () => {
-      return request(app).get('/electronics?electronics_type=Laptop').expect(200).then(({body: {electronics}}) => {
-        expect(electronics).toHaveLength(5)
-        electronics.forEach((electronic) => {
-          expect(electronic.electronics_type).toBe("Laptop")
-        })
-      })
-    })
+      return request(app)
+        .get("/electronics?electronics_type=Laptop")
+        .expect(200)
+        .then(({ body: { electronics } }) => {
+          expect(electronics).toHaveLength(5);
+          electronics.forEach((electronic) => {
+            expect(electronic.electronics_type).toBe("Laptop");
+          });
+        });
+    });
     test("GET 400: returns error message if an invalid electronics_type is given", () => {
-      return request(app).get('/electronics?electronics_type=not-a-valid-query').expect(400).then(({body}) => {
-        expect(body.msg).toBe("Invalid query")
-      })
-    })
+      return request(app)
+        .get("/electronics?electronics_type=not-a-valid-query")
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Invalid query");
+        });
+    });
     test("GET 200: returns all electronics sorted by price ascending", () => {
-      return request(app).get('/electronics?sort_by=price').expect(200).then(({body: {electronics}}) => {
-        expect(electronics).toHaveLength(10)
-        expect(electronics).toBeSortedBy('price')
-      })
-    })
+      return request(app)
+        .get("/electronics?sort_by=price")
+        .expect(200)
+        .then(({ body: { electronics } }) => {
+          expect(electronics).toHaveLength(10);
+          expect(electronics).toBeSortedBy("price");
+        });
+    });
     test("GET 400: returns error message if given invalid sort_by queries", () => {
-      return request(app).get("/electronics?sort_by=invalid_sort_by").expect(400).then(({body}) => {
-        expect(body.msg).toBe("Invalid query")
-      })
-    })
+      return request(app)
+        .get("/electronics?sort_by=invalid_sort_by")
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Invalid query");
+        });
+    });
     test("GET 400: returns error message if given invalid order queries", () => {
-      return request(app).get("/electronics?order=invalid_order").expect(400).then(({body}) => {
-        expect(body.msg).toBe("Invalid query")
-      })
-    })
+      return request(app)
+        .get("/electronics?order=invalid_order")
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Invalid query");
+        });
+    });
     test("GET 200: returns all the electronics by a certain shopkeeper", () => {
-      return request(app).get("/electronics?shopkeeper=grahamcracker").expect(200).then(({body: {electronics}}) => {
-        expect(electronics).toHaveLength(5)
-        electronics.forEach((electronic) => {
-          expect(electronic.shopkeeper_id).toBe(6)
-        })
-      })
-    })
+      return request(app)
+        .get("/electronics?shopkeeper=grahamcracker")
+        .expect(200)
+        .then(({ body: { electronics } }) => {
+          expect(electronics).toHaveLength(5);
+          electronics.forEach((electronic) => {
+            expect(electronic.shopkeeper_id).toBe(6);
+          });
+        });
+    });
     test("GET 400: returns error message if given an invalid shopkeeper query", () => {
-      return request(app).get('/electronics?shopkeeper=invalid_shopkeeper').expect(400).then(({body}) => {
-        expect(body.msg).toBe("Invalid query")
-      })
-    })
+      return request(app)
+        .get("/electronics?shopkeeper=invalid_shopkeeper")
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Invalid query");
+        });
+    });
     test("GET 200: returns all the electronics filtered by electronics_type query and shopkeeper_query", () => {
-      return request(app).get('/electronics?electronics_type=Phone&&shopkeeper=stevens').expect(200).then(({body: {electronics}}) => {
-        expect(electronics).toHaveLength(2)
-        electronics.forEach((electronic) => {
-          expect(electronic.shopkeeper_id).toBe(5)
-          expect(electronic.electronics_type).toBe('Phone')
-        })
-      })
-    })
-  })
+      return request(app)
+        .get("/electronics?electronics_type=Phone&&shopkeeper=stevens")
+        .expect(200)
+        .then(({ body: { electronics } }) => {
+          expect(electronics).toHaveLength(2);
+          electronics.forEach((electronic) => {
+            expect(electronic.shopkeeper_id).toBe(5);
+            expect(electronic.electronics_type).toBe("Phone");
+          });
+        });
+    });
+  });
+  describe("/electronics/:id", () => {
+    test("GET 200: returns an object containing the details of the electronic with the given id", () => {
+      return request(app)
+        .get("/electronics/1")
+        .expect(200)
+        .then(({ body: { electronic } }) => {
+          expect(electronic.electronics_id).toBe(1);
+          expect(electronic.name).toBe("IPhone 13");
+          expect(electronic.model).toBe("IPhone 13 128GB");
+          expect(electronic.price).toBe(280.0);
+          expect(electronic.description).toBe(
+            "A royal blue iphone 13 with 128GB storage"
+          );
+          expect(electronic.storage_in_gb).toBe(128);
+          expect(electronic.electronics_type).toBe("Phone");
+          expect(electronic.quantity).toBe(6);
+        });
+    });
+    test("PATCH 200: changes the quantity of an electronic", () => {
+      const updatedQuantity = { updatedQuantity: 1 };
+      return request(app)
+        .patch("/electronics/2")
+        .send(updatedQuantity)
+        .expect(200)
+        .then(({ body: { electronic } }) => {
+          expect(electronic.electronics_id).toBe(2);
+          expect(electronic.quantity).toBe(4);
+        });
+    });
+    test("PATCH 400: returns error message if given an invalid electronics_id", () => {
+      const updatedQuantity = { updatedQuantity: 1 };
+      return request(app)
+        .patch("/electronics/not-a-valid-id")
+        .send(updatedQuantity)
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Bad request");
+        });
+    });
+    test("PATCH 404: returns not found if the electronics_id does not exist", () => {
+      const updatedQuantity = { updatedQuantity: 2 };
+      return request(app)
+        .patch("/electronics/1000")
+        .send(updatedQuantity)
+        .expect(404)
+        .then(({ body }) => {
+          expect(body.msg).toBe("electronics_id not found");
+        });
+    });
+    test("PATCH 400: returns error message if given an invalid quantity", () => {
+      const updatedQuantity = { updatedQuantity: "not-a-valid-quantity" };
+      return request(app)
+        .patch("/electronics/2")
+        .send(updatedQuantity)
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Bad request");
+        });
+    });
+  });
 });
