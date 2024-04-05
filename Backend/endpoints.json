@@ -49,5 +49,43 @@
       "usernameOrEmail": "happyamy",
       "password": "happyamypw"
     }
+  },
+  "GET /categories": {
+    "description": "serves up a list of all available categories"
+  },
+  "POST /categories": {
+    "description": "adds a new category",
+    "exampleResponse": {
+      "slug": "Laptop",
+      "description": "a portable computer"
+    }
+  },
+  "GET /electronics": {
+    "description": "serves up a list of all available electronics",
+    "queries": ["electronics_type", "sort_by", "order", "shopkeeper"]
+  },
+  "POST /electronics": {
+    "description": "inserts a new electronic",
+    "exampleResponse": {
+      "name": "test electronic",
+      "model": "test model",
+      "price": 100.0,
+      "description": "test description",
+      "storage_in_gb": 128,
+      "electronics_type": "Phone",
+      "img_url": "test url",
+      "quantity": 3,
+      "shopkeeper_username": "grahamcracker"
+    }
+  },
+  "GET /electronics/{electronics_id}": {
+    "description": "serves up a specific electronic by its id"
+  },
+  "PATCH /electronics/{electronics_id}": {
+    "description": "updates the qunatity of an electronic by its id",
+    "exampleResponse": {"updatedQuantity": 4}
+  },
+  "DELETE /electronics/{electronics_id}": {
+    "description": "deletes an electronic by its id"
   }
 }

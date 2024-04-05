@@ -473,5 +473,73 @@ describe("app", () => {
           expect(body.msg).toBe("Bad request");
         });
     });
+    test("PATCH 200: deletes an electronic if the the quantity after patch is 0", () => {
+      const updatedQuantity = { updatedQuantity: -3 };
+      return request(app)
+        .patch("/electronics/2")
+        .send(updatedQuantity)
+        .expect(200)
+        .then(() => {
+          return request(app).get("/electronics/2").expect(404);
+        });
+    });
+    test("PATCH 400: returns error message if the quantity returned is negative", () => {
+      const updatedQuantity = { updatedQuantity: -10 };
+      return request(app)
+        .patch("/electronics/2")
+        .send(updatedQuantity)
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Not enough of item");
+        });
+    });
+    test("DELETE 204: deletes an electronic given an id", () => {
+      return request(app).delete("/electronics/2").expect(204);
+    });
+    test("DELETE 400: returns error message if given an invalid id", () => {
+      return request(app)
+        .delete("/electronics/not-a-valid-id")
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.msg).toBe("Bad request");
+        });
+    });
+    test("DELETE 404: returns not found if the id does not exist", () => {
+      return request(app)
+        .delete("/electronics/1000")
+        .expect(404)
+        .then(({ body }) => {
+          expect(body.msg).toBe("electronics_id not found");
+        });
+    });
+  });
+  describe("/categories", () => {
+    test("GET 200: returns an object of all categories", () => {
+      return request(app)
+        .get("/categories")
+        .expect(200)
+        .then(({ body: { categories } }) => {
+          expect(categories).toHaveLength(2);
+          categories.forEach((category) => {
+            expect(category).toHaveProperty('slug');
+            expect(category).toHaveProperty("description");
+          });
+        });
+    });
+    test("POST 201: returns an object containing the newly created category", () => {
+      const newCategory = {
+        slug: "test slug",
+        description: "testing posting a new category"
+      }
+      return request(app).post("/categories").send(newCategory).expect(201).then(({body: {category}}) => {
+        expect(category).toMatchObject(newCategory)
+      })
+    })
+    test("POST 400: returns error message if given an incomplete category", () => {
+      const newCategory = {slug: 'test slug'}
+      return request(app).post("/categories").send(newCategory).expect(400).then(({body}) => {
+        expect(body.msg).toBe("Bad request")
+      })
+    })
   });
 });

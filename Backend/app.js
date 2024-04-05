@@ -8,7 +8,8 @@ const {
 } = require("./controllers/users.controllers");
 const { psqlErrors, customErrors } = require("./error-handling");
 const { getApi } = require("./controllers/api.controller");
-const { getElectronics, postElectronics, patchElectronicsById, getElectronicById } = require("./controllers/electronics.controller");
+const { getElectronics, postElectronics, patchElectronicsById, getElectronicById, deleteElectronicsById } = require("./controllers/electronics.controller");
+const { getCategories, postCategories } = require("./controllers/categories.controller");
 
 const app = express();
 
@@ -25,6 +26,10 @@ app.post("/electronics", postElectronics)
 
 app.get("/electronics/:electronics_id", getElectronicById)
 app.patch("/electronics/:electronics_id", patchElectronicsById)
+app.delete("/electronics/:electronics_id", deleteElectronicsById)
+
+app.get("/categories", getCategories)
+app.post("/categories", postCategories)
 
 app.use(psqlErrors);
 

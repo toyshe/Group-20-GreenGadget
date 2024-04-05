@@ -3,6 +3,7 @@ const {
   insertElectronics,
   updateElectronicsById,
   findElectronicById,
+  removeElectronicsById,
 } = require("../models/electronics.model");
 const {
   checkCategoryExists,
@@ -51,13 +52,15 @@ exports.postElectronics = (req, res, next) => {
 };
 
 exports.getElectronicById = (req, res, next) => {
-    const {electronics_id} = req.params;
-    findElectronicById(electronics_id).then((electronic) => {
-        res.status(200).send({ electronic });
-    }).catch((err) => {
-        next(err)
+  const { electronics_id } = req.params;
+  findElectronicById(electronics_id)
+    .then((electronic) => {
+      res.status(200).send({ electronic });
     })
-}
+    .catch((err) => {
+      next(err);
+    });
+};
 
 exports.patchElectronicsById = (req, res, next) => {
   const { electronics_id } = req.params;
@@ -66,6 +69,18 @@ exports.patchElectronicsById = (req, res, next) => {
   updateElectronicsById(electronics_id, updatedQuantity)
     .then((electronic) => {
       res.status(200).send({ electronic });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+exports.deleteElectronicsById = (req, res, next) => {
+  const { electronics_id } = req.params;
+
+  removeElectronicsById(electronics_id)
+    .then(() => {
+      res.status(204).send();
     })
     .catch((err) => {
       next(err);
