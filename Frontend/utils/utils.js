@@ -5,7 +5,6 @@ const greengadgetApi = axios.create({
 })
 
 export default function postLoginInfo({usernameOrEmail, password}){
-    console.log({usernameOrEmail, password});
     return greengadgetApi.post('/login', {usernameOrEmail: usernameOrEmail, password: password}).then(({data}) => {
         if(data.loginMessage === `Welcome back, ${usernameOrEmail}`) {
             return data.loginMessage

@@ -7,6 +7,7 @@ export default function Login() {
     const [usernameOrEmail, setUsernameOrEmail] = useState('')
     const [password, setPassword] = useState('')
     const [loginMessage, setLoginMessage] = useState('')
+    const [checked, setChecked] = useState(false)
 
     const handleUsernameOrEmail = (e) => {
         setUsernameOrEmail(e.target.value)
@@ -21,6 +22,7 @@ export default function Login() {
         postLoginInfo({ usernameOrEmail, password }).then((data) => {
             if (data === 'Welcome back, ' + usernameOrEmail) {
                 setLoginMessage('')
+                document.getElementById('id01').style.display = "none";
                 navigate('/home')
             } else {
                 setLoginMessage('Invalid credentials. Please try again.')
@@ -31,17 +33,45 @@ export default function Login() {
         })
     }
 
+    const handleChecked = () => {
+        setChecked(!checked)
+    }
+
     return (
         <div>
+            <button onClick={() => document.getElementById('id01').style.display = 'block'} style={{ width: 'auto' }}>Login</button>
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="usernameOrEmail">Username or Email: </label>
-                <input id="usernameOrEmail" type="text" name="usernameOrEmail" value={usernameOrEmail} onChange={handleUsernameOrEmail} placeholder="Enter a username or email" />
-                <label htmlFor="password">Password: </label>
-                <input id="password" type="password" name="password" value={password} onChange={handlePassword} placeholder="Enter a password" />
-                <button onClick={handleSubmit}>Enter</button>
-            </form>
-            {loginMessage && <p>{loginMessage}</p>}
+            <div id="id01" className="modal" style={{ display: 'none' }}>
+                <form className="modal-content animate" onSubmit={handleSubmit}>
+                    <div className="imgcontainer">
+                        <span onClick={() => document.getElementById('id01').style.display = 'none'} className="close" title="Close Modal">&times;</span>
+                    </div>
+
+                    <div className="container">
+                        <label htmlFor="usernameOrEmail"><b>Username or Email</b></label>
+                        <input type="text" id="usernameOrEmail" value={usernameOrEmail} onChange={handleUsernameOrEmail} placeholder="Enter Username or Email" name="usernameOrEmail" required />
+
+                        <label htmlFor="password"><b>Password</b></label>
+                        <input type="password" id="password" value={password} onChange={handlePassword} placeholder="Enter Password" name="password" required />
+
+                        <button type="submit">Login</button>
+                        <label>
+                            <input type="checkbox" checked={checked} onClick={handleChecked} name="remember" /> Remember me
+                        </label>
+                    </div>
+
+                    <div className="container" style={{ backgroundColor: '#f1f1f1' }}>
+                        <button type="button" onClick={() => document.getElementById('id01').style.display = 'none'} className="cancelbtn">Cancel</button>
+                        <span className="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+                    {loginMessage && <p>{loginMessage}</p>}
+                </form>
+            </div>
+            {window.onclick = function (event) {
+                if (event.target == document.getElementById('id01')) {
+                    document.getElementById('id01').style.display = "none";
+                }
+            }}
         </div>
     )
 }
