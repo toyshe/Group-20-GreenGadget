@@ -15,3 +15,13 @@ export default function postLoginInfo({usernameOrEmail, password}){
         return data.loginMessage
     })
 }
+
+export function postSignUpInfo({username, name, password, email, phone, houseNumber, street, city, postcode, country, userType}){
+    return greengadgetApi.post('/users', {username, name, password, email, phone, house_number: houseNumber, street, city, postcode, country, user_type: userType}).then(({data}) => {
+        console.log(data.users);
+        return data.users
+    }).catch(({response: {data}}) => {
+        console.log(data.msg);
+        return data.msg
+    })
+}

@@ -115,3 +115,72 @@ span.psw {
      width: 100%;
   }
 }
+
+.input-valid {
+  background-color: #bfdbcd;
+}
+
+.input-invalid {
+  background-color: rgb(199, 163, 163);
+}
+
+.error-message {
+  color: red; /* Set text color to red */
+  font-size: 14px; /* Adjust font size */
+  margin-top: 4px; /* Add some space between input and error message */
+  font-weight: bold;
+}
+
+
+.user-type-button {
+  padding: 8px 16px; /* Add padding to the buttons */
+  margin-right: 8px; /* Add margin between buttons */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 4px; /* Add border radius for rounded corners */
+  /* background-color: #bfdbcd; */
+}
+
+.user-type-button:focus {
+  outline: none; /* Remove focus outline */
+}
+
+.user-type-button.selected {
+  background-color: #6ea86e; /* Green background for selected button */
+  color: white; /* White text color for better visibility */
+  font-weight: bold;
+}
+
+.required-fields{
+  color: red;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid black;
+  z-index: 9999;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup button {
+  margin-top: 10px;
+}
+
+.nav-buttons{
+  display: block;
+  width: auto;
+  margin-right: 5px;
+}
+
+.nav{
+  display: flex;
+  /* justify-content: space-between; */
+}
