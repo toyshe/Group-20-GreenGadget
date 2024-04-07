@@ -8,6 +8,7 @@ export default function Login() {
     const [password, setPassword] = useState('')
     const [loginMessage, setLoginMessage] = useState('')
     const [checked, setChecked] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleUsernameOrEmail = (e) => {
         setUsernameOrEmail(e.target.value)
@@ -18,12 +19,14 @@ export default function Login() {
     }
 
     const handleSubmit = (e) => {
+        setLoading(true)
         e.preventDefault()
         postLoginInfo({ usernameOrEmail, password }).then((data) => {
+            setLoading(true)
             if (data === 'Welcome back, ' + usernameOrEmail) {
                 setLoginMessage('')
                 document.getElementById('id01').style.display = "none";
-                navigate('/home')
+                navigate('/')
             } else {
                 setLoginMessage('Invalid credentials. Please try again.')
             }
@@ -38,8 +41,10 @@ export default function Login() {
     }
 
     return (
+        
         <div>
-            <button onClick={() => document.getElementById('id01').style.display = 'block'} style={{ width: 'auto' }}>Login</button>
+            {/* {loading ? <p>Loading</p>: null} */}
+            <button onClick={() => document.getElementById('id01').style.display = 'block'} style={{ width: 'auto', marginRight: '5px' }}>Login</button>
 
             <div id="id01" className="modal" style={{ display: 'none' }}>
                 <form className="modal-content animate" onSubmit={handleSubmit}>
