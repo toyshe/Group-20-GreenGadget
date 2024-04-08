@@ -91,7 +91,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
       return db.query(`CREATE TABLE repair_requests (
         request_id SERIAL PRIMARY KEY,
         customer_id INT NOT NULL REFERENCES users(user_id),
-        electronic_id SERIAL REFERENCES electronics(electronics_id),
+        electronics_id SERIAL REFERENCES electronics(electronics_id),
         description TEXT NOT NULL,
         timestamp TIMESTAMP DEFAULT NOW()
         )`);
@@ -109,7 +109,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
       return db.query(`CREATE TABLE reviews (
         review_id SERIAL PRIMARY KEY,
         user_id INT NOT NULL REFERENCES users(user_id),
-        electronic_id SERIAL REFERENCES electronics(electronics_id),
+        electronics_id SERIAL REFERENCES electronics(electronics_id),
         rating INT NOT NULL,
         review TEXT NOT NULL,
         timestamp TIMESTAMP DEFAULT NOW()

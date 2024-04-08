@@ -3,7 +3,7 @@ const electronicsApi = axios.create({
     baseURL:'https://group-20-greengadget.onrender.com'
 });
 
-export default function getAllElecronics(categories, sortBy, order, page ){
+export default function getAllElectronics(categories, sortBy, order, page ){
     if(!sortBy){
         sortBy = "Price";
     }
