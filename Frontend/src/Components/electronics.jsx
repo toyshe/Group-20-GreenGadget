@@ -1,21 +1,25 @@
-import getAllElectronics from "../util/utils"; 
+import getAllElectronics from "../../utilis/utilis"; 
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from "react-router-dom";
-import ErrorHandling from "./ErrorHandling";
+//import ErrorHandling from "./ErrorHandling";
+import SortElectronics from "./SortElectronics";
 
-export default function Electronics({ electronics, setElectronics}){
+export default function Electronics({ electronicList, setElectronics, electronicCategory}){
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [sortBy, setSortBy] = useState("");
     const [order, setOrder] = useState("");
-    //const [totalPages, setTotalPages] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
     const [page, setPage] = useState(1);
 
 
     useEffect(() => {
-        getAllElectronics(
-          searchParams.get("categories"), sortBy, order, searchParams.get("p") || page
+        getAllElectronics(electronicCategory||searchParams.get("category")).then(({ total_count }) => {
+          setTotalPages(Math.ceil(total_count / 10));
+        })
+        getAllArticles(
+          searchParams.get("category"), sortBy, order, searchParams.get("p") || page
         )
           .then(({ electronics }) => {
             setElectronics(electronics);
@@ -26,7 +30,7 @@ export default function Electronics({ electronics, setElectronics}){
       }, [page, searchParams, sortBy, order]);
 
     const handleElectronicsClick = (electronic) =>{
-        navigate(`/electronics/${electronic.electronics_id}`)
+      navigate(`/electronics/${electronic.electronics_id}`)
     };
 
     const handlePageChange = (pageNumber) => {
@@ -40,15 +44,16 @@ export default function Electronics({ electronics, setElectronics}){
       );
     };
 
-    if (error){
+    /*if (error){
       return <ErrorHandling error={error} />; 
-    }
+    }*/
 
-    return (
-      <div className="electronics">
+    return <h1>This is a test page</h1>
+
+      /*<div className="electronics">
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
         <ul className="electronics-box">
-          {electronics.map((electronic) => (
+          {electronicList.map((electronic) => (
             <li key={electronic.electronics_id} className="electronic-item">
               <button onClick={() => handleElectronicsClick(electronic)}>
                 <p>{electronic.name}</p>
@@ -71,5 +76,5 @@ export default function Electronics({ electronics, setElectronics}){
             </button>
           ))}
         </div>
-      </div>    );
+      </div>    );*/
 }
