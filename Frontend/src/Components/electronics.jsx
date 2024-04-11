@@ -18,7 +18,7 @@ export default function Electronics({ electronicList, setElectronics, electronic
         getAllElectronics(electronicCategory||searchParams.get("category")).then(({ total_count }) => {
           setTotalPages(Math.ceil(total_count / 10));
         })
-        getAllArticles(
+        getAllElectronics(
           searchParams.get("category"), sortBy, order, searchParams.get("p") || page
         )
           .then(({ electronics }) => {
@@ -48,19 +48,20 @@ export default function Electronics({ electronicList, setElectronics, electronic
       return <ErrorHandling error={error} />; 
     }*/
 
-    return <h1>This is a test page</h1>
+    //return <h1>This is a test page</h1>
+    return(
 
-      /*<div className="electronics">
+      <div className="electronics">
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
         <ul className="electronics-box">
-          {electronicList.map((electronic) => (
-            <li key={electronic.electronics_id} className="electronic-item">
-              <button onClick={() => handleElectronicsClick(electronic)}>
-                <p>{electronic.name}</p>
-                <img src={electronic.img_url} alt={electronic.model} />
-                <p>£{electronic.price}</p>
-                <p>Seller: {electronic.shopkeeper_username}</p>
-                <p>In stock: {electronic.quantity}</p>
+          {electronicList.map((electronics) => (
+            <li key={electronics.electronics_id} className="electronic-item">
+              <button onClick={() => handleElectronicsClick(electronics)}>
+                <p>{electronics.name}</p>
+                <img src={electronics.img_url} alt={electronics.model} />
+                <p>£{electronics.price}</p>
+                <p>Seller: {electronics.shopkeeper_username}</p>
+                <p>In stock: {electronics.quantity}</p>
               </button>
             </li>
           ))}
@@ -76,5 +77,5 @@ export default function Electronics({ electronicList, setElectronics, electronic
             </button>
           ))}
         </div>
-      </div>    );*/
+      </div>    );
 }

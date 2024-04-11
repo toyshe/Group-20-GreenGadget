@@ -10,7 +10,7 @@ export default function SortElectronics({ setSortBy, setOrder }) {
       <p>Sort By</p>
       <select onChange={handleSortChange}>
         <optgroup label="choose a filter">
-        <option value="created_at">date</option>
+        <option value="created_at">Date</option>
         <option value="Price">Price</option>
         <option value="storage">storage</option>
         </optgroup>
