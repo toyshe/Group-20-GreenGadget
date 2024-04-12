@@ -11,7 +11,7 @@ exports.findElectronics = (
 
   const queryParameters = [];
 
-  const validSortQueries = ["price", "storage"];
+  const validSortQueries = ["price", "storage_in_gb"];
   if (!validSortQueries.includes(sort_by)) {
     return Promise.reject({ status: 400, msg: "Invalid query" });
   }
