@@ -7,7 +7,7 @@ exports.findElectronics = (
   order = "asc",
   shopkeeper
 ) => {
-  queryStr = `SELECT electronics.* FROM electronics LEFT JOIN users ON users.user_id = electronics.shopkeeper_id`;
+  queryStr = `SELECT electronics.*, users.username FROM electronics LEFT JOIN users ON users.user_id = electronics.shopkeeper_id`;
 
   const queryParameters = [];
 
