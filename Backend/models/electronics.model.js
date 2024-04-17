@@ -7,11 +7,11 @@ exports.findElectronics = (
   order = "asc",
   shopkeeper
 ) => {
-  queryStr = `SELECT electronics.* FROM electronics LEFT JOIN users ON users.user_id = electronics.shopkeeper_id`;
+  queryStr = `SELECT electronics.*, users.username FROM electronics LEFT JOIN users ON users.user_id = electronics.shopkeeper_id`;
 
   const queryParameters = [];
 
-  const validSortQueries = ["price", "storage"];
+  const validSortQueries = ["price", "storage_in_gb"];
   if (!validSortQueries.includes(sort_by)) {
     return Promise.reject({ status: 400, msg: "Invalid query" });
   }
@@ -90,7 +90,7 @@ exports.insertElectronics = ({
 
 exports.findElectronicById = (id) => {
   return db
-    .query(`SELECT * FROM electronics WHERE electronics_id = $1`, [id])
+    .query(`SELECT electronics.*, users.username FROM electronics LEFT JOIN users ON users.user_id = electronics.shopkeeper_id WHERE electronics_id = $1`, [id])
     .then(({ rows }) => {
       if (rows.length === 0) {
         return Promise.reject({ status: 404, msg: "electronics_id not found" });
