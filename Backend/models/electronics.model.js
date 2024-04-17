@@ -90,7 +90,7 @@ exports.insertElectronics = ({
 
 exports.findElectronicById = (id) => {
   return db
-    .query(`SELECT * FROM electronics WHERE electronics_id = $1`, [id])
+    .query(`SELECT electronics.*, users.username FROM electronics LEFT JOIN users ON users.user_id = electronics.shopkeeper_id WHERE electronics_id = $1`, [id])
     .then(({ rows }) => {
       if (rows.length === 0) {
         return Promise.reject({ status: 404, msg: "electronics_id not found" });
