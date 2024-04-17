@@ -184,3 +184,26 @@ span.psw {
   display: flex;
   /* justify-content: space-between; */
 }
+
+.electronics_button{
+  background-color: transparent;
+  color: #000;
+  width: fit-content;
+}
+
+.electronics-box{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+.electronics_img{
+  width: 100%;
+}
+
+.electronic-iten{
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+}
