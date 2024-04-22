@@ -10,3 +10,4 @@ exports.userDataPromise = initializeUserData()
 
 exports.categoriesData = require("./categories");
 exports.electronicsData = require("./electronics")
+exports.basketData = require('./baskets')

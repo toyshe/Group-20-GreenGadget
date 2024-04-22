@@ -184,7 +184,7 @@ describe("app", () => {
         .send(userDetails)
         .expect(200)
         .then(({ body: { loginMessage } }) => {
-          expect(loginMessage).toBe("Welcome back, happyamy");
+          expect(loginMessage.username || loginMessage.email).toBe(userDetails.usernameOrEmail);
         });
     });
     test("POST 400: return error message when username or email is not provided", () => {

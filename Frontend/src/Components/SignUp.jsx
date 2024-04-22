@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { postSignUpInfo } from "../../utils/utils"
+import UserContext from "../contexts/UserContext"
 
 export default function SignUp() {
 
@@ -20,6 +21,7 @@ export default function SignUp() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [showPopup, setShowPopup] = useState(false);
+    const {setLoggedInUser} = useContext(UserContext)
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -69,13 +71,13 @@ export default function SignUp() {
                     setError(data)
                 }
                 else{
+                    setLoggedInUser(data)
                     setError('')
                 }
                 setLoading(false)
                 togglePopup();
             }).catch((err) => {
                 setLoading(false)
-                console.log(err);
                 setError(err)
                 togglePopup();
             })
@@ -167,7 +169,6 @@ export default function SignUp() {
                 <button onClick={() => document.getElementById('id02').style.display = 'block'} style={{ width: 'auto' }}>Submit</button>
                 
             </form>
-            {console.log(showPopup)}
             {loading && <p>Loading...</p>} {/* Show loading message when loading state is true */}
             {showPopup && (
                 <div className="popup">
