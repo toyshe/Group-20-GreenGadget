@@ -40,7 +40,7 @@ exports.getUserLogin = (req, res, next) => {
           if (passwordMatched) {
             res
               .status(200)
-              .send({ loginMessage: "Welcome back, " + user.username });
+              .send({ loginMessage: user });
           } else {
             res.status(401).send({ loginMessage: "Invalid credentials" });
           }

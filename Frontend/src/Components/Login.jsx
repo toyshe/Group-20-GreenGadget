@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import postLoginInfo from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 
 export default function Login() {
     const navigate = useNavigate()
@@ -9,6 +10,7 @@ export default function Login() {
     const [loginMessage, setLoginMessage] = useState('')
     const [checked, setChecked] = useState(false)
     const [loading, setLoading] = useState(false)
+    const {setLoggedInUser} = useContext(UserContext)
 
     const handleUsernameOrEmail = (e) => {
         setUsernameOrEmail(e.target.value)
@@ -23,8 +25,10 @@ export default function Login() {
         e.preventDefault()
         postLoginInfo({ usernameOrEmail, password }).then((data) => {
             setLoading(true)
-            if (data === 'Welcome back, ' + usernameOrEmail) {
+            if (data.username === usernameOrEmail || data.email === usernameOrEmail) {
+                console.log(data);
                 setLoginMessage('')
+                setLoggedInUser(data)
                 document.getElementById('id01').style.display = "none";
                 navigate('/')
             } else {

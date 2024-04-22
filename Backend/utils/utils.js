@@ -55,4 +55,13 @@ const formatElectronics = (electronics, idLookup) => {
   })
 }
 
-module.exports = { hashPasswords, seedUsers, hashPassword, comparePasswords, createRef, formatElectronics };
+const formatBaskets = (baskets, idLookup) => {
+  return baskets.map(({username, ...restOfBaskets}) => {
+    const user_id = idLookup[username];
+    return {
+      user_id, ...restOfBaskets
+    }
+  })
+}
+
+module.exports = { hashPasswords, seedUsers, hashPassword, comparePasswords, createRef, formatElectronics, formatBaskets };

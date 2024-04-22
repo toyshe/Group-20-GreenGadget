@@ -12,7 +12,7 @@ module.exports = [
         created_at: '2024-02-25'
     },
     {
-        username: 'jemmab756',
+        username: 'emmab756',
         electronics_id: 3,
         quantity: 2,
         created_at: '2024-02-10'
@@ -72,7 +72,7 @@ module.exports = [
         created_at: '2024-02-25'
     },
     {
-        username: 'jemmab756',
+        username: 'emmab756',
         electronics_id: 4,
         quantity: 1,
         created_at: '2024-02-10'

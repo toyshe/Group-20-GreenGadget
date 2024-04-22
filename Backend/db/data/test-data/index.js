@@ -1,6 +1,7 @@
 const initializeUserData = require("./users.js");
 exports.electronicsData = require("./electronics.js");
 exports.categoriesData = require("./categories.js")
+exports.basketData = require('./baskets.js')
 
 exports.userDataPromise = initializeUserData()
   .then((hashedUserData) => {
