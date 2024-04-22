@@ -7,14 +7,15 @@ const greengadgetApi = axios.create({
 export default function postLoginInfo({ usernameOrEmail, password }) {
   return greengadgetApi
     .post("/login", { usernameOrEmail: usernameOrEmail, password: password })
-    .then(({ data }) => {
-      if (data.loginMessage === `Welcome back, ${usernameOrEmail}`) {
-        return data.loginMessage;
+    .then(({ data: {loginMessage} }) => {
+      if (loginMessage.username === usernameOrEmail || loginMessage.email === usernameOrEmail) {
+        return loginMessage;
       } else {
         return Promise.reject({ err: "Invalid credentials" });
       }
     })
     .catch(({ response: { data } }) => {
+      console.log(data);
       return data.loginMessage;
     });
 }

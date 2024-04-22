@@ -7,23 +7,25 @@ import Navigation from "./Components/Navigation"
 import SignUp from "./Components/SignUp"
 import Electronics from "./Components/Electronics"
 import ElectronicDevice from "./Components/ElectronicDevice";
+import UserContext from "./contexts/UserContext";
 
 function App() {
   const [electronicCategory, getCategories] = useState('')
+  const [loggedInUser, setLoggedInUser] = useState({})
 
 
   return (
     <>
-
-      <Navigation getCategories={getCategories} />
-      <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path='/' element={<Home />} />
-        <Route path="/electronics" element={<Electronics />} />
-        <Route path="/electronics/:electronics_id" element={<ElectronicDevice />} />
-      </Routes>
-
+      <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+        <Navigation getCategories={getCategories} />
+        <Routes>
+          <Route path='/login' element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path='/' element={<Home />} />
+          <Route path="/electronics" element={<Electronics />} />
+          <Route path="/electronics/:electronics_id" element={<ElectronicDevice />} />
+        </Routes>
+      </UserContext.Provider>
     </>
   )
 
