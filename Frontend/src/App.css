@@ -23,6 +23,12 @@ button {
   width: 100%;
 }
 
+label{
+  padding: 14px 20px;
+  margin: 8px 0;
+  size: 40px;
+}
+
 button:hover {
   opacity: 0.8;
 }
@@ -176,13 +182,24 @@ span.psw {
 
 .nav-buttons{
   display: block;
+  /*  display: inline-block;
+*/
   width: auto;
   margin-right: 5px;
 }
 
+.nav button, .Loginbutton{
+  display: inline-block;
+  border-radius: 300%;
+  margin-right: 25px;
+}
+
+
 .nav{
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  align-items: center;
+ 
 }
 
 .electronics_button{
@@ -206,4 +223,205 @@ span.psw {
 .electronic-iten{
   width: calc(33.33% - 10px);
   margin-bottom: 20px;
+}
+
+/*hides ckeckbox that is used to*/
+#sidebar-active {
+  display: none;
+}
+#account-active{
+  display: none;
+}
+/*reminder to move gap space8*/
+#footer{
+  background-color: #edeece;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  text-decoration: none;
+  margin: 0px;
+  padding: 25px;
+}
+
+#footer li {
+  list-style: none;
+  text-decoration: none;
+}
+
+#footer a {
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+}
+*{
+  margin: 0px;
+}
+
+.nav{
+  background-color: #0d704c;
+}
+.nav ul{
+  position: relative;
+}
+.nav ul li{
+  list-style: none;
+  position: relative;
+  color: black;
+}
+.nav ul li a{
+  text-decoration: none;
+}
+.nav ul ul{
+  display: block;
+  position: absolute;
+  
+}
+html, body{
+  height: 100%;
+}
+#container{
+  min-height: 100%;
+}
+#footer h2{
+  text-align: center;
+}
+
+.fa-user{
+  color: white;
+  border-color: transparent;
+  border-radius: 50%;
+}
+.fa-user:hover{
+  color: rgb(83, 77, 77);
+  border-color: white;
+  cursor: pointer;
+}
+
+.fa-cart-shopping{
+  color: white;
+  border-color: white;
+  border-radius: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.fa-cart-shopping:hover{
+  color: rgb(83, 77, 77);
+  border-color: white;
+  cursor: pointer;
+}
+.fa-bars{
+  color: white; 
+}
+.fa-bars{
+  color: white; 
+}
+.fa-bars:hover{
+  cursor: pointer;
+}
+.fa-xmark{
+  color: black;
+}
+.side-menu .close-sidebar-button{
+  cursor: pointer;
+}
+.side-menu .close-sidebar-button:hover{
+  cursor: pointer;
+}
+
+.logo a{
+  color: white;
+  font-weight: 600;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.logo{
+  margin: 10px;
+}
+.searchbar{
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  
+  
+}
+.searchbar .navsearchbar{
+margin: 0;
+border-style: hidden;
+width: 300px;
+}
+.searchbar .navsearchbar:focus {
+  outline: none;
+}
+
+.searchbar button{
+  /*background: none;*/
+  border-radius: 0;
+  width: 2rem;
+  margin: 0;
+}
+
+.fa-search{
+  color: #000;
+}
+
+.side-menu{
+  position: fixed;
+  top: 0;
+  left:0;
+  display: flex;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+  left: -100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: white;
+  transition: .5s ease-out;
+}
+#sidebar-active:checked~ .side-menu{
+  display: flex;
+}
+.close-sidebar-button{
+  color: white;
+  align-self: center;
+  background-color: black;
+  width: 100%;
+  font-size: 25px;
+  font-weight: 20;
+  padding-right: 0;
+  padding-left: 0;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.sl li a{
+  margin: 0;
+  padding: 0 0 0 0;
+  width: 100%;
+  font-size: 30px;
+  text-decoration: none;
+  color: #000;
+}
+.sl li:hover{
+  width: 100%;
+
+  background-color: rgb(25, 173, 8); 
+}
+.sl li{
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+ul.sl{
+  
+  width: 100%;
+  padding-left: 0;
+}
+
+.container button{
+  border-radius: 0;
 }
