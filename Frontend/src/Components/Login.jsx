@@ -46,7 +46,7 @@ export default function Login() {
 
     return (
         
-        <div>
+        <div className="Loginbutton">
             {/* {loading ? <p>Loading</p>: null} */}
             <button onClick={() => document.getElementById('id01').style.display = 'block'} style={{ width: 'auto', marginRight: '5px' }}>Login</button>
 
