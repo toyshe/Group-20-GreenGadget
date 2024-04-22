@@ -1,8 +1,9 @@
 const db = require("../connection");
 const format = require("pg-format");
-const { formatElectronics, createRef } = require("../../utils/utils");
+const { formatElectronics, createRef, formatBaskets } = require("../../utils/utils");
+// const { basketData } = require("../data/test-data");
 
-const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
+const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) => {
   return db
     .query(`DROP TABLE IF EXISTS users CASCADE`)
     .then(() => {
@@ -74,9 +75,9 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
       return db.query(`CREATE TABLE baskets (
         basket_id SERIAL PRIMARY KEY,
         user_id INT NOT NULL REFERENCES users(user_id),
-        electronics_id SERIAL REFERENCES electronics(electronics_id),
+        electronics_id SERIAL REFERENCES electronics(electronics_id) ON DELETE CASCADE,
         quantity INT NOT NULL,
-        created_at TIMESTAMP DEFAULT NOW()
+        created_at DATE DEFAULT NOW()
         )`);
     })
     .then(() => {
@@ -93,7 +94,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
         customer_id INT NOT NULL REFERENCES users(user_id),
         electronics_id SERIAL REFERENCES electronics(electronics_id),
         description TEXT NOT NULL,
-        timestamp TIMESTAMP DEFAULT NOW()
+        timestamp DATE DEFAULT NOW()
         )`);
     })
     .then(() => {
@@ -102,7 +103,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
         shopkeeper_id INT NOT NULL REFERENCES users(user_id),
         request_id SERIAL REFERENCES repair_requests(request_id),
         status VARCHAR(20) NOT NULL,
-        timestamp TIMESTAMP DEFAULT NOW()
+        timestamp DATE DEFAULT NOW()
         )`);
     })
     .then(() => {
@@ -112,7 +113,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
         electronics_id SERIAL REFERENCES electronics(electronics_id),
         rating INT NOT NULL,
         review TEXT NOT NULL,
-        timestamp TIMESTAMP DEFAULT NOW()
+        timestamp DATE DEFAULT NOW()
         )`);
     })
 
@@ -195,7 +196,28 @@ const seed = ({ userDataPromise, electronicsData, categoriesData }) => {
         )
       );
       return db.query(insertElectronicsQuery);
-    });
+    })
+    .then(() => {
+      return db.query("SELECT * FROM users")
+    }).then(({rows}) => {
+      const userIdLookup = createRef(rows, "username", "user_id");
+      const formatBasketsData = formatBaskets(basketData, userIdLookup);
+      const insertBasketsQueryStr = format(`INSERT INTO baskets (user_id, electronics_id, quantity, created_at) VALUES %L RETURNING *;`, 
+      formatBasketsData.map(({user_id, electronics_id, quantity, created_at}) => [user_id, electronics_id, quantity, created_at]))
+      return db.query(insertBasketsQueryStr);
+    })
+    // .then(() => {
+    //   const insertBasketsQueryStr = format(
+    //     `INSERT INTO baskets (user_id, electronics_id, quantity, created_at) SELECT users.user_id, %L FROM users WHERE users.username = %L`,
+    //     ...basketData.map(({ username, electronics_id, quantity, created_at }) => [
+    //       username,
+    //       electronics_id,
+    //       quantity,
+    //       created_at,
+    //     ])
+    //   );
+    //   return db.query(insertBasketsQueryStr);
+    // });
 };
 
 module.exports = seed;
