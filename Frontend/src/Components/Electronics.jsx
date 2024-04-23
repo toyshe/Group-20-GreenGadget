@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 //import ErrorHandling from "./ErrorHandling";
 import SortElectronics from "./SortElectronics";
 import { getElectronics } from "../../utils/utils";
+import "./Electronics.css";
 
 export default function Electronics(){
     const navigate = useNavigate();
