@@ -22,13 +22,13 @@ export default function Navigation() {
     return (
         <nav className="nav">
 
-            <div class="side-menu">
-                <label for="sidebar-active" class="close-sidebar-button" onClick={hideSidebar}>Menu
-                <i class="fa-solid fa-xmark" ></i>
+            <div className="side-menu">
+                <label htmlFor="sidebar-active" className="close-sidebar-button" onClick={hideSidebar}>Menu
+                <i className="fa-solid fa-xmark" ></i>
                 </label>
 
                 
-                <ul class="sl">
+                <ul className="sl">
                     
                     <li><a href="#">Shop by category</a></li>
                     <li><a href="#">All items</a></li>
@@ -42,25 +42,25 @@ export default function Navigation() {
             </div>
 
             <input type="checkbox" id="sidebar-active"></input>
-            <label for="sidebar-active" class="open-sidebar-button" onClick={showSidebar}><i class="fa-solid fa-bars" ></i></label>
+            <label for="sidebar-active" className="open-sidebar-button" onClick={showSidebar}><i className="fa-solid fa-bars" ></i></label>
                 
             <input type="checkbox" id="account-active"></input>
             
-            <div class="logo"><a href='/'>Logo goes here</a></div>
+            <div className="logo"><a href='/'>GreenGadget</a></div>
             
-            <div class="searchbar"><button><i class="fas fa-search"></i></button><input type="text" placeholder="Search..." class="navsearchbar"></input></div>
+            <div className="searchbar"><button><i className="fas fa-search"></i></button><input type="text" placeholder="Search..." className="navsearchbar"></input></div>
             
             <ul>
             <button className="nav-buttons" onClick={handleHomeClick}>Home</button>
             <Login className="nav-buttons"/>
             <SignUpButton className="nav-buttons" />
-            <i class="fas fa-user fa-border" ></i>
-            <ul>
+            <i className="fa-solid fa-cart-shopping"></i>
+            <i className="fas fa-user fa-border" ></i>
+            {/* <ul>
                 <li><a href="#">My Account</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Sign Out</a></li>
-            </ul>
-            <i class="fa-solid fa-cart-shopping"></i>
+            </ul> */}
             
             </ul>
         </nav>

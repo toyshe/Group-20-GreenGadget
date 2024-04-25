@@ -13,6 +13,7 @@ const userData = [
       city: "London",
       postcode: "SW1A 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "customer",
       
     },
@@ -27,6 +28,7 @@ const userData = [
       city: "Manchester",
       postcode: "M1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "customer",
       
     },
@@ -41,6 +43,7 @@ const userData = [
       city: "Birmingham",
       postcode: "B1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "customer",
      
     },
@@ -55,6 +58,7 @@ const userData = [
       city: "Glasgow",
       postcode: "G1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "customer",
       
     },
@@ -69,6 +73,7 @@ const userData = [
       city: "Liverpool",
       postcode: "L1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "customer",
       
     },
@@ -83,6 +88,7 @@ const userData = [
       city: "Leeds",
       postcode: "LS1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "customer",
       
     },
@@ -97,6 +103,7 @@ const userData = [
       city: "Sheffield",
       postcode: "S1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "customer",
       
     },
@@ -111,6 +118,7 @@ const userData = [
       city: "Cardiff",
       postcode: "CF1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "customer",
       
     },
@@ -125,6 +133,7 @@ const userData = [
       city: "Belfast",
       postcode: "BT1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "customer",
       
     },
@@ -139,6 +148,7 @@ const userData = [
       city: "Edinburgh",
       postcode: "EH1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "customer",
       
     },
@@ -153,6 +163,7 @@ const userData = [
       city: "Newcastle",
       postcode: "NE1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "customer",
       
     },
@@ -167,6 +178,7 @@ const userData = [
       city: "Brighton",
       postcode: "BN1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "customer",
       
     },
@@ -181,6 +193,7 @@ const userData = [
       city: "Leicester",
       postcode: "LE1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "shopkeeper",
       utr : "8456541464",
     },
@@ -195,6 +208,7 @@ const userData = [
       city: "Oxford",
       postcode: "OX1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "shopkeeper",
       utr : "8456541467",
     },
@@ -209,6 +223,7 @@ const userData = [
       city: "Cambridge",
       postcode: "CB1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "shopkeeper",
       utr : "8456541415",
     },
@@ -223,6 +238,7 @@ const userData = [
       city: "Nottingham",
       postcode: "NG1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "shopkeeper",
       utr : "8456541469",
     },
@@ -237,6 +253,7 @@ const userData = [
       city: "Southampton",
       postcode: "SO1 1AA",
       country: "United Kingdom",
+      avatar_img_url: 'https://iili.io/JUF4gEB.png',
       user_type: "shopkeeper",
       utr : "8456541795",
     },
@@ -246,6 +263,7 @@ const userData = [
       password: "David5078",
       email: "john.david@outlook.com",
       phone: "07123456745",
+      avatar_img_url: 'https://iili.io/JUF4dWQ.png',
       user_type: "admin",
     }
   ];
