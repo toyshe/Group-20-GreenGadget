@@ -19,8 +19,8 @@ app.use(cors());
 
 app.get("/api", getApi)
 
-app.get("/users", getUsers);
-app.post("/users", postUsers);
+// app.get("/users", getUsers);
+// app.post("/users", postUsers);
 app.post("/login", getUserLogin);
 
 app.get("/electronics", getElectronics)
