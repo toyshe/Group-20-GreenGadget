@@ -55,11 +55,6 @@ export default function Navigation() {
             <Login className="nav-buttons"/>
             <SignUpButton className="nav-buttons" />
             <i class="fas fa-user fa-border" ></i>
-            <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Sign Out</a></li>
-            </ul>
             <i class="fa-solid fa-cart-shopping"></i>
             
             </ul>
