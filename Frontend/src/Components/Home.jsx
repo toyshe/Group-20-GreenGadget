@@ -1,4 +1,5 @@
 import "./Home.css";
+import React, { useState, useEffect} from "react";
 
 import img1 from './img1.jpg'
 import img2 from './images/img2.jpg'
@@ -7,68 +8,67 @@ import img4 from './images/img4.jpg'
 import img5 from './images/img5.jpg'
 import img6 from './images/img6.jpg'
 import img7 from './images/img7.jpg'
-import React from "react";
+
 
 
 
 export default function Home(){
 
-    var responsiveSlider = function(){
-        var slider = document.getElementById("slider");
-        var sliderWidth = slider.offsetWidth;
-        var slideList = document.getElementById("slideWrap");
-        var count = 1;
-        var items = slideList.querySelectorAll("li").length;
-        var prev = document.getElementById("prev");
-        var next = document.getElementById("next");
-      
-        window.addEventListener('resize', function() {
-          sliderWidth = slider.offsetWidth;
-        });
-      
-        var prevSlide = function() {
-          if (count > 1) {
-            count = count - 2;
-            slideList.style.left = "-" + count * sliderWidth + "px";
-            count++;
-          }
-          else if (count = 1) {
-            count = items - 1;
-            slideList.style.left = "-" + count * sliderWidth + "px";
-            count++;
-          }
-        };
-      
-      
-        var nextSlide = function() {
-          if (count < items) {
-            slideList.style.left = "-" + count * sliderWidth + "px";
-            count++;
-          }
-          else if (count = items) {
-            slideList.style.left = "0px";
-            count = 1;
-          }
-        };
-      
-        next.addEventListener("Click", function(){
-          nextSlide();
-        });
-        prev.addEventListener("Click", function(){
-          prevSlide();
-        });
-      
-        setInterval(function(){
-          nextSlide();
-        }, 5000)
-      };
-      
-      
-      /*window.onload = function(){
-        responsiveSlider();
-      }*/
+  useEffect(()=> {
+    var slider = document.getElementById("slider");
+    var sliderWidth = (slider.offsetWidth - ( + 29));
+    var slideList = document.getElementById("slideWrap");
+    let count = 1;
+    var items = slideList.querySelectorAll("li").length;
+    var prev = document.getElementById("prev");
+    var next = document.getElementById("next");
+
+  
+    window.addEventListener('resize', function() {
+      sliderWidth = slider.offsetWidth;
+    });
+  
+    const prevSlide = function() {
+      if (count > 1) {
+        count = count - 2;
+        slideList.style.left = "-" + count * sliderWidth + "px";
+        count++;
+      }
+      else if (count = 1) {
+        count = items - 1;
+        slideList.style.left = "-" + count * sliderWidth + "px";
+        count++;
+      }
+    };
+  
+  
+    const nextSlide = function() {
+      if (count < items) {
+        slideList.style.left = "-" + count * sliderWidth + "px";
+        count++;
+      }
+      else if (count = items) {
+        slideList.style.left = "0px";
+        count = 1;
+      }
+    };
+  
+    next.addEventListener("click", function(){
+      nextSlide();
+    });
+    prev.addEventListener("click", function(){
+      prevSlide();
+    });
+    
+  
+    setInterval(function(){
+      nextSlide();
+    }, 5000)
+    
+  });
 
     return (
+      
         <div id="slider">
         <ul id="slideWrap">
           <li><img src= {img1} alt="placeholder img1"></img></li>
@@ -81,6 +81,7 @@ export default function Home(){
         </ul>
         <a id="prev" >&#10094;</a>
         <a id="next" >&#10095;</a>
+        
       </div>
     
     )
