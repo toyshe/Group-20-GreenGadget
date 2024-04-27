@@ -33,7 +33,7 @@ export default function Navigation() {
                     <li><a href="#">Shop by category</a></li>
                     <li><a href="#">All items</a></li>
                     <li><a href="#">Sell item</a></li>
-                    <li><a href="#" onClick={Login()}>SignIn</a></li>
+                    <li><a href="#">SignIn</a></li>
                     <li><a href="#">Support</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">T&C</a></li>
