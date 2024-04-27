@@ -34,10 +34,10 @@ export default function Electronics(){
               <button className='electronics_button' onClick={() => handleElectronicsClick(electronics)}>
                 <p>{electronics.name}</p>
                 <img className='electronics_img' src={electronics.img_url} alt={electronics.model} />
-                <p>Storage: {electronics.storage_in_gb}GB</p>
-                <p>£{electronics.price}</p>
-                <p>Seller: {electronics.username}</p>
-                <p>In stock: {electronics.quantity}</p>
+                <p><strong>Storage:</strong> {electronics.storage_in_gb}GB</p>
+                <p><strong>£</strong>{electronics.price}</p>
+                <p><strong>Seller: </strong>{electronics.username}</p>
+                <p><strong>In stock:</strong> {electronics.quantity}</p>
               </button>
             </li>
           ))}

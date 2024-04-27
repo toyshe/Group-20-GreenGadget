@@ -678,10 +678,12 @@ ul.sl {
   font-size: 16px;
   cursor: pointer;
   width: 100%;
+  transition: all 0.6s;
 }
 
 .electronics_button:hover {
   background-color: #45a049;
+  transform: scale(1.1);
 }
 
 .electronics_info {
