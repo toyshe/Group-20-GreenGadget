@@ -54,13 +54,8 @@ export default function Navigation() {
             <button className="nav-buttons" onClick={handleHomeClick}>Home</button>
             <Login className="nav-buttons"/>
             <SignUpButton className="nav-buttons" />
-            <i className="fa-solid fa-cart-shopping"></i>
-            <i className="fas fa-user fa-border" ></i>
-            {/* <ul>
-                <li><a href="#">My Account</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Sign Out</a></li>
-            </ul> */}
+            <i class="fas fa-user fa-border" ></i>
+            <i class="fa-solid fa-cart-shopping"></i>
             
             </ul>
         </nav>
