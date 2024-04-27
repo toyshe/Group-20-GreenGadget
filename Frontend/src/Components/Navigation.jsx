@@ -72,7 +72,9 @@ export default function Navigation() {
                     <li><a href="#">Shop by category</a></li>
                     <li onClick={handleAllItemsClick}><a>All items</a></li>
                     <li><a href="#">Sell item</a></li>
+
                     <li><a href="#" onClick={<Login />}>SignIn</a></li>
+
                     <li><a href="#">Support</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">T&C</a></li>
@@ -88,6 +90,7 @@ export default function Navigation() {
             <div className="logo"><a onClick={handleHomeButton}>GreenGadget</a></div>
 
             <div className="searchbar"><button><i className="fas fa-search"></i></button><input type="text" placeholder="Search..." className="navsearchbar"></input></div>
+
             {console.log(loggedInUser)}
             {loggedInUser.username ? (
                 <div className="basket-user">
@@ -132,6 +135,7 @@ export default function Navigation() {
                     <SignUpButton className="nav-buttons" />
                 </>
             )}
+
         </nav>
     )
 
