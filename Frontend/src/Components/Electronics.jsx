@@ -4,6 +4,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import SortElectronics from "./SortElectronics";
 import { getElectronics } from "../../utils/utils";
 
+
 export default function Electronics(){
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();

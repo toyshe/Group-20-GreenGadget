@@ -15,15 +15,16 @@ export default function ElectronicDevice() {
     }, [])
 
     return (
-        <main>
-            {console.log(electronic)}
+        <main className="electronic-device">
             <img src={electronic.img_url} alt={electronic.model} />
-            <h1>{electronic.name}</h1>
-            <h2>{electronic.model}</h2>
-            <p>Description: {electronic.description}</p>
-            <p>Storage: {electronic.storage_in_gb}GB</p>
-            <p>Price: {electronic.price}</p>
-            <p>Seller: {electronic.username}</p>
+            <div className="electronic-details">
+                <h1>{electronic.name}</h1>
+                <h2>{electronic.model}</h2>
+                <p>Description: {electronic.description}</p>
+                <p>Storage: {electronic.storage_in_gb}GB</p>
+                <p>Price: {electronic.price}</p>
+                <p>Seller: {electronic.username}</p>
+            </div>
         </main>
     )
 }

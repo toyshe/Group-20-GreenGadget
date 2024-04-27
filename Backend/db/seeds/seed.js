@@ -46,6 +46,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
         postcode VARCHAR(20),
         country VARCHAR(200),
         utr VARCHAR(11),
+        avatar_img_url VARCHAR(200),
         CONSTRAINT check_utr_for_shopkeeper CHECK ((user_type = 'shopkeeper' AND utr IS NOT NULL) OR user_type != 'shopkeeper'),
         CONSTRAINT check_address_for_customers_shopkeepers CHECK (((user_type = 'customer' OR user_type = 'shopkeeper') AND (house_number IS NOT NULL OR street IS NOT NULL OR city IS NOT NULL OR postcode IS NOT NULL OR country IS NOT NULL)) OR user_type = 'admin')
         )`
@@ -129,7 +130,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     })
     .then((userData) => {
       const insertUsersQueryStr = format(
-        `INSERT INTO users (username, name, password, email, user_type, phone, house_number, street, city, postcode, country, utr) VALUES %L RETURNING *;`,
+        `INSERT INTO users (username, name, password, email, user_type, phone, house_number, street, city, postcode, country, utr, avatar_img_url) VALUES %L RETURNING *;`,
         userData.map(
           ({
             username,
@@ -144,6 +145,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
             country,
             user_type,
             utr,
+            avatar_img_url
           }) => [
             username,
             name,
@@ -157,6 +159,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
             postcode,
             country,
             utr,
+            avatar_img_url
           ]
         )
       );
