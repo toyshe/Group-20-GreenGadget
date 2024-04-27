@@ -21,11 +21,12 @@ exports.insertUsers = async ({
   postcode,
   country,
   utr,
+  avatar_img_url
 }) => {
   const hashedPassword = await hashPassword(password);
   return db
     .query(
-      "INSERT INTO users (username, name, password, email, phone, user_type, house_number, street, city, postcode, country, utr) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *",
+      "INSERT INTO users (username, name, password, email, phone, user_type, house_number, street, city, postcode, country, utr, avatar_img_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *",
       [
         username,
         name,
@@ -39,6 +40,7 @@ exports.insertUsers = async ({
         postcode,
         country,
         utr,
+        avatar_img_url
       ]
     )
     .then(({ rows }) => {

@@ -48,6 +48,7 @@ describe("app", () => {
             expect(user).toHaveProperty("email");
             expect(user).toHaveProperty("phone");
             expect(user).toHaveProperty("user_type");
+            expect(user).toHaveProperty("avatar_img_url");
           });
         });
     });
