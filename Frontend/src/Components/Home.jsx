@@ -8,15 +8,21 @@ import img4 from './images/img4.jpg'
 import img5 from './images/img5.jpg'
 import img6 from './images/img6.jpg'
 import img7 from './images/img7.jpg'
+import img8 from './images/img8.jpg'
+import img10 from './images/img10.jpg'
+import img11 from './images/img11.jpg'
+import img12 from './images/img12.jpg'
 
 
 
 
 export default function Home(){
+  
 
   useEffect(()=> {
     var slider = document.getElementById("slider");
-    var sliderWidth = (slider.offsetWidth - ( + 29));
+    var sliderWidth = (slider.offsetWidth - ( + 10));
+    /*console.log(slider.offsetWidth)*/
     var slideList = document.getElementById("slideWrap");
     let count = 1;
     var items = slideList.querySelectorAll("li").length;
@@ -33,11 +39,13 @@ export default function Home(){
         count = count - 2;
         slideList.style.left = "-" + count * sliderWidth + "px";
         count++;
+        /*console.log(slider.offsetWidth)*/
       }
       else if (count = 1) {
         count = items - 1;
         slideList.style.left = "-" + count * sliderWidth + "px";
         count++;
+        /*console.log(slider.offsetWidth)*/
       }
     };
   
@@ -65,10 +73,12 @@ export default function Home(){
       nextSlide();
     }, 5000)
     
+    
   });
 
     return (
-      
+      <div className="home-conatainer">
+        <div className="img-slider-container">
         <div id="slider">
         <ul id="slideWrap">
           <li><img src= {img1} alt="placeholder img1"></img></li>
@@ -81,8 +91,41 @@ export default function Home(){
         </ul>
         <a id="prev" >&#10094;</a>
         <a id="next" >&#10095;</a>
-        
+        </div>
       </div>
+
+        <div class="card-container">
+    <div class="rm-card">
+      <img src={img10} alt="where to start" class="card-img"></img>
+      <div class="card-info">
+        <h3>Welcome</h3>
+        <p class="sub-heading">Welcome to our site</p>
+        <p></p>
+        <a href="">Read More</a>
+      </div>
+    </div>
+    <div class="rm-card">
+      <img src={img11} alt="where to start" class="card-img"></img>
+      <div class="card-info">
+        <h3>Help</h3>
+        <p class="sub-heading">How to navigate the site</p>
+        <p></p>
+        <a href="">Read More</a>
+      </div>
+    </div>
+    <div class="rm-card">
+      <img src={img12} alt="where to start" class="card-img"></img>
+      <div class="card-info">
+        <h3>How we keep you safe</h3>
+        <p class="sub-heading"></p>
+        <p></p>
+        <a href="">Read More</a>
+      </div>
+    </div>
+  </div>
+      </div>
+
+      
     
     )
 }
