@@ -32,6 +32,7 @@ export function postSignUpInfo({
   postcode,
   country,
   userType,
+  avatar
 }) {
   return greengadgetApi
     .post("/users", {
@@ -46,6 +47,7 @@ export function postSignUpInfo({
       postcode,
       country,
       user_type: userType,
+      avatar_img_url: avatar
     })
     .then(({ data }) => {
       console.log(data.users);
