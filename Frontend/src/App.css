@@ -1,9 +1,12 @@
 /* app.css */
 
-body { font-family: Arial, Helvetica, sans-serif; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -14,7 +17,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -23,7 +26,7 @@ button {
   width: 100%;
 }
 
-label{
+label {
   padding: 14px 20px;
   margin: 8px 0;
   size: 40px;
@@ -62,24 +65,24 @@ span.psw {
 }
 
 .modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
   padding-top: 60px;
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; 
+  margin: 5% auto 15% auto;
   border: 1px solid #888;
-  width: 80%; 
+  width: 80%;
 }
 
 .close {
@@ -99,26 +102,34 @@ span.psw {
 
 .animate {
   -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
+  animation: animatezoom 0.6s;
 }
 
 @-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
 }
-  
+
 @keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 300px) {
   span.psw {
-     display: block;
-     float: none;
+    display: block;
+    float: none;
   }
   .cancelbtn {
-     width: 100%;
+    width: 100%;
   }
 }
 
@@ -136,7 +147,6 @@ span.psw {
   margin-top: 4px; /* Add some space between input and error message */
   font-weight: bold;
 }
-
 
 .user-type-button {
   padding: 8px 16px; /* Add padding to the buttons */
@@ -157,7 +167,7 @@ span.psw {
   font-weight: bold;
 }
 
-.required-fields{
+.required-fields {
   color: red;
 }
 
@@ -180,7 +190,7 @@ span.psw {
   margin-top: 10px;
 }
 
-.nav-buttons{
+.nav-buttons {
   display: block;
   /*  display: inline-block;
 */
@@ -188,27 +198,26 @@ span.psw {
   margin-right: 5px;
 }
 
-.nav button, .Loginbutton{
+.nav button,
+.Loginbutton {
   display: inline-block;
   border-radius: 300%;
   margin-right: 25px;
 }
 
-
-.nav{
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 }
 
-.electronics_button{
+.electronics_button {
   background-color: transparent;
   color: #000;
   width: fit-content;
 }
 
-.electronics-box{
+.electronics-box {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -216,11 +225,11 @@ span.psw {
   column-gap: 10px;
 }
 
-.electronics_img{
+.electronics_img {
   width: 100%;
 }
 
-.electronic-iten{
+.electronic-iten {
   width: calc(33.33% - 10px);
   margin-bottom: 20px;
 }
@@ -229,11 +238,11 @@ span.psw {
 #sidebar-active {
   display: none;
 }
-#account-active{
+#account-active {
   display: none;
 }
 /*reminder to move gap space8*/
-#footer{
+#footer {
   background-color: #edeece;
   display: flex;
   align-items: center;
@@ -254,124 +263,150 @@ span.psw {
   color: black;
   overflow: hidden;
 }
-*{
+* {
   margin: 0px;
 }
 
-.nav{
+.nav {
   background-color: #0d704c;
 }
-.nav ul{
+.nav ul {
   position: relative;
 }
-.nav ul li{
+.nav ul li {
   list-style: none;
   position: relative;
   color: black;
 }
-.nav ul li a{
+.nav ul li a {
   text-decoration: none;
 }
-.nav ul ul{
+.nav ul ul {
   display: block;
   position: absolute;
-  
 }
-html, body{
+html,
+body {
   height: 100%;
 }
-#container{
+#container {
   min-height: 100%;
 }
-#footer h2{
+#footer h2 {
   text-align: center;
 }
 
-.fa-user{
+.user-avatar {
+  border-radius: 50%;
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+} */
+
+.basket-user-container:hover .dropdown-menu {
+  display: block;
+}
+
+.logout-button {
+  width: 80px;
+}
+
+.basket-user {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.fa-user {
   color: white;
   border-color: transparent;
   border-radius: 50%;
 }
-.fa-user:hover{
+.fa-user:hover {
   color: rgb(83, 77, 77);
   border-color: white;
   cursor: pointer;
 }
 
-.fa-cart-shopping{
+.fa-cart-shopping {
   color: white;
   border-color: white;
   border-radius: 50%;
   padding-right: 15px;
   padding-left: 15px;
 }
-.fa-cart-shopping:hover{
+.fa-cart-shopping:hover {
   color: rgb(83, 77, 77);
   border-color: white;
   cursor: pointer;
 }
-.fa-bars{
-  color: white; 
+.fa-bars {
+  color: white;
 }
-.fa-bars{
-  color: white; 
+.fa-bars {
+  color: white;
 }
-.fa-bars:hover{
+.fa-bars:hover {
   cursor: pointer;
 }
-.fa-xmark{
+.fa-xmark {
   color: black;
 }
-.side-menu .close-sidebar-button{
+.side-menu .close-sidebar-button {
   cursor: pointer;
 }
-.side-menu .close-sidebar-button:hover{
+.side-menu .close-sidebar-button:hover {
   cursor: pointer;
 }
 
-.logo a{
+.logo a {
   color: white;
   font-weight: 600;
   font-size: 30px;
   text-decoration: none;
 }
 
-.logo{
+.logo {
   margin: 10px;
 }
-.searchbar{
+.searchbar {
   background-color: white;
   display: flex;
   align-items: center;
   border-style: solid;
   border-width: 2px;
-  
-  
 }
-.searchbar .navsearchbar{
-margin: 0;
-border-style: hidden;
-width: 300px;
+.searchbar .navsearchbar {
+  margin: 0;
+  border-style: hidden;
+  width: 300px;
 }
 .searchbar .navsearchbar:focus {
   outline: none;
 }
 
-.searchbar button{
+.searchbar button {
   /*background: none;*/
   border-radius: 0;
   width: 2rem;
   margin: 0;
 }
 
-.fa-search{
+.fa-search {
   color: #000;
 }
 
-.side-menu{
+.side-menu {
   position: fixed;
   top: 0;
-  left:0;
+  left: 0;
   display: flex;
   height: 100vh;
   width: 250px;
@@ -382,12 +417,12 @@ width: 300px;
   align-items: flex-start;
   justify-content: flex-start;
   background-color: white;
-  transition: .5s ease-out;
+  transition: 0.5s ease-out;
 }
-#sidebar-active:checked~ .side-menu{
+#sidebar-active:checked ~ .side-menu {
   display: flex;
 }
-.close-sidebar-button{
+.close-sidebar-button {
   color: white;
   align-self: center;
   background-color: black;
@@ -399,7 +434,7 @@ width: 300px;
   margin-top: 14px;
   margin-bottom: 14px;
 }
-.sl li a{
+.sl li a {
   margin: 0;
   padding: 0 0 0 0;
   width: 100%;
@@ -407,21 +442,177 @@ width: 300px;
   text-decoration: none;
   color: #000;
 }
-.sl li:hover{
+.sl li:hover {
   width: 100%;
 
-  background-color: rgb(25, 173, 8); 
+  background-color: rgb(25, 173, 8);
 }
-.sl li{
+.sl li {
   margin-bottom: 15px;
   padding-bottom: 10px;
 }
-ul.sl{
-  
+ul.sl {
   width: 100%;
   padding-left: 0;
 }
 
-.container button{
+.container button {
   border-radius: 0;
+}
+
+.dropdown-container {
+	display: inline-block;
+	padding: 10px;
+
+	.dropdown {
+		position: relative;
+
+		&[open] .with-down-arrow::after {
+			content: "\e5c7";
+      background-color: #04aa6d;
+		}
+
+		&[open] summary {
+			background: #ffffff10;
+		}
+
+		summary {
+			list-style: none;
+			display: inline-block;
+			cursor: pointer;
+			border-radius: 6px;
+
+			&.avatar {
+				border-radius: 50px;
+
+				img {
+					width: 40px;
+					height: 40px;
+					border-radius: 50px;
+					display: inline-block;
+					margin: 0;
+				}
+			}
+
+			.with-down-arrow {
+				display: inline-flex;
+				padding: 5px;
+				align-items: center;
+				color: #fff;
+				line-height: 1;
+
+				&::after {
+					content: "\e5c5";
+					font-family: "Material Symbols Outlined";
+					font-weight: normal;
+					font-style: normal;
+					font-size: 1.5rem;
+					line-height: 1;
+					letter-spacing: normal;
+					text-transform: none;
+					display: inline-block;
+					white-space: nowrap;
+					word-wrap: normal;
+					direction: ltr;
+					-webkit-font-smoothing: antialiased;
+				}
+			}
+		}
+
+		&.left ul {
+			left: 0;
+		}
+
+		&.right ul {
+			right: 0;
+		}
+
+		ul {
+			padding: 0;
+			margin: 0;
+			box-shadow: 0 0 10px #00000030;
+			min-width: max-content;
+			position: absolute;
+			top: 100%;
+			border-radius: 10px;
+			background-color: #fff;
+			z-index: 2;
+
+			li {
+				list-style-type: none;
+				display: block;
+				/* If you use divider & borders, it's best to use top borders */
+				/*border-top: 1px solid #ccc;*/
+
+				&:first-of-type {
+					border: none;
+					background-color: lightgray;
+				}
+
+				p {
+					padding: 10px 15px;
+					margin: 0;
+				}
+
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					padding: 10px 15px;
+					text-decoration: none;
+					line-height: 1;
+					color: black;
+
+					&:hover {
+						color: black;
+					}
+				}
+
+				&:first-of-type {
+					border-radius: 10px 10px 0 0;
+				}
+
+				&:last-of-type {
+					border-radius: 0 0 10px 10px;
+				}
+
+				&.divider {
+					border: none;
+					border-bottom: 1px solid black;
+
+					/* 
+					 * removes border from Li after the divider element
+					 * best used in combination with top borders on other LIs 
+					 */
+					& ~ li {
+						border: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+.user-avatar-buttons{
+  background-color: transparent;
+}
+
+.user-type-container{
+  /* width: 100px; */
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+}
+
+.avatar-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  flex-direction: row;
+}
+
+.user-avatar-select{
+  border-radius: 50%;
+  height: 60px;
 }

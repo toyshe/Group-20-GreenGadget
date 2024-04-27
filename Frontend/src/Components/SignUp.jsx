@@ -21,7 +21,8 @@ export default function SignUp() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [showPopup, setShowPopup] = useState(false);
-    const {setLoggedInUser} = useContext(UserContext)
+    const [avatar, setAvatar] = useState('')
+    const { setLoggedInUser } = useContext(UserContext)
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -54,23 +55,28 @@ export default function SignUp() {
         setUserType(e.target.value)
     }
 
+    const handleAvatar = (e) => {
+        e.preventDefault()
+        setAvatar(e.target.value)
+    }
+
     const handleSubmit = (e) => {
         setLoading(true)
         e.preventDefault()
         if (
             (userType === 'customer' || userType === 'shopkeeper') &&
             username && name && password && email && phone &&
-            houseNumber && street && city && postcode && country
+            houseNumber && street && city && postcode && country && avatar
         ) {
             if (userType === 'shopkeeper' && !utr) {
                 setErrorMessage('Please enter UTR.');
                 return;
             }
-            postSignUpInfo({username, name, password, email, phone, houseNumber, street, city, postcode, country, utr, userType}).then((data) => {
-                if (data === 'Username already exists' ||data === 'Email already exists' || data === 'Phone number already exists'){
+            postSignUpInfo({ username, name, password, email, phone, houseNumber, street, city, postcode, country, utr, userType, avatar }).then((data) => {
+                if (data === 'Username already exists' || data === 'Email already exists' || data === 'Phone number already exists') {
                     setError(data)
                 }
-                else{
+                else {
                     setLoggedInUser(data)
                     setError('')
                 }
@@ -89,11 +95,21 @@ export default function SignUp() {
 
     return (
         <div>
-            
+
             <form onSubmit={handleSubmit}>
                 <h2 style={{ display: 'inline-block' }}>What type of user are you?</h2><span className="required-fields"> *</span>
-                <button value='customer' onClick={handleUserType} className={`user-type-button ${userType === 'customer' ? 'selected' : ''}`} >Customer</button>
-                <button value='shopkeeper' onClick={handleUserType} className={`user-type-button ${userType === 'shopkeeper' ? 'selected' : ''}`} >Shopkeeper</button>
+                <div className="user-type-container">
+
+                    <button value='customer' id='customer-button' onClick={handleUserType} className={`user-type-button ${userType === 'customer' ? 'selected' : ''}`} >Customer</button>
+                    <button value='shopkeeper' id="shopkeeper-button" onClick={handleUserType} className={`user-type-button ${userType === 'shopkeeper' ? 'selected' : ''}`} >Shopkeeper</button>
+                </div>
+
+                <h2 style={{ display: 'inline-block' }}>Choose an avatar</h2><span className="required-fields"> *</span>
+                <div className="avatar-container">
+
+                    <button value="https://iili.io/JUF4dWQ.png" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4dWQ.png" /></button>
+                    <button value="https://iili.io/JUF4gEB.png" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4gEB.png" /></button>
+                </div>
 
                 <label htmlFor="username">Username</label><span className="required-fields"> *</span>
                 <input type="text" id="username" value={username} placeholder="Enter username" onChange={(e) => setUsername(e.target.value)}
@@ -108,7 +124,7 @@ export default function SignUp() {
                 <input type="password" id="password" value={password} placeholder="Enter password" onChange={(e) => setPassword(e.target.value)}
                     className={password ? (isPasswordValid(password) ? 'input-valid' : 'input-invalid') : ''}
                 />
-                {password && !isPasswordValid(password) && <p className="error-message">Password must contain at least 8 characters including: 
+                {password && !isPasswordValid(password) && <p className="error-message">Password must contain at least 8 characters including:
                     <li>
                         at least one uppercase letter
                     </li>
@@ -167,7 +183,7 @@ export default function SignUp() {
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                 {/* <button type="submit" onClick={handleSubmit} >Submit</button> */}
                 <button onClick={() => document.getElementById('id02').style.display = 'block'} style={{ width: 'auto' }}>Submit</button>
-                
+
             </form>
             {loading && <p>Loading...</p>} {/* Show loading message when loading state is true */}
             {showPopup && (
@@ -180,7 +196,7 @@ export default function SignUp() {
                     </div>
                 </div>
             )}
-                
+
         </div>
     )
 }

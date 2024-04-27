@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import postLoginInfo from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
@@ -11,6 +11,18 @@ export default function Login() {
     const [checked, setChecked] = useState(false)
     const [loading, setLoading] = useState(false)
     const {setLoggedInUser} = useContext(UserContext)
+
+    useEffect(() => {
+        const savedUsername = localStorage.getItem('username');
+        const savedPassword = localStorage.getItem('password');
+        const savedChecked = localStorage.getItem('checked');
+
+        if (savedChecked === 'true' && savedUsername && savedPassword) {
+            setUsername(savedUsername);
+            setPassword(savedPassword);
+            setChecked(true);
+        }
+    }, []);
 
     const handleUsernameOrEmail = (e) => {
         setUsernameOrEmail(e.target.value)
@@ -33,6 +45,16 @@ export default function Login() {
                 navigate('/')
             } else {
                 setLoginMessage('Invalid credentials. Please try again.')
+            }
+
+            if (checked) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+                localStorage.setItem('checked', Checked);
+            } else {
+                localStorage.removeItem('username');
+                localStorage.removeItem('password');
+                localStorage.removeItem('checked');
             }
         }).catch(error => {
             console.error('Error during login:', error);
@@ -65,7 +87,7 @@ export default function Login() {
 
                         <button type="submit">Login</button>
                         <label>
-                            <input type="checkbox" checked={checked} onClick={handleChecked} name="remember" /> Remember me
+                            <input type="checkbox" checked={checked} onChange={handleChecked} name="remember" /> Remember me
                         </label>
                     </div>
 
