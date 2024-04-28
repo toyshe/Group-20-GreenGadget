@@ -9,6 +9,8 @@ import Electronics from "./Components/Electronics"
 import ElectronicDevice from "./Components/ElectronicDevice";
 import UserContext from "./contexts/UserContext";
 import FAQ from "./Components/FAQ";
+import SellItem from "./Components/SellItem";
+import About from "./Components/About";
 
 function App() {
   const [electronicCategory, getCategories] = useState('')
@@ -26,6 +28,8 @@ function App() {
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/electronics/:electronics_id" element={<ElectronicDevice />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/sell-item" element={<SellItem />} />
+          <Route path="about" element={<About />}/>
         </Routes>
       </UserContext.Provider>
     </>
