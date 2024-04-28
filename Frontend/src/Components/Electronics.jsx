@@ -5,12 +5,11 @@ import SortElectronics from "./SortElectronics";
 import { getElectronics } from "../../utils/utils";
 
 
-export default function Electronics(){
+export default function Electronics({electronicList, setElectronics}){
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [sortBy, setSortBy] = useState("");
     const [order, setOrder] = useState("");
-    const [electronicList, setElectronics] = useState([])
 
     useEffect(() => {
       getElectronics(searchParams.get("category"), sortBy, order).then((electronics) => {

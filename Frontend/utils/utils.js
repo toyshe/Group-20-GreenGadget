@@ -15,7 +15,6 @@ export default function postLoginInfo({ usernameOrEmail, password }) {
       }
     })
     .catch(({ response: { data } }) => {
-      console.log(data);
       return data.loginMessage;
     });
 }
@@ -50,11 +49,9 @@ export function postSignUpInfo({
       avatar_img_url: avatar
     })
     .then(({ data }) => {
-      console.log(data.users);
       return data.users;
     })
     .catch(({ response: { data } }) => {
-      console.log(data.msg);
       return data.msg;
     });
 }
@@ -82,10 +79,21 @@ export function getElectronicsById(electronicsId) {
   return greengadgetApi
     .get(`/electronics/${electronicsId}`)
     .then(({ data }) => {
-      console.log(data.electronic);
       return data.electronic
     })
     .catch((err) => {
       throw err;
     });
+}
+
+export function postElectronics({name, model, electronicsType, storageInGB, description, price, quantity, file, username}){
+  console.log('in here');
+  return greengadgetApi.post('/electronics', 
+  {name, model, electronics_type: electronicsType, storage_in_gb: storageInGB, description, price, quantity, img_url: file, shopkeeper_username: username })
+  .then(({data}) => {
+    return data.electronics
+  })
+  .catch((err) => {
+    console.log(err);
+  })
 }
