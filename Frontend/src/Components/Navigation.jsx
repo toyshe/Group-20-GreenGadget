@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SignUpButton from "./SignUpButton";
 import UserContext from "../contexts/UserContext";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FaShoppingBasket } from "react-icons/fa";
+//import { FaShoppingBasket } from "react-icons/fa";
 
 export default function Navigation() {
     const navigate = useNavigate()
