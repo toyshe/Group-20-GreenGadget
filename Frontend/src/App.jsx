@@ -8,6 +8,7 @@ import SignUp from "./Components/SignUp"
 import Electronics from "./Components/Electronics"
 import ElectronicDevice from "./Components/ElectronicDevice";
 import UserContext from "./contexts/UserContext";
+import FAQ from "./Components/FAQ";
 
 function App() {
   const [electronicCategory, getCategories] = useState('')
@@ -24,6 +25,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/electronics" element={<Electronics />} />
           <Route path="/electronics/:electronics_id" element={<ElectronicDevice />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
       </UserContext.Provider>
     </>
