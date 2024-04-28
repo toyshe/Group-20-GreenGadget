@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SignUpButton from "./SignUpButton";
 import UserContext from "../contexts/UserContext";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { FaShoppingBasket } from "react-icons/fa";
+import { FaShoppingBasket } from "react-icons/fa";
 
 export default function Navigation() {
     const navigate = useNavigate()
@@ -61,6 +61,14 @@ export default function Navigation() {
     const handleFaqClick = () => {
         navigate('/faq')
     }
+
+    const handleSellClick = () => {
+        navigate('/sell-item')
+    }
+
+    const handleAboutClick = () => {
+        navigate('/about')
+    }
     /*fix onclick*/
     return (
         <nav className="nav">
@@ -75,14 +83,14 @@ export default function Navigation() {
 
                     <li><a href="#">Shop by category</a></li>
                     <li onClick={handleAllItemsClick}><a>All items</a></li>
-                    <li><a href="#">Sell item</a></li>
+                    <li onClick={handleSellClick}><a>Sell item</a></li>
 
                     <li><a href="#" onClick={<Login />}>SignIn</a></li>
 
                     <li><a href="#">Support</a></li>
                     <li onClick={handleFaqClick}><a>FAQ</a></li>
                     <li><a href="#">T&C</a></li>
-                    <li><a href="#">About us</a></li>
+                    <li onClick={handleAboutClick}><a>About us</a></li>
                 </ul>
             </div>
 
