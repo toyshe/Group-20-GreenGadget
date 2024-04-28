@@ -57,6 +57,10 @@ export default function Navigation() {
     const handleHomeButton = () => {
         navigate('/')
     }
+
+    const handleFaqClick = () => {
+        navigate('/faq')
+    }
     /*fix onclick*/
     return (
         <nav className="nav">
@@ -76,7 +80,7 @@ export default function Navigation() {
                     <li><a href="#" onClick={<Login />}>SignIn</a></li>
 
                     <li><a href="#">Support</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li onClick={handleFaqClick}><a>FAQ</a></li>
                     <li><a href="#">T&C</a></li>
                     <li><a href="#">About us</a></li>
                 </ul>
