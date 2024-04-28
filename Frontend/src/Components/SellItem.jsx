@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { postElectronics } from "../../utils/utils";
 
-export default function SellItem({ setElectronics, electronicList }) {
+export default function SellItem({ setElectronics }) {
 
   const { loggedInUser } = useContext(UserContext)
   const [errorMessage, setErrorMessage] = useState('')
@@ -70,7 +70,9 @@ export default function SellItem({ setElectronics, electronicList }) {
         <select className="electronicsType" onChange={handleElectronicsChange}>
           <option value="Phone">Phone</option>
           <option value="Laptop">Laptop</option>
-          <option value="Other">Other</option>
+          <option value="Tablet">Tablet</option>
+          <option value="Smartwatch">Smartwatch</option>
+          <option value='Other'>Other</option>
         </select>
 
 

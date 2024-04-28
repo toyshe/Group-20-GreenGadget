@@ -97,3 +97,11 @@ export function postElectronics({name, model, electronicsType, storageInGB, desc
     console.log(err);
   })
 }
+
+export function getCategories(){
+  return greengadgetApi.get('/categories').then(({data}) => {
+    return data.categories
+  }).catch((err) => {
+    throw err
+  })
+}

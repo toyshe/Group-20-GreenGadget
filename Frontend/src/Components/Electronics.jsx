@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 //import ErrorHandling from "./ErrorHandling";
 import SortElectronics from "./SortElectronics";
 import { getElectronics } from "../../utils/utils";
+import CategoriesSelect from './CategoriesSelect';
 
 
 export default function Electronics({electronicList, setElectronics}){
@@ -11,8 +12,13 @@ export default function Electronics({electronicList, setElectronics}){
     const [sortBy, setSortBy] = useState("");
     const [order, setOrder] = useState("");
 
+    const [electronicsCategory, setElectronicsCategory] = useState('')
+
+
     useEffect(() => {
-      getElectronics(searchParams.get("category"), sortBy, order).then((electronics) => {
+      console.log(electronicsCategory);
+      getElectronics(electronicsCategory || searchParams.get("category"), sortBy, order).then((electronics) => {
+
         setElectronics(electronics)
       })
     }, [searchParams, sortBy, order])
@@ -25,6 +31,7 @@ export default function Electronics({electronicList, setElectronics}){
     return(
 
       <div className="electronics">
+        <CategoriesSelect setElectronicsCategory={setElectronicsCategory} />
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
         {console.log(sortBy, order)}        
         <ul className="electronics-box">

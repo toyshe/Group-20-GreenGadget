@@ -31,7 +31,7 @@ function App() {
           <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} />} />
           <Route path="/electronics/:electronics_id" element={<ElectronicDevice />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/sell-item" element={<SellItem setElectronics={setElectronics} electronicList={electronicList} />} />
+          <Route path="/sell-item" element={<SellItem setElectronics={setElectronics} />} />
           <Route path="about" element={<About />}/>
           <Route path="/support" element={<Support />} />
           <Route path="tc" element={<TC />} />
