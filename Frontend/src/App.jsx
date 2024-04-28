@@ -1,6 +1,6 @@
 import Home from "./Components/Home"
 import Login from "./Components/Login"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Link } from "react-router-dom"
 import './App.css'
 import { useState } from "react";
 import Navigation from "./Components/Navigation"
@@ -36,6 +36,36 @@ function App() {
           <Route path="tc" element={<TC />} />
         </Routes>
       </UserContext.Provider>
+
+      <footer id="footer">
+                <div class="about" >
+                    <h2>About</h2>
+                    <ul class="footli">
+                        <li><Link to={'/about'}>Who are we?</Link></li>
+                        <li><Link to={'/sell-item'}>Sell an item</Link></li>
+                        <li><Link to={'/about'}>Blog</Link></li>
+                        <li><Link to={'/support'}>Press</Link></li>
+                    </ul>
+                </div>
+
+                <div class="support">
+                    <h2>Support</h2>
+                    <ul class="footli">
+                        <li><Link to={'/repair'}>Repair</Link></li>
+                        <li><Link to={'/support'}>Contact Us</Link></li>
+                        <li><Link to={'/faq'}>FAQ</Link></li>
+                    </ul>
+                </div>
+
+                <div class="legal">
+                    <h2>Legal</h2>
+                    <ul class="footli">
+                        <li><Link to={'/tc'}>Terms & Conditions</Link></li>
+                        <li><Link to={'/support'}>Contact Us</Link></li>
+                        <li><Link to={'/faq'}>FAQ</Link></li>
+                    </ul>
+                </div>
+            </footer>
     </>
   )
 
