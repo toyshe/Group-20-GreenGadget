@@ -69,6 +69,14 @@ export default function Navigation() {
     const handleAboutClick = () => {
         navigate('/about')
     }
+
+    const handleSupportClick = () => {
+        navigate('/support')
+    }
+
+    const handleTCclick = () => {
+        navigate('/TC')
+    }
     /*fix onclick*/
     return (
         <nav className="nav">
@@ -87,9 +95,9 @@ export default function Navigation() {
 
                     <li><a href="#" onClick={<Login />}>SignIn</a></li>
 
-                    <li><a href="#">Support</a></li>
+                    <li onClick={handleSupportClick}><a>Support</a></li>
                     <li onClick={handleFaqClick}><a>FAQ</a></li>
-                    <li><a href="#">T&C</a></li>
+                    <li onClick={handleTCclick}><a>T&C</a></li>
                     <li onClick={handleAboutClick}><a>About us</a></li>
                 </ul>
             </div>

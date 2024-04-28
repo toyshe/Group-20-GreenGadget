@@ -11,6 +11,8 @@ import UserContext from "./contexts/UserContext";
 import FAQ from "./Components/FAQ";
 import SellItem from "./Components/SellItem";
 import About from "./Components/About";
+import Support from "./Components/Support";
+import TC from "./Components/TermsAndConditions";
 
 function App() {
   const [electronicCategory, getCategories] = useState('')
@@ -30,6 +32,8 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/sell-item" element={<SellItem />} />
           <Route path="about" element={<About />}/>
+          <Route path="/support" element={<Support />} />
+          <Route path="tc" element={<TC />} />
         </Routes>
       </UserContext.Provider>
     </>
