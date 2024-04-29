@@ -19,11 +19,6 @@ export default function Navigation() {
             setIsDropdownOpen(false);
         }
     };
-    const handleOptionChange = (event) => {
-        setSelectedOption(event.target.value);
-        // Logic to handle navigation based on selected option
-        // For example, you can use React Router to navigate to different routes
-    };
 
     useEffect(() => {
         document.addEventListener("click", closeOpenDropdowns);
@@ -31,17 +26,7 @@ export default function Navigation() {
             document.removeEventListener("click", closeOpenDropdowns);
         };
     }, [isDropdownOpen]);
-
-    const toggleDropdown = () => {
-        console.log('in here');
-        event.preventDefault()
-        setIsDropdownOpen(!isDropdownOpen);
-    };
-
-    const handleHomeClick = () => {
-        navigate('/')
-    }
-
+    
     const hideSidebar = () => {
         document.querySelector(".side-menu").style.left = "-100%";
     }
