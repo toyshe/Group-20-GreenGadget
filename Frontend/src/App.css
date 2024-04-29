@@ -955,3 +955,37 @@ button[type='submit']:hover {
 .legal h2{
   margin-right: 25px;
 }
+
+
+/* Basket item container */
+.basket-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Image */
+.basket-item img {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  margin-right: 20px;
+}
+
+/* Text content */
+.basket-item p {
+  margin: 0;
+}
+
+/* Price */
+.basket-item .price {
+  font-weight: bold;
+  color: green;
+}
+
+/* Quantity */
+.basket-item .quantity {
+  margin-left: auto; /* Pushes quantity to the right */
+}
