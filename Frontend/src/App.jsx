@@ -14,6 +14,7 @@ import About from "./Components/About";
 import Support from "./Components/Support";
 import TC from "./Components/TermsAndConditions";
 import Basket from "./Components/Basket";
+import Repair from "./Components/Repair";
 
 function App() {
   const [electronicCategory, getCategories] = useState('')
@@ -38,13 +39,14 @@ function App() {
           <Route path="/support" element={<Support />} />
           <Route path="tc" element={<TC />} />
           <Route path="/basket" element={<Basket basketList={basketList} setBasketList={setBasketList}/>} />
+          <Route path="/repair" element={<Repair />}/>
         </Routes>
       </UserContext.Provider>
 
       <footer id="footer">
-                <div class="about" >
+                <div className="about" >
                     <h2>About</h2>
-                    <ul class="footli">
+                    <ul className="footli">
                         <li><Link to={'/about'}>Who are we?</Link></li>
                         <li><Link to={'/sell-item'}>Sell an item</Link></li>
                         <li><Link to={'/about'}>Blog</Link></li>
@@ -52,18 +54,18 @@ function App() {
                     </ul>
                 </div>
 
-                <div class="support">
+                <div className="support">
                     <h2>Support</h2>
-                    <ul class="footli">
+                    <ul className="footli">
                         <li><Link to={'/repair'}>Repair</Link></li>
                         <li><Link to={'/support'}>Contact Us</Link></li>
                         <li><Link to={'/faq'}>FAQ</Link></li>
                     </ul>
                 </div>
 
-                <div class="legal">
+                <div className="legal">
                     <h2>Legal</h2>
-                    <ul class="footli">
+                    <ul className="footli">
                         <li><Link to={'/tc'}>Terms & Conditions</Link></li>
                         <li><Link to={'/support'}>Contact Us</Link></li>
                         <li><Link to={'/faq'}>FAQ</Link></li>
