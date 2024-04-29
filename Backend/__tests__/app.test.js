@@ -5,6 +5,7 @@ const db = require("../db/connection.js");
 const testData = require("../db/data/test-data/index.js");
 const initializeUserData = require("../db/data/test-data/users");
 const endpoints = require("../endpoints.json");
+const e = require("express");
 
 beforeAll(() => {
   return initializeUserData();
@@ -543,4 +544,33 @@ describe("app", () => {
       })
     })
   });
+  describe("/basket", () => {
+    test("GET 200: returns all the electronics in all of the baskets", () => {
+      return request(app).get('/basket').expect(200).then(({body: {baskets}}) => {
+        expect(baskets.length).toBe(8)
+        baskets.forEach((basket) => {
+          expect(basket).toHaveProperty('user_id')
+          expect(basket).toHaveProperty('username')
+          expect(basket).toHaveProperty('electronics_id')
+          expect(basket).toHaveProperty('quantity')
+          expect(basket).toHaveProperty('created_at')
+        })
+      })
+    })
+    test("GET 200: returns all the electronics in a basket by a user", () => {
+      return request(app).get('/basket/1').expect(200).then(({body: {basket}}) => {
+        expect(basket.length).toBe(2)
+      })
+    })
+    test("POST 201: adds an item to a basket", () => {
+      const newBasket = {
+        username: 'jessjelly',
+        electronics_id: 1,
+        quantity: 1
+      }
+      return request(app).post('/basket').send(newBasket).expect(200).then(({body: {basket}}) => {
+        expect(basket.user_id).toBe(3)
+      })
+    })
+  })
 });
