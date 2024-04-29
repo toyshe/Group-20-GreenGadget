@@ -105,3 +105,20 @@ export function getCategories(){
     throw err
   })
 }
+
+export function getBasketByUserId(user_id){
+  return greengadgetApi.get(`/basket/${user_id}`).then(({data}) => {
+    return data.basket
+  }).catch((err) => {
+    throw err
+  })
+}
+
+export function postBasket({username, electronics_id, quantity}){
+  return greengadgetApi.post('/basket', {username, electronics_id, quantity}).then(({data}) => {
+    return data.basket
+  }).catch((err) => {
+    throw err
+  })
+
+}

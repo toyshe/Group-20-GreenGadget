@@ -62,6 +62,10 @@ export default function Navigation() {
     const handleTCclick = () => {
         navigate('/TC')
     }
+
+    const handleBasket = () => {
+        navigate('/basket')
+    }
     /*fix onclick*/
     return (
         <>
@@ -101,7 +105,7 @@ export default function Navigation() {
                 {loggedInUser.username ? (
                     <div className="basket-user">
 
-                        <FaShoppingBasket size={45} />
+                        <FaShoppingBasket size={45} onClick={handleBasket}/>
                         {console.log(isDropdownOpen)}
 
                         <div className="dropdown-container">

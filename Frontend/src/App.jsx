@@ -13,11 +13,13 @@ import SellItem from "./Components/SellItem";
 import About from "./Components/About";
 import Support from "./Components/Support";
 import TC from "./Components/TermsAndConditions";
+import Basket from "./Components/Basket";
 
 function App() {
   const [electronicCategory, getCategories] = useState('')
   const [loggedInUser, setLoggedInUser] = useState({})
   const [electronicList, setElectronics] = useState([])
+  const [basketList, setBasketList] = useState([])
 
 
   return (
@@ -29,12 +31,13 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path='/' element={<Home />} />
           <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} />} />
-          <Route path="/electronics/:electronics_id" element={<ElectronicDevice />} />
+          <Route path="/electronics/:electronics_id" element={<ElectronicDevice setBasketList={setBasketList} basketList={basketList} />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/sell-item" element={<SellItem setElectronics={setElectronics} />} />
           <Route path="about" element={<About />}/>
           <Route path="/support" element={<Support />} />
           <Route path="tc" element={<TC />} />
+          <Route path="/basket" element={<Basket basketList={basketList} setBasketList={setBasketList}/>} />
         </Routes>
       </UserContext.Provider>
 
