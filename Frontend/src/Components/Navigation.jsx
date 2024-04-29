@@ -11,7 +11,6 @@ export default function Navigation() {
     const navigate = useNavigate()
     const { loggedInUser } = useContext(UserContext)
 
-    const [selectedOption, setSelectedOption] = useState(""); // State to track selected option
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const closeOpenDropdowns = (e) => {
@@ -66,6 +65,10 @@ export default function Navigation() {
     const handleBasket = () => {
         navigate('/basket')
     }
+
+    const handleRepair = () => {
+        navigate('/repair')
+    }
     /*fix onclick*/
     return (
         <>
@@ -89,6 +92,7 @@ export default function Navigation() {
                         <li onClick={handleFaqClick}><a>FAQ</a></li>
                         <li onClick={handleTCclick}><a>T&C</a></li>
                         <li onClick={handleAboutClick}><a>About us</a></li>
+                        <li onClick={handleRepair}><a>Repair</a></li>
                     </ul>
                 </div>
 
