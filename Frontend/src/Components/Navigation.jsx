@@ -4,7 +4,7 @@ import SignUp from "./SignUp";
 import { Link, useNavigate } from "react-router-dom";
 import SignUpButton from "./SignUpButton";
 import UserContext from "../contexts/UserContext";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaShoppingBasket } from "react-icons/fa";
 
 export default function Navigation() {
@@ -44,10 +44,12 @@ export default function Navigation() {
 
     const hideSidebar = () => {
         document.querySelector(".side-menu").style.left = "-100%";
+        document.querySelector("#overlay").style.display = "none";
     }
 
     const showSidebar = () => {
         document.querySelector(".side-menu").style.left = 0;
+        document.querySelector("#overlay").style.display = "flex";
     }
 
     const handleAllItemsClick = () => {
@@ -61,6 +63,7 @@ export default function Navigation() {
     return (
         <nav className="nav">
 
+            <label id="overlay" htmlFor="sidebar-active" onClick={hideSidebar}></label>
             <div className="side-menu">
                 <label htmlFor="sidebar-active" className="close-sidebar-button" onClick={hideSidebar}>Menu
                     <i className="fa-solid fa-xmark" ></i>
