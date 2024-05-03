@@ -210,7 +210,6 @@ span.psw {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
 }
 
@@ -370,7 +369,9 @@ body {
 .side-menu .close-sidebar-button:hover {
   cursor: pointer;
 }
-
+.logo:hover{
+  cursor: pointer;
+}
 .logo a {
   color: white;
   font-weight: 600;
@@ -427,6 +428,18 @@ body {
 #sidebar-active:checked ~ .side-menu {
   display: flex;
 }
+#overlay{
+  background: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  display: none;
+  z-index: 9;
+}
+
 .close-sidebar-button {
   color: white;
   align-self: center;
@@ -449,7 +462,7 @@ body {
 }
 .sl li:hover {
   width: 100%;
-
+  cursor: pointer;
   background-color: rgb(25, 173, 8);
 }
 .sl li {
