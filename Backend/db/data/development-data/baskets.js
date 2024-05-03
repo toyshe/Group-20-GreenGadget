@@ -118,7 +118,7 @@ module.exports = [
         electronics_id: 6,
         quantity: 3,
         created_at: '2024-03-21'
-    }   
+    }
    
 
 
