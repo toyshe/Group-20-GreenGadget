@@ -39,17 +39,12 @@ export default function ElectronicDevice({setBasketList, basketList}) {
             <div className="electronic-details">
                 <h1>{electronic.name}</h1>
                 <h2>{electronic.model}</h2>
+            </div>
 
                 <p><strong>Description:</strong> {electronic.description}</p>
                 <p><strong>Storage:</strong> {electronic.storage_in_gb}GB</p>
                 <p><strong>Price:</strong> £{electronic.price}</p>
                 <p><strong>Seller:</strong> {electronic.username}</p>
-            </div>
-
-                <p>Description: {electronic.description}</p>
-                <p>Storage: {electronic.storage_in_gb}GB</p>
-                <p>Price: {electronic.price}</p>
-                <p>Seller: {electronic.username}</p>
                 <button onClick={handleAddBasket}>Add to cart</button>
 
             </div>
