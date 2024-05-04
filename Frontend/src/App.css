@@ -766,3 +766,35 @@ ul.sl {
   line-height: 1.5;
 }
 
+
+.main-contain{
+  display: flex;
+}
+.device-stats{
+  margin-top: 5%;
+  margin-right: 5%;
+}
+.device-type{
+  color: #9c9797;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+
+.capacity span{
+  font-size: 20px;
+}
+.capacity  .capacity-title{
+  margin-bottom: 12px;
+}
+.quantity .quauntity-title{ 
+  margin-bottom: 10px;
+}
+.capacity{
+  margin-bottom: 18px;
+}
+.storage-sector{
+  text-align: center;
+}
+.device-storage{
+  border: 3px solid #ffc700;
+}
