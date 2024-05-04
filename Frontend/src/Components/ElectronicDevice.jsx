@@ -35,8 +35,7 @@ export default function ElectronicDevice() {
             <h1>{electronic.model}</h1>
             <br></br>
             <h2>£{electronic.price}</h2>
-            <br></br>
-            <br></br>
+            
             <div className="capacity">
                 <span><p className="capacity-title">Capacity:</p></span>
                 <span className="storage-sector"><h3 className="device-storage">{electronic.storage_in_gb}GB</h3></span>
