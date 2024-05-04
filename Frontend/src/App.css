@@ -780,6 +780,41 @@ ul.sl {
   line-height: 1.5;
 }
 
+
+
+.main-contain{
+  display: flex;
+}
+.device-stats{
+  margin-top: 5%;
+  margin-right: 5%;
+}
+.device-type{
+  color: #9c9797;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+
+.capacity span{
+  font-size: 20px;
+}
+.capacity  .capacity-title{
+  margin-bottom: 12px;
+}
+.quantity .quauntity-title{ 
+  margin-bottom: 10px;
+}
+.capacity{
+  margin-bottom: 18px;
+  margin-top: 32px;
+}
+.storage-sector{
+  text-align: center;
+}
+.device-storage{
+  border: 4px solid #ffc700;
+}
+
 /*About us*/
 
 .about-container {
@@ -1089,4 +1124,5 @@ button[type='submit']:hover {
 .form-container button:hover {
   background-color: #0056b3;
 }
+
 
