@@ -15,7 +15,6 @@ export default function postLoginInfo({ usernameOrEmail, password }) {
       }
     })
     .catch(({ response: { data } }) => {
-      console.log(data);
       return data.loginMessage;
     });
 }
@@ -50,11 +49,9 @@ export function postSignUpInfo({
       avatar_img_url: avatar
     })
     .then(({ data }) => {
-      console.log(data.users);
       return data.users;
     })
     .catch(({ response: { data } }) => {
-      console.log(data.msg);
       return data.msg;
     });
 }
@@ -82,10 +79,46 @@ export function getElectronicsById(electronicsId) {
   return greengadgetApi
     .get(`/electronics/${electronicsId}`)
     .then(({ data }) => {
-      console.log(data.electronic);
       return data.electronic
     })
     .catch((err) => {
       throw err;
     });
+}
+
+export function postElectronics({name, model, electronicsType, storageInGB, description, price, quantity, file, username}){
+  console.log('in here');
+  return greengadgetApi.post('/electronics', 
+  {name, model, electronics_type: electronicsType, storage_in_gb: storageInGB, description, price, quantity, img_url: file, shopkeeper_username: username })
+  .then(({data}) => {
+    return data.electronics
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
+
+export function getCategories(){
+  return greengadgetApi.get('/categories').then(({data}) => {
+    return data.categories
+  }).catch((err) => {
+    throw err
+  })
+}
+
+export function getBasketByUserId(user_id){
+  return greengadgetApi.get(`/basket/${user_id}`).then(({data}) => {
+    return data.basket
+  }).catch((err) => {
+    throw err
+  })
+}
+
+export function postBasket({username, electronics_id, quantity}){
+  return greengadgetApi.post('/basket', {username, electronics_id, quantity}).then(({data}) => {
+    return data.basket
+  }).catch((err) => {
+    throw err
+  })
+
 }
