@@ -1,6 +1,5 @@
 import "./Home.css";
 import React, { useState, useEffect} from "react";
-
 import img1 from './img1.jpg'
 import img2 from './images/img2.jpg'
 import img3 from './images/img3.jpg'
@@ -12,8 +11,7 @@ import img8 from './images/img8.jpg'
 import img10 from './images/img10.jpg'
 import img11 from './images/img11.jpg'
 import img12 from './images/img12.jpg'
-
-
+import Product from "./Product";
 
 
 export default function Home(){
@@ -94,8 +92,10 @@ export default function Home(){
         </div>
       </div>
 
-        <div class="card-container">
-    <div class="rm-card">
+      <Product />
+
+      <div class="card-container">
+      <div class="rm-card">
       <img src={img10} alt="where to start" class="card-img"></img>
       <div class="card-info">
         <h3>Welcome</h3>
