@@ -472,6 +472,7 @@ body {
 ul.sl {
   width: 100%;
   padding-left: 0;
+  margin-left: 0;
 }
 
 .container button {
