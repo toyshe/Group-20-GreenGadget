@@ -71,6 +71,15 @@ export default function Navigation() {
     const handleRepair = () => {
         navigate('/repair')
     }
+
+   
+    /*if you fix onclick pass it through here it should look nicer*/
+    const handleSignIn = ()=>{
+        hideSidebar();
+        setTimeout(() => {
+            <Login />;
+          }, 600);
+    }
     /*fix onclick*/
     return (
 
@@ -89,7 +98,7 @@ export default function Navigation() {
                         <li onClick={handleAllItemsClick}><a>All items</a></li>
                         <li onClick={handleSellClick}><a>Sell item</a></li>
                         <li onClick={handleRepair}><a>Repair</a></li>
-                        <li><a href="#" onClick={<Login />}>SignIn</a></li>
+                        <li onClick={handleSignIn}><a>SignIn</a></li>
 
 
                         <li onClick={handleSupportClick}><a>Support</a></li>

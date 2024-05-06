@@ -255,6 +255,7 @@ span.psw {
   padding: 25px;
 }
 
+
 #footer li {
   list-style: none;
   text-decoration: none;
@@ -1126,4 +1127,12 @@ button[type='submit']:hover {
   background-color: #0056b3;
 }
 
-
+/*new method to make footer stick to bottom*/
+#root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#footer {
+  margin-top: auto;
+}
