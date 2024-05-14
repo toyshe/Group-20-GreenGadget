@@ -376,8 +376,11 @@ body {
 .logo a {
   color: white;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 35px;
   text-decoration: none;
+  background: linear-gradient(to right, yellow, red);
+  background-clip: text;
+  color: transparent;
 }
 
 .logo {
@@ -439,6 +442,7 @@ body {
   padding-top: 20px;
   display: none;
   z-index: 9;
+  margin-top: 0;
 }
 
 .close-sidebar-button {
@@ -1136,3 +1140,16 @@ button[type='submit']:hover {
 #footer {
   margin-top: auto;
 }
+
+.sale-btns{
+  margin-top: 20px;
+}
+.sale-btns .buy-btn{
+border: .1rem solid #000000;
+background-color: whitesmoke;
+color: #000;
+}
+
+  .sale-btns .buy-btn:hover{
+    background-color: wheat;
+  }
