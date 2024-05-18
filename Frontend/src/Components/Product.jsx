@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getElectronicsById } from "../../utils/utils";
 import { useParams } from "react-router-dom";
-import electronics from "../../../Backend/db/data/development-data/electronics";
+// import electronics from "../../../Backend/db/data/development-data/electronics";
 
 export default function Product(electronic) {
   
@@ -16,7 +16,7 @@ export default function Product(electronic) {
             console.log(err);
         })
     }, [])*/
-    electronic
+    // electronic
       
     return(
         <>

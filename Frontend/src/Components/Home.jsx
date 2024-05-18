@@ -92,7 +92,7 @@ export default function Home(){
         </div>
       </div>
 
-      <Product />
+      {/* <Product /> */}
 
       <div class="card-container">
       <div class="rm-card">
