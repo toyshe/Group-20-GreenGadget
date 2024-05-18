@@ -1141,6 +1141,7 @@ button[type='submit']:hover {
   margin-top: auto;
 }
 
+
 .sale-btns{
   margin-top: 20px;
 }
@@ -1149,7 +1150,6 @@ border: .1rem solid #000000;
 background-color: whitesmoke;
 color: #000;
 }
-
-  .sale-btns .buy-btn:hover{
-    background-color: wheat;
-  }
+.sale-btns .buy-btn:hover{
+  background-color: wheat;
+}
