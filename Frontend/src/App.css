@@ -292,6 +292,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  scroll-behavior: smooth;
 }
 #container {
   min-height: 100%;
@@ -354,11 +355,10 @@ body {
 }
 .fa-bars {
   color: white;
-}
-.fa-bars {
-  color: white;
+  padding: 5px 5px 5px 5px;
 }
 .fa-bars:hover {
+  background-color: #5fdeaf;
   cursor: pointer;
 }
 .fa-xmark {
@@ -376,8 +376,11 @@ body {
 .logo a {
   color: white;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 35px;
   text-decoration: none;
+  background: linear-gradient(to right, yellow, red);
+  background-clip: text;
+  color: transparent;
 }
 
 .logo {
@@ -439,6 +442,7 @@ body {
   padding-top: 20px;
   display: none;
   z-index: 9;
+  margin-top: 0;
 }
 
 .close-sidebar-button {
@@ -450,7 +454,7 @@ body {
   font-weight: 20;
   padding-right: 0;
   padding-left: 0;
-  margin-top: 14px;
+  margin-top: 0px;
   margin-bottom: 14px;
 }
 .sl li a {
@@ -1136,3 +1140,16 @@ button[type='submit']:hover {
 #footer {
   margin-top: auto;
 }
+
+.sale-btns{
+  margin-top: 20px;
+}
+.sale-btns .buy-btn{
+border: .1rem solid #000000;
+background-color: whitesmoke;
+color: #000;
+}
+
+  .sale-btns .buy-btn:hover{
+    background-color: wheat;
+  }

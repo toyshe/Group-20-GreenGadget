@@ -75,6 +75,10 @@ export default function ElectronicDevice({setBasketList, basketList}) {
                 <span><p className="quauntity-title">Quauntity:</p></span>
                 <span><h3 className="device-quantity">There are {electronic.quantity} of this item in stock.</h3></span>
             </div>
+            <div className="sale-btns">
+                <button className="buy-btn" onClick={handleAddBasket}>Buy now</button>
+                <button className="cart-btn"onClick={handleAddBasket}>Add to cart</button>
+            </div>
         </div>
         </div>
     )
