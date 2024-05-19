@@ -458,22 +458,22 @@ body {
   margin-bottom: 14px;
 }
 .sl li a {
-  margin: 0;
-  padding: 0 0 0 0;
-  width: 100%;
+  margin: 0 8px 0 6px;
+  padding: 0 0 0 5px;
+  display: block;
+  border-radius: 5px;
   font-size: 30px;
   text-decoration: none;
   color: #000;
 }
-.sl li:hover {
-  width: 100%;
+
+.sl li a:hover {
+  width: auto;
   cursor: pointer;
-  background-color: rgb(25, 173, 8);
+  background-color: rgb(25, 173, 8);;
+  color: white;
 }
-.sl li {
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-}
+
 ul.sl {
   width: 100%;
   padding-left: 0;
@@ -936,9 +936,9 @@ ul {
 }
 
 ul li {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+    
 }
 
 /*Support*/

@@ -8,17 +8,19 @@ html {
     background-color: rgb(15, 197, 136);
     padding-top: 10px;
     padding-bottom: 40px;
+    display: flex;
+    justify-content: center;
   }
  
   #slider{
     position: relative;
-    width: 1000px;
-    height: 600px;
+    width: 750px;
+    height: 400px;
     overflow: hidden;
     /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);*/
     border: 5px solid black;
     border-radius: 30px;
-    left: 15%;
+    
     margin-top: 20px;
     padding-top: auto;
   }
@@ -38,8 +40,8 @@ html {
     float: left;
   }
   #slider ul li img{
-    width: 1000px;
-    height: 600px;
+    width: 750px;
+    height: 400px;
   }
   
   #slider #prev, #slider #next{
@@ -51,7 +53,6 @@ html {
     border-radius: 50%;
     color: white;
     text-decoration: none;
-    
     top: 50%;
     transform: translateY(-50%);
     transition: all 150ms ease;
@@ -67,8 +68,8 @@ html {
   }
   
   #slider #prev:hover, #slider #next:hover{
-    background-color: rgba(0, 0, 0, 0.8);
-    text-shadow: 0;
+    background-color: rgba(128, 122, 122, 0.6);
+    backdrop-filter: blur(10px);
   }
 
   section.article-card{
@@ -134,10 +135,6 @@ html {
   }
   .card-info a:hover{
   background-color: #878282;
-  }
-  img-slider-container{
-    align-self: center;
-    /*fix*/
   }
 
   .rm-card:hover{

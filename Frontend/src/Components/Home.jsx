@@ -12,15 +12,19 @@ import img10 from './images/img10.jpg'
 import img11 from './images/img11.jpg'
 import img12 from './images/img12.jpg'
 import Product from "./Product";
+import Totop from "./Totop";
+
 
 
 export default function Home(){
   
+ 
 
+  //fix/reorgainse this 
   useEffect(()=> {
     var slider = document.getElementById("slider");
     var sliderWidth = (slider.offsetWidth - ( + 10));
-    /*console.log(slider.offsetWidth)*/
+    // console.log(slider.offsetWidth)
     var slideList = document.getElementById("slideWrap");
     let count = 1;
     var items = slideList.querySelectorAll("li").length;
@@ -37,13 +41,13 @@ export default function Home(){
         count = count - 2;
         slideList.style.left = "-" + count * sliderWidth + "px";
         count++;
-        /*console.log(slider.offsetWidth)*/
+        // console.log(slider.offsetWidth)
       }
       else if (count = 1) {
         count = items - 1;
         slideList.style.left = "-" + count * sliderWidth + "px";
         count++;
-        /*console.log(slider.offsetWidth)*/
+        // console.log(slider.offsetWidth)
       }
     };
   
@@ -72,7 +76,10 @@ export default function Home(){
     }, 5000)
     
     
-  });
+    
+    
+  },[]);
+
 
     return (
       <div className="home-conatainer">
@@ -123,6 +130,7 @@ export default function Home(){
       </div>
     </div>
   </div>
+        <Totop/>
       </div>
 
       
