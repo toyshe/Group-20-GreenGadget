@@ -1,3 +1,6 @@
+import Totop from "./Totop";
+
+
 export default function TC() {
     return (
         <div className="terms-container">
@@ -26,6 +29,7 @@ export default function TC() {
                     <li>Your use of this website and any dispute arising out of such use of the website is subject to the laws of England, Northern Ireland, Scotland, and Wales.</li>
                 </ul>
             </div>
+            <Totop/>
         </div>
     );
 }

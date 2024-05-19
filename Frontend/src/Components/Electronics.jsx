@@ -4,6 +4,8 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import SortElectronics from "./SortElectronics";
 import { getElectronics } from "../../utils/utils";
 import CategoriesSelect from './CategoriesSelect';
+import Totop from "./Totop";
+
 
 
 export default function Electronics({electronicList, setElectronics}){
@@ -48,6 +50,7 @@ export default function Electronics({electronicList, setElectronics}){
             </li>
           ))}
         </ul>
+        <Totop/>
       </div>    
       );
 }

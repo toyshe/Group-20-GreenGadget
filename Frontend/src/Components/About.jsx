@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+import Totop from "./Totop";
+
+
 export default function About() {
+    
     return (
         <div className="about-container">
             <div className="about-content">
@@ -33,6 +38,7 @@ export default function About() {
                     <p>It’s not just cash you can save at Green Gadget. By choosing to shop with Green Gadget, you’re saving the planet too. In the past 30 years, we’ve managed to stop over 300 million tech products going straight to landfill. The Green Gadget ethos is to save the planet and your wallet. So why not join the Green Gadget community and help us keep saving?</p>
                 </div>
             </div>
+            <Totop className="about-top" />
         </div>
     );
 }
