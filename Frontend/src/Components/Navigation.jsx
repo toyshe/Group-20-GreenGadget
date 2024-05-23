@@ -6,6 +6,8 @@ import SignUpButton from "./SignUpButton";
 import UserContext from "../contexts/UserContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaShoppingBasket } from "react-icons/fa";
+import{ IoIosSunny } from "react-icons/io";
+
 
 export default function Navigation() {
     const navigate = useNavigate()
@@ -80,6 +82,38 @@ export default function Navigation() {
             <Login />;
           }, 600);
     }
+
+    useEffect(() => {
+        let darkMode = localStorage.getItem("darkMode");
+        localStorage.getItem('darkMode');
+
+        const enableDarkMode = () => {
+        document.body.classList.add('darkmode');
+        localStorage.setItem('darkMode', 'enabled');
+        }
+
+        const disableDarkMode = () => {
+        document.body.classList.remove('darkmode');
+        localStorage.removeItem('darkMode', 'enabled');
+        }
+
+        if (darkMode === 'enabled') {
+        enableDarkMode();
+        }
+
+        const darkModeToggle = document.querySelector("#dmt-toggle");
+        darkModeToggle.addEventListener("click", () => {
+        darkMode = localStorage.getItem('darkMode');
+
+        if (darkMode !== 'enabled') {
+            enableDarkMode();
+
+        } else {
+            disableDarkMode();
+        }
+    });   
+
+    })
     /*fix onclick*/
     return (
 
@@ -87,7 +121,8 @@ export default function Navigation() {
             <nav className="nav">
             <label id="overlay" htmlFor="sidebar-active" onClick={hideSidebar}></label>
                 <div className="side-menu">
-                    <label htmlFor="sidebar-active" className="close-sidebar-button" onClick={hideSidebar}>Menu
+                    <label htmlFor="sidebar-active" className="close-sidebar-button" onClick={hideSidebar}>
+                        <span className="side-menu-title">MENU</span>
                         <i className="fa-solid fa-xmark" ></i>
                     </label>
 
@@ -106,6 +141,33 @@ export default function Navigation() {
                         <li onClick={handleTCclick}><a>T&C</a></li>
                         <li onClick={handleAboutClick}><a>About us</a></li>
                     </ul>
+
+                    <div id="side-menu-bottom">
+                    <div id="side-menu-settings-container">
+                    <div id="side-menu-settings">
+                        
+                        <div id="dmt-toggle">
+                        <div className="DM-btn">
+                        < IoIosSunny className="fa-sun" />
+                        <div>
+                            <span className="DM-label"></span>
+                        </div>
+                        </div>
+                        <span className="DM-toggle-text">Dark Mode Toggle</span>
+                        
+                        <div id="DM-toggle-switch">
+                        <span className="switch"></span>
+                        </div>
+                        </div>
+                        </div>
+
+                        <div id="side-menu-logout">
+                        <i className="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                        </div>
+                        
+                    </div> 
+                    </div>
 
                 </div>
 

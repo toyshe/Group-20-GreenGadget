@@ -82,11 +82,11 @@ html {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    /* margin-bottom: 100px; */ 
   }
   .rm-card{
-    width: 325px;
+    width: 300px;
     background-color: #edeece;
     border-radius: 8px;
     overflow: hidden;
@@ -96,7 +96,7 @@ html {
   }
   .rm-card:hover{
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   
   .rm-card img{
@@ -137,6 +137,6 @@ html {
   background-color: #878282;
   }
 
-  .rm-card:hover{
+  /* .rm-card:hover{
     
-  }
+  } */

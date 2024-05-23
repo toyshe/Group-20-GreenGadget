@@ -83,6 +83,10 @@ export default function Home(){
 
     return (
       <div className="home-conatainer">
+
+        <div className="CTA"> 
+        </div>
+        
         <div className="img-slider-container">
         <div id="slider">
         <ul id="slideWrap">
