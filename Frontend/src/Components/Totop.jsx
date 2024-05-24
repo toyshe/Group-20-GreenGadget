@@ -15,7 +15,7 @@ export default function Totop(
             }
         });
         console.log("test")
-    });
+    }, []);
     
     return(
     <a href="#" className={`${className} to-top`}>
