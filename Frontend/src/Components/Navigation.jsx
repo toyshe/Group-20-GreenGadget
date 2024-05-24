@@ -11,7 +11,7 @@ import{ IoIosSunny } from "react-icons/io";
 
 export default function Navigation() {
     const navigate = useNavigate()
-    const { loggedInUser } = useContext(UserContext)
+    const {loggedInUser, setLoggedInUser} = useContext(UserContext)
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -113,8 +113,12 @@ export default function Navigation() {
         }
     });   
 
-    })
+    }, [])
     /*fix onclick*/
+
+    const handleLogOut = () => {
+        setLoggedInUser({})
+    }
     return (
 
         
@@ -163,7 +167,7 @@ export default function Navigation() {
 
                         <div id="side-menu-logout">
                         <i className="fa-solid fa-right-from-bracket"></i>
-                        <span>Logout</span>
+                        <span onClick={handleLogOut}>Logout</span>
                         </div>
                         
                     </div> 
@@ -210,8 +214,8 @@ export default function Navigation() {
                                     </li>
                                     <li className="divider"></li>
                                     <li>
-                                        <a href="/">
-                                            <span className="material-symbols-outlined"></span> Logout
+                                        <a>
+                                            <span onClick={handleLogOut} className="material-symbols-outlined"> Logout</span>
                                         </a>
                                     </li>
                                 </ul>
