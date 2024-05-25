@@ -86,15 +86,20 @@ export default function Navigation() {
     useEffect(() => {
         let darkMode = localStorage.getItem("darkMode");
         localStorage.getItem('darkMode');
+        const root = document.documentElement;
 
         const enableDarkMode = () => {
-        document.body.classList.add('darkmode');
-        localStorage.setItem('darkMode', 'enabled');
+            root.classList.add('darkmode');
+            // document.body.classList.add('darkmode');
+            localStorage.setItem('darkMode', 'enabled');
+            console.log("enableDarkMode");
         }
 
         const disableDarkMode = () => {
-        document.body.classList.remove('darkmode');
-        localStorage.removeItem('darkMode', 'enabled');
+            root.classList.remove('darkmode');
+            // document.body.classList.remove('darkmode');
+            localStorage.removeItem('darkMode', 'enabled');
+            console.log("disableDarkMode");
         }
 
         if (darkMode === 'enabled') {
@@ -111,7 +116,7 @@ export default function Navigation() {
         } else {
             disableDarkMode();
         }
-    });   
+    },[]);   
 
     })
     /*fix onclick*/
