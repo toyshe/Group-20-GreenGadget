@@ -73,10 +73,7 @@ export default function Home(){
   
     setInterval(function(){
       nextSlide();
-    }, 5000)
-    
-    
-    
+    }, 5000)  
     
   },[]);
 
