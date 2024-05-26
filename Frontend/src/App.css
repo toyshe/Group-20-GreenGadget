@@ -12,6 +12,8 @@ body {
   --foreground: var(--clr-dark);
   --background: var(--clr-light);
   --img-slider:rgb(15, 197, 136);
+  --box-shad: rgba(0, 0, 0, 0.1);
+  --clr-toggle: gray;
 }
 /* utility class used to apply darkmode */
 .darkmode{
@@ -24,6 +26,7 @@ body {
   --clr-toggle: white;
   --footer:#a4a57e;
   --img-slider:rgb(34 98 77);
+  --box-shad: rgba(255, 255, 255, 0.1);
 }
 /* p::selection{
   background-color: rgb(11, 170, 11);
@@ -814,7 +817,7 @@ ul.sl {
   max-width: 500px; 
   background-color: #f7f7f7; 
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px var(--box-shad);
 }
 
 .electronic-device img {
@@ -891,21 +894,21 @@ ul.sl {
 }
 
 .about-content {
-  background-color: #f5f5f5;
+  background-color: var(--background);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px var(--box-shad);
   padding: 20px;
   font-family: 'Roboto', sans-serif;
 }
 
 .about-content h2 {
-  color: #333;
+  color: var(--foreground);
   font-size: 28px;
   margin-bottom: 20px;
 }
 
 .about-content p {
-  color: #666;
+  color: var(--foreground);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -924,7 +927,7 @@ ul.sl {
 }
 
 .about-content h3 {
-  color: #333;
+  color: var(--foreground);
   font-size: 22px;
   margin-top: 20px;
 }
@@ -962,19 +965,19 @@ body {
     max-width: 800px;
     margin: auto;
     padding: 40px;
-    background-color: #fff;
-    color: black;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--background);
+    color: var(--foreground);
+    box-shadow: 0 0 20px var(--box-shad);
     border-radius: 10px;
 }
 .terms-container h2{
-  color:#000;
+  color:var(--foreground);
 }
 
 h1 {
     font-size: 28px;
     font-weight: bold;
-    color: #000;
+    color: var(--foreground);
     margin-bottom: 20px;
 }
 
@@ -1243,8 +1246,7 @@ button[type='submit']:hover {
 #dmt-toggle {
   display: flex;
   margin: 0px 0 0 0;
-  /* background-color: var(--foreground); */
-  background-color: #f5f5f5;
+  background-color: var(--background);
   border-radius: 3px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -1264,7 +1266,10 @@ button[type='submit']:hover {
   padding-top: 7px;
   padding-bottom: 7px;
   font-size: 40px;
-  color: var(--foreground);
+  color: var(--background);
+}
+.fa-right-from-bracket:before{
+  color: #000;
 }
 .DM-toggle-text {
   display: inline-block;
@@ -1282,8 +1287,7 @@ button[type='submit']:hover {
   width: 50px;
   position: relative;
   border-radius: 25px;
-  /* background-color: var(--clr-toggle); */
-  background-color: black;
+  background-color: var(--clr-toggle);
   cursor: pointer;
 }
 .switch::before {
@@ -1295,8 +1299,7 @@ button[type='submit']:hover {
   top: 50%;
   left: 5px;
   transform: translateY(-51%);
-  /* background-color: var(--foreground); */
-  background-color: white;
+  background-color: var(--background);
   transition: all ease 0.5s;
 }
 .darkmode .switch::before{
