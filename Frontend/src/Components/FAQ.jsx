@@ -1,4 +1,5 @@
 import Faq from "react-faq-component";
+import "./faq.css";
 
 export default function FAQ(){
 
@@ -7,7 +8,7 @@ export default function FAQ(){
         rows: [
             {
                 title: "What is the purpose of the app?",
-                content: "The purpose of the app is to help people find a good local shop to buy and sell their items. It is also to allow user to be able to send their old electronics for repair and trade them in if not needed"
+                content: "The purpose of the app is to help people find a good local shop to buy and sell their items. It is also to allow user to be able to send their old electronics for repair and trade them in if not needed, allowing users to give value to their unwanted electronics."
             },
             {
                 title: "Who can sign up?",
