@@ -1,8 +1,14 @@
+import { MdTabletMac } from "react-icons/md";
+import { BsSmartwatch } from "react-icons/bs";
+import { IoPhonePortraitSharp } from "react-icons/io5";
+import { AiOutlineLaptop } from "react-icons/ai";
+
 module.exports = [
   {
     name: "IPhone 13",
     model: "IPhone 13 128GB",
     electronics_type: "Phone",
+    Icon: IoPhonePortraitSharp,
     storage_in_gb: 128,
     description: "A royal blue iphone 13 with 128GB storage",
     price: 280.0,
@@ -14,6 +20,7 @@ module.exports = [
     name: "IPhone 13",
     model: "IPhone 13 128GB",
     electronics_type: "Phone",
+    Icon: IoPhonePortraitSharp ,
     storage_in_gb: 128,
     price: 273.0,
     description: "A pastel pink iphone 13 with 128GB storage",
@@ -25,6 +32,7 @@ module.exports = [
     name: "Galaxy S22",
     model: "Galaxy S22 5G 128GB",
     electronics_type: "Phone",
+    Icon: IoPhonePortraitSharp,
     storage_in_gb: 128,
     price: 238.31,
     description: "A black galaxy s22 with 128GB storage",
@@ -37,6 +45,7 @@ module.exports = [
     name: "Galaxy S21",
     model: "Galaxy S21 Ultra 5G 128GB",
     electronics_type: "Phone",
+    Icon: IoPhonePortraitSharp,
     storage_in_gb: 128,
     price: 196.78,
     description: "Galaxy S21 Ultra 5G 128GB - Black - Unlocked - Dual-SIM",
@@ -49,6 +58,7 @@ module.exports = [
     name: "Google Pixel 6",
     model: "Google Pixel 6 128GB - Black - Unlocked",
     electronics_type: "Phone",
+    Icon: IoPhonePortraitSharp,
     storage_in_gb: 128,
     price: 157.61,
     description: "Google Pixel 6 128GB - Black - Unlocked",
@@ -60,6 +70,7 @@ module.exports = [
     name: "Dell Latitude 5400 14''",
     model: "Dell Latitude 5400 14-inch",
     electronics_type: "Laptop",
+    Icon: IoPhonePortraitSharp,
     storage_in_gb: 256,
     price: 254.0,
     description:
@@ -73,6 +84,7 @@ module.exports = [
     name: "Microsoft Surface Pro 7 12''",
     model: "Microsoft Surface Pro 7 12-inch",
     electronics_type: "Laptop",
+    Icon: AiOutlineLaptop,
     storage_in_gb: 256,
     price: 319.0,
     description:
@@ -86,6 +98,7 @@ module.exports = [
     name: "Apple MacBook Air 13.3''",
     model: "MacBook Air 13.3-inch",
     electronics_type: "Laptop",
+    Icon: AiOutlineLaptop,
     storage_in_gb: 256,
     price: 542.94,
     description:
@@ -98,6 +111,7 @@ module.exports = [
     name: "Apple MacBook Pro 13.3''",
     model: "MacBook Pro 13.3-inch",
     electronics_type: "Laptop",
+    Icon: AiOutlineLaptop,
     storage_in_gb: 256,
     price: 621.94,
     description:
@@ -112,6 +126,7 @@ module.exports = [
     name: "Lenovo ThinkPad A285 12''",
     model: "Lenovo ThinkPad A285 12-inch",
     electronics_type: "Laptop",
+    Icon: AiOutlineLaptop,
     storage_in_gb: 256,
     price: 140.0,
     description:
@@ -125,6 +140,7 @@ module.exports = [
     name: "Apple Watch Series 7",
     model: "Apple Watch Series 7 ",
     electronics_type: "Smartwatch",
+    Icon: BsSmartwatch,
     storage_in_gb: 32,
     description:
       "Apple Watch Series 7 - 45mm - GPS + Cellular - Midnight Aluminum Case with Midnight Sport Band",
@@ -137,6 +153,8 @@ module.exports = [
     name: "iPad Pro 12.9-inch",
     model: "iPad Pro 12.9-inch 5th Gen",
     electronics_type: "Tablet",
+    // electronics_type: "Smartwatch",
+    Icon: MdTabletMac,
     storage_in_gb: 128,
     description:
       "Apple iPad Pro 12.9-inch 5th Generation - 128GB - Wi-Fi + Cellular",
@@ -150,6 +168,7 @@ module.exports = [
     name: "Microsoft Surface Laptop 4",
     model: "Surface Laptop 4 - 15-inch",
     electronics_type: "Laptop",
+    Icon: AiOutlineLaptop ,
     storage_in_gb: 256,
     description:
       "Microsoft Surface Laptop 4 - AMD Ryzen 7 - 15-inch Touchscreen - 16GB RAM - 256GB SSD",
@@ -162,6 +181,7 @@ module.exports = [
     name: "Dell XPS 17",
     model: "XPS 17 9710",
     electronics_type: "Laptop",
+    Icon: AiOutlineLaptop,
     storage_in_gb: 512,
     description:
       "Dell XPS 17 9710 - Core i9 - 32GB RAM - 1TB SSD - NVIDIA RTX 3060",
@@ -174,6 +194,7 @@ module.exports = [
     name: "iPhone 14 Pro",
     model: "iPhone 14 Pro 256GB",
     electronics_type: "Phone",
+    Icon: IoPhonePortraitSharp,
     storage_in_gb: 256,
     description: "iPhone 14 Pro 256GB - Graphite - Unlocked - Space Black",
     price: 1299.99,
@@ -185,6 +206,7 @@ module.exports = [
     name: "Apple Watch Series 8",
     model: "Apple Watch Series 8 - 45mm",
     electronics_type: "Smartwatch",
+    Icon: BsSmartwatch,
     storage_in_gb: 32,
     description:
       "Apple Watch Series 8 - GPS + Cellular - Aluminum Case with Sport Band - Black",
@@ -197,6 +219,7 @@ module.exports = [
     name: "iPad Air",
     model: "iPad Air 5th Gen 64GB",
     electronics_type: "Tablet",
+    Icon: MdTabletMac ,
     storage_in_gb: 64,
     description: "iPad Air 5th Generation - 64GB - Wi-Fi - Blue",
     price: 599.99,
@@ -208,6 +231,7 @@ module.exports = [
     name: "iPad Mini",
     model: "iPad Mini 6th Gen 256GB",
     electronics_type: "Tablet",
+    Icon: MdTabletMac ,
     storage_in_gb: 256,
     description: "iPad Mini 6th Generation - 256GB - Wi-Fi + Cellular - Space Grey",
     price: 799.99,
