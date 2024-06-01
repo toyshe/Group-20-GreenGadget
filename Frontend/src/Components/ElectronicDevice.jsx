@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { getElectronicsById, postBasket } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import Icon from './Icon';
+
 
 export default function ElectronicDevice({setBasketList, basketList}) {
     const {electronics_id} = useParams()
@@ -62,7 +64,10 @@ export default function ElectronicDevice({setBasketList, basketList}) {
         </main>
 
         <div className="device-stats">
-            <span><h3 className="device-type">{electronic.electronics_type}</h3></span>
+            <div className="electronic-device-epithet">
+                <Icon props={electronic.electronics_type} className="electronics_device-icon" size={36}/>
+                <span><h3 className="device-type">{electronic.electronics_type}</h3></span>
+            </div>
             <h1>{electronic.model}</h1>
             <br></br>
             <h2>£{electronic.price}</h2>

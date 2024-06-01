@@ -15,6 +15,7 @@ body {
   --box-shad: rgba(0, 0, 0, 0.1);
   --clr-toggle: gray;
 }
+
 /* utility class used to apply darkmode */
 .darkmode{
   --clr-dark: #0E1525;
@@ -28,10 +29,10 @@ body {
   --img-slider:rgb(34 98 77);
   --box-shad: rgba(255, 255, 255, 0.1);
 }
-/* p::selection{
+::selection{
   background-color: rgb(11, 170, 11);
   color: white;
-} */
+}
 
 /* html.darkmode{
   color-scheme: dark;
@@ -768,7 +769,9 @@ ul.sl {
 .electronics_button:hover {
   background-color: #45a049;
   transform: scale(1.1);
+  opacity: 1;
 }
+
 
 .electronics_info {
   padding: 20px;
@@ -861,7 +864,7 @@ ul.sl {
 }
 .device-type{
   color: #9c9797;
-  margin-bottom: 8px;
+  font-size: 40px;
   text-decoration: underline;
 }
 
@@ -1030,6 +1033,9 @@ ul li {
 .support-form {
   display: flex;
   flex-direction: column;
+}
+.support-form label{
+  padding: 0;
 }
 
 .form-group {
@@ -1321,4 +1327,52 @@ button[type='submit']:hover {
 }
 #side-menu-logout i{
   margin-left: 25px;
+}
+
+/* utility class for external links */
+.extrnal-link{
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.extrnal-link::after{
+  font-family: 'Font Awesome 6 Free';
+  content: "\f0c1";
+  margin-left: 5px;
+}
+.extrnal-link:hover{
+  color: #7dff31;
+}
+
+
+.electronics-epithet{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.electronics-epithet p{
+  margin-bottom: 0;
+}
+.electronics_button-icon{
+  margin-right: 10px;
+}
+
+.electronic-device-epithet{
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px
+}
+.electronics_device-icon{
+  margin-right: 16px;
+  color: #e5dada;
+  cursor: pointer;
+}
+
+.sale-form label{
+  padding: 0;
+}
+.sale-form-container h1{
+  text-align: center;
 }

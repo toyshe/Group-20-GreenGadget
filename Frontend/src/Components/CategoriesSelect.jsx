@@ -24,7 +24,7 @@ export default function CategoriesSelect({setElectronicsCategory}) {
     return (
         <div className="dropdown dropdown-list">
             <h2>Categories: </h2>
-            <div class="dropdown-content">
+            <div className="dropdown-content">
             <select className="electronicsType" onChange={handleCategorySelect}>
                 {categoriesList.map((category) => {
                     return (

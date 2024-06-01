@@ -53,11 +53,11 @@ export default function SellItem({ setElectronics }) {
   };
 
   return (
-    <div>
+    <div className="sale-form-container">
       <h1>Sell an Item</h1>
       {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid">Sorry, only shopkeepers are allowed to sell an item</p>}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="sale-form">
         <label htmlFor="name">Name:</label>
         <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
         <br />

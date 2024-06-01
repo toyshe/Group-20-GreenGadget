@@ -102,30 +102,30 @@ export default function Home(){
 
       {/* <Product /> */}
 
-      <div class="card-container">
-      <div class="rm-card">
-      <img src={img10} alt="where to start" class="card-img"></img>
-      <div class="card-info">
+      <div className="card-container">
+      <div className="rm-card">
+      <img src={img10} alt="where to start" className="card-img"></img>
+      <div className="card-info">
         <h3>Welcome</h3>
-        <p class="sub-heading">Welcome to our site</p>
+        <p className="sub-heading">Welcome to our site</p>
         <p></p>
         <a href="">Read More</a>
       </div>
     </div>
-    <div class="rm-card">
-      <img src={img11} alt="where to start" class="card-img"></img>
-      <div class="card-info">
+    <div className="rm-card">
+      <img src={img11} alt="where to start" className="card-img"></img>
+      <div className="card-info">
         <h3>Help</h3>
-        <p class="sub-heading">How to navigate the site</p>
+        <p className="sub-heading">How to navigate the site</p>
         <p></p>
         <a href="">Read More</a>
       </div>
     </div>
-    <div class="rm-card">
-      <img src={img12} alt="where to start" class="card-img"></img>
-      <div class="card-info">
+    <div className="rm-card">
+      <img src={img12} alt="where to start" className="card-img"></img>
+      <div className="card-info">
         <h3>How we keep you safe</h3>
-        <p class="sub-heading"></p>
+        <p className="sub-heading"></p>
         <p></p>
         <a href="">Read More</a>
       </div>
