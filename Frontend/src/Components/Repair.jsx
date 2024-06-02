@@ -43,15 +43,15 @@ export default function Repair() {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>
-                    <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required />
+                    <input type="text" id="name" name="name" value={formData.name} placeholder="Enter name" onChange={handleChange} required />
                 </div>
                 <div>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                    <input type="email" id="email" name="email" value={formData.email} placeholder="Enter email" onChange={handleChange} required />
                 </div>
                 <div>
                     <label htmlFor="phone">Phone:</label>
-                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone No." required />
                 </div>
                 <div>
                     <label htmlFor="electronicType">Electronic Type:</label>
@@ -65,7 +65,7 @@ export default function Repair() {
                 </div>
                 <div>
                     <label htmlFor="issueDescription">Issue Description:</label>
-                    <textarea id="issueDescription" name="issueDescription" value={formData.issueDescription} onChange={handleChange} required />
+                    <textarea id="issueDescription" name="issueDescription" value={formData.issueDescription} onChange={handleChange} placeholder="Messagebox" required />
                 </div>
                 <div>
                     <label htmlFor="file">Upload Picture:</label>
