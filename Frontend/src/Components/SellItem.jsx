@@ -59,11 +59,11 @@ export default function SellItem({ setElectronics }) {
 
       <form onSubmit={handleSubmit} className="sale-form">
         <label htmlFor="name">Name:</label>
-        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
+        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter name" required />
         <br />
 
         <label htmlFor="model">Model:</label>
-        <input type="text" id="model" value={model} onChange={(e) => setModel(e.target.value)} required />
+        <input type="text" id="model" value={model} onChange={(e) => setModel(e.target.value)} placeholder="Enter device model" required />
         <br />
 
         <label htmlFor="electronicsType">Electronics Type:</label>

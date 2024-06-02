@@ -26,6 +26,8 @@ export default function CategoriesSelect({setElectronicsCategory}) {
             <h2>Categories: </h2>
             <div className="dropdown-content">
             <select className="electronicsType" onChange={handleCategorySelect}>
+            {/* <optgroup label="choose the device category"> */}
+
                 {categoriesList.map((category) => {
                     return (
                         <>
@@ -34,6 +36,8 @@ export default function CategoriesSelect({setElectronicsCategory}) {
                         </>
                     )
                 })}
+            {/* </optgroup> */}
+
             </select>
             </div>
         </div>

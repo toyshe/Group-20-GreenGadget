@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from "react-router-dom";
 //import ErrorHandling from "./ErrorHandling";
 import SortElectronics from "./SortElectronics";
@@ -10,7 +10,7 @@ import { BsSmartwatch } from "react-icons/bs";
 import { IoPhonePortraitSharp } from "react-icons/io5";
 import { AiOutlineLaptop } from "react-icons/ai";
 import Icon from './Icon';
-
+import { FaArrowsSpin } from "react-icons/fa6";
 
 
 export default function Electronics({electronicList, setElectronics}){
@@ -20,6 +20,7 @@ export default function Electronics({electronicList, setElectronics}){
     const [order, setOrder] = useState("");
 
     const [electronicsCategory, setElectronicsCategory] = useState('')
+    const [loading, setLoading] = useState(false);
 
     
     useEffect(() => {
@@ -35,18 +36,17 @@ export default function Electronics({electronicList, setElectronics}){
       navigate(`/electronics/${electronics.electronics_id}`)
     };
 
-    // const Icon = electronics.electronics_type === "Phone" ? IoPhonePortraitSharp 
-    // : electronics.electronics_type === "Laptop" ?  AiOutlineLaptop
-    // : electronics.electronics_type === "Smartwatch" ? BsSmartwatch
-    // : MdTabletMac;
+
     return(
 
       <div className="electronics">
         <CategoriesSelect setElectronicsCategory={setElectronicsCategory} />
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
-        {console.log(sortBy, order)}        
+        {console.log(sortBy, order)} 
+        {loading ? 5 :<FaArrowsSpin className="fa-spin" size={40}/>}               
         <ul className="electronics-box">
         {electronicList.map((electronics) => (
+          
             <li key={electronics.electronics_id} className="electronic-item">
               <button className='electronics_button' onClick={() => handleElectronicsClick(electronics)}>
                 {/* {console.log(electronics)} */}
@@ -61,7 +61,8 @@ export default function Electronics({electronicList, setElectronics}){
                 <p><strong>In stock:</strong> {electronics.quantity}</p>
               </button>
             </li>
-          ))}
+            
+          ))}  
         </ul>
         <Totop/>
       </div>    
