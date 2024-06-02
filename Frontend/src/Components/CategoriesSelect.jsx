@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getCategories } from "../../utils/utils"
 
-export default function CategoriesSelect({setElectronicsCategory}) {
+export default function CategoriesSelect({ setElectronicsCategory }) {
     const [categoriesList, setCategoriesList] = useState([])
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -22,23 +22,24 @@ export default function CategoriesSelect({setElectronicsCategory}) {
     }
 
     return (
-        <div className="dropdown dropdown-list">
-            <h2>Categories: </h2>
-            <div className="dropdown-content">
-            <select className="electronicsType" onChange={handleCategorySelect}>
-            {/* <optgroup label="choose the device category"> */}
+    </select>
 
-                {categoriesList.map((category) => {
-                    return (
-                        <>
-                            <option value={category.slug}>{category.slug}</option>
-                            {/* <option value='Other'>Other</option> */}
-                        </>
-                    )
-                })}
-            {/* </optgroup> */}
+        <div className="dropdown dropdown-list filters-container">
+            <div className="filter-group">
+                <p>Categories: </p>
+                <div className="dropdown-content">
+                    <select className="electronicsType" defaultValue='' onChange={handleCategorySelect}>
+                        <option value='' disabled>Select a category</option>
+                        {categoriesList.map((category) => {
+                            return (
+                                <>
+                                    <option value={category.slug}>{category.slug}</option>
+                                </>
+                            )
+                        })}
+                    </select>
+                </div>
 
-            </select>
             </div>
         </div>
     )

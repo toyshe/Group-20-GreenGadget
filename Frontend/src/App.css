@@ -356,13 +356,6 @@ body {
   padding-right: 20px;
 }
 
-/* .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-} */
-
 .basket-user-container:hover .dropdown-menu {
   display: block;
 }
@@ -1379,4 +1372,38 @@ button[type='submit']:hover {
 }
 .sale-form-container h1{
   text-align: center;
+}
+
+.filters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.filter-group p {
+  margin: 0;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.dropdown-content select {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dropdown-content select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
