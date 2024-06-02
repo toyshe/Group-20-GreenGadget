@@ -34,7 +34,7 @@ export default function Electronics({ electronicList, setElectronics }) {
       <div className='filter-electronics'>
         <CategoriesSelect setElectronicsCategory={setElectronicsCategory} />
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
-          {loading ? 5 :<FaArrowsSpin className="fa-spin" size={40}/>}  
+          {/* {loading ? 5 :<FaArrowsSpin className="fa-spin" size={40}/>}   */}
       </div>
       <ul className="electronics-box">
         {electronicList.map((electronics) => (
