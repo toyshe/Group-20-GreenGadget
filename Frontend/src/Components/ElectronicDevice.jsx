@@ -3,6 +3,7 @@ import { getElectronicsById, postBasket } from "../../utils/utils";
 import { useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import Icon from './Icon';
+import Loading from "./Loading";
 
 
 export default function ElectronicDevice({setBasketList, basketList}) {
@@ -10,9 +11,11 @@ export default function ElectronicDevice({setBasketList, basketList}) {
     const [electronic, setElectronic] = useState({})
     const {loggedInUser} = useContext(UserContext)
     const [showPopup, setShowPopup] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getElectronicsById(electronics_id).then((electronic) => {
+            setLoading(false)
             setElectronic(electronic)
         }).catch((err) => {
             console.log(err);
@@ -31,6 +34,10 @@ export default function ElectronicDevice({setBasketList, basketList}) {
 
     const togglePopup = () => {
         setShowPopup(!showPopup)
+    }
+
+    if(loading){
+        return <Loading />
     }
 
     return (

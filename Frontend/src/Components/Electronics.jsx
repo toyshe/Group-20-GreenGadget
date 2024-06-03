@@ -5,6 +5,7 @@ import { getElectronics } from "../../utils/utils";
 import CategoriesSelect from './CategoriesSelect';
 import Totop from "./Totop";
 import Icon from './Icon';
+import Loading from './Loading';
 
 export default function Electronics({ electronicList, setElectronics }) {
   const navigate = useNavigate();
@@ -12,17 +13,22 @@ export default function Electronics({ electronicList, setElectronics }) {
   const [sortBy, setSortBy] = useState("");
   const [order, setOrder] = useState("");
   const [electronicsCategory, setElectronicsCategory] = useState('')
-
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getElectronics(electronicsCategory || searchParams.get("category"), sortBy, order).then((electronics) => {
       setElectronics(electronics)
+      setLoading(false)
     })
   }, [searchParams, sortBy, order])
 
   const handleElectronicsClick = (electronics) => {
     navigate(`/electronics/${electronics.electronics_id}`)
   };
+
+  if(loading){
+    return <Loading loadingHeader=' electronics' />
+  }
 
   return (
     <div className="electronics">
