@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from "react-router-dom";
 import SortElectronics from "./SortElectronics";
 import { getElectronics } from "../../utils/utils";
@@ -6,6 +6,8 @@ import CategoriesSelect from './CategoriesSelect';
 import Totop from "./Totop";
 import Icon from './Icon';
 import Loading from './Loading';
+import { FaArrowsSpin } from "react-icons/fa6";
+
 
 export default function Electronics({ electronicList, setElectronics }) {
   const navigate = useNavigate();
@@ -22,6 +24,7 @@ export default function Electronics({ electronicList, setElectronics }) {
     })
   }, [searchParams, sortBy, order])
 
+
   const handleElectronicsClick = (electronics) => {
     navigate(`/electronics/${electronics.electronics_id}`)
   };
@@ -35,6 +38,7 @@ export default function Electronics({ electronicList, setElectronics }) {
       <div className='filter-electronics'>
         <CategoriesSelect setElectronicsCategory={setElectronicsCategory} />
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
+          {/* {loading ? 5 :<FaArrowsSpin className="fa-spin" size={40}/>}   */}
       </div>
       <ul className="electronics-box">
         {electronicList.map((electronics) => (

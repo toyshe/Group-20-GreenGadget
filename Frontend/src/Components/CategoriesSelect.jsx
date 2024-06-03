@@ -22,6 +22,9 @@ export default function CategoriesSelect({ setElectronicsCategory }) {
     }
 
     return (
+    
+    // <select>
+
         <div className="dropdown dropdown-list filters-container">
             <div className="filter-group">
                 <p>Categories: </p>
@@ -37,7 +40,9 @@ export default function CategoriesSelect({ setElectronicsCategory }) {
                         })}
                     </select>
                 </div>
+
             </div>
         </div>
+    // </select>
     )
 }
