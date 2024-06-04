@@ -1410,3 +1410,41 @@ button[type='submit']:hover {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+/* .ElectronicsSkeleton li{
+  list-style: none;
+}
+.ElectronicsSkeleton button:hover{
+  cursor: default;
+}
+.ElectronicsSkeleton button{
+  background-color: whitesmoke;
+}
+
+.ElectronicsSkeleton li{
+  list-style: none;
+}
+.ElectronicsSkeleton button:hover{
+  cursor: default;
+}
+.ElectronicsSkeleton .ElectronicsSkeletonbutton_test{
+  background-color: whitesmoke;
+} */
+.electronics_button p{
+  margin-bottom: 5px;
+}
+
+/* skeleton loading animations */
+.skeleton{
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0%{
+      background-color: hsl(200, 20%, 70%);
+  }
+
+  100%{
+      background-color: hsl(200, 20%, 95%);
+  }
+  
+}

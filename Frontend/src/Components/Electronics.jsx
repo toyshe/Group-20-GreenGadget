@@ -7,6 +7,9 @@ import Totop from "./Totop";
 import Icon from './Icon';
 import Loading from './Loading';
 import { FaArrowsSpin } from "react-icons/fa6";
+import ElectronicsSkeleton from './ElectronicsSkeleton';
+//for testing
+import ElectronicsSkeletonbutton from './ElectronicsSkeletonbutton'
 
 
 export default function Electronics({ electronicList, setElectronics }) {
@@ -29,18 +32,24 @@ export default function Electronics({ electronicList, setElectronics }) {
     navigate(`/electronics/${electronics.electronics_id}`)
   };
 
-  if(loading){
-    return <Loading loadingHeader=' electronics' />
-  }
+  // if(loading){
+  //   return <Loading loadingHeader=' electronics' />
+  // }
 
   return (
+    <>
     <div className="electronics">
       <div className='filter-electronics'>
         <CategoriesSelect setElectronicsCategory={setElectronicsCategory} />
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
-          {/* {loading ? 5 :<FaArrowsSpin className="fa-spin" size={40}/>}   */}
-      </div>
-      <ul className="electronics-box">
+        {loading ? (
+          <div>
+            <ElectronicsSkeleton /> 
+          </div>       
+        ) : 
+        (
+        <>
+        <ul className="electronics-box">
         {electronicList.map((electronics) => (
           <li key={electronics.electronics_id} className="electronic-item">
             <button className='electronics_button' onClick={() => handleElectronicsClick(electronics)}>
@@ -56,8 +65,14 @@ export default function Electronics({ electronicList, setElectronics }) {
             </button>
           </li>
         ))}
-      </ul>
-      <Totop />
+        </ul>
+        <Totop />
+        </>
+        )}
+        
+      </div>
+      
     </div>
+    </>
   );
 }
