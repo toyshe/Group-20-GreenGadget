@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from "react-router-dom";
 import SortElectronics from "./SortElectronics";
 import { getElectronics } from "../../utils/utils";
@@ -6,13 +6,16 @@ import CategoriesSelect from './CategoriesSelect';
 import Totop from "./Totop";
 import Icon from './Icon';
 import Loading from './Loading';
+
 import { FaArrowsSpin } from "react-icons/fa6";
 import ElectronicsSkeleton from './ElectronicsSkeleton';
 //for testing
 import ElectronicsSkeletonbutton from './ElectronicsSkeletonbutton'
 
 
-export default function Electronics({ electronicList, setElectronics }) {
+
+
+export default function Electronics({ electronicList, setElectronics, categoriesList, setCategoriesList }) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [sortBy, setSortBy] = useState("");
@@ -21,7 +24,7 @@ export default function Electronics({ electronicList, setElectronics }) {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getElectronics(electronicsCategory || searchParams.get("category"), sortBy, order).then((electronics) => {
+    getElectronics(electronicsCategory || searchParams.get("electronics_type"), sortBy, order).then((electronics) => {
       setElectronics(electronics)
       setLoading(false)
     })
@@ -40,7 +43,7 @@ export default function Electronics({ electronicList, setElectronics }) {
     <>
     <div className="electronics">
       <div className='filter-electronics'>
-        <CategoriesSelect setElectronicsCategory={setElectronicsCategory} />
+        <CategoriesSelect setElectronicsCategory={setElectronicsCategory} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
         <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
         {loading ? (
           <div>

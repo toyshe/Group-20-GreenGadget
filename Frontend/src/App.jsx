@@ -17,21 +17,21 @@ import Basket from "./Components/Basket";
 import Repair from "./Components/Repair";
 
 function App() {
-  const [electronicCategory, getCategories] = useState('')
   const [loggedInUser, setLoggedInUser] = useState({})
   const [electronicList, setElectronics] = useState([])
   const [basketList, setBasketList] = useState([])
+  const [categoriesList, setCategoriesList] = useState([])
 
 
   return (
     <>
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
-        <Navigation getCategories={getCategories} />
+        <Navigation categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path='/' element={<Home />} />
-          <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} />} />
+          <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />} />
           <Route path="/electronics/:electronics_id" element={<ElectronicDevice setBasketList={setBasketList} basketList={basketList} />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/sell-item" element={<SellItem setElectronics={setElectronics} />} />
