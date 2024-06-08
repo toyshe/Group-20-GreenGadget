@@ -12,9 +12,6 @@ import ElectronicsSkeleton from './ElectronicsSkeleton';
 //for testing
 import ElectronicsSkeletonbutton from './ElectronicsSkeletonbutton'
 
-
-
-
 export default function Electronics({ electronicList, setElectronics, categoriesList, setCategoriesList }) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -41,41 +38,41 @@ export default function Electronics({ electronicList, setElectronics, categories
 
   return (
     <>
-    <div className="electronics">
-      <div className='filter-electronics'>
-        <CategoriesSelect setElectronicsCategory={setElectronicsCategory} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
-        <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
-        {loading ? (
-          <div>
-            <ElectronicsSkeleton /> 
-          </div>       
-        ) : 
-        (
-        <>
-        <ul className="electronics-box">
-        {electronicList.map((electronics) => (
-          <li key={electronics.electronics_id} className="electronic-item">
-            <button className='electronics_button' onClick={() => handleElectronicsClick(electronics)}>
-              <div className='electronics-epithet'>
-                <Icon props={electronics.electronics_type} className="electronics_button-icon" size={24} />
-                <p>{electronics.name}</p>
-              </div>
-              <img className='electronics_img' src={electronics.img_url} alt={electronics.model} />
-              <p><strong>Storage:</strong> {electronics.storage_in_gb}GB</p>
-              <p><strong>£</strong>{electronics.price}</p>
-              <p><strong>Seller: </strong>{electronics.username}</p>
-              <p><strong>In stock:</strong> {electronics.quantity}</p>
-            </button>
-          </li>
-        ))}
-        </ul>
-        <Totop />
-        </>
-        )}
-        
+      <div className="electronics">
+        <div className='filter-electronics'>
+          <CategoriesSelect setElectronicsCategory={setElectronicsCategory} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
+          <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
+          {loading ? (
+            <div>
+              <ElectronicsSkeleton />
+            </div>
+          ) :
+            (
+              <>
+                <ul className="electronics-box">
+                  {electronicList.map((electronics) => (
+                    <li key={electronics.electronics_id} className="electronic-item">
+                      <button className='electronics_button' onClick={() => handleElectronicsClick(electronics)}>
+                        <div className='electronics-epithet'>
+                          <Icon props={electronics.electronics_type} className="electronics_button-icon" size={24} />
+                          <p>{electronics.name}</p>
+                        </div>
+                        <img className='electronics_img' src={electronics.img_url} alt={electronics.model} />
+                        <p><strong>Storage:</strong> {electronics.storage_in_gb}GB</p>
+                        <p><strong>£</strong>{electronics.price}</p>
+                        <p><strong>Seller: </strong>{electronics.username}</p>
+                        <p><strong>In stock:</strong> {electronics.quantity}</p>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                <Totop />
+              </>
+            )}
+
+        </div>
+
       </div>
-      
-    </div>
     </>
   );
 }

@@ -32,7 +32,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path='/' element={<Home />} />
           <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />} />
-          <Route path="/electronics/:electronics_id" element={<ElectronicDevice setBasketList={setBasketList} basketList={basketList} />} />
+          <Route path="/electronics/:electronics_id" element={<ElectronicDevice setBasketList={setBasketList} />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/sell-item" element={<SellItem setElectronics={setElectronics} />} />
           <Route path="about" element={<About />}/>

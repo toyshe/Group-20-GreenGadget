@@ -1,16 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import Login from "./Login";
-import SignUp from "./SignUp";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SignUpButton from "./SignUpButton";
 import UserContext from "../contexts/UserContext";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaShoppingBasket } from "react-icons/fa";
 import { IoIosSunny } from "react-icons/io";
 import { getCategories } from "../../utils/utils";
 
 
-export default function Navigation({categoriesList, setCategoriesList}) {
+export default function Navigation({ categoriesList, setCategoriesList }) {
     const navigate = useNavigate()
     const { loggedInUser, setLoggedInUser } = useContext(UserContext)
 
@@ -82,8 +80,6 @@ export default function Navigation({categoriesList, setCategoriesList}) {
         navigate('/repair')
     }
 
-
-    /*if you fix onclick pass it through here it should look nicer*/
     const handleSignIn = () => {
         hideSidebar();
         setTimeout(() => {
@@ -98,14 +94,12 @@ export default function Navigation({categoriesList, setCategoriesList}) {
 
         const enableDarkMode = () => {
             root.classList.add('darkmode');
-            // document.body.classList.add('darkmode');
             localStorage.setItem('darkMode', 'enabled');
             console.log("enableDarkMode");
         }
 
         const disableDarkMode = () => {
             root.classList.remove('darkmode');
-            // document.body.classList.remove('darkmode');
             localStorage.removeItem('darkMode', 'enabled');
             console.log("disableDarkMode");
         }
@@ -127,7 +121,6 @@ export default function Navigation({categoriesList, setCategoriesList}) {
         }, []);
 
     }, [])
-    /*fix onclick*/
 
     const toggleSubMenu = () => {
         const subMenu = document.querySelector('.sub-menu');
@@ -156,8 +149,7 @@ export default function Navigation({categoriesList, setCategoriesList}) {
 
 
                 <ul className="sl">
-
-                   <li className="dropdown-container">
+                    <li className="dropdown-container">
                         <li onClick={toggleSubMenu}><a>Shop by category</a></li>
                         <div className="sub-menu">
                             {categoriesList.map((category) => {
@@ -165,10 +157,6 @@ export default function Navigation({categoriesList, setCategoriesList}) {
                                     <a onClick={handleCategoryClick}>{category.slug}</a>
                                 )
                             })}
-                            {/* <a href="#">Category 1</a>
-                            <a href="#">Category 2</a>
-                            <a href="#">Category 3</a>
-                            <a href="#">Category 4</a> */}
                         </div>
                     </li>
                     <li onClick={handleAllItemsClick}><a>All items</a></li>
@@ -211,57 +199,6 @@ export default function Navigation({categoriesList, setCategoriesList}) {
                 </div>
 
             </div>
-
-
-            {/* <div className="side-menu">
-                <label htmlFor="sidebar-active" className="close-sidebar-button" onClick={hideSidebar}>
-                    <span className="side-menu-title">MENU</span>
-                    <i className="fa-solid fa-xmark"></i>
-                </label>
-                <ul className="sl">
-                    <li className="dropdown-container">
-                        <li onClick={toggleSubMenu}><a>Shop by category</a></li>
-                        <div className="sub-menu">
-                            <a href="#">Category 1</a>
-                            <a href="#">Category 2</a>
-                            <a href="#">Category 3</a>
-                            <a href="#">Category 4</a>
-                        </div>
-                    </li>
-                    <li onClick={handleAllItemsClick}><a>All items</a></li>
-                    <li onClick={handleSellClick}><a>Sell item</a></li>
-                    <li onClick={handleRepair}><a>Repair</a></li>
-                    <li onClick={handleSignIn}><a>SignIn</a></li>
-                    <li onClick={handleSupportClick}><a>Support</a></li>
-                    <li onClick={handleFaqClick}><a>FAQ</a></li>
-                    <li onClick={handleTCclick}><a>T&C</a></li>
-                    <li onClick={handleAboutClick}><a>About us</a></li>
-                </ul>
-                <div id="side-menu-bottom">
-                    <div id="side-menu-settings-container">
-                        <div id="side-menu-settings">
-                            <div id="dmt-toggle">
-                                <div className="DM-btn">
-                                    <IoIosSunny className="fa-sun" />
-                                    <div>
-                                        <span className="DM-label"></span>
-                                    </div>
-                                </div>
-                                <span className="DM-toggle-text">Dark Mode Toggle</span>
-                                <div id="DM-toggle-switch">
-                                    <span className="switch"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="side-menu-logout">
-                            <i className="fa-solid fa-right-from-bracket"></i>
-                            <span onClick={handleLogOut}>Logout</span>
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-
-
 
             <input type="checkbox" id="sidebar-active"></input>
             <label htmlFor="sidebar-active" className="open-sidebar-button" onClick={showSidebar}><i className="fa-solid fa-bars" ></i></label>

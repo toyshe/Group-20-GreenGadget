@@ -9,7 +9,6 @@ const Icon = ({props, className = "", size}) => {
     : props === 'Laptop' ?  AiOutlineLaptop
     : props === "Smartwatch" ? BsSmartwatch
     : MdTabletMac;
-    // console.log(props,className)
   return (
     <Icontype size={size} className={className}/>
   )
