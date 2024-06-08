@@ -1,0 +1,49 @@
+.ElectronicsSkeleton li{
+    list-style: none;
+    background-color: ghostwhite;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+}
+
+@media screen and (max-width: 1024px) {
+    .ElectronicsSkeleton li{
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+    }
+}
+@media screen and (max-width: 768px) {
+    .ElectronicsSkeleton li{
+        flex: 1 1 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+    }
+}
+@media screen and (max-width: 600px) {
+    .ElectronicsSkeleton li{
+        flex: 1 1 calc(100% - 20px);
+        max-width: calc(100% - 20px);
+        height: auto;
+    }
+}
+
+.ElectronicsSkeleton button {
+    background-color: ghostwhite;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ElectronicsSkeleton ul{
+    padding: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 40px;
+    row-gap: 10px;
+    column-gap: 10px;
+}

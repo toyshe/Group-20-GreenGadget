@@ -753,7 +753,7 @@ ul.sl {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .electronic-item {
@@ -764,6 +764,8 @@ ul.sl {
   margin-bottom: 20px;
   flex: 1 1 calc(33.33% - 20px);
   max-width: calc(33.33% - 20px);
+  animation: electronic-item-load 2s ease-in;
+  animation-fill-mode: forwards;
 }
 
 .electronics_button {
@@ -1428,4 +1430,37 @@ button[type='submit']:hover {
   outline: none;
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+.electronics_button p{
+  margin-bottom: 5px;
+}
+
+/* skeleton loading animations */
+.skeleton{
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0%{
+      background-color: hsl(200, 20%, 70%);
+  }
+
+  100%{
+      background-color: hsl(200, 20%, 95%);
+  }
+  
+}
+
+/* electronic-item initial load animation */
+@keyframes electronic-item-load {
+  0%{
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+100%{
+  transform: translateY(0);
+  opacity: 1;
+  }
 }
