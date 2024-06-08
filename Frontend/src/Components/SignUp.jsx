@@ -181,17 +181,14 @@ export default function SignUp() {
                     </>
                     : null}
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
-                {/* <button type="submit" onClick={handleSubmit} >Submit</button> */}
                 <button onClick={() => document.getElementById('id02').style.display = 'block'} style={{ width: 'auto' }}>Submit</button>
 
             </form>
-            {loading && <p>Loading...</p>} {/* Show loading message when loading state is true */}
+            {loading && <p>Loading...</p>} 
             {showPopup && (
                 <div className="popup">
                     <div className="popup-content">
-                        {/* Customize the message based on the success or failure */}
                         <p>{error ? `Sign-up failed. ${error}. Please try again.` : 'Sign-up successful!'}</p>
-                        {/* Add additional content or actions if needed */}
                         <button onClick={togglePopup}>Close</button>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ import Icon from './Icon';
 import Loading from "./Loading";
 
 
-export default function ElectronicDevice({setBasketList, basketList}) {
+export default function ElectronicDevice({setBasketList}) {
     const {electronics_id} = useParams()
     const [electronic, setElectronic] = useState({})
     const {loggedInUser} = useContext(UserContext)
