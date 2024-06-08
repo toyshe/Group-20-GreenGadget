@@ -425,6 +425,44 @@ body {
 .side-menu .close-sidebar-button:hover {
   cursor: pointer;
 }
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+  left: -100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-color: white;
+  transition: left 0.5s ease-out;
+}
+#sidebar-active:checked ~ .side-menu {
+  display: flex;
+}
+
+.sub-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  padding-left: 20px;
+}
+
+.open-sidebar-button {
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  /* position: fixed; */
+  top: 10px;
+  left: 10px;
+  /* z-index: 1000; */
+}
+
 .logo:hover{
   cursor: pointer;
 }
@@ -469,25 +507,6 @@ body {
   color: #000;
 }
 
-.side-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  height: 100vh;
-  width: 250px;
-  z-index: 999;
-  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
-  left: -100%;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background-color: white;
-  transition: 0.5s ease-out;
-}
-#sidebar-active:checked ~ .side-menu {
-  display: flex;
-}
 #overlay{
   background: rgba(0, 0, 0, 0.6);
   height: 100%;

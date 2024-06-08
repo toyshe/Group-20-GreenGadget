@@ -2,11 +2,9 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getCategories } from "../../utils/utils"
 
-export default function CategoriesSelect({ setElectronicsCategory }) {
-    const [categoriesList, setCategoriesList] = useState([])
+export default function CategoriesSelect({ setElectronicsCategory, categoriesList, setCategoriesList }) {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
-    // const [electronicsCategory, setElectronicsCategory] = useState('')
 
     const navigate = useNavigate()
 
@@ -22,9 +20,6 @@ export default function CategoriesSelect({ setElectronicsCategory }) {
     }
 
     return (
-    
-    // <select>
-
         <div className="dropdown dropdown-list filters-container">
             <div className="filter-group">
                 <p>Categories: </p>
@@ -43,6 +38,5 @@ export default function CategoriesSelect({ setElectronicsCategory }) {
 
             </div>
         </div>
-    // </select>
     )
 }
