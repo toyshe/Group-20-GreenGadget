@@ -5,12 +5,9 @@ import { getElectronics } from "../../utils/utils";
 import CategoriesSelect from './CategoriesSelect';
 import Totop from "./Totop";
 import Icon from './Icon';
-import Loading from './Loading';
-
 import { FaArrowsSpin } from "react-icons/fa6";
 import ElectronicsSkeleton from './ElectronicsSkeleton';
-//for testing
-import ElectronicsSkeletonbutton from './ElectronicsSkeletonbutton'
+
 
 export default function Electronics({ electronicList, setElectronics, categoriesList, setCategoriesList }) {
   const navigate = useNavigate();
@@ -32,9 +29,6 @@ export default function Electronics({ electronicList, setElectronics, categories
     navigate(`/electronics/${electronics.electronics_id}`)
   };
 
-  // if(loading){
-  //   return <Loading loadingHeader=' electronics' />
-  // }
 
   return (
     <>
