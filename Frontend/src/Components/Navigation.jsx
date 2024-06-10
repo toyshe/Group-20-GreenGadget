@@ -150,11 +150,11 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
                 <ul className="sl">
                     <li className="dropdown-container">
-                        <li onClick={toggleSubMenu}><a>Shop by category</a></li>
+                        <div onClick={toggleSubMenu}><a>Shop by category</a></div>
                         <div className="sub-menu">
-                            {categoriesList.map((category) => {
+                            {categoriesList.map((category,index) => {
                                 return (
-                                    <a onClick={handleCategoryClick}>{category.slug}</a>
+                                    <a key={index} onClick={handleCategoryClick}>{category.slug}</a>
                                 )
                             })}
                         </div>

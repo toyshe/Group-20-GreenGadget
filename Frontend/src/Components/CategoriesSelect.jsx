@@ -25,11 +25,12 @@ export default function CategoriesSelect({ setElectronicsCategory, categoriesLis
                 <p>Categories: </p>
                 <div className="dropdown-content">
                     <select className="electronicsType" defaultValue='' onChange={handleCategorySelect}>
-                        <option value='' disabled>Select a category</option>
-                        {categoriesList.map((category) => {
+                        <option value=' ' disabled>Select a category</option>
+                        {categoriesList.map((category, index) => {
                             return (
                                 <>
-                                    <option value={category.slug}>{category.slug}</option>
+                                    <option key={index} value={category.slug}>{category.slug}</option>
+                                    {/* {console.log(index)} */}
                                 </>
                             )
                         })}

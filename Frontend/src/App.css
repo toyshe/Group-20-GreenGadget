@@ -557,6 +557,9 @@ ul.sl {
   padding-left: 0;
   margin-left: 0;
 }
+ul.sl .dropdown-container{
+  padding: 0;
+}
 
 .container button {
   border-radius: 0;
@@ -1029,7 +1032,10 @@ ul li {
 }
 
 /*Support*/
-
+.support-page-container{
+  display: flex;
+  align-items: center;
+}
 .support-container {
   max-width: 800px;
   margin: 0 auto;
@@ -1103,6 +1109,11 @@ button[type='submit']:hover {
 
 .legal h2{
   margin-right: 25px;
+}
+.support-spline{
+  margin: 10px;
+  width: 747px !important;
+  height: 600px !important;
 }
 
 
