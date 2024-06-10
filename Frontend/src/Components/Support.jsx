@@ -1,41 +1,8 @@
+
 import { useEffect } from "react";
 // import Spline from '@splinetool/react-spline';
 
 export default function Support() {
-
-  let i = 0;
-  let y = 0;
-  let j = 0;
-  let placeholder = "";
-  const txt = "example@domain.com";
-  let nameplaceholder = "";
-  const nametxt = "Enter your preferred name";
-  let messageplaceholder = "";
-  const messagetxt = "Enter your preferred name";
-
-  // useEffect(
-  //   function type()  {
-  //     placeholder += txt.charAt(i);
-  //     console.log(txt.charAt(i))
-  //     document.getElementById("email").setAttribute("placeholder",placeholder);
-  //     i++;
-  //     setTimeout(type,200);
-  // })
-
-
-  // useEffect(function nametype()  {
-  //     nameplaceholder += nametxt.charAt(y);
-  //     document.getElementById("name").setAttribute("placeholder",nameplaceholder);
-  //     y++;
-  //     setTimeout(nametype,120);
-  // },[])
-
-  // useEffect(function messagetype()  {
-  //   messageplaceholder += messagetxt.charAt(j);
-  //   document.getElementById("message").setAttribute("placeholder",messageplaceholder);
-  //   j++;
-  //   setTimeout(messagetype,120);
-  // },[])
 
   return (
     <div className="support-page-container">

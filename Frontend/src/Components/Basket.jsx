@@ -1,13 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { getBasketByUserId } from "../../utils/utils";
 import UserContext from "../contexts/UserContext";
 
-export default function Basket({basketList, setBasketList}) {
+export default function Basket({ basketList, setBasketList }) {
     const { loggedInUser } = useContext(UserContext)
 
     useEffect(() => {
         getBasketByUserId(loggedInUser.user_id).then((data) => {
-            console.log(data);
             setBasketList(data)
         })
     }, [])
@@ -24,23 +23,21 @@ export default function Basket({basketList, setBasketList}) {
 
     return (
         <div>
-            {/* <> */}
-                {basketList.map((basket) => {
-                    return (<div className="basket-item">
+            {basketList.map((basket) => {
+                return (<div className="basket-item">
 
-                        <img src={basket.img_url} />
-                        <div>
+                    <img src={basket.img_url} />
+                    <div>
 
-                            <p>{basket.name}</p>
-                            <p>{basket.model}</p>
-                            <p className="price">{basket.price}</p>
-                            <p className="quantity">{basket.quantity}</p>
-                            <button onClick={() => handleRemoveItem(index)}>Remove</button>
-                        </div>
-                    </div>)
-                })}
-                <button onClick={() => handleOrderItem(basket)}>Order</button>
-            {/* </> */}
+                        <p>{basket.name}</p>
+                        <p>{basket.model}</p>
+                        <p className="price">{basket.price}</p>
+                        <p className="quantity">{basket.quantity}</p>
+                        <button onClick={() => handleRemoveItem(index)}>Remove</button>
+                    </div>
+                </div>)
+            })}
+            <button onClick={() => handleOrderItem(basket)}>Order</button>
         </div>
     )
 }
