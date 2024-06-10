@@ -1029,7 +1029,9 @@ ul li {
 }
 
 /*Support*/
-
+.support-page-container{
+  display: flex;
+}
 .support-container {
   max-width: 800px;
   margin: 0 auto;

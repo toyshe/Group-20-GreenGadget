@@ -1,6 +1,11 @@
+
+import { useEffect } from "react";
+// import Spline from '@splinetool/react-spline';
+
 export default function Support() {
 
   return (
+    <div className="support-page-container">
     <div className="support-container">
       <h1>Support</h1>
       <p>
@@ -22,6 +27,8 @@ export default function Support() {
         </div>
         <button type="submit">Submit</button>
       </form>
+    </div>
+    {/* <Spline scene="https://prod.spline.design/mR5MFMW-LeJHAktL/scene.splinecode" /> */}
     </div>
   );
 }
