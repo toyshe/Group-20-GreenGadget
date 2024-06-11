@@ -1239,13 +1239,12 @@ button[type='submit']:hover {
 }
 
 /*new method to make footer stick to bottom*/
-/* #root{
+#root{
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-} */
+}
 #footer {
-  width: 100%;
   margin-top: auto;
 }
 
