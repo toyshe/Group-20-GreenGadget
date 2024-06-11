@@ -49,6 +49,7 @@ export default function SellItem({ setElectronics }) {
   };
 
   return (
+    <div className="sell-item-page-container">
     <div className="sell-item-form-container">
       <h1>Sell an Item</h1>
       {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid">Sorry, only shopkeepers are allowed to sell an item</p>}
@@ -103,6 +104,7 @@ export default function SellItem({ setElectronics }) {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }

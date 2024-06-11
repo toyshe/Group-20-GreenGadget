@@ -5,6 +5,11 @@
   align-items: center;
   flex-direction: column;
 } */
+.sell-item-page-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .sell-item-form-container {
   background-color: white;
   padding: 20px 30px;

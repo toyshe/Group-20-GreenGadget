@@ -86,7 +86,7 @@ export default function FAQ(){
 
     const config = {
         animate: true,
-        arrowIcon: 'V',
+        arrowIcon: <span className="faq-icon">V</span>,
         tabFocus: true
     }
 
