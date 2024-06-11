@@ -1,8 +1,10 @@
-#root {
+/* This root if affecting the css of the other pages and the footer but i can't seem to find a way to make the form centered without putting the align-items in the root*/
+
+/* #root {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
+} */
 .sell-item-form-container {
   background-color: white;
   padding: 20px 30px;
