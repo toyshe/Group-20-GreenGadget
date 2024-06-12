@@ -6,4 +6,81 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    perspective: 1000px;
+}
+.loading-animation-container .cube-pos{
+    height: 400px;
+    width: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: ROTATE-CUBE 20s infinite linear;
+}
+
+.loadbox1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: cyan; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateZ(200px);
+}
+.loadbox2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: green; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateZ(-200px);
+}
+.loadbox3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellowgreen; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateX(200px) rotateY(-90deg);
+}
+.loadbox4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: royalblue; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateX(-200px) rotateY(-90deg);
+}
+.loadbox5{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: gold; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateY(-200px) rotateX(90deg);
+}
+.loadbox6{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: magenta; */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: translateY(200px) rotateX(90deg);
+}
+
+@keyframes ROTATE-CUBE{
+    0%{transform: rotateX(45deg) rotateY(45deg) ;}
+    25%{transform: rotateX(-45deg) rotateY(45deg) ;}
+    50%{transform: rotateX(-45deg) rotateY(-45deg) ;}
+    75%{transform: rotateX(45deg) rotateY(-45deg) ;}
+    100%{transform: rotateX(45deg) rotateY(45deg) ;}
 }
