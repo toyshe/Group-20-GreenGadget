@@ -84,3 +84,26 @@
     75%{transform: rotateX(45deg) rotateY(-45deg) ;}
     100%{transform: rotateX(45deg) rotateY(45deg) ;}
 }
+
+.cube-pos .loadbox1 img,
+.cube-pos .loadbox2 img{
+    animation: spin-i 4s infinite linear;
+}
+
+/* .cube-pos .loadbox3 img,
+.cube-pos .loadbox4 img{
+    animation: spin-j 8s infinite ease;
+} */
+/* @keyframes spin-i{
+    0%{transform: rotateX(45deg) rotateY(45deg) ;}
+    25%{transform: rotateX(-45deg) rotateY(45deg) ;}
+    50%{transform: rotateX(-45deg) rotateY(-45deg) ;}
+    75%{transform: rotateX(45deg) rotateY(-45deg) ;}
+    100%{transform: rotateX(45deg) rotateY(45deg) ;}
+} */
+@keyframes spin-i{
+    100%{transform: rotate(360deg) ;}
+}
+@keyframes spin-j{
+    100%{transform: rotate(360deg) ;}
+}
