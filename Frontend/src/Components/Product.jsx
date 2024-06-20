@@ -1,34 +1,49 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { getElectronicsById } from "../../utils/utils";
-import { useParams } from "react-router-dom";
-// import electronics from "../../../Backend/db/data/development-data/electronics";
+import "./product.css";
+import { BsFillBasket3Fill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
-export default function Product(electronic) {
-  
-    /*const {electronics_id} = useParams()
-    const [electronic, setElectronic] = useState({})
 
-    useEffect(() => {
-        getElectronicsById(electronics_id).then((electronic) => {
-            setElectronic(electronic)
-        }).catch((err) => {
-            console.log(err);
-        })
-    }, [])*/
-    // electronic
+export default function Product({electronicList}) {
+
+    const navigate = useNavigate();
+
+    const handleElectronicsClick = (electronic) => {
+        navigate(`/electronics/${electronic.electronics_id}`)
+    };
+
       
     return(
         <>
-        <img src={electronic.img_url} alt={electronic.model} />
-            <div className="electronic-details">
-                <h1>{electronic.name}</h1>
-                <h2>{electronic.model}</h2>
-                <p>Description: {electronic.description}</p>
-                <p>Storage: {electronic.storage_in_gb}GB</p>
-                <p>Price: {electronic.price}</p>
-                <p>Seller: {electronic.username}</p>
-            </div>
+            {electronicList.map((electronic) => (
+                <div key={electronic.electronics_id} className="product-item">
+                    <div className="product-item-container">
+                    <div className="product-type"><span>Reccomended</span></div>
+                        <div className="product-img" onClick={() => handleElectronicsClick(electronic)} ><img src={electronic.img_url} alt={electronic.model} /></div>
+                        <div className="product-details">
+                            {/* {console.log(electronic.electronics_type)} */}
+                            <div className="product-subtitle" onClick={() =>{
+                                
+                                const electronicstype = electronic.electronics_type === "Phone" ? (()=>{navigate(`/electronics?electronics_type=${electronic.electronics_type}`)})
+                                : electronic.electronics_type === 'Laptop' ?  (()=>{navigate(`/electronics?electronics_type=${electronic.electronics_type}`)})
+                                : electronic.electronics_type === "Smartwatch" ? (()=>{navigate(`/electronics?electronics_type=${electronic.electronics_type}`)})
+                                : (()=>{navigate(`/electronics?electronics_type=${electronic.electronics_type}`)});
+                                electronicstype();
+                            }} >{electronic.electronics_type}</div>
+                            {/* {console.log(electronicstype)} */}
+                            <h1 className="product-name" onClick={() => handleElectronicsClick(electronic)} >{electronic.name}</h1>
+                            {/* <h2>{electronic.model}</h2> */}
+                            {/* <p>Description: {electronic.description}</p> */}
+                            {/* <p>Storage: {electronic.storage_in_gb}GB</p> */}
+                            <div className="product-prices">
+                                <p>Price: £{electronic.price}</p>
+                                <div className="basket-icon"><BsFillBasket3Fill size={30} /></div>
+                            </div>
+                            {/* <p>Seller: {electronic.username}</p> */}
+                        </div>
+                    </div>
+                </div>
+            ))}
         </>
     )
 }

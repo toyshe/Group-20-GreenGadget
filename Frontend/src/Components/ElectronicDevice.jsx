@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { getElectronicsById, postBasket } from "../../utils/utils";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import Icon from './Icon';
 import Loading from "./Loading";
@@ -12,6 +12,7 @@ export default function ElectronicDevice({setBasketList}) {
     const {loggedInUser} = useContext(UserContext)
     const [showPopup, setShowPopup] = useState(false)
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate();
 
     useEffect(() => {
         getElectronicsById(electronics_id).then((electronic) => {
@@ -35,6 +36,11 @@ export default function ElectronicDevice({setBasketList}) {
     const togglePopup = () => {
         setShowPopup(!showPopup)
     }
+
+    const handleTypeclick = () => {
+        navigate(`/electronics?electronics_type=${electronic.electronics_type}`)
+    }
+    
 
     if(loading){
         return <Loading />
@@ -62,7 +68,8 @@ export default function ElectronicDevice({setBasketList}) {
                 <div className="popup">
                     <div className="popup-content">
                         {/* Customize the message based on the success or failure */}
-                        <p>Item Added to Basket!</p>
+                        
+                        <p>Item <strong>{electronic.model}</strong> Added to Basket!</p>
                         {/* Add additional content or actions if needed */}
                         <button onClick={togglePopup}>Close</button>
                     </div>
@@ -73,7 +80,7 @@ export default function ElectronicDevice({setBasketList}) {
         <div className="device-stats">
             <div className="electronic-device-epithet">
                 <Icon props={electronic.electronics_type} className="electronics_device-icon" size={36}/>
-                <span><h3 className="device-type">{electronic.electronics_type}</h3></span>
+                <span><h3 className="device-type" onClick={handleTypeclick}>{electronic.electronics_type}</h3></span>
             </div>
             <h1>{electronic.model}</h1>
             <br></br>

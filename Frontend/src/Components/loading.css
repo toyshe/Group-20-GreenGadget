@@ -107,3 +107,15 @@
 @keyframes spin-j{
     100%{transform: rotate(360deg) ;}
 }
+/* @-moz-keyframes spin-i{
+    100%{transform: rotate(360deg) ;}
+}
+@-moz-keyframes spin-j{
+    100%{transform: rotate(360deg) ;}
+}
+@-webkit-keyframes spin-i{
+    100%{-webkit-transform: rotate(360deg) ;}
+}
+@-webkit-keyframes spin-j{
+    100%{-webkit-transform: rotate(360deg) ;}
+} */
