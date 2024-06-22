@@ -30,7 +30,7 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home electronicList={electronicList} />} />
           <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />} />
           <Route path="/electronics/:electronics_id" element={<ElectronicDevice setBasketList={setBasketList} />} />
           <Route path="/faq" element={<FAQ />} />

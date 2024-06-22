@@ -28,7 +28,8 @@ export default function Electronics({ electronicList, setElectronics, categories
   const handleElectronicsClick = (electronics) => {
     navigate(`/electronics/${electronics.electronics_id}`)
   };
-
+  // console.log("test print")
+  // console.log(electronicList)
 
   return (
     <>
@@ -36,6 +37,7 @@ export default function Electronics({ electronicList, setElectronics, categories
         <div className='filter-electronics'>
           <CategoriesSelect setElectronicsCategory={setElectronicsCategory} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
           <SortElectronics setSortBy={setSortBy} setOrder={setOrder} />
+          {/* {console.log(electronicList)} */}
           {loading ? (
             <div>
               <ElectronicsSkeleton />
@@ -57,6 +59,7 @@ export default function Electronics({ electronicList, setElectronics, categories
                         <p><strong>Seller: </strong>{electronics.username}</p>
                         <p><strong>In stock:</strong> {electronics.quantity}</p>
                       </button>
+                      {/* {console.log(electronicList)} */}
                     </li>
                   ))}
                 </ul>

@@ -13,12 +13,14 @@ import img11 from './images/img11.jpg'
 import img12 from './images/img12.jpg'
 import Product from "./Product";
 import Totop from "./Totop";
+// import { getElectronics } from "../../utils/utils";
 
 
 
-export default function Home(){
+export default function Home({electronicList}){
   
- 
+  console.log("test print at home")
+  console.log(electronicList)
 
   //fix/reorgainse this 
   useEffect(()=> {
@@ -100,7 +102,9 @@ export default function Home(){
         </div>
       </div>
 
-      {/* <Product /> */}
+      <Product electronicList={electronicList} />
+
+      {/* user benefit  */}
 
       <div className="card-container">
       <div className="rm-card">
