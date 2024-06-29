@@ -119,3 +119,28 @@
 @-webkit-keyframes spin-j{
     100%{-webkit-transform: rotate(360deg) ;}
 } */
+
+.ellipsis{
+    display: inline-block;
+}
+.ellipsis:nth-child(1){
+    animation: preloader 0.6s ease-in-out alternate infinite;
+}
+.ellipsis:nth-child(2){
+    animation: preloader 0.6s ease-in-out alternate 0.2s infinite;
+
+}
+.ellipsis:nth-child(3){
+    animation: preloader 0.6s ease-in-out alternate 0.4s infinite;
+
+}
+@keyframes preloader{
+    75%{
+        color: rgb(0, 255, 132); 
+    }
+    100%{
+        transform: scale(2);
+        color: rgb(0, 255, 132);
+        opacity: 0;
+    }
+}
