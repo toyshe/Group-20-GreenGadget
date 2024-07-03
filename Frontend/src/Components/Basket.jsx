@@ -60,6 +60,9 @@ export default function Basket({ basketList, setBasketList }) {
                 </div>
             </div>
             {console.log(basketList.length)}
+            {console.log(loggedInUser)}
+
+            {/* {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid">Sorry, only shopkeepers are allowed to sell an item</p>} */}
             <div>
             {basketList.map((basket, index) => {
                 return (
