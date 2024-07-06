@@ -45,6 +45,10 @@ export default function Basket({ basketList, setBasketList }) {
         console.log("Ordering item:", basketItem);
     };
 
+    const handleElectronicsClick = (electronics) => {
+        navigate(`/electronics/${electronics.electronics_id}`)
+    };
+
     return (
         <div>
             <div className="summary-wrapper">
@@ -69,7 +73,7 @@ export default function Basket({ basketList, setBasketList }) {
                 <div className="basket-item">
                     {console.log(index)}
 
-                    <img src={basket.img_url} />
+                    <img onClick={()=> {handleElectronicsClick(basket)}} src={basket.img_url} />
                     <div>
                         <p>{basket.name}</p>
                         <p>{basket.model}</p>

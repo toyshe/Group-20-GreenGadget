@@ -1,0 +1,113 @@
+.notFound-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h2{
+  align-self: start;
+}
+h1{
+  color: #04aa6d;
+}
+a{
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+/* button{
+    padding: 10px 20px 10px 20px;
+    
+  }
+  button {
+    font-family: sans-serif;
+    font-size: 24px;
+    color: #fff;
+    background-color: black;
+    border: none;
+    border-radius: 40px;
+    padding: 20px 72px;
+    display: inline-block;
+    z-index: 1;
+    cursor: pointer;
+  }
+  button span{
+    position: relative;
+    z-index: 3;
+    transition-delay: 0.3s;
+  }
+  
+  .circle{
+    height: 65px;
+    width: 65px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+  }
+  .bubble-btn{
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;
+  }
+  .circle1{
+    top: -80px;
+    left:-40px;
+  }
+  .circle2{
+    top: -80px;
+    left:80px;
+  }
+  .circle3{
+    top: -80px;
+    left: 200px;
+  }
+  .circle4{
+    bottom: -80px;
+    left:-40px;
+  }
+  .circle5{
+    bottom: -80px;
+    left:80px;
+  }
+  .circle6{
+    bottom: -80px;
+    left: 200px;
+  }
+  
+  button:hover .circle1{
+    top: -5px;
+    left: 0px;
+    transform: translateY(-50px);
+  
+  }
+  
+  .bubble-btn:hover .circle1{
+    transform: translateY(50px) translateX(42px) scale(1.5);
+  }
+  .bubble-btn:hover .circle4{
+    transform: translateY(-50px) translateX(42px) scale(1.4);
+  }
+  
+  .bubble-btn:hover .circle3{
+    transform: translateY(50px) translateX(-45px) scale(1.4);
+  }
+  .bubble-btn:hover .circle6{
+    transform: translateY(-50px) translateX(-45px) scale(1.4);
+  }
+  
+  .bubble-btn:hover .circle2{
+    transform: translateY(50px) scale(1.6);
+  }
+  .bubble-btn:hover .circle5{
+    transform: translateY(-50px) scale(1.6);
+  }
+  
+  .bubble-btn:hover span{
+    color: black;
+  }
+  
+  .bubble-btn:active .circle{
+    background-color: whitesmoke;
+  } */

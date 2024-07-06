@@ -371,6 +371,9 @@ body {
   align-items: center;
   position: relative;
 }
+.basket-user svg {
+  cursor: pointer;
+}
 
 .fa-user {
   color: white;
@@ -1165,6 +1168,7 @@ button[type='submit']:hover {
   width: 100px; /* Adjust as needed */
   height: 100px; /* Adjust as needed */
   margin-right: 20px;
+  cursor: pointer;
 }
 
 /* Text content */
@@ -1566,4 +1570,10 @@ button[type='submit']:hover {
   opacity: 1;
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.flex-space-between-gap10px{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
