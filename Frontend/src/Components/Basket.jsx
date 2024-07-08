@@ -91,6 +91,9 @@ export default function Basket({ basketList, setBasketList }) {
                 )
             })}
             </div>
+            {!loggedInUser.username ?
+            <p className="login-message">You need to log in to make an order</p> 
+            : null}
             <button onClick={() => handleOrderItem(basket)}>Order</button>
         </div>
     )

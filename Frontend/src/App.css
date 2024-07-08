@@ -1577,3 +1577,13 @@ button[type='submit']:hover {
   justify-content: space-between;
   gap: 10px;
 }
+
+.login-message{
+  text-align: center;
+  margin-top: 15px;
+  color: red;
+  background-color: rgb(199, 163, 163);
+  /* find a better font later */
+  font-family: Tahoma, sans-serif;
+  font-weight: 900;
+}
