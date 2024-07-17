@@ -5,21 +5,47 @@
   perspective: 1000px;
   /* min-height: 100vh; */
 }
+.fof-message{
+  font-family: monument, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 20px;
+}
 h2{
   align-self: start;
 }
 .four04-title{
-  font-size: 32px;
+  font-size: 256px;
   color: #04aa6d;
-  transition: transform 5s ease;
+  /* transition: all 5s linear ; */
   position: relative;
+  margin-bottom: 0px;
 }
+/* .four04-title::after{
+  content: "404";
+  font-size: 256px;
+  color: magenta;
+  transition: all 5s linear ;
+  position: absolute;
+  
+}
+.four04-title::before{
+  content: "404";
+  font-size: 256px;
+  color: yellow;
+  transition: all 5s linear ;
+  position: absolute;
+  opacity: 0.5;
+} */
+
 /* .four04-title2{
   position: absolute;
 } */
-.four04-title:hover{
-  transform: translateZ(500px) scale(50);
-}
+/* .four04-title:hover{
+  transform: translateZ(500px) scale(5);
+  opacity: 0;
+} */
 a{
   text-decoration: none;
   color: var(--foreground);
@@ -28,7 +54,9 @@ a{
 .bubble-btn {
   font-family: sans-serif;
   font-size: 24px;
-  color: #fff;
+  /* color: #fff; */
+  color: #000000;
+
   background-color: black;
   background-color: #e9ed7b;
   border: none;
@@ -41,26 +69,27 @@ a{
   opacity: 1;
 }
 .bubble-btn span{
-    position: relative;
-    z-index: 3;
-    transition-delay: 0.3s;
+  position: relative;
+  z-index: 3;
+  transition-delay: 0.3s;
 }
   
-  .circle{
-    height: 65px;
-    width: 65px;
-    /* background-color: #fff; */
-    background-color: greenyellow;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 1;
-    transition: transform 0.4s ease;
-    cursor: pointer;
-  }
+.circle{
+  height: 65px;
+  width: 65px;
+  /* background-color: #fff; */
+  background-color: greenyellow;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
   .stylised-bubble-btn{
     position: relative;
     overflow: hidden;
     border-radius: 40px;
+    margin-bottom: 30px;
   }
   .circle1{
     top: -75px;
@@ -116,8 +145,7 @@ a{
   }
   
 .stylised-bubble-btn:hover span,
-.bubble-btn:hover span,
-span{
+.bubble-btn:hover span{
   color: black;
 }
 
@@ -126,8 +154,9 @@ span{
   background-color: rgb(189, 255, 89);
 }
 
-.temptest{
+.fof{
   width: 100%;
   text-align: center;
   overflow: hidden;
+  margin: 50px 0px;
 }

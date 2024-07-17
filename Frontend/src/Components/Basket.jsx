@@ -10,6 +10,8 @@ export default function Basket({ basketList, setBasketList }) {
     const { loggedInUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [orderlen, setorderlen] = useState(basketList.length);
+    const [userTypeError, setUserTypeError] = useState(loggedInUser.username);
+
     console.log(orderlen);
 
     
@@ -66,7 +68,6 @@ export default function Basket({ basketList, setBasketList }) {
             {console.log(basketList.length)}
             {console.log(loggedInUser)}
 
-            {/* {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid">Sorry, only shopkeepers are allowed to sell an item</p>} */}
             <div>
             {basketList.map((basket, index) => {
                 return (
@@ -94,7 +95,8 @@ export default function Basket({ basketList, setBasketList }) {
             {!loggedInUser.username ?
             <p className="login-message">You need to log in to make an order</p> 
             : null}
-            <button onClick={() => handleOrderItem(basket)}>Order</button>
+            {/* fix this */}
+            <button disabled={userTypeError} onClick={() => handleOrderItem(basket)}>Order</button>
         </div>
     )
 }
