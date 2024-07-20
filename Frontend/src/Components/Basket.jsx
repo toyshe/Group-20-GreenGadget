@@ -10,6 +10,8 @@ export default function Basket({ basketList, setBasketList }) {
     const { loggedInUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [orderlen, setorderlen] = useState(basketList.length);
+    const [userTypeError, setUserTypeError] = useState(loggedInUser.username);
+
     console.log(orderlen);
 
     
@@ -45,6 +47,10 @@ export default function Basket({ basketList, setBasketList }) {
         console.log("Ordering item:", basketItem);
     };
 
+    const handleElectronicsClick = (electronics) => {
+        navigate(`/electronics/${electronics.electronics_id}`)
+    };
+
     return (
         <div>
             <div className="summary-wrapper">
@@ -60,13 +66,15 @@ export default function Basket({ basketList, setBasketList }) {
                 </div>
             </div>
             {console.log(basketList.length)}
+            {console.log(loggedInUser)}
+
             <div>
             {basketList.map((basket, index) => {
                 return (
                 <div className="basket-item">
                     {console.log(index)}
 
-                    <img src={basket.img_url} />
+                    <img onClick={()=> {handleElectronicsClick(basket)}} src={basket.img_url} />
                     <div>
                         <p>{basket.name}</p>
                         <p>{basket.model}</p>
@@ -84,7 +92,11 @@ export default function Basket({ basketList, setBasketList }) {
                 )
             })}
             </div>
-            <button onClick={() => handleOrderItem(basket)}>Order</button>
+            {!loggedInUser.username ?
+            <p className="login-message">You need to log in to make an order</p> 
+            : null}
+            {/* fix this */}
+            <button disabled={userTypeError} onClick={() => handleOrderItem(basket)}>Order</button>
         </div>
     )
 }

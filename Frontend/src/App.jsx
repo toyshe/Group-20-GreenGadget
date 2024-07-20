@@ -15,6 +15,7 @@ import Support from "./Components/Support";
 import TC from "./Components/TermsAndConditions";
 import Basket from "./Components/Basket";
 import Repair from "./Components/Repair";
+import NotFound from "./Components/NotFound";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -40,6 +41,7 @@ function App() {
           <Route path="tc" element={<TC />} />
           <Route path="/basket" element={<Basket basketList={basketList} setBasketList={setBasketList}/>} />
           <Route path="/repair" element={<Repair />}/>
+          <Route path="/*" element={<NotFound />}/>
         </Routes>
       </UserContext.Provider>
 

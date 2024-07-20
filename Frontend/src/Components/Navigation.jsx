@@ -83,8 +83,8 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
     const handleSignIn = () => {
         hideSidebar();
         setTimeout(() => {
-            <Login />;
-        }, 600);
+            document.getElementById('id01').style.display = 'block';
+        }, 300);
     }
 
     useEffect(() => {
@@ -238,9 +238,9 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                                     </a>
                                 </li>
                                 <li className="divider"></li>
-                                <li>
+                                <li onClick={handleLogOut}>
                                     <a>
-                                        <span onClick={handleLogOut} className="material-symbols-outlined"> Logout</span>
+                                        <span  className="material-symbols-outlined"> Logout</span>
                                     </a>
                                 </li>
                             </ul>

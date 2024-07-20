@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { postElectronics } from "../../utils/utils";
 import './SellItem.css'
+import { MdOutlineMonochromePhotos } from "react-icons/md";
 
 export default function SellItem({ setElectronics }) {
   const { loggedInUser } = useContext(UserContext);
@@ -24,7 +25,18 @@ export default function SellItem({ setElectronics }) {
 
   function handleChange(e) {
     console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
+    console.log(e.target.files.length);
+    console.log(e.target.files.File);
+    if (e.target.files.length === 0){
+      let val3 = document.querySelector("#imgselname");
+      val3.value = "No file chosen";
+    }
+    else{
+      setFile(URL.createObjectURL(e.target.files[0]));
+      let val2 = document.querySelector("#image").files[0].name
+      let val3 = document.querySelector("#imgselname")
+      val3.value = val2;
+    }
   }
 
   const handleElectronicsChange = (e) => {
@@ -50,12 +62,13 @@ export default function SellItem({ setElectronics }) {
 
   return (
     <div className="sell-item-page-container">
+      {console.log(loggedInUser, loggedInUser.user_type)}
     <div className="sell-item-form-container">
       <h1>Sell an Item</h1>
       {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid">Sorry, only shopkeepers are allowed to sell an item</p>}
       <form onSubmit={handleSubmit} className="sell-item-form">
         <div className="form-group">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Item Name:</label>
           <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter name" required />
         </div>
         <div className="form-group">
@@ -83,11 +96,23 @@ export default function SellItem({ setElectronics }) {
         </div>
         <div className="form-group">
           <label htmlFor="price">Price:</label>
-          <input type="number" id="price" value={price} onChange={(e) => setPrice(e.target.value)} required />
+          <input className="price-input" type="number" id="price" placeholder="0.00" value={price} onChange={(e) => setPrice(e.target.value)} required />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Image:</label>
-          <input type="file" id="image" onChange={handleChange} required />
+          <label >Upload image:</label>
+          <div className="img-upload">
+            
+            <label htmlFor="image" id="imgsel-btn">
+              <span>
+              <MdOutlineMonochromePhotos />
+              UPLOAD IMAGE
+              </span>
+            </label>
+
+            <input type="text" id="imgselname" defaultValue={"No file chosen"} disabled/>
+
+          </div>
+          <input type="file" id="image" className="hidden-imgsel" onChange={handleChange} accept="Image/*" required />
         </div>
         <div className="form-group">
           <label htmlFor="quantity">Quantity:</label>

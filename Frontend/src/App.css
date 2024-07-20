@@ -118,7 +118,10 @@ span.psw {
   background-color: #fefefe;
   margin: 5% auto 15% auto;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%; 
+}
+.modal-content label{
+  padding-left: 0;
 }
 
 .close {
@@ -126,6 +129,14 @@ span.psw {
   right: 25px;
   top: 0;
   color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+.close {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  color: white;
   font-size: 35px;
   font-weight: bold;
 }
@@ -175,6 +186,19 @@ span.psw {
 
 .input-invalid {
   background-color: rgb(199, 163, 163);
+}
+.login-heading{
+  text-align: center;
+  padding: 20px 0 30px 0;
+  background-color: #181d3b;
+  color: white;
+  position: relative;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+.remember-me{
+  display: inline-flex;
+  gap: 10px;
 }
 
 .error-message {
@@ -371,6 +395,9 @@ body {
   align-items: center;
   position: relative;
 }
+.basket-user svg {
+  cursor: pointer;
+}
 
 .fa-user {
   color: white;
@@ -442,6 +469,11 @@ body {
   background-color: white;
   transition: left 0.5s ease-out;
 }
+/* .side-menu{
+  overflow: scroll;
+  scrollbar-gutter: none;
+
+} */
 #sidebar-active:checked ~ .side-menu {
   display: flex;
 }
@@ -491,6 +523,7 @@ body {
   margin: 0;
   border-style: hidden;
   width: 300px;
+  font-size: 16px;
 }
 .searchbar .navsearchbar:focus {
   outline: none;
@@ -535,6 +568,7 @@ body {
 .side-menu-title{
   font-family: 'Coyote', sans-serif;
 }
+
 .sl li a {
   margin: 0 8px 0 6px;
   padding: 0 0 0 5px;
@@ -562,7 +596,7 @@ ul.sl .dropdown-container{
 }
 
 .container button {
-  border-radius: 0;
+  border-radius: 5px;
 }
 
 
@@ -647,6 +681,7 @@ ul.sl .dropdown-container{
 			li {
 				list-style-type: none;
 				display: block;
+        cursor: pointer;
 				/* If you use divider & borders, it's best to use top borders */
 				/*border-top: 1px solid #ccc;*/
 
@@ -695,6 +730,12 @@ ul.sl .dropdown-container{
 					}
 				}
 			}
+      li:hover{
+        background-color: #04aa6d;
+        a{
+          color: white;
+        }
+      }
 		}
 	}
 }
@@ -854,6 +895,7 @@ ul.sl .dropdown-container{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  padding: 20px;
 }
 .electronic-device .popup-content{
   border: 4px solid #e8e7e7;
@@ -934,6 +976,62 @@ text-decoration: underline;}
   margin: 0 auto;
   padding: 20px;
 }
+.content-headings{
+  position: sticky;
+  /* height: fit-content; not supported in firefox */
+  top: 20px;
+  margin-left: 20px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  padding-top: 10px;
+  /* padding: 10px 5px; */
+  border: 2px black solid;
+  border-radius: 10px;
+}
+
+.content-headings hr{
+  /* margin: 8px 0; */
+  margin-top: 8px;
+}
+.content-headings li{
+  border-bottom: black 1px solid;
+  transition: all 0.2s ease;
+}
+.content-headings li:last-child{
+  border-radius: 0 0 8px 8px;
+  border-bottom-color: transparent;
+}
+.content-headings li:hover{
+  background-color: #04aa6d;
+}
+.content-headings li a{
+  padding: 10px 5px 10px 25px;
+  position: relative;
+  display: block;
+}
+.content-headings li a::before{
+  content: "";
+  width: 10px;
+  height: 10px;
+  /* background-color: #04aa6d; */
+  background-color: black;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 0;
+  top: 0px;
+  left: 10px;
+  margin: auto;
+}
+.content-headings li:hover a::before{
+  background-color: white;
+}
+
+.about-wrapper,
+.tc-wrapper{
+  display: flex;
+  align-items: flex-start; /*fit-content is not supported in firefox*/
+}
 
 .about-content {
   background-color: var(--background);
@@ -946,7 +1044,7 @@ text-decoration: underline;}
 .about-content h2 {
   color: var(--foreground);
   font-size: 28px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .about-content p {
@@ -996,24 +1094,27 @@ text-decoration: underline;}
 
 
 body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--foreground);
-    background-color: var(--background);
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: var(--foreground);
+  background-color: var(--background);
+  margin: 0;
+  padding: 0;
 }
 
-.terms-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 40px;
-    background-color: var(--background);
-    color: var(--foreground);
-    box-shadow: 0 0 20px var(--box-shad);
-    border-radius: 10px;
+.terms-content {
+  max-width: 800px;
+  padding: 40px;
+  background-color: var(--background);
+  color: var(--foreground);
+  box-shadow: 0 0 20px var(--box-shad);
+  border-radius: 10px;
 }
 .terms-container h2{
   color:var(--foreground);
+}
+.terms-container{
+  padding: 20px;
+  margin: auto;
 }
 
 h1 {
@@ -1087,6 +1188,13 @@ textarea{
 .form-group {
   margin-bottom: 15px;
 }
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+  padding: 14px 0px;
+}
 
 label {
   margin-bottom: 5px;
@@ -1099,6 +1207,7 @@ textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -1152,6 +1261,7 @@ button[type='submit']:hover {
   width: 100px; /* Adjust as needed */
   height: 100px; /* Adjust as needed */
   margin-right: 20px;
+  cursor: pointer;
 }
 
 /* Text content */
@@ -1216,7 +1326,11 @@ button[type='submit']:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh; /* Center vertically */
+  /* height: 70vh; Center vertically */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-container form {
@@ -1240,7 +1354,9 @@ button[type='submit']:hover {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  width: 100%; /* Take up full width */
+  /*width: 100%;  Take up full width */
+  box-sizing: border-box;
+
 }
 
 .form-container button {
@@ -1257,6 +1373,8 @@ button[type='submit']:hover {
 .form-container button:hover {
   background-color: #0056b3;
 }
+
+
 
 /*new method to make footer stick to bottom*/
 #root{
@@ -1498,6 +1616,7 @@ button[type='submit']:hover {
 
 .quantity-adjuster{
   background-color: #04aa6d;
+  margin-left: 20px;
 }
 .quantity-adjuster span{
   border-left: 2px solid white;
@@ -1552,4 +1671,25 @@ button[type='submit']:hover {
   opacity: 1;
   transform: scale(1.05);
   cursor: pointer;
+}
+
+.flex-space-between-gap10px{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.login-message{
+  text-align: center;
+  margin-top: 15px;
+  color: red;
+  background-color: rgb(199, 163, 163);
+  /* find a better font later */
+  font-family: Tahoma, sans-serif;
+  font-weight: 900;
+}
+
+
+.hidden-imgsel{
+  display: none;
 }

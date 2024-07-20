@@ -40,8 +40,11 @@ export default function ElectronicDevice({setBasketList}) {
     const handleTypeclick = () => {
         navigate(`/electronics?electronics_type=${electronic.electronics_type}`)
     }
-    
 
+    const handleBasket = () => {
+        navigate('/basket')
+    }
+    
     if(loading){
         return <Loading />
     }
@@ -69,9 +72,12 @@ export default function ElectronicDevice({setBasketList}) {
                     <div className="popup-content">
                         {/* Customize the message based on the success or failure */}
                         
-                        <p>Item <strong>{electronic.model}</strong> Added to Basket!</p>
+                        <p>Item <strong>{electronic.model}</strong> has been added to Basket!</p>
                         {/* Add additional content or actions if needed */}
-                        <button onClick={togglePopup}>Close</button>
+                        <div className="flex-space-between-gap10px">
+                        <button type="button" onClick={togglePopup}>Close</button>
+                        <button type="button" className="to-cart-btn" onClick={handleBasket}>Go to cart</button>
+                        </div>                    
                     </div>
                 </div>
             )}

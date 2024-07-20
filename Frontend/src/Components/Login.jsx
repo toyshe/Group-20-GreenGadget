@@ -74,9 +74,12 @@ export default function Login() {
 
             <div id="id01" className="modal" style={{ display: 'none' }}>
                 <form className="modal-content animate" onSubmit={handleSubmit}>
-                    <div className="imgcontainer">
+                    <h4 className="login-heading">Login 
+                    <span onClick={() => document.getElementById('id01').style.display = 'none'} className="close" title="Close Modal">&times;</span>
+                    </h4>
+                    {/* <div className="imgcontainer">
                         <span onClick={() => document.getElementById('id01').style.display = 'none'} className="close" title="Close Modal">&times;</span>
-                    </div>
+                    </div> */}
 
                     <div className="container">
                         <label htmlFor="usernameOrEmail"><b>Username or Email</b></label>
@@ -86,14 +89,15 @@ export default function Login() {
                         <input type="password" id="password" value={password} onChange={handlePassword} placeholder="Enter Password" name="password" required />
 
                         <button type="submit">Login</button>
-                        <label>
-                            <input type="checkbox" checked={checked} onChange={handleChecked} name="remember" /> Remember me
-                        </label>
+                        <div className="remember-me">
+                            <input type="checkbox" checked={checked} onChange={handleChecked} name="remember" id="rmber" /> 
+                            <span><label htmlFor="rmber">Remember me</label></span>
+                        </div>
                     </div>
 
                     <div className="container" style={{ backgroundColor: '#f1f1f1' }}>
                         <button type="button" onClick={() => document.getElementById('id01').style.display = 'none'} className="cancelbtn">Cancel</button>
-                        <span className="psw">Forgot <a href="#">password?</a></span>
+                        <span className="psw"><a href="#">Forgot Password?</a></span>
                     </div>
                     {loginMessage && <p>{loginMessage}</p>}
                 </form>
