@@ -3,18 +3,41 @@ import Totop from "./Totop";
 
 export default function TC() {
     return (
+        <div className="tc-wrapper">
+
+            <ul className="content-headings">
+              <li><a href="#tc-Introduction">Introduction & disclamer</a></li>
+              <li><a href="#tc-own">Learn about us</a></li>
+              <li><a href="#TOU">Terms of use</a></li>
+              <li><a href="#tc-L">Legal liability</a></li>
+            </ul>
+
         <div className="terms-container">
+            <div className="terms-content">
             <h1>Terms and Conditions</h1>
 
+            <section id="tc-Introduction">
             <div className="section">
                 <h2>1. Introduction</h2>
-                <p>Welcome to GreenGadget's Terms and Conditions. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern GreenGadget's relationship with you in relation to this website. If you disagree with any part of these terms and conditions, please do not use our website.</p>
+                <p>Welcome to GreenGadget's Terms and Conditions. 
+                    These are our terms and conditions for use of our services. 
+                    If you continue to browse and use this website, 
+                    you are agreeing to comply with and be bound by the following terms and conditions of use, 
+                    which together with our privacy policy govern GreenGadget's relationship with you in relation to this website. 
+                    If you disagree with any part of these terms and conditions, 
+                    you are free to opt out of using all of our services and by extension our website.</p>
             </div>
+            </section>
 
+            <section id="tc-own">
             <div className="section">
-                <h2>2. The term 'GreenGadget' or 'us' or 'we' refers to the owner of the website whose registered office is GreenGadget Ltd, 123 Green Street, GreenCity, GC1 2YZ. Our company registration number is 0123456789 - VAT Registration GB 123 4567 89. The term 'you' refers to the user or viewer of our website.</h2>
+                <h2>2. The term 'GreenGadget' or 'us' or 'we' refers to the owner of the website whose registered office is GreenGadget Ltd, 
+                    123 Green Street, GreenCity, GC1 2YZ. Our company registration number is 0123456789 - VAT Registration GB 123 4567 89. 
+                    The term 'you' refers to the user or viewer of our website.</h2>
             </div>
+            </section>
 
+            <section id="TOU">
             <div className="section">
                 <h2>3. The use of this website is subject to the following terms of use:</h2>
                 <ul>
@@ -29,7 +52,18 @@ export default function TC() {
                     <li>Your use of this website and any dispute arising out of such use of the website is subject to the laws of England, Northern Ireland, Scotland, and Wales.</li>
                 </ul>
             </div>
+            </section>
+
+            <section id="tc-L">
+            <div className="section">
+                <h2>4. Liability</h2>
+                <p></p>
+            </div>
+            </section>
+            
             <Totop/>
+            </div>
+        </div>
         </div>
     );
 }

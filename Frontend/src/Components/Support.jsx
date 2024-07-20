@@ -5,7 +5,7 @@ export default function Support() {
   return (
     <div className="support-page-container">
       <div className="support-container">
-        <h1>Support</h1>
+        <h1>Support Request Form:</h1>
         <p>
           If you're experiencing any issues with your laptop, our support team is here to help you.
           Please fill out the form below, and we'll get back to you as soon as possible.
