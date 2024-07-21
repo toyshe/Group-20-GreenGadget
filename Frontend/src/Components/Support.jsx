@@ -23,7 +23,7 @@ export default function Support() {
             <label htmlFor="message">Message:</label>
             <textarea id="message" name="message" rows="4" required placeholder="Messagebox"></textarea>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" className='submit-button'>Submit</button>
         </form>
       </div>
       {/* <Spline scene="https://prod.spline.design/mR5MFMW-LeJHAktL/scene.splinecode" /> */}

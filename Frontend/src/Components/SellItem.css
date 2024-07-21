@@ -9,6 +9,11 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  background: radial-gradient(50% 50% at 100% 0, var(--_g)), 
+  radial-gradient(50% 50% at 0 100%, var(--_g)), 
+  radial-gradient(50% 50%, var(--_g)), 
+  radial-gradient(50% 50%, var(--_g)) calc(var(--s) / 2) calc(var(--s) / 2) var(--c1);
+  background-size: var(--s) var(--s);
 }
 .sell-item-form-container {
   background-color: white;
@@ -24,7 +29,9 @@
   text-align: center;
   margin-bottom: 20px;
   font-size: 24px;
-  color: #333;
+  color: bisque;
+  background-image: linear-gradient(155deg, #34755d, #30ba4f);
+  padding: 20px;
 }
 
 .input-invalid {
@@ -183,7 +190,7 @@ button.to-cart-btn:hover{
 .price-input{
   position: relative;
 }
-.price-input::before{
-  content: "£";
-  position: relative;
-}
+ .d-block{
+  display: block;
+  margin-bottom: 20px;
+ }
