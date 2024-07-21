@@ -51,6 +51,7 @@ export default function Repair() {
     }
 
     return (
+        <div className="repair-page-container">
         <div className="form-container">
 
             <h1>Repair Item Form:</h1>
@@ -105,6 +106,7 @@ export default function Repair() {
 
                 <button type="submit">Submit</button>
             </form>
+        </div>
         </div>
     );
 }

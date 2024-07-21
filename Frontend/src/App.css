@@ -15,6 +15,13 @@ body {
   --box-shad: rgba(0, 0, 0, 0.1);
   --clr-toggle: gray;
   --filters-container-background: #ffffff;
+  --s: 150px;
+  --c1: #f7d2a1;
+  --c2: rgb(11, 170, 11);
+  --_g: var(--c1) 0% 5%, var(--c2) 6% 15%, 
+  var(--c1) 16% 25%, var(--c2) 26% 35%, var(--c1) 36% 45%, 
+  var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%, 
+  var(--c1) 76% 85%, var(--c2) 86% 95%, #0000 96%;
 }
 
 /* utility class used to apply darkmode */
@@ -190,7 +197,8 @@ span.psw {
 .login-heading{
   text-align: center;
   padding: 20px 0 30px 0;
-  background-color: #181d3b;
+  /* background-color: #181d3b; */
+  background-image: linear-gradient(135deg, #181d3b, black, #181d3b);
   color: white;
   position: relative;
   font-size: 30px;
@@ -1156,21 +1164,36 @@ ul li {
 .support-page-container{
   display: flex;
   align-items: center;
+  background: radial-gradient(50% 50% at 100% 0, var(--_g)), 
+  radial-gradient(50% 50% at 0 100%, var(--_g)), 
+  radial-gradient(50% 50%, var(--_g)), 
+  radial-gradient(50% 50%, var(--_g)) calc(var(--s) / 2) calc(var(--s) / 2) var(--c1);
+  background-size: var(--s) var(--s);
 }
 .support-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 .support-container h1 {
   text-align: center;
   color: var(--foreground);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: bisque;
+  background-image: linear-gradient(155deg, #34755d, #30ba4f);
+  padding: 20px;
 }
 
 .support-container p {
   text-align: center;
   margin-bottom: 20px;
+  line-height: normal;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .support-form {
@@ -1323,14 +1346,23 @@ button[type='submit']:hover {
 .form-container {
   min-width: 400px;
   margin: 10px auto;
-  display: flex;
+  /* display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   /* height: 70vh; Center vertically */
   background-color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-container h1{
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: bisque;
+  background-image: linear-gradient(155deg, #34755d, #30ba4f);
+  padding: 20px
 }
 
 .form-container form {
@@ -1692,4 +1724,26 @@ button[type='submit']:hover {
 
 .hidden-imgsel{
   display: none;
+}
+
+.iwi{
+  display: inline-block;
+  background-color: rgb(230, 230, 244);
+  border-radius: 10px;
+  /* border: 2px solid transparent; */
+}
+/* .iwi:hover,
+.iwi:focus-within{
+  border: 2px solid #04aa6d;
+} */
+.iwi label.input-icon{
+  display: inline-block;
+  background-color: #04aa6d;
+  padding: 15px 15px;
+  margin: 0;
+  border-radius: 7px 0 0 7px;  
+}
+.form-group div.iwi input{
+  background-color: transparent;
+  border: none;
 }
