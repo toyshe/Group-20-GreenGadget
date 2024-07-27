@@ -3,9 +3,7 @@ import UserContext from "../contexts/UserContext";
 import { postElectronics } from "../../utils/utils";
 import './SellItem.css'
 import { MdOutlineMonochromePhotos } from "react-icons/md";
-import { FaPhoneSquareAlt } from "react-icons/fa";
-import { FaPhoneAlt } from "react-icons/fa";
-import { MdLocalPhone } from "react-icons/md";
+
 
 
 
@@ -103,15 +101,13 @@ export default function SellItem({ setElectronics }) {
           <label htmlFor="price">Price:</label>
           
           <div className="iwi">
-          <label className="input-icon" htmlFor="price"><span>£</span></label>
-          <input className="price-input" type="number" inputMode="numeric" id="price" placeholder="0.00" value={price} onChange={(e) => setPrice(e.target.value)} required />
+            <label className="input-icon" htmlFor="price"><span>£</span></label>
+            <input className="price-input" type="number" inputMode="numeric" id="price" placeholder="0.00" value={price} onChange={(e) => setPrice(e.target.value)} required />
           </div>
-          
-          <FaPhoneSquareAlt/>
-          <FaPhoneAlt/>
-          <MdLocalPhone/>
 
         </div>
+
+        
         <div className="form-group">
           <label >Upload image:</label>
           <div className="img-upload">

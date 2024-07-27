@@ -162,7 +162,7 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                     <li onClick={handleAllItemsClick}><a>All items</a></li>
                     <li onClick={handleSellClick}><a>Sell item</a></li>
                     <li onClick={handleRepair}><a>Repair</a></li>
-                    <li onClick={handleSignIn}><a>SignIn</a></li>
+                    <li onClick={handleSignIn}><a>Login</a></li>
 
 
                     <li onClick={handleSupportClick}><a>Support</a></li>
@@ -207,7 +207,7 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
             <div className="logo"><a onClick={handleHomeButton}>GreenGadget</a></div>
 
-            <div className="searchbar"><button><i className="fas fa-search"></i></button><input type="text" placeholder="Search..." className="navsearchbar"></input></div>
+            <div className="searchbar"><button style={{display: "flex", justifyContent: "center"}}><i className="fas fa-search"></i></button><input type="text" placeholder="Search..." className="navsearchbar"></input></div>
 
             {console.log(loggedInUser)}
             {loggedInUser.username ? (

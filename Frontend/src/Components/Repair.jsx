@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { MdOutlineMonochromePhotos } from "react-icons/md";
 import './Repair.css'
+import { FaPhoneSquareAlt } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdLocalPhone } from "react-icons/md";
 
 
 export default function Repair() {
@@ -68,6 +71,11 @@ export default function Repair() {
                 <div className="form-group">
                     <label htmlFor="phone">Phone:</label>
                     <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone No." required />
+
+                    <FaPhoneSquareAlt/>
+                    <FaPhoneAlt/>
+                    <MdLocalPhone/>
+
                 </div>
                 <div className="form-group">
                     <label htmlFor="electronicType">Electronic Type:</label>

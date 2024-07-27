@@ -62,6 +62,7 @@
   border-radius: 4px;
   font-size: 16px;
   box-sizing: border-box;
+  background-color: rgb(230, 230, 244);
 }
 
 .sell-item-form .form-group textarea {
@@ -194,3 +195,26 @@ button.to-cart-btn:hover{
   display: block;
   margin-bottom: 20px;
  }
+
+.iwitest {
+  display: flex;
+}
+ .form-group .iwitest label.input-icontest{
+  display: inline-block;
+  margin: 0;
+  background-color: #04aa6d;
+  padding: 15px 15px;
+  border-radius: 7px 0 0 7px;
+ }
+
+ .form-group .iwitest .price-inputtest{
+  border-radius: 0 4px 4px 0;
+  background-color: rgb(230, 230, 244);
+  border: 2px solid transparent;
+  border-left: none;
+  transition: all 0.15s ease;
+ }
+.iwitest .price-inputtest:hover,
+.iwitest .price-inputtest:focus{
+  border-color: #04aa6d;
+}

@@ -56,11 +56,28 @@ export default function SignUp() {
     }
 
     const handleAvatar = (e) => {
-        e.preventDefault()
-        setAvatar(e.target.value)
+        e.preventDefault();
+        setAvatar(e.target.value);
+        console.log(e.target.value);
+        console.log(e.target.id);
+        if ( e.target.id === "juf4dwqpng" ){
+            let swap = document.getElementById("juf4dgebpng");
+            swap.style.backgroundColor = "transparent"
+            let currentavatar = document.querySelector("#"+e.target.id);
+            currentavatar.style.backgroundColor = "rgb(190 211 211)"
+        }
+        else if( e.target.id === "juf4dgebpng" ){
+            if ( e.target.id === "juf4dgebpng" ){
+                let swap = document.getElementById("juf4dwqpng");
+                swap.style.backgroundColor = "transparent"
+                let currentavatar = document.querySelector("#"+e.target.id);
+                currentavatar.style.backgroundColor = "rgb(190 211 211)"
+            }
+        }
     }
 
     const handleSubmit = (e) => {
+        // this.color= "blue"
         setLoading(true)
         e.preventDefault()
         if (
@@ -96,7 +113,8 @@ export default function SignUp() {
     return (
         <div>
 
-            <form onSubmit={handleSubmit}>
+            <form id="signup-form" onSubmit={handleSubmit}>
+                <h1>Sign up</h1>
                 <h2 style={{ display: 'inline-block' }}>What type of user are you?</h2><span className="required-fields"> *</span>
                 <div className="user-type-container">
 
@@ -104,11 +122,11 @@ export default function SignUp() {
                     <button value='shopkeeper' id="shopkeeper-button" onClick={handleUserType} className={`user-type-button ${userType === 'shopkeeper' ? 'selected' : ''}`} >Shopkeeper</button>
                 </div>
 
-                <h2 style={{ display: 'inline-block' }}>Choose an avatar</h2><span className="required-fields"> *</span>
+                <h2 style={{ display: 'inline-block', marginTop: "20px" }}>Choose an avatar</h2><span className="required-fields"> *</span>
                 <div className="avatar-container">
 
-                    <button value="https://iili.io/JUF4dWQ.png" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4dWQ.png" /></button>
-                    <button value="https://iili.io/JUF4gEB.png" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4gEB.png" /></button>
+                    <button value="https://iili.io/JUF4dWQ.png" id="juf4dwqpng" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4dWQ.png" /></button>
+                    <button value="https://iili.io/JUF4gEB.png" id="juf4dgebpng" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4gEB.png" /></button>
                 </div>
 
                 <label htmlFor="username">Username</label><span className="required-fields"> *</span>
