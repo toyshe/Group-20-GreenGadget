@@ -1,5 +1,6 @@
 import "./Home.css";
 import React, { useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import img1 from './img1.jpg'
 import img2 from './images/img2.jpg'
 import img3 from './images/img3.jpg'
@@ -11,6 +12,12 @@ import img8 from './images/img8.jpg'
 import img10 from './images/img10.jpg'
 import img11 from './images/img11.jpg'
 import img12 from './images/img12.jpg'
+import acit1 from './images/acit1.png'
+import acit2 from './images/acit2.png'
+import acit3 from './images/acit3.png'
+import acit4 from './images/acit4.png'
+import acit5 from './images/acit5.png'
+import acit6 from './images/acit6.png'
 import Product from "./Product";
 import Totop from "./Totop";
 // import { getElectronics } from "../../utils/utils";
@@ -107,7 +114,7 @@ export default function Home({electronicList}){
       {/* user benefit  */}
 
       <div className="card-container">
-      <div className="rm-card">
+      {/* <div className="rm-card">
       <img src={img10} alt="where to start" className="card-img"></img>
       <div className="card-info">
         <h3>Welcome</h3>
@@ -115,8 +122,25 @@ export default function Home({electronicList}){
         <p></p>
         <a href="">Read More</a>
       </div>
-    </div>
-    <div className="rm-card">
+    </div> */}
+
+    <div className="acit-card">
+        <div className="acit-face acit-face1">
+            <img src={acit1} alt="where to start" className="card-img"></img>
+        </div>
+        <div className="acit-face acit-face2">
+          <div className="acit-content">
+            <h3>Welcome</h3>
+            <p>Find anwsers to frequently asked questions, 
+              and general help navigating the site.
+            </p>
+            <Link to={'/FAQ'}>Read More</Link>
+          </div>
+        </div>
+      </div>
+
+
+    {/* <div className="rm-card">
       <img src={img11} alt="where to start" className="card-img"></img>
       <div className="card-info">
         <h3>Help</h3>
@@ -124,8 +148,26 @@ export default function Home({electronicList}){
         <p></p>
         <a href="">Read More</a>
       </div>
-    </div>
-    <div className="rm-card">
+    </div> */}
+
+
+    <div className="acit-card">
+        <div className="acit-face acit-face1">
+            <img src={acit5} alt="where to start" className="card-img"></img>
+        </div>
+        <div className="acit-face acit-face2">
+          <div className="acit-content">
+            <h3>Help</h3>
+            <p>Find anwsers to frequently asked questions, 
+              and general help navigating the site.
+            </p>
+            <Link to={'/FAQ'}>Read More</Link>
+          </div>
+        </div>
+      </div>
+
+
+    {/* <div className="rm-card">
       <img src={img12} alt="where to start" className="card-img"></img>
       <div className="card-info">
         <h3>How we keep you safe</h3>
@@ -133,8 +175,94 @@ export default function Home({electronicList}){
         <p></p>
         <a href="">Read More</a>
       </div>
+    </div> */}
+
+    <div className="acit-card">
+        <div className="acit-face acit-face1">
+            <img src={acit2} alt="where to start" className="card-img"></img>
+        </div>
+        <div className="acit-face acit-face2">
+          <div className="acit-content">
+            <h3>How we keep you safe</h3>
+            <p>Find anwsers to frequently asked questions, 
+              and general help navigating the site.
+            </p>
+            <Link to={'/FAQ'}>Read More</Link>
+          </div>
+        </div>
+      </div>
+
+    {/* <div className="rm-card">
+      <img src={acit1} alt="where to start" className="card-img"></img>
+      <div className="card-info">
+        <h3>How we keep you safe</h3>
+        <p className="sub-heading"></p>
+        <p></p>
+        <a href="">Read More</a>
+      </div>
     </div>
-  </div>
+    <div className="rm-card">
+      <img src={acit2} alt="where to start" className="card-img"></img>
+      <div className="card-info">
+        <h3>How we keep you safe</h3>
+        <p className="sub-heading"></p>
+        <p></p>
+        <a href="">Read More</a>
+      </div>
+    </div>
+    <div className="rm-card">
+      <img src={acit3} alt="where to start" className="card-img"></img>
+      <div className="card-info">
+        <h3>How we keep you safe</h3>
+        <p className="sub-heading"></p>
+        <p></p>
+        <a href="">Read More</a>
+      </div>
+    </div>
+    <div className="rm-card">
+      <img src={acit4} alt="where to start" className="card-img"></img>
+      <div className="card-info">
+        <h3>How we keep you safe</h3>
+        <p className="sub-heading"></p>
+        <p></p>
+        <a href="">Read More</a>
+      </div>
+    </div> */}
+
+      <div className="acit-card">
+        <div className="acit-face acit-face1">
+            <img src={acit6} alt="where to start" className="card-img"></img>
+        </div>
+        <div className="acit-face acit-face2">
+          <div className="acit-content">
+            <h3>Terms & Conditions</h3>
+            <p>Find anwsers to frequently asked questions, 
+              and general help navigating the site.
+            </p>
+            <Link to={'/TC'}>Read More</Link>
+          </div>
+        </div>
+      </div>
+
+
+    {/* <div className="acit-card">
+        <div className="acit-face acit-face1">
+          <div className="acit-content">
+            <img src={acit4} alt="where to start" className="card-img"></img>
+            <h3>Help</h3>
+          </div>
+        </div>
+        <div className="acit-face acit-face2">
+          <div className="acit-content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.  
+            Inventore, cum nisi dolores libero aperiam asperiores.</p>
+            <a href="#">Read More</a>
+          </div>
+        </div>
+      </div> */}
+
+
+    </div>
         <Totop/>
       </div>
 

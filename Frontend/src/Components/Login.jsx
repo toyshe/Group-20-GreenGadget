@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import postLoginInfo from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
+import { Link } from "react-router-dom";
+
 
 export default function Login() {
     const navigate = useNavigate()
@@ -37,14 +39,19 @@ export default function Login() {
         e.preventDefault()
         postLoginInfo({ usernameOrEmail, password }).then((data) => {
             setLoading(true)
+            // console.log({data});
+            // let uews = data.username
+            // console.log({data, uews})
             if (data.username === usernameOrEmail || data.email === usernameOrEmail) {
-                console.log(data);
+                console.log({data});
                 setLoginMessage('')
                 setLoggedInUser(data)
                 document.getElementById('id01').style.display = "none";
                 navigate('/')
             } else {
-                setLoginMessage('Invalid credentials. Please try again.')
+                // setLoginMessage('Invalid credentials. Please try again.');
+                setLoginMessage('Invalid password. Please check and try again.')
+
             }
 
             if (checked) {
@@ -80,13 +87,14 @@ export default function Login() {
                     {/* <div className="imgcontainer">
                         <span onClick={() => document.getElementById('id01').style.display = 'none'} className="close" title="Close Modal">&times;</span>
                     </div> */}
+                    {loginMessage && <p style={{textAlign:"center"}} id="id04" className="input-invalid">{loginMessage}</p>}
 
                     <div className="container">
                         <label htmlFor="usernameOrEmail"><b>Username or Email</b></label>
                         <input type="text" id="usernameOrEmail" value={usernameOrEmail} onChange={handleUsernameOrEmail} placeholder="Enter Username or Email" name="usernameOrEmail" required />
 
-                        <label htmlFor="password"><b>Password</b></label>
-                        <input type="password" id="password" value={password} onChange={handlePassword} placeholder="Enter Password" name="password" required />
+                        <label htmlFor="spassword"><b>Password</b></label>
+                        <input type="password" id="spassword" value={password} onChange={handlePassword} placeholder="Enter Password" name="password" required />
 
                         <button type="submit">Login</button>
                         <div className="remember-me">
@@ -94,16 +102,18 @@ export default function Login() {
                             <span><label htmlFor="rmber">Remember me</label></span>
                         </div>
                     </div>
+                    <p className="csu" style={{textAlign:"center"}} >Not a member? <Link to={'/SignUp'} id="id03">Sign up</Link></p> 
 
                     <div className="container" style={{ backgroundColor: '#f1f1f1' }}>
                         <button type="button" onClick={() => document.getElementById('id01').style.display = 'none'} className="cancelbtn">Cancel</button>
                         <span className="psw"><a href="#">Forgot Password?</a></span>
+                        {/* implement lateer */}
                     </div>
-                    {loginMessage && <p>{loginMessage}</p>}
+                    {/* {loginMessage && <p style={{textAlign:"center"}} className="input-invalid">{loginMessage}</p>} */}
                 </form>
             </div>
             {window.onclick = function (event) {
-                if (event.target == document.getElementById('id01')) {
+                if (event.target == document.getElementById('id01') || event.target == document.getElementById('id03')) {
                     document.getElementById('id01').style.display = "none";
                 }
             }}
