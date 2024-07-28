@@ -207,7 +207,10 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
             <div className="logo"><a onClick={handleHomeButton}>GreenGadget</a></div>
 
-            <div className="searchbar"><button style={{display: "flex", justifyContent: "center"}}><i className="fas fa-search"></i></button><input type="text" placeholder="Search..." className="navsearchbar"></input></div>
+            <div className="searchbar">
+                <button /*type="submit"*/ style={{display: "flex", justifyContent: "center"}}><i className="fas fa-search"></i></button>
+                <input type="text" placeholder="Search..." className="navsearchbar"></input>
+            </div>
 
             {console.log(loggedInUser)}
             {loggedInUser.username ? (
@@ -249,7 +252,11 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                 </div>
             ) : (
                 <>
-                    <Login className="nav-buttons" />
+                    <Login className="nav-buttons" /> 
+                    {/* ^ causes this error dont know why.
+                    Warning: Functions are not valid as a React child. 
+                    This may happen if you return a Component instead of <Component /> from render. 
+                    Or maybe you meant to call this function rather than return it. */}
                     <SignUpButton className="nav-buttons" />
                 </>
             )}

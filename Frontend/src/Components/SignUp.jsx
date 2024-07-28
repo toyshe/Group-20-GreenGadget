@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { postSignUpInfo } from "../../utils/utils"
-import UserContext from "../contexts/UserContext"
+import UserContext from "../contexts/UserContext";
+
 
 export default function SignUp() {
 
@@ -115,6 +116,7 @@ export default function SignUp() {
 
             <form id="signup-form" onSubmit={handleSubmit}>
                 <h1>Sign up</h1>
+                <p className="scsu" > Already have an account? <span className="conlink">Sign in here</span></p> 
                 <h2 style={{ display: 'inline-block' }}>What type of user are you?</h2><span className="required-fields"> *</span>
                 <div className="user-type-container">
 

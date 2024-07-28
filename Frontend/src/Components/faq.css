@@ -18,17 +18,16 @@ div.styles_faq-row-wrapper__3vA1D .styles_faq-row__2YF3c{
 }
 .styles_row-title__1YiiY::before{
     content: "";
-    background: linear-gradient(to right, transparent, rgb(141, 255, 168), #E1FF31);
+    background: linear-gradient(to right, transparent 15%, rgb(141, 255, 168), #E1FF31);
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
     width: 0%;
-    /* padding-top: 5px; */
-    /* outline: 5px solid green; */
 }
-.styles_row-title__1YiiY:hover:before{
-    transition: width 0.4s ease;
+.styles_row-title__1YiiY:hover:before,
+.styles_row-title__1YiiY:focus:before{
+    transition: width 0.6s cubic-bezier(0.47, 0.18, 0, 1.28);
     width: 100%;
 }
 

@@ -68,7 +68,7 @@ export default function SellItem({ setElectronics }) {
       {console.log(loggedInUser, loggedInUser.user_type)}
     <div className="sell-item-form-container">
       <h1>Sell an Item</h1>
-      {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid">Sorry, only shopkeepers are allowed to sell an item</p>}
+      {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid" style={{textAlign:"center"}}>Sorry, only shopkeepers are allowed to sell an item</p>}
       <form onSubmit={handleSubmit} className="sell-item-form">
         <div className="form-group">
           <label htmlFor="name">Item Name:</label>

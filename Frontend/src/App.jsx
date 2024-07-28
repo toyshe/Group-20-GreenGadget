@@ -29,7 +29,7 @@ function App() {
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <Navigation categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
         <Routes>
-          <Route path='/login' element={<Login />} />
+          {/* <Route path='/login' element={<Login />} /> */}
           <Route path="/signup" element={<SignUp />} />
           <Route path='/' element={<Home electronicList={electronicList} />} />
           <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />} />
