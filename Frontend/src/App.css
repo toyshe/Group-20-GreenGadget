@@ -105,6 +105,7 @@ img.avatar {
 span.psw {
   float: right;
   padding-top: 16px;
+  font-weight: 500;
 }
 span.psw a:hover{
   transition: 0.15s linear;
@@ -113,6 +114,7 @@ span.psw a:hover{
 }
 .csu{
   text-align: center;
+  font-weight: 600;
 }
 .csu a{
   color: #3498db;
@@ -196,15 +198,6 @@ span.psw a:hover{
   }
 }
 
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-}
 
 .input-valid {
   background-color: #bfdbcd;
@@ -817,14 +810,57 @@ ul.sl .dropdown-container{
     border-style: hidden;
     width: 200px;
   }
-  .nav button, .Loginbutton{
+  /* .nav button, .Loginbutton{
     display: none;
     
+  } */
+  a.nava, .Loginbutton{
+    display: none;
   }
   .nav ul {
     padding-left: 10px;
   }
-  
+  .container button.cancelbtn{
+    margin-right: 15px;
+  }
+  span.psw a {
+    /* font-size: 14px; */
+    font-weight: 500;
+  }
+  p.csu {
+    font-size: 14px;
+    margin-bottom: 10px; /*make zero for phones */
+  }
+  .login-heading{
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 550px) {
+  span.psw {
+    display: block;
+    float: none; /*fix with flex wrap*/
+    padding-top: 4px;
+    text-align: center;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+  .container{
+    padding: 12px;
+  }
+  .login-heading{
+    padding: 18px 0 24px 0;
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none; /*fix with flex wrap*/
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }
 
 /* Electronics Page */
@@ -1852,7 +1888,6 @@ button[type='submit']:hover {
   margin: 0;
 }
 
-
 .conlink{
   color: #3498db;
   cursor: pointer;
@@ -1865,4 +1900,10 @@ button[type='submit']:hover {
   font-weight: 600;
   font-size: 14px;
   margin-bottom: 26px;
+}
+
+@media (max-width: 850px){  
+  #signup-form{
+    padding: 20px 30px;
+  }
 }

@@ -116,7 +116,9 @@ export default function SignUp() {
 
             <form id="signup-form" onSubmit={handleSubmit}>
                 <h1>Sign up</h1>
-                <p className="scsu" > Already have an account? <span className="conlink">Sign in here</span></p> 
+                <p className="scsu"> Already have an account?
+                    <span className="conlink" onClick={() => document.getElementById('id01').style.display = 'block'}> Sign in here</span>
+                </p> 
                 <h2 style={{ display: 'inline-block' }}>What type of user are you?</h2><span className="required-fields"> *</span>
                 <div className="user-type-container">
 
