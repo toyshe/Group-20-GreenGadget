@@ -213,3 +213,34 @@ button.to-cart-btn:hover{
 .iwitest .price-inputtest:focus{
   border-color: #04aa6d;
 }
+
+
+.form-group .img-display{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 3px dashed #1475cf; */
+  border: 3px  dashed #0963b6;
+  height: 285px;
+  width: 475px;
+  align-self: center;
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding: 0;
+  color: black;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.form-group .img-display:hover{
+  border-color: #5ba5ea;
+}
+/* .form-group .img-display img{
+  max-width: 240px;
+  max-height: 240px;
+} */
+.img-display span{
+  font-weight: 600;
+  font-size: 20px;
+  user-select: none;
+}

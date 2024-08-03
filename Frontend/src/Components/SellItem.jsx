@@ -2,7 +2,9 @@ import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { postElectronics } from "../../utils/utils";
 import './SellItem.css'
-import { MdOutlineMonochromePhotos } from "react-icons/md";
+import { MdOutlineMonochromePhotos, MdCloudUpload } from "react-icons/md";
+import { FaCloudUploadAlt } from "react-icons/fa";
+
 
 
 
@@ -33,12 +35,15 @@ export default function SellItem({ setElectronics }) {
     if (e.target.files.length === 0){
       let val3 = document.querySelector("#imgselname");
       val3.value = "No file chosen";
+      setFile(false);
+      console.log({file});
     }
     else{
       setFile(URL.createObjectURL(e.target.files[0]));
       let val2 = document.querySelector("#image").files[0].name
       let val3 = document.querySelector("#imgselname")
       val3.value = val2;
+      console.log({file});
     }
   }
 
@@ -63,13 +68,20 @@ export default function SellItem({ setElectronics }) {
     }
   };
 
+  const handleDragOver = (e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    console.log("working");
+  }
+
   return (
-    <div className="sell-item-page-container">
+    <>
+    <div className="sell-item-page-container" >
       {console.log(loggedInUser, loggedInUser.user_type)}
-    <div className="sell-item-form-container">
+    <div className="sell-item-form-container" >
       <h1>Sell an Item</h1>
       {loggedInUser.user_type === 'shopkeeper' ? null : <p className="input-invalid" style={{textAlign:"center"}}>Sorry, only shopkeepers are allowed to sell an item</p>}
-      <form onSubmit={handleSubmit} className="sell-item-form">
+      <form onSubmit={handleSubmit} className="sell-item-form" >
         <div className="form-group">
           <label htmlFor="name">Item Name:</label>
           <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter name" required />
@@ -108,7 +120,7 @@ export default function SellItem({ setElectronics }) {
         </div>
 
         
-        <div className="form-group">
+        <div className="form-group" style={{display: "flex", flexDirection: "column"}} >
           <label >Upload image:</label>
           <div className="img-upload">
             
@@ -121,7 +133,27 @@ export default function SellItem({ setElectronics }) {
 
             <input type="text" id="imgselname" defaultValue={"No file chosen"} disabled/>
 
+            
+          
           </div>
+
+          <label htmlFor="image" className="img-display" onDragOver={handleDragOver} onDrop={(e)=>{
+            e.preventDefault();
+            e.stopPropagation();
+            console.log("drop process starting");
+            setFile(URL.createObjectURL(e.dataTransfer.files[0]));
+            console.log(e.dataTransfer.files[0]);
+            console.log("drop worked");
+            let val2 = e.dataTransfer.files[0].name
+            let val3 = document.querySelector("#imgselname")
+            val3.value = val2;
+            }}>
+            {file ? <img src={file} height={240} />:
+            <>
+            <FaCloudUploadAlt color="#1475cf" size={80}/>
+            <span>Browse image to upload</span>
+            </>}
+          </label>
           <input type="file" id="image" className="hidden-imgsel" onChange={handleChange} accept="Image/*" required />
         </div>
         <div className="form-group">
@@ -141,5 +173,28 @@ export default function SellItem({ setElectronics }) {
       )}
     </div>
     </div>
+
+<label htmlFor="image" className="img-display" onDragOver={handleDragOver} onDrop={(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  console.log("drop process starting");
+  setFile(URL.createObjectURL(e.dataTransfer.files[0]));
+  console.log(e.dataTransfer.files[0]);
+  console.log("drop worked");
+  let val2 = e.dataTransfer.files[0].name
+  let val3 = document.querySelector("#imgselname")
+  val3.value = val2;
+  }}>
+  {file ? <img src={file} height={240} />:
+  <>
+  <FaCloudUploadAlt color="#1475cf" size={80}/>
+  <span>Browse image to upload</span>
+  </>
+  }
+  {/* <FaCloudUploadAlt color="#1475cf" size={60}/> */}
+  {/* <MdCloudUpload color="#1475cf" size={60}/> */}
+
+</label>
+</>
   );
 }

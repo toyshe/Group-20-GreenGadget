@@ -203,7 +203,7 @@ export default function SignUp() {
                     </>
                     : null}
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <button onClick={() => document.getElementById('id02').style.display = 'block'} style={{ width: 'auto' }}>Submit</button>
+                <button type="submit" onClick={() => document.getElementById('id02').style.display = 'block'} style={{ width: 'auto' }}>Submit</button>
 
             </form>
             {loading && <p>Loading...</p>} 
