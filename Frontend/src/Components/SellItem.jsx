@@ -35,7 +35,8 @@ export default function SellItem({ setElectronics }) {
     if (e.target.files.length === 0){
       let val3 = document.querySelector("#imgselname");
       val3.value = "No file chosen";
-      setFile(false);
+      setFile(false); 
+      // retest with drag and drop unsetting doesnt seem to work test to make sure
       console.log({file});
     }
     else{
@@ -119,7 +120,6 @@ export default function SellItem({ setElectronics }) {
 
         </div>
 
-        
         <div className="form-group" style={{display: "flex", flexDirection: "column"}} >
           <label >Upload image:</label>
           <div className="img-upload">
@@ -130,11 +130,7 @@ export default function SellItem({ setElectronics }) {
               UPLOAD IMAGE
               </span>
             </label>
-
             <input type="text" id="imgselname" defaultValue={"No file chosen"} disabled/>
-
-            
-          
           </div>
 
           <label htmlFor="image" className="img-display" onDragOver={handleDragOver} onDrop={(e)=>{
@@ -173,28 +169,6 @@ export default function SellItem({ setElectronics }) {
       )}
     </div>
     </div>
-
-<label htmlFor="image" className="img-display" onDragOver={handleDragOver} onDrop={(e)=>{
-  e.preventDefault();
-  e.stopPropagation();
-  console.log("drop process starting");
-  setFile(URL.createObjectURL(e.dataTransfer.files[0]));
-  console.log(e.dataTransfer.files[0]);
-  console.log("drop worked");
-  let val2 = e.dataTransfer.files[0].name
-  let val3 = document.querySelector("#imgselname")
-  val3.value = val2;
-  }}>
-  {file ? <img src={file} height={240} />:
-  <>
-  <FaCloudUploadAlt color="#1475cf" size={80}/>
-  <span>Browse image to upload</span>
-  </>
-  }
-  {/* <FaCloudUploadAlt color="#1475cf" size={60}/> */}
-  {/* <MdCloudUpload color="#1475cf" size={60}/> */}
-
-</label>
 </>
   );
 }
