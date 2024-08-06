@@ -73,10 +73,11 @@ export default function Basket({ basketList, setBasketList }) {
                 return (
                 <div className="basket-item">
                     {console.log(index)}
-
+                    <div className="basket-img-wrapper">
                     <img onClick={()=> {handleElectronicsClick(basket)}} src={basket.img_url} />
-                    <div>
-                        <p>{basket.name}</p>
+                    </div>
+                    <div style={{marginLeft: "10px"}}>
+                        <h2 style={{margin: "0"}}>{basket.name}</h2>
                         <p>{basket.model}</p>
                         <p className="price">£{basket.price}</p>
                         <p className="quantity">In stock: {basket.quantity}</p>

@@ -74,12 +74,13 @@ export default function Login() {
     }
 
     return (
-        
+        <>
         <div className="Loginbutton">
             {/* {loading ? <p>Loading</p>: null} */}
             <button onClick={() => document.getElementById('id01').style.display = 'block'} style={{ width: 'auto', marginRight: '5px' }}>Login</button>
+        </div>
 
-            <div id="id01" className="modal" style={{ display: 'none' }}>
+        <div id="id01" className="modal" style={{ display: 'none' }}>
                 <form className="modal-content animate" onSubmit={handleSubmit}>
                     <h4 className="login-heading">Login 
                     <span onClick={() => document.getElementById('id01').style.display = 'none'} className="close" title="Close Modal">&times;</span>
@@ -102,7 +103,7 @@ export default function Login() {
                             <span><label htmlFor="rmber">Remember me</label></span>
                         </div>
                     </div>
-                    <p className="csu" style={{textAlign:"center"}} >Not a member? <Link to={'/SignUp'} id="id03">Sign up</Link></p> 
+                    <p className="csu" >Not a member? <Link to={'/SignUp'} id="id03">Sign up</Link></p> 
 
                     <div className="container" style={{ backgroundColor: '#f1f1f1' }}>
                         <button type="button" onClick={() => document.getElementById('id01').style.display = 'none'} className="cancelbtn">Cancel</button>
@@ -117,6 +118,6 @@ export default function Login() {
                     document.getElementById('id01').style.display = "none";
                 }
             }}
-        </div>
+        </>
     )
 }
