@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { postSignUpInfo } from "../../utils/utils"
 import UserContext from "../contexts/UserContext";
+import { Link} from "react-router-dom";
 
 
 export default function SignUp() {
@@ -112,9 +113,10 @@ export default function SignUp() {
     }
 
     return (
-        <div>
+        <div id="signup-form-container">
 
             <form id="signup-form" onSubmit={handleSubmit}>
+
                 <h1>Sign up</h1>
                 <p className="scsu"> Already have an account?
                     <span className="conlink" onClick={() => document.getElementById('id01').style.display = 'block'}> Sign in here</span>
@@ -196,14 +198,21 @@ export default function SignUp() {
                 <label htmlFor="country">Country</label><span className="required-fields"> *</span>
                 <input type="text" id="country" value={country} placeholder="Enter country" onChange={(e) => setCountry(e.target.value)} required />
 
+                
                 {userType === 'shopkeeper' ?
                     <>
                         <label htmlFor="utr">UTR</label><span className="required-fields"> *</span>
                         <input type="text" id="utr" value={utr} placeholder="Enter UTR" onChange={(e) => setUtr(e.target.value)} required />
                     </>
-                    : null}
+                : null}
+
+                <div className="remember-me" style={{margin: "20px 0"}}>
+                    <input type="checkbox" name="tcc" id="tcc" style={{transform: "scale(1.2)"}} /> 
+                    <span><label htmlFor="tcc" style={{margin: "0", fontWeight: "500"}}>I agree to the <Link to={'/tc'}>terms and conditions</Link></label></span>
+                </div>
+                
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <button type="submit" onClick={() => document.getElementById('id02').style.display = 'block'} style={{ width: 'auto' }}>Submit</button>
+                <button type="submit" onClick={() => document.getElementById('id02').style.display = 'block'}>Submit</button>
 
             </form>
             {loading && <p>Loading...</p>} 

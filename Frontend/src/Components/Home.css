@@ -146,6 +146,16 @@ html {
   margin: 20px;
   position: relative;
   cursor: pointer;
+  opacity: 0;
+  animation: opac 2s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes opac {
+  100%{
+    opacity: 1;
+  }
+  
 }
 .acit-face{
   width: 300px;

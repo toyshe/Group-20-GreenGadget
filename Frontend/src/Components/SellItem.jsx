@@ -35,6 +35,11 @@ export default function SellItem({ setElectronics }) {
     if (e.target.files.length === 0){
       let val3 = document.querySelector("#imgselname");
       val3.value = "No file chosen";
+      /*/ test with 
+      word-wrap: break-word;
+      text-wrap: wrap; 
+      and innertext for longer file names
+      or textarea*/
       setFile(false); 
       // retest with drag and drop unsetting doesnt seem to work test to make sure
       console.log({file});
@@ -72,7 +77,7 @@ export default function SellItem({ setElectronics }) {
   const handleDragOver = (e)=>{
     e.preventDefault();
     e.stopPropagation();
-    console.log("working");
+    // console.log("working");
   }
 
   return (

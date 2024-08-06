@@ -136,6 +136,10 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
         navigate(`/electronics?electronics_type=${e.target.innerText}`)
     }
 
+    const handleSignUp = () => {
+        navigate('/signup')
+    }
+
     return (
 
 
@@ -149,8 +153,11 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
 
                 <ul className="sl">
+                <li onClick={handleSignIn}><a>Login</a></li>
+                <li onClick={handleSignUp}><a>Sign Up</a></li>
                     <li className="dropdown-container">
                         <div onClick={toggleSubMenu}><a>Shop by category</a></div>
+                        {/* <div onClick={toggleSubMenu}><a>Categories</a></div> */}
                         <div className="sub-menu">
                             {categoriesList.map((category,index) => {
                                 return (
@@ -162,9 +169,6 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                     <li onClick={handleAllItemsClick}><a>All items</a></li>
                     <li onClick={handleSellClick}><a>Sell item</a></li>
                     <li onClick={handleRepair}><a>Repair</a></li>
-                    <li onClick={handleSignIn}><a>Login</a></li>
-
-
                     <li onClick={handleSupportClick}><a>Support</a></li>
                     <li onClick={handleFaqClick}><a>FAQ</a></li>
                     <li onClick={handleTCclick}><a>T&C</a></li>

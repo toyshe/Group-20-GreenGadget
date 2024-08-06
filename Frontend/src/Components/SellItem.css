@@ -145,6 +145,8 @@ button.to-cart-btn:hover{
   /* box-shadow: 2px 10px 25px rgba(0, 0, 0, 0.35); */
   border-radius: 5px;
   padding: 14px 20px;
+  /*for textarea test*/
+  height: fit-content;
 }
 
 #imgsel-btn:active{
@@ -168,7 +170,8 @@ button.to-cart-btn:hover{
   display: flex;
   gap: 10px;
 }
-.form-group .img-upload input{
+.form-group .img-upload input,
+.form-group .img-upload textarea{
   width: auto;
   margin-bottom: 8px;
   border-style: hidden;
@@ -235,10 +238,13 @@ button.to-cart-btn:hover{
 .form-group .img-display:hover{
   border-color: #5ba5ea;
 }
-/* .form-group .img-display img{
-  max-width: 240px;
+.form-group .img-display img{
+  max-width: 450px;
   max-height: 240px;
-} */
+  display: block;
+}
+
+
 .img-display span{
   font-weight: 600;
   font-size: 20px;
