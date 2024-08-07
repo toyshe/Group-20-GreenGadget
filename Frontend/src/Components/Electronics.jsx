@@ -55,7 +55,7 @@ export default function Electronics({ electronicList, setElectronics, categories
                         </div>
                         <img className='electronics_img' src={electronics.img_url} alt={electronics.model} />
                         <p><strong>Storage:</strong> {electronics.storage_in_gb}GB</p>
-                        <p><strong>£</strong>{electronics.price}</p>
+                        <p><strong>£{electronics.price}</strong> </p>
                         <p><strong>Seller: </strong>{electronics.username}</p>
                         <p><strong>In stock:</strong> {electronics.quantity}</p>
                       </button>

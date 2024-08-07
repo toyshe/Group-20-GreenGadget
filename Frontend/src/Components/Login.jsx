@@ -97,7 +97,7 @@ export default function Login() {
                         <label htmlFor="spassword"><b>Password</b></label>
                         <input type="password" id="spassword" value={password} onChange={handlePassword} placeholder="Enter Password" name="password" required />
 
-                        <button type="submit">Login</button>
+                        <button type="submit" className="neubrutal-lbtn">Login</button>
                         <div className="remember-me">
                             <input type="checkbox" checked={checked} onChange={handleChecked} name="remember" id="rmber" /> 
                             <span><label htmlFor="rmber">Remember me</label></span>

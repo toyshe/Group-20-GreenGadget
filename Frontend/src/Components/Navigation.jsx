@@ -220,7 +220,7 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
             {loggedInUser.username ? (
                 <div className="basket-user">
 
-                    <FaShoppingBasket size={45} onClick={handleBasket} title="Basket"/>
+                    <FaShoppingBasket size={35} onClick={handleBasket} title="Basket"/>
                     {console.log(isDropdownOpen)}
 
                     <div className="dropdown-container">

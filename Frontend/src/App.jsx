@@ -16,6 +16,7 @@ import TC from "./Components/TermsAndConditions";
 import Basket from "./Components/Basket";
 import Repair from "./Components/Repair";
 import NotFound from "./Components/NotFound";
+import Tech from "./Components/Tech";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -73,7 +74,10 @@ function App() {
                         <li><Link to={'/faq'}>FAQ</Link></li>
                     </ul>
                 </div>
-            </footer>
+      </footer>
+      <div className='footer-extension'>
+      <Tech/>
+      </div>
     </>
   )
 
