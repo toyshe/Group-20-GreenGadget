@@ -66,14 +66,14 @@ export default function SignUp() {
             let swap = document.getElementById("juf4dgebpng");
             swap.style.backgroundColor = "transparent"
             let currentavatar = document.querySelector("#"+e.target.id);
-            currentavatar.style.backgroundColor = "rgb(190 211 211)"
+            currentavatar.style.backgroundColor = "rgb(47 65 227)"
         }
         else if( e.target.id === "juf4dgebpng" ){
             if ( e.target.id === "juf4dgebpng" ){
                 let swap = document.getElementById("juf4dwqpng");
                 swap.style.backgroundColor = "transparent"
                 let currentavatar = document.querySelector("#"+e.target.id);
-                currentavatar.style.backgroundColor = "rgb(190 211 211)"
+                currentavatar.style.backgroundColor = "rgb(47 65 227)"
             }
         }
     }
@@ -212,7 +212,7 @@ export default function SignUp() {
                 </div>
                 
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <button type="submit" onClick={() => document.getElementById('id02').style.display = 'block'}>Submit</button>
+                <button type="submit" onClick={() => document.getElementById('id02').style.display = 'block'} className="neubrutal-btn">Submit</button>
 
             </form>
             {loading && <p>Loading...</p>} 

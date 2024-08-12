@@ -31,6 +31,11 @@ export default function ElectronicDevice({setBasketList}) {
             postBasket({username: loggedInUser.username, electronics_id, quantity: 1})
             togglePopup()
         }
+        else{
+            // add messsage telling user they need to sign in 
+            // look into libraries that do toast notifications 
+            // or amother workaround e.g. create own
+        }
     }
 
     const togglePopup = () => {
@@ -85,7 +90,7 @@ export default function ElectronicDevice({setBasketList}) {
 
         <div className="device-stats">
             <div className="electronic-device-epithet">
-                <Icon props={electronic.electronics_type} className="electronics_device-icon" size={36}/>
+                <Icon props={electronic.electronics_type} className="electronics_device-icon" size={45}/>
                 <span><h3 className="device-type" onClick={handleTypeclick}>{electronic.electronics_type}</h3></span>
             </div>
             <h1>{electronic.model}</h1>

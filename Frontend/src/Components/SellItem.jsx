@@ -40,12 +40,17 @@ export default function SellItem({ setElectronics }) {
       text-wrap: wrap; 
       and innertext for longer file names
       or textarea*/
-      setFile(false); 
+      console.log({file})
+      setFile(null); 
+      // setFile(false); 
+      // setFile(undefined); 
       // retest with drag and drop unsetting doesnt seem to work test to make sure
       console.log({file});
     }
     else{
+      console.log({file});
       setFile(URL.createObjectURL(e.target.files[0]));
+      // test URL.createObjectURL() may not be working properly test to make suer
       let val2 = document.querySelector("#image").files[0].name
       let val3 = document.querySelector("#imgselname")
       val3.value = val2;
@@ -162,6 +167,7 @@ export default function SellItem({ setElectronics }) {
           <input type="number" id="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
         </div>
         <button disabled={userTypeError} type="submit" className="submit-button">Submit</button>
+        {/* test addding shake animation for disabled mode */}
       </form>
       {errorMessage && <p className="input-invalid">{errorMessage}</p>}
       {showPopup && (
