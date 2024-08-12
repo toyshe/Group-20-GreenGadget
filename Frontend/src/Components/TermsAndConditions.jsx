@@ -31,9 +31,11 @@ export default function TC() {
 
             <section id="tc-own">
             <div className="section">
-                <h2>2. The term 'GreenGadget' or 'us' or 'we' refers to the owner of the website whose registered office is GreenGadget Ltd, 
+                <h2>2. Who are we?</h2>
+                <p> The term 'GreenGadget' or 'us' or 'we' refers to the owner of the website whose registered office is GreenGadget Ltd, 
                     123 Green Street, GreenCity, GC1 2YZ. Our company registration number is 0123456789 - VAT Registration GB 123 4567 89. 
-                    The term 'you' refers to the user or viewer of our website.</h2>
+                    The term 'you' refers to the user or viewer of our website.
+                </p>
             </div>
             </section>
 

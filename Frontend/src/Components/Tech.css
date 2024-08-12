@@ -11,6 +11,7 @@
     align-items:center;
     padding: 25px 0;
     margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 .ticon-container svg{
     margin: 10px;
@@ -201,5 +202,45 @@ html.darkmode .ticon-wrapper .github-icon:hover{
         gap: 8px;
     }
   }
-  @media (max-width: 800px){ 
+  @media (max-width: 810px){ 
+    .ticon-wrapper{
+        gap: 0px;
+    }
+    .ticon-container .react-icon{
+        height: 50px;
+        width: 50px;
+    }
+    .ticon-container .github-icon{
+        height: 40px;
+        width: 40px;
+    }
+    .ticon-container .nodejs-icon{
+        height: 50px;
+        width: 50px;
+    }
+    .ticon-container .js-icon{
+        height: 50px;
+        width: 50px;
+    }
+    .ticon-container .express-icon{
+        height: 40px;
+        width: 40px;
+    }
+    .ticon-container .jest-icon{
+        height: 30px;
+        width: 30px;
+    }
+    .ticon-container .psql-icon{
+        height: 50px;
+        width: 50px;
+    }
+    .ticon-container .render-icon{
+        height: 50px;
+        width: 50px;
+    }
+  }
+  @media (max-width: 665px){ 
+    .ticon-container{
+        padding: 0;
+    }
   }

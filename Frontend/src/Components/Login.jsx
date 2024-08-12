@@ -105,7 +105,7 @@ export default function Login() {
                     </div>
                     <p className="csu" >Not a member? <Link to={'/SignUp'} id="id03">Sign up</Link></p> 
 
-                    <div className="container" style={{ backgroundColor: '#f1f1f1' }}>
+                    <div className="log-bttm container" >
                         <button type="button" onClick={() => document.getElementById('id01').style.display = 'none'} className="cancelbtn">Cancel</button>
                         <span className="psw"><a href="#">Forgot Password?</a></span>
                         {/* implement lateer */}

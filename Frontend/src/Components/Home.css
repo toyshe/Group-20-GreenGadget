@@ -13,16 +13,14 @@ html {
   }
  
   #slider{
-    position: relative;
-    width: 750px;
-    height: 400px;
-    overflow: hidden;
-    /*box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);*/
-    border: 5px solid black;
-    border-radius: 30px;
-    
-    margin-top: 20px;
-    padding-top: auto;
+  position: relative;
+  width: 750px;
+  height: 400px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  border: 5px solid black;
+  border-radius: 30px;
+  margin-top: 20px;
   }
   #slider ul{
     position: relative;

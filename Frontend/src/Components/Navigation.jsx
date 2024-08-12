@@ -35,7 +35,7 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
     }, [isDropdownOpen]);
 
     const hideSidebar = () => {
-        document.querySelector(".side-menu").style.left = "-100%";
+        document.querySelector(".side-menu").style.left = "-200%";
         document.querySelector("#overlay").style.display = "none";
     }
 
@@ -96,12 +96,18 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
             root.classList.add('darkmode');
             localStorage.setItem('darkMode', 'enabled');
             console.log("enableDarkMode");
+            let dmtoggle = document.querySelector(".DM-toggle-text");
+            console.log(dmtoggle.innerText);
+            dmtoggle.innerText = "Dark Mode Toggle";
         }
 
         const disableDarkMode = () => {
             root.classList.remove('darkmode');
             localStorage.removeItem('darkMode', 'enabled');
             console.log("disableDarkMode");
+            let dmtoggle = document.querySelector(".DM-toggle-text");
+            console.log(dmtoggle.innerText);
+            dmtoggle.innerText = "Light Mode Toggle";
         }
 
         if (darkMode === 'enabled') {
@@ -128,7 +134,11 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
     };
 
     const handleLogOut = () => {
-        setLoggedInUser({})
+        // setLoggedInUser({})
+        hideSidebar();
+        setTimeout(() => {
+            setLoggedInUser({})
+        }, 300);
     }
 
     const handleCategoryClick = (e) => {

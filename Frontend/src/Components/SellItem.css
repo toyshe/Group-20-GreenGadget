@@ -70,11 +70,11 @@
   padding: 10px;
   background-color: #28a745;
   border: none;
-  border-radius: 0px;
   color: white;
-  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 button[type='submit'].submit-button:disabled {
@@ -83,6 +83,15 @@ button[type='submit'].submit-button:disabled {
   box-shadow: none;
   transform: none;
 }
+button[type='submit'].submit-button:disabled:hover {
+  animation: smallswing 0.2s linear 2;
+}
+@keyframes smallswing {
+  0%,100% { 
+    transform: rotate(1deg) }
+  50% { transform: rotate(-1deg) }
+}
+
 .submit-button:hover:not(:disabled) {
   background-color: #218838;
   box-shadow: 6px 6px 0 0 wheat, 9px 9px 0 0 #4caf50;

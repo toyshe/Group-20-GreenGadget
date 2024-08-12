@@ -15,6 +15,7 @@ body {
   --box-shad: rgba(0, 0, 0, 0.1);
   --clr-toggle: gray;
   --filters-container-background: #ffffff;
+  --dmt-btn: white;
   --s: 150px;
   --c1: #f7d2a1;
   --c2: rgb(11, 170, 11);
@@ -22,11 +23,14 @@ body {
   var(--c1) 16% 25%, var(--c2) 26% 35%, var(--c1) 36% 45%, 
   var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%, 
   var(--c1) 76% 85%, var(--c2) 86% 95%, #0000 96%;
+  --ch-marker: black;
 }
 
 /* utility class used to apply darkmode */
 .darkmode{
   --clr-dark: #0E1525;
+  --clr-dark: #0b101c;
+  --clr-dark: #1b1b1b;
   --clr-light: white;
   --clr-green: #025b3a;
   --foreground: var(--clr-light);
@@ -37,6 +41,8 @@ body {
   --img-slider:rgb(34 98 77);
   --box-shad: rgba(255, 255, 255, 0.4);
   --filters-container-background: #444040;
+  --dmt-btn: var(--background);
+  --ch-marker: #b7b3b3;
 }
 ::selection{
   background-color: rgb(11, 170, 11);
@@ -72,7 +78,6 @@ button {
 label {
   padding: 14px 20px;
   margin: 8px 0;
-  size: 40px;
 }
 
 button:hover {
@@ -142,6 +147,9 @@ span.psw a:hover{
   margin: 5% auto 15% auto;
   border: 1px solid #888;
   width: 50%; 
+}
+html.darkmode .modal-content{
+  background-color: #434040;
 }
 .modal-content label{
   padding-left: 0;
@@ -229,6 +237,12 @@ span.psw a:hover{
   color: #375162;
   font-weight: 600;
 }
+.log-bttm{
+  background-color: rgb(241, 241, 241);
+}
+html.darkmode .log-bttm{
+  background-color: rgb(90, 87, 87);
+}
 
 .error-message {
   color: red; /* Set text color to red */
@@ -289,6 +303,29 @@ span.psw a:hover{
   background-color: #ecf242;
   color: #b33a0e;
   padding: 14px 18px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden; 
+}
+.nav-buttons::before{
+content: "";
+position: absolute;
+background-color: #dee09f;
+/* background-color: #e8e9dc; */
+width: 12%;
+aspect-ratio: 1;
+border-radius: 50%;
+inset: 0;
+margin: auto;
+z-index: -1;
+/* transition: all 0.4s, opacity 0.1s; */
+transition: all 1.6s, opacity 0.3s;
+opacity: 0;
+}
+.nav-buttons:hover::before{
+  opacity: 1;
+  transform: scale(12);
+  transition: all 0.6s, opacity 0.1s;
 }
 .nav-buttons:hover {
   opacity: 1;
@@ -308,10 +345,32 @@ span.psw a:hover{
   background-color: #273731;
   border : 2px solid #04aa6d;
   box-sizing: border-box;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 .Loginbutton button:hover{
   background-color: #04aa6d;
   opacity: 1; 
+}
+.Loginbutton button::before{
+  content: "";
+  position: absolute;
+  background-color: #11df93;
+  width: 12%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  inset: 0;
+  margin: auto;
+  z-index: -1;
+  /* transition: all 0.4s, opacity 0.1s; */
+  transition: all 2.5s, opacity 0.3s;
+  opacity: 0;
+}
+.Loginbutton button:active:before{
+  opacity: 1;
+  transform: scale(12);
+  transition: all 0.4s, opacity 0.1s;
 }
 .nav {
   display: flex;
@@ -511,7 +570,7 @@ body {
   width: 250px;
   z-index: 999;
   box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
-  left: -100%;
+  left: -200%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -578,6 +637,12 @@ body {
   border-radius: 0;
   width: 2rem;
   margin: 0;
+  border-right: 1.5px solid black;
+  transition: all 0.2s ease;
+}
+.searchbar button:hover {
+  opacity: 1;
+  background-color: rgba(12, 180, 118, 0.8);
 }
 
 .fa-search {
@@ -611,6 +676,7 @@ body {
 }
 .side-menu-title{
   font-family: 'Coyote', sans-serif;
+  padding-left: 10px;
 }
 
 .sl li a {
@@ -1090,16 +1156,17 @@ text-decoration: underline;}
 }
 .content-headings{
   position: sticky;
-  /* height: fit-content; not supported in firefox */
-  top: 20px;
+  top: 40px;
   margin-left: 20px;
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: 40px;
   /* padding-top: 10px; */
   /* padding: 10px 5px; */
   /* border: 2px black solid;
   border-radius: 10px; */
+  margin-bottom: 60px;
+  scroll-padding: 100px;
 }
 
 .content-headings hr{
@@ -1125,15 +1192,16 @@ text-decoration: underline;}
 }
 .content-headings li a::before{
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   /* background-color: #04aa6d; */
-  background-color: black;
+  /* background-color: black; */
+  background-color: var(--ch-marker);
   position: absolute;
   border-radius: 50%;
   bottom: 0;
   top: 0px;
-  left: 10px;
+  left: 5px;
   margin: auto;
 }
 .content-headings li:hover a::before{
@@ -1152,6 +1220,8 @@ text-decoration: underline;}
   box-shadow: 0 0 10px var(--box-shad);
   padding: 20px;
   font-family: 'Roboto', sans-serif;
+  /* background-image: linear-gradient(#edeece 50%, #30ba4f, #34755d); */
+  /* background-image: linear-gradient(#edeece 50%, #a6dfb3, #73a291); */
 }
 
 .about-content h2 {
@@ -1217,10 +1287,13 @@ body {
 .terms-content {
   max-width: 800px;
   padding: 40px;
-  background-color: var(--background);
+  /* background-color: var(--background); */
   color: var(--foreground);
   box-shadow: 0 0 20px var(--box-shad);
   border-radius: 10px;
+}
+html.darkmode .terms-content {
+  box-shadow: 0 0 5px var(--box-shad);
 }
 .terms-container h2{
   color:var(--foreground);
@@ -1555,9 +1628,8 @@ button[type='submit']:hover {
 #side-menu-bottom {
   margin-top: auto;
   width: 100%;
-  border-top: solid 2px black;
-  /* background-color: #ddd; */
-  background-color: #f2f2f2;
+  border-top: solid 1.5px black;
+  background-color: #dadada;
 }
 #side-menu-settings-container {
   margin-top: auto;
@@ -1574,10 +1646,11 @@ button[type='submit']:hover {
 #dmt-toggle {
   display: flex;
   margin: 0px 0 0 0;
-  background-color: var(--background);
+  background-color: var(--dmt-btn);
   border-radius: 3px;
   margin-bottom: 10px;
   cursor: pointer;
+  transition: all ease 0.5s;
 }
 .DM-btn {
   align-items: center;
@@ -1587,8 +1660,12 @@ button[type='submit']:hover {
   display: flex;
   flex-direction: column;
   z-index: 10;
-  background-color: wheat;
+  /* background-color: wheat; */
+  background-color: blueviolet;
   margin: 5px 0px 5px 15px;
+}
+html.darkmode .DM-btn{
+  background-color: aquamarine;
 }
 .fa-sun {
   padding-top: 7px;
@@ -1596,12 +1673,16 @@ button[type='submit']:hover {
   font-size: 40px;
   color: var(--background);
 }
-.fa-right-from-bracket:before{
-  color: #000;
+.fa-right-from-bracket:before{  
+  font-size: 22px;
+  color: white;
 }
 .DM-toggle-text {
   display: inline-block;
   margin: auto 0 auto 15px;
+}
+html.darkmode .DM-toggle-text {
+  content: "Light Mode Toggle";
 }
 #side-menu-settings #dmt-toggle #DM-toggle-switch {
   display: flex;
@@ -1635,17 +1716,25 @@ button[type='submit']:hover {
 }
 #side-menu-logout{
   cursor: pointer;
-  background-color: #bbb8b8;
+  background-color: #f43f5e;
   border-radius: 3px;
   display: flex;
   align-items: center;
   padding: 16px 0 16px 0;
+  box-shadow: 0px 4px 0 0 #be123c;
 }
+#side-menu-logout:active{
+  background-color: #fb7185;
+  box-shadow: none;
+  transform: translateY(4px);
+}
+
 #side-menu-logout span{
   margin-left: 20px;
   font-family: "Assistant", sans-serif;
   font-size: 20px;
-  color: black;
+  color: white;
+  font-weight: 600;
 }
 #side-menu-logout i{
   margin-left: 25px;
@@ -1928,11 +2017,12 @@ html.darkmode .electronics_device-icon{
 .terms-content h1,
 .about-content h2{
   text-align: center;
-    margin-bottom: 20px;
-    font-size: 32px;
-    color: bisque;
-    background-image: linear-gradient(155deg, #34755d, #30ba4f);
-    padding: 20px;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: bisque;
+  background-image: linear-gradient(155deg, #34755d, #30ba4f);
+  padding: 20px;
+  text-decoration: underline;
 }
 
 .flex-col{
@@ -2071,4 +2161,16 @@ button[type='submit'].neubrutal-btn:active,
 }
 .clip-btn{
   clip-path: polygon(0 0, 100% 0%, 100% 60%, 95% 100%, 0 100%);
+}
+
+
+@keyframes shake {
+  0%,100%{
+    transform: translate(0);}
+  25%{
+    transform: translate(4px);
+  }
+  75%{
+    transform: translate(-4px);
+  }
 }
