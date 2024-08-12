@@ -319,7 +319,7 @@ inset: 0;
 margin: auto;
 z-index: -1;
 /* transition: all 0.4s, opacity 0.1s; */
-transition: all 1.6s, opacity 0.3s;
+transition: all 0.3s 0.3s, opacity 0.3s;
 opacity: 0;
 }
 .nav-buttons:hover::before{
