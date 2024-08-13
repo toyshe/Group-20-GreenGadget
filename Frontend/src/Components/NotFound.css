@@ -28,6 +28,7 @@ h2{
 .four04-title span{
   position: relative;
   user-select: none;
+  /* filter: drop-shadow(5px 2px 1px black); */
 }
 .four04-title span .soliderror{
   position: absolute;
