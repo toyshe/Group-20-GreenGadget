@@ -43,6 +43,11 @@ body {
   --filters-container-background: #444040;
   --dmt-btn: var(--background);
   --ch-marker: #b7b3b3;
+  /* --c1: #b7b3b3; */
+  --c1: #918d8d;
+  /* --c2: rgb(46 82 46); */
+  --c2: rgb(68 130 68);
+
 }
 ::selection{
   background-color: rgb(11, 170, 11);
@@ -436,6 +441,7 @@ opacity: 0;
   background-color: #0d704c;
   padding: 0 10px;
   box-sizing: border-box;
+  padding: 0 10px 5px;
 }
 .nav ul {
   position: relative;
@@ -1591,7 +1597,7 @@ button[type='submit']:hover {
 
 .form-container button:hover {
   background-color: #0056b3;
-  box-shadow: 6px 6px 0 0 white, 9px 9px 0 0 #007bff;
+  box-shadow: 6px 6px 0 0 lightblue, 9px 9px 0 0 #007bff;
   transform: translate(-3px, -3px);
 }
 .form-container button:active{
@@ -2151,6 +2157,7 @@ button[type='submit'].neubrutal-btn,
 }
 button[type='submit'].neubrutal-btn:hover,
 .support-container button[type='submit']:hover{
+  /* box-shadow: 6px 6px 0 0 #9ef09e, 9px 9px 0 0 #4caf50; */
   box-shadow: 6px 6px 0 0 wheat, 9px 9px 0 0 #4caf50;
   transform: translate(-3px,-3px);
 }

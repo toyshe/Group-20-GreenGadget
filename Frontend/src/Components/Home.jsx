@@ -20,8 +20,8 @@ import acit5 from './images/acit5.png'
 import acit6 from './images/acit6.png'
 import Product from "./Product";
 import Totop from "./Totop";
-// import { getElectronics } from "../../utils/utils";
-
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 
 export default function Home({electronicList}){
@@ -125,9 +125,16 @@ export default function Home({electronicList}){
     </div> */}
 
     <div className="acit-card">
-        <div className="acit-face acit-face1">
-            <img src={acit1} alt="where to start" className="card-img"></img>
-        </div>
+    <Link to={'/FAQ'}>
+      <div className="acit-face acit-face1">
+          <img src={acit1} alt="where to start" className="card-img"></img>
+          <FaArrowRightLong size={30}/>
+          {/* <div style={{position:"absolute", backgroundImage:"linear-gradient(transparent 75%, #edeece)",
+            width:"100%", height:"101%", top:"0"
+          }}></div> */}
+      </div>
+    </Link>
+        
         <div className="acit-face acit-face2">
           <div className="acit-content">
             <h3>Welcome</h3>
@@ -154,6 +161,7 @@ export default function Home({electronicList}){
     <div className="acit-card">
         <div className="acit-face acit-face1">
             <img src={acit5} alt="where to start" className="card-img"></img>
+            <FaArrowRightLong size={30}/>
         </div>
         <div className="acit-face acit-face2">
           <div className="acit-content">
@@ -180,6 +188,7 @@ export default function Home({electronicList}){
     <div className="acit-card">
         <div className="acit-face acit-face1">
             <img src={acit2} alt="where to start" className="card-img"></img>
+            <FaArrowRightLong size={30}/>
         </div>
         <div className="acit-face acit-face2">
           <div className="acit-content">
@@ -232,6 +241,7 @@ export default function Home({electronicList}){
       <div className="acit-card">
         <div className="acit-face acit-face1">
             <img src={acit6} alt="where to start" className="card-img"></img>
+            <FaArrowRightLong size={30}/>
         </div>
         <div className="acit-face acit-face2">
           <div className="acit-content">
