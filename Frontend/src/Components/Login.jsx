@@ -47,7 +47,12 @@ export default function Login() {
                 setLoginMessage('')
                 setLoggedInUser(data)
                 document.getElementById('id01').style.display = "none";
-                navigate('/')
+                document.getElementById('id05').style.display = 'flex'
+                setTimeout(() => {
+                    navigate('/');
+                    document.getElementById('id05').style.display = 'none'
+                }, 2500);
+                // navigate('/');
             } else {
                 // setLoginMessage('Invalid credentials. Please try again.');
                 setLoginMessage('Invalid password. Please check and try again.')

@@ -25,6 +25,7 @@ export default function SignUp() {
     const [showPopup, setShowPopup] = useState(false);
     const [avatar, setAvatar] = useState('')
     const { setLoggedInUser } = useContext(UserContext)
+    const [checked, setChecked] = useState(false)
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -110,6 +111,10 @@ export default function SignUp() {
             setLoading(false)
             setErrorMessage('Please fill in all fields including chosing a user type from top of the page')
         }
+    }
+
+    const handleChecked = () => {
+        setChecked(!checked);
     }
 
     return (
@@ -207,7 +212,7 @@ export default function SignUp() {
                 : null}
 
                 <div className="remember-me" style={{margin: "20px 0"}}>
-                    <input type="checkbox" name="tcc" id="tcc" style={{transform: "scale(1.2)"}} /> 
+                    <input type="checkbox" checked={checked} onChange={handleChecked} name="tcc" id="tcc" style={{transform: "scale(1.2)"}} /> 
                     <span><label htmlFor="tcc" style={{margin: "0", fontWeight: "500"}}>I agree to the <Link to={'/tc'}>terms and conditions</Link></label></span>
                 </div>
                 

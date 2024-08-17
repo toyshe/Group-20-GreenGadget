@@ -24,6 +24,10 @@ body {
   var(--c2) 46% 55%, var(--c1) 56% 65%, var(--c2) 66% 75%, 
   var(--c1) 76% 85%, var(--c2) 86% 95%, #0000 96%;
   --ch-marker: black;
+  --eld-clr: #f7f7f7;
+  --eld-name-cllr: #333 ;
+  --eld-model-cllr: #555;
+  --fof-log-clr: rgba(0, 0, 0, 0.6);
 }
 
 /* utility class used to apply darkmode */
@@ -47,12 +51,48 @@ body {
   --c1: #918d8d;
   /* --c2: rgb(46 82 46); */
   --c2: rgb(68 130 68);
-
+  --eld-clr: #171717;
+  --eld-name-cllr: #ddd ;
+  --eld-model-cllr: #aaa;
+  --fof-log-clr: rgba(255, 255, 255, 60%);
 }
 ::selection{
   background-color: rgb(11, 170, 11);
   color: white;
 }
+/* ::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.8s;
+} */
+/* ::view-transition-group(---vtg) {
+  animation-duration: 1.8s;
+} */
+/* ::view-transition-old(device4),
+::view-transition-new(device4) {
+  animation-duration: 333.8s;
+  transition-duration: 333.8s;
+} */
+html::view-transition-group(*) {
+  animation-duration: 0.8s;
+}
+html::view-transition-group(root) {
+  animation-duration: 0.02s;
+}
+html::view-transition-old(*) {
+  animation-duration: 0.02s;
+}
+/* ::view-transition-old(device3) {
+  width: 500px;
+} */
+/* ::view-transition-old(var(--vtg)),
+::view-transition-new(var(--vtg)) {
+  animation-duration: 323.8s;
+  transition-duration: 323.8s;
+} */
+/* ::view-transition-new(device3) {
+ display: none;
+} */
+
 
 /* html.darkmode{
   color-scheme: dark;
@@ -441,7 +481,7 @@ opacity: 0;
   background-color: #0d704c;
   padding: 0 10px;
   box-sizing: border-box;
-  padding: 0 10px 5px;
+  padding: 5px 10px ;
 }
 .nav ul {
   position: relative;
@@ -1058,13 +1098,18 @@ ul.sl .dropdown-container{
 /* Electronics Device */
 
 .electronic-device {
-  text-align: center;
+  /* text-align: center; */
   margin: 5% auto 5% auto; 
   padding: 20px;
-  max-width: 500px; 
-  background-color: #f7f7f7; 
+  max-width: 500px;
+  width: 500px;
+  background-color: #171717;
+  background-color: #070707; 
+  background-color: var(--eld-clr); 
   border-radius: 10px;
   box-shadow: 0 0 10px var(--box-shad);
+  display: flex;
+  flex-direction: column;
 }
 .electronic-device .popup {
   position: fixed;
@@ -1092,22 +1137,31 @@ text-decoration: underline;}
   height: auto;
   margin-bottom: 20px;
   border-radius: 10px;
+  margin-top: 20px;
+  background-color: #070707;
+  background-image: linear-gradient(90deg, black, black, gray, black, transparent);
+  background-image: linear-gradient(135deg, black, black, gray, black, transparent);
+  background-image: linear-gradient(155deg, black, black, gray, black, transparent);
+  align-self: center;
+  view-transition-name: var(--vtg);
 }
 
 .electronic-details {
   text-align: center;
+  margin-bottom: 15px;
 }
 
 .electronic-details h1 {
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--eld-name-cllr);
 }
 
 .electronic-details h2 {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
-  color: #555;
+  color: var(--eld-model-cllr);
+  text-decoration: underline;
 }
 
 .electronic-details p {
@@ -1138,9 +1192,13 @@ text-decoration: underline;}
 }
 .capacity  .capacity-title{
   margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 500;
 }
 .quantity .quauntity-title{ 
   margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
 }
 .capacity{
   margin-bottom: 18px;
@@ -1357,6 +1415,7 @@ ul li {
 .support-container {
   max-width: 800px;
   margin: 0 auto;
+  margin: 20px;
   padding: 20px;
   background-color: white;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
@@ -2181,3 +2240,26 @@ button[type='submit'].neubrutal-btn:active,
     transform: translate(-4px);
   }
 }
+
+#id05 {
+  padding-top: 0px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+}
+#id05 h1{
+  color: var(--foreground);
+  font-family: system-ui, sans-serif;
+    font-size: 44px;
+    letter-spacing: 1px;
+}
+#id05 h1 span{
+  font-weight: 100;
+}
+#id05 h2{
+  color: var(--foreground);
+  align-self: center;
+}
+

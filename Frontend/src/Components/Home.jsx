@@ -22,12 +22,13 @@ import Product from "./Product";
 import Totop from "./Totop";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Tech from "./Tech.jsx";
 
 
 export default function Home({electronicList}){
   
-  console.log("test print at home")
-  console.log(electronicList)
+  // console.log("test print at home")
+  // console.log(electronicList)
 
   //fix/reorgainse this 
   useEffect(()=> {
@@ -273,10 +274,10 @@ export default function Home({electronicList}){
 
 
     </div>
+
+    <Tech/>
+
         <Totop/>
       </div>
-
-      
-    
     )
 }
