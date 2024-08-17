@@ -8,6 +8,7 @@ import { IoIosSunny } from "react-icons/io";
 import { getCategories } from "../../utils/utils";
 
 
+
 export default function Navigation({ categoriesList, setCategoriesList }) {
     const navigate = useNavigate()
     const { loggedInUser, setLoggedInUser } = useContext(UserContext)
@@ -151,7 +152,7 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
     }
 
     return (
-
+        <>
 
         <nav className="nav">
             <label id="overlay" htmlFor="sidebar-active" onClick={hideSidebar}></label>
@@ -162,9 +163,15 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                 </label>
 
 
-                <ul className="sl">
-                <li onClick={handleSignIn}><a>Login</a></li>
-                <li onClick={handleSignUp}><a>Sign Up</a></li>
+                <ul className="sl"> 
+
+                    {loggedInUser.username ?
+                    null:
+                    <>
+                        <li onClick={handleSignIn}><a>Login</a></li>
+                        <li onClick={handleSignUp}><a>Sign Up</a></li>
+                    </> }
+
                     <li className="dropdown-container">
                         <div onClick={toggleSubMenu}><a>Shop by category</a></div>
                         {/* <div onClick={toggleSubMenu}><a>Categories</a></div> */}
@@ -277,6 +284,18 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
         </nav>
 
+        <div id="id05" className="modal" >
+            {/* style={{ display:"flex" }}*/}
+            <h1> welcome <span>{loggedInUser.username}</span> 
+            </h1>
+
+            <h2 id='load-heading'>You are being Logged in
+                <span className='ellipsis'>.</span>
+                <span className='ellipsis'>.</span>
+                <span className='ellipsis'>.</span>
+            </h2>
+        </div>
+        </>
 
 
 

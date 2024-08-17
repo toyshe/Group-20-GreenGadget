@@ -75,9 +75,6 @@ function App() {
                     </ul>
                 </div>
       </footer>
-      <div className='footer-extension'>
-      <Tech/>
-      </div>
     </>
   )
 

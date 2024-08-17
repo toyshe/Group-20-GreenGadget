@@ -3,11 +3,15 @@ import './NotFound.css';
 import { TbError404Off } from "react-icons/tb";
 import { BiSolidError } from "react-icons/bi";
 import { FaArrowLeft, FaHome } from "react-icons/fa";
-
+import Favicon from "./Favicon.jsx";
 
 export default function NotFound() {
   return (
     <div className="notFound-page">
+
+
+
+{/* <Favicon/> */}
       
       <div className="fof">
         <h1 className="four04-title"><span>404<BiSolidError className="soliderror"/><span className="Error404"><TbError404Off /></span></span></h1>

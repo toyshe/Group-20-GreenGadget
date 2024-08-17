@@ -13,6 +13,7 @@ export default function ElectronicDevice({setBasketList}) {
     const [showPopup, setShowPopup] = useState(false)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate();
+    const Params = useParams();
 
     useEffect(() => {
         getElectronicsById(electronics_id).then((electronic) => {
@@ -50,27 +51,34 @@ export default function ElectronicDevice({setBasketList}) {
         navigate('/basket')
     }
     
-    if(loading){
-        return <Loading />
-    }
+    // if(loading){
+    //     return <Loading />
+    // }
+    if(!document.startViewTransition){
+        if(loading){
+            return <Loading />
+        }
+      }
 
     return (
         <div className="main-contain">
         <main className="electronic-device">
-            <div>
-            <img src={electronic.img_url} alt={electronic.model} />
+            
+            <img src={electronic.img_url} alt={electronic.model} 
+            style={{ viewTransitionName:`device${Params.electronics_id}`, contain: "layout", transition: "10s", animationDuration: "10s" }} />
             <div className="electronic-details">
                 <h1>{electronic.name}</h1>
                 <h2>{electronic.model}</h2>
             </div>
-
+            {console.log(Params)}
+            {console.log(Params.electronics_id)}
                 <p><strong>Description:</strong> {electronic.description}</p>
                 <p><strong>Storage:</strong> {electronic.storage_in_gb}GB</p>
                 <p><strong>Price:</strong> £{electronic.price}</p>
                 <p><strong>Seller:</strong> {electronic.username}</p>
                 <button onClick={handleAddBasket}>Add to cart</button>
 
-            </div>
+            
 
             {showPopup && (
                 <div className="popup">
@@ -94,17 +102,18 @@ export default function ElectronicDevice({setBasketList}) {
                 <span><h3 className="device-type" onClick={handleTypeclick}>{electronic.electronics_type}</h3></span>
             </div>
             <h1>{electronic.model}</h1>
-            <br></br>
-            <h2>£{electronic.price}</h2>
+            {/* <br></br> */}
+            <h2>Price: £{electronic.price}</h2>
             
             <div className="capacity">
                 <span><p className="capacity-title">Capacity:</p></span>
                 <span className="storage-sector"><h3 className="device-storage">{electronic.storage_in_gb}GB</h3></span>
             </div>
             <div className="quantity">
-                <span><p className="quauntity-title">Quauntity:</p></span>
+                <span><p className="quauntity-title">Quantity:</p></span>
                 <span><h3 className="device-quantity">There are {electronic.quantity} of this item in stock.</h3></span>
             </div>
+            {console.log(electronic.electronics_id)}
             <div className="sale-btns">
                 <button className="buy-btn" onClick={handleAddBasket}>Buy now</button>
                 <button className="cart-btn"onClick={handleAddBasket}>Add to cart</button>

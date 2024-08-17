@@ -1,0 +1,10 @@
+.outerfavi{
+    animation: spinner 6.4s infinite linear;
+    transform-origin: center;
+  }
+
+.favi-container{
+    width: 100px;
+    height: 80px;
+    align-self: start;
+}

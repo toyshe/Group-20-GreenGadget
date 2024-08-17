@@ -188,13 +188,15 @@ html {
   top: 15px;
   right: 15px;
   color: white;
-  transform: rotate(-45deg) scale(0.8);
+  transform: rotate(-45deg) scale(0.7);
   transition: 0.5s;
   opacity: 0;
 }
 .acit-card:hover .acit-face1 svg{
-  transform: rotate(-45deg) translate(5px, 0) scale(1.1);
+  transform: rotate(-45deg) translate(5px, 2px) scale(1.2);
   opacity: 1;
+  stroke: green;
+  stroke-width: 15px;
 }
 /* .acit-card .acit-face .acit-content{
   opacity: 0.2;

@@ -39,6 +39,8 @@ h2{
   color: indianred;
   animation: swing 2.4s infinite;
   transform-origin: top;
+  stroke: white;
+  stroke-width: 0.75px;
 }
 @keyframes swing {
   0%,100% { 
@@ -269,19 +271,12 @@ a{
 
 .fof-log{
   line-height: 1.6;
-  font-size: 44px;
+  font-size: 56px;
   font-family: system-ui, sans-serif;
-  color: rgba(0, 0, 0, 0.6);
-  /* color: rgb(255 255 255 / 60%); darkmode alt */
+  color: var(--fof-log-clr);
   letter-spacing: 0.1em;
   font-weight: 500;
-  line-height: 1.6;
-    font-size: 56px;
-    font-family: system-ui, sans-serif;
-    color: rgba(0, 0, 0, 0.6);
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .conver-btn{
@@ -318,4 +313,11 @@ a{
 }
 .conver-btn:hover svg{
   transform: translateX(-30px);
+}
+
+
+.notFound-page .favi-container{
+  width: 100px;
+  height: 80px;
+  align-self: start;
 }

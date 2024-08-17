@@ -7,6 +7,8 @@ import Totop from "./Totop";
 import Icon from './Icon';
 import { FaArrowsSpin } from "react-icons/fa6";
 import ElectronicsSkeleton from './ElectronicsSkeleton';
+import { flushSync} from "react-dom";
+
 
 
 export default function Electronics({ electronicList, setElectronics, categoriesList, setCategoriesList }) {
@@ -15,7 +17,8 @@ export default function Electronics({ electronicList, setElectronics, categories
   const [sortBy, setSortBy] = useState("");
   const [order, setOrder] = useState("");
   const [electronicsCategory, setElectronicsCategory] = useState('')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     getElectronics(electronicsCategory || searchParams.get("electronics_type"), sortBy, order).then((electronics) => {
@@ -24,9 +27,20 @@ export default function Electronics({ electronicList, setElectronics, categories
     })
   }, [searchParams, sortBy, order])
 
-
   const handleElectronicsClick = (electronics) => {
-    navigate(`/electronics/${electronics.electronics_id}`)
+    
+    if(!document.startViewTransition){
+      navigate(`/electronics/${electronics.electronics_id}`)
+    }
+    else{
+      document.startViewTransition(()=>{
+        flushSync(()=>{
+          {console.log(electronics.electronics_id)}
+          navigate(`/electronics/${electronics.electronics_id}`)
+          console.log("startViewTransition should work")
+        })
+      })
+    }
   };
   // console.log("test print")
   // console.log(electronicList)
@@ -53,7 +67,9 @@ export default function Electronics({ electronicList, setElectronics, categories
                           <Icon props={electronics.electronics_type} className="electronics_button-icon" size={24} />
                           <p>{electronics.name}</p>
                         </div>
-                        <img className='electronics_img' src={electronics.img_url} alt={electronics.model} />
+                        <img className='electronics_img' src={electronics.img_url} alt={electronics.model} 
+                        style={{ viewTransitionName:`device${electronics.electronics_id}`, contain: "layout", transition: "10s", animationDuration: "10s" }}
+                        />
                         <p><strong>Storage:</strong> {electronics.storage_in_gb}GB</p>
                         <p><strong>£{electronics.price}</strong> </p>
                         <p><strong>Seller: </strong>{electronics.username}</p>
