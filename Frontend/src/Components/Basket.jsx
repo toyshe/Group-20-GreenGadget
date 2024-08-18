@@ -68,7 +68,7 @@ export default function Basket({ basketList, setBasketList }) {
             {console.log(basketList.length)}
             {console.log(loggedInUser)}
 
-            <div>
+            <div style={{padding: "15px"}}>
             {basketList.map((basket, index) => {
                 return (
                 <div className="basket-item">
@@ -77,11 +77,22 @@ export default function Basket({ basketList, setBasketList }) {
                     <img onClick={()=> {handleElectronicsClick(basket)}} src={basket.img_url} />
                     </div>
                     <div style={{marginLeft: "10px"}}>
-                        <h2 style={{margin: "0"}}>{basket.name}</h2>
+                        <h2 style={{margin: "0"}} onClick={()=> {handleElectronicsClick(basket)}}>{basket.name}</h2>
                         <p>{basket.model}</p>
                         <p className="price">£{basket.price}</p>
+
+                        <div className="quantity-conroller" >
                         <p className="quantity">In stock: {basket.quantity}</p>
+                        <div className="quantity-adjuster">
+                        <FaMinus className="minus"/>
+                        <span>4</span>
+                        <FaPlus className="plus"/>
+                        </div>
+                        </div>
+
                         <button onClick={() => handleRemoveItem(index)}>Remove</button>
+                        {/* width: 300px;
+                        font-weight: 700; */}
                     </div>
                     <div className="quantity-adjuster">
                         <FaMinus className="minus"/>
