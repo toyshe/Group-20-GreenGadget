@@ -19,13 +19,17 @@ export default function CategoriesSelect({ setElectronicsCategory, categoriesLis
         navigate(`/electronics?electronics_type=${e.target.value}`)
     }
 
+    const handleAllItems = (e) => {
+        window.location.replace('/electronics')
+    }
+
     return (
         <div className="dropdown dropdown-list filters-container">
             <div className="filter-group">
                 <p>Categories: </p>
                 <div className="dropdown-content">
                     <select className="electronicsType" defaultValue='' onChange={handleCategorySelect}>
-                        <option value=' ' disabled>Select a category</option>
+                        <option value='' disabled>Select a category</option>
                         {categoriesList.map((category, index) => {
                             return (
                                 <>
@@ -38,6 +42,7 @@ export default function CategoriesSelect({ setElectronicsCategory, categoriesLis
                 </div>
 
             </div>
+            <a className="all-items" onClick={handleAllItems}> All Items</a>
         </div>
     )
 }
