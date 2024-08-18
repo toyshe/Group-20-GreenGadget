@@ -1886,6 +1886,14 @@ html.darkmode .electronics_device-icon{
   /* color: #000; */
 }
 
+.all-items{
+  margin: 0;
+  margin-right: 10px;
+  font-weight: bold;
+  color: bisque;
+  font-size: 18px;
+}
+
 .dropdown-content select {
   padding: 5px 10px;
   border: 1px solid #ccc;
