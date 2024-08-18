@@ -7,6 +7,7 @@ body {
 :root{
   --clr-green: #04aa6d;
   --footer: #edeece;
+  /* --clr-light: #f1efef; */
   --clr-light: #f5f5f5;
   --clr-dark: black;
   --foreground: var(--clr-dark);
@@ -1514,7 +1515,7 @@ button[type='submit']:hover {
 
 /* Basket item container */
 .basket-item {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 20px;
@@ -1527,7 +1528,12 @@ button[type='submit']:hover {
 .basket-item:first-child {
   margin-top: 10px;
 }
-
+.basket-item h2{
+  cursor: pointer;
+}
+.basket-item h2:hover{
+  text-decoration: underline;
+}
 /* Image */
 .basket-item img {
   width: 100px; /* Adjust as needed */
@@ -1549,7 +1555,12 @@ button[type='submit']:hover {
 
 /* Quantity */
 .basket-item .quantity {
+  
+}
+
+.basket-item button {
   margin-left: auto; /* Pushes quantity to the right */
+  font-weight: 700
 }
 
 /* .form-container {
@@ -1933,6 +1944,11 @@ html.darkmode .electronics_device-icon{
   }
 }
 
+.quantity-conroller{
+  gap: 15px;
+   display: flex;
+  align-items: center;
+}
 .quantity-adjuster{
   background-color: #04aa6d;
   margin-left: 20px;
@@ -1949,6 +1965,7 @@ html.darkmode .electronics_device-icon{
   border-left: 1px solid #333;
   border-right: 1px solid #333;
   padding: 0 5px;
+  pointer-events: none;
 }
 /* .quantity-adjuster .minus{
   border-right: 2px solid white;
