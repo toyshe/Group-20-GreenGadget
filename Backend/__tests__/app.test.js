@@ -399,6 +399,16 @@ describe("app", () => {
           });
         });
     });
+    test("GET 200: returns the first page of the electronics with default limit of 9", () => {
+      return request(app).get("/electronics?page=1").expect(200).then(({body: {electronics}}) => {
+        expect(electronics).toHaveLength(9)
+      })
+    })
+    test("GET 200: returns the second page of the electronics with default limit of 9", () => {
+      return request(app).get("/electronics?page=2").expect(200).then(({body: {electronics}}) => {
+        expect(electronics).toHaveLength(1)
+      })
+    })
   });
   describe("/electronics/:id", () => {
     test("GET 200: returns an object containing the details of the electronic with the given id", () => {
