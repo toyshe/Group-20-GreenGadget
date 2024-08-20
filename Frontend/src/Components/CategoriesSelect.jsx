@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getCategories } from "../../utils/utils"
 
-export default function CategoriesSelect({ setElectronicsCategory, categoriesList, setCategoriesList }) {
+export default function CategoriesSelect({ setElectronicsCategory, categoriesList, setCategoriesList, setPage }) {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(true)
 
@@ -16,6 +16,7 @@ export default function CategoriesSelect({ setElectronicsCategory, categoriesLis
 
     const handleCategorySelect = (e) => {
         setElectronicsCategory(e.target.value)
+        setPage(1)
         navigate(`/electronics?electronics_type=${e.target.value}`)
     }
 

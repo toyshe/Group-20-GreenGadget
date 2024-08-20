@@ -1,8 +1,10 @@
-export default function SortElectronics({ setSortBy, setOrder }) {
+export default function SortElectronics({ setSortBy, setOrder, setPage }) {
   const handleSortChange = (event) => {
+    setPage(1)
     setSortBy(event.target.value);
   };
   const handleOrderChange = (event) => {
+    setPage(1)
     setOrder(event.target.value);
   };
   return (
