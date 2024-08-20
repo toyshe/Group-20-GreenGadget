@@ -5,7 +5,8 @@ exports.findElectronics = (
   electronics_type,
   sort_by = "price",
   order = "asc",
-  shopkeeper
+  shopkeeper,
+  page
 ) => {
   queryStr = `SELECT electronics.*, users.username FROM electronics LEFT JOIN users ON users.user_id = electronics.shopkeeper_id`;
 
@@ -36,7 +37,11 @@ exports.findElectronics = (
     queryParameters.push(shopkeeper);
   }
 
+  
   queryStr += ` GROUP BY electronics_id, users.user_id ORDER BY ${sort_by} ${order}`;
+  if(page){
+    queryStr += ` LIMIT 9 OFFSET ${9* (page - 1)}`
+  }
 
   return db.query(queryStr, queryParameters).then(({ rows }) => {
     return rows;

@@ -8,16 +8,18 @@ const {
 const {
   checkCategoryExists,
   checkShopkeeperExists,
+  checkPageValid,
 } = require("../utils/check-exists");
 
 exports.getElectronics = (req, res, next) => {
-  const { electronics_type, sort_by, order, shopkeeper } = req.query;
+  const { electronics_type, sort_by, order, shopkeeper, page } = req.query;
 
   const fetchQuery = findElectronics(
     electronics_type,
     sort_by,
     order,
-    shopkeeper
+    shopkeeper,
+    page
   );
   const queries = [fetchQuery];
 
@@ -29,6 +31,11 @@ exports.getElectronics = (req, res, next) => {
   if (shopkeeper) {
     const shopkeeperExistenceQuery = checkShopkeeperExists(shopkeeper);
     queries.push(shopkeeperExistenceQuery);
+  }
+
+  if(page){
+    const pageValidityQuery = checkPageValid(page)
+    queries.push(pageValidityQuery)
   }
 
   Promise.all(queries)

@@ -56,7 +56,7 @@ export function postSignUpInfo({
     });
 }
 
-export function getElectronics(category, sortBy, order) {
+export function getElectronics(category, sortBy, order, page) {
   if (!sortBy) {
     sortBy = "price";
   }
@@ -65,7 +65,7 @@ export function getElectronics(category, sortBy, order) {
   }
   return greengadgetApi
     .get("/electronics", {
-      params: { electronics_type: category, sort_by: sortBy, order },
+      params: { electronics_type: category, sort_by: sortBy, order, page: page },
     })
     .then(({ data }) => {
       return data.electronics;

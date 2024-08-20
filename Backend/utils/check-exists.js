@@ -15,3 +15,9 @@ exports.checkShopkeeperExists = (shopkeeper) => {
         }
     })
 }
+
+exports.checkPageValid = (page) => {
+    if(isNaN(Number(page)) || page < 0){
+        return Promise.reject({status: 400, msg: "Invalid page query"})
+    }
+}
