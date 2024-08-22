@@ -2338,3 +2338,20 @@ button[type='submit'].neubrutal-btn:active,
   font-weight: 600;
   margin-bottom: 10px;
 }
+
+.pagination-buttons{
+  display: flex;
+  gap: 10px;
+}
+.pagination-buttons button{
+  font-weight: 600;
+  background-color: #273731;
+  border: 2px solid #04aa6d;
+  margin: 0;
+}
+.pagination-buttons button.active{
+  font-weight: 600;
+  background: #04aa6d;
+  background: #04aa6d;
+  background-image: linear-gradient(155deg, #34755d, #04aa6d);
+}
