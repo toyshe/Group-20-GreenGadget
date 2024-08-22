@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Login from "./Login";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import SignUpButton from "./SignUpButton";
 import UserContext from "../contexts/UserContext";
 import { FaShoppingBasket } from "react-icons/fa";
@@ -10,8 +10,8 @@ import { getCategories } from "../../utils/utils";
 
 
 export default function Navigation({ categoriesList, setCategoriesList }) {
-    const navigate = useNavigate()
-    const { loggedInUser, setLoggedInUser } = useContext(UserContext)
+    const navigate = useNavigate();
+    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -247,19 +247,19 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                             </summary>
                             <ul>
                                 <li>
-                                    <a>
+                                    <Link to={'/dashbord/profile'}>
                                         <span className="material-symbols-outlined"></span> Account
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a>
+                                    <Link to={'/dashbord/settings'}>
                                         <span className="material-symbols-outlined"></span> Settings
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a>
+                                    <Link to={'/'}>
                                         <span className="material-symbols-outlined"></span> Help
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="divider"></li>
                                 <li onClick={handleLogOut}>

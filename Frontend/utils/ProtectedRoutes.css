@@ -1,0 +1,105 @@
+.pr-location{
+    font-weight: 600;
+    /* padding: 1px 3px;
+    background-color: #04aa6d;
+    padding: 0px 5px;
+     */
+    color: #04aa6d;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 2px;
+}
+
+.protected-route-subheading{
+    font-weight: 500;
+    font-family: system-ui, sans-serif;
+    /* letter-spacing: 0.1em; */
+    letter-spacing: 0.005em;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.protected-route-heading{
+    font-size: 56px;
+    font-family: Figtree, sans-serif;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.denied-content{
+    background-image: linear-gradient(135deg, rgba(0, 0, 255, 0.15), 
+    rgba(0, 0, 255, 0.02));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    position: relative;
+    width: 650px;
+    z-index: 2;
+    padding: 50px;
+    border-radius: 15px;
+    border: 3px solid white;
+    margin: 0 15px;
+}
+
+
+.denied-page{
+    background-image: url("../src/Components/SVG/undraw_Notify_re_65on.svg");
+    min-height: 90vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-position: center; */
+    margin-top: 10px;
+}
+.denied-page svg{
+    position: absolute;
+    color: #d72d2d;
+    color: #b42525;
+
+}
+.denied-page .denied-content .LuUnplug{
+    top: 0%;
+    bottom: auto;
+    left: 0%;
+    right: auto;
+}
+.denied-page .denied-content .protected-route-heading .GiDialPadlock{
+    position: relative;
+    color: var(--forground);
+}
+.denied-page .denied-content .LuUnplug:nth-of-type(2){
+    top: auto;
+    bottom: 0%;
+    left: auto;
+    right: 0%;
+    transform: rotate(180deg);
+}
+
+.denied-page .denied-content .FaPlugCircleXmark{
+    top: 0%;
+    bottom: auto;
+    left: auto;
+    right: 5px;
+}
+.denied-page .denied-content .FaPlugCircleXmark2{
+    top: auto;
+    bottom: 0%;
+    left: 5px;
+    right: auto;
+}
+
+.pr-location::selection{
+    background-color: rgb(4, 125, 4);
+    /* padding: 0px 5px; */
+}
+
+.rotatate-180{
+    transform: rotate(180deg);
+}
+
+@media (max-width: 1000px){
+    .denied-page{
+        background-position: center;
+    }
+}
