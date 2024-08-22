@@ -17,6 +17,8 @@ import Basket from "./Components/Basket";
 import Repair from "./Components/Repair";
 import NotFound from "./Components/NotFound";
 import ProtectedRoutes from "../utils/ProtectedRoutes";
+import Profile from "./Components/Profile";
+import Settings from "./Components/Settings";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -44,7 +46,11 @@ function App() {
           <Route path="/repair" element={<Repair />}/>
 
           <Route element={<ProtectedRoutes/>}>
-
+            <Route path="/dashbord">
+            {/* use redirect to block /dashbord */}
+              <Route  path="profile" element={<Profile/>} />
+              <Route path="settings" element={<Settings/>} />
+            </Route> 
           </Route>
           
           <Route path="/*" element={<NotFound />}/>

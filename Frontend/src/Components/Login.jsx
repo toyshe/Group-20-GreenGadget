@@ -38,10 +38,14 @@ export default function Login() {
         setLoading(true)
         e.preventDefault()
         postLoginInfo({ usernameOrEmail, password }).then((data) => {
-            setLoading(true)
+            // setLoading(true)
             // console.log({data});
             // let uews = data.username
             // console.log({data, uews})
+            console.log({data});
+            if (data === undefined){
+                setLoading(false)
+            }
             if (data.username === usernameOrEmail || data.email === usernameOrEmail) {
                 console.log({data});
                 setLoginMessage('')
@@ -53,10 +57,6 @@ export default function Login() {
                     document.getElementById('id05').style.display = 'none'
                 }, 2500);
                 // navigate('/');
-            } else {
-                // setLoginMessage('Invalid credentials. Please try again.');
-                setLoginMessage('Invalid password. Please check and try again.')
-
             }
 
             if (checked) {
@@ -70,7 +70,7 @@ export default function Login() {
             }
         }).catch(error => {
             console.error('Error during login:', error);
-            setLoginMessage('An error occurred while logging in. Please try again later.')
+            setLoginMessage('An error occurred while logging in. Please try again later.');
         })
     }
 
@@ -93,6 +93,7 @@ export default function Login() {
                     {/* <div className="imgcontainer">
                         <span onClick={() => document.getElementById('id01').style.display = 'none'} className="close" title="Close Modal">&times;</span>
                     </div> */}
+                    {console.log({loginMessage})}
                     {loginMessage && <p style={{textAlign:"center"}} id="id04" className="input-invalid">{loginMessage}</p>}
 
                     <div className="container">
@@ -108,12 +109,27 @@ export default function Login() {
                             <span><label htmlFor="rmber">Remember me</label></span>
                         </div>
                     </div>
-                    <p className="csu" >Not a member? <Link to={'/SignUp'} id="id03">Sign up</Link></p> 
+                    { loading === true ? 
+                    (
+                    <div className="log-load-contaainer">
+                        <p> Fetching your data 
+                            <span className='ellipsis'>.</span>
+                            <span className='ellipsis'>.</span>
+                            <span className='ellipsis'>.</span>
+                        </p>
+                        <div className="loader"></div>
+                    </div>
+                    )
+                    : 
+                    (<p className="csu" >Not a member? <Link to={'/SignUp'} id="id03">Sign up</Link></p>)
+                    
+                    
+                    }
 
                     <div className="log-bttm container" >
                         <button type="button" onClick={() => document.getElementById('id01').style.display = 'none'} className="cancelbtn">Cancel</button>
                         <span className="psw"><a href="#">Forgot Password?</a></span>
-                        {/* implement lateer */}
+                        {/* implement later */}
                     </div>
                     {/* {loginMessage && <p style={{textAlign:"center"}} className="input-invalid">{loginMessage}</p>} */}
                 </form>

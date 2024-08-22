@@ -133,7 +133,7 @@ export default function SignUp() {
                     <button value='shopkeeper' id="shopkeeper-button" onClick={handleUserType} className={`user-type-button ${userType === 'shopkeeper' ? 'selected' : ''}`} >Shopkeeper</button>
                 </div>
 
-                <h2 style={{ display: 'inline-block', marginTop: "20px" }}>Choose an avatar</h2><span className="required-fields"> *</span>
+                <h2 className="avatar-select-title">Choose an avatar</h2><span className="required-fields"> *</span>
                 <div className="avatar-container">
 
                     <button value="https://iili.io/JUF4dWQ.png" id="juf4dwqpng" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4dWQ.png" /></button>
