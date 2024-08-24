@@ -43,6 +43,32 @@ export default function Basket({ basketList, setBasketList }) {
         setorderlen(prevOrderlen=>prevOrderlen - 1)
     }
 
+    const handleAddItem = (electronics_id) => {
+        //add 1 item
+    }
+    
+    const handleRemoveItemEntry = (entry) => {
+        // {console.log("handleRemoveItemEntry")};
+        var keepcheckinghandleRemoveItemEntry = true;
+        basketList.forEach((basket, index) => {        
+            if (basket.electronics_id === entry.electronics_id && keepcheckinghandleRemoveItemEntry) {
+                // {console.log("found a match")};
+                // {console.log(basket)};
+                // {console.log(entry)};
+                keepcheckinghandleRemoveItemEntry = false;
+                const updatedBasketList = [...basketList];
+                updatedBasketList.splice(index, 1);
+                setBasketList(updatedBasketList);
+                setorderlen(prevOrderlen=>prevOrderlen - 1)
+                //only temp no refreshed when loading the page
+            }
+        });
+    }
+
+    const handleRemoveItemAllEntries = (index) => {
+        /////compare to basket list and filter to delete all instancea that matche the conditions
+    }
+
     const handleOrderItem = (basketItem) => {
         console.log("Ordering item:", basketItem);
     };
@@ -51,6 +77,35 @@ export default function Basket({ basketList, setBasketList }) {
         navigate(`/electronics/${electronics.electronics_id}`)
     };
 
+    // console.log(summarizedEntries);
+
+    // Function to summarize entries by name
+const summarizeEntries = (entries) => {
+    const nameCountMap = {};
+
+    entries.forEach((entry) => {
+        const electronics_id = entry.electronics_id;
+        if (nameCountMap[electronics_id]) {
+            nameCountMap[electronics_id].count += 1;
+        } else {
+            nameCountMap[electronics_id] = {
+                ...entry,
+                count: 1
+            };
+        }
+        console.log(nameCountMap);
+    });
+
+    return Object.values(nameCountMap);
+};
+
+
+    // Summarized entries
+    const summarizedEntries = summarizeEntries(basketList);
+
+    useEffect(() => {
+        const summarizedEntries = summarizeEntries(basketList);
+      }, [basketList]);
     return (
         <div>
             <div className="summary-wrapper">
@@ -66,13 +121,17 @@ export default function Basket({ basketList, setBasketList }) {
                 </div>
             </div>
             {console.log(basketList.length)}
+            {console.log(basketList)}
             {console.log(loggedInUser)}
 
             <div style={{padding: "15px"}}>
             {basketList.map((basket, index) => {
                 return (
-                <div className="basket-item">
-                    {console.log(index)}
+                <div className="basket-item" key={index}>
+                    {/* {console.log(basket.name + ": " + itemCounter(basketList, basket.name) )} */}
+                    {/* {console.log(basketList)} */}
+                    {/* {console.log(index)} */}
+                    {/* {console.log(basketList.keys(basket.name).length)} */}
                     <div className="basket-img-wrapper">
                     <img onClick={()=> {handleElectronicsClick(basket)}} src={basket.img_url} />
                     </div>
@@ -107,8 +166,40 @@ export default function Basket({ basketList, setBasketList }) {
             {!loggedInUser.username ?
             <p className="login-message">You need to log in to make an order</p> 
             : null}
-            {/* fix this */}
-            <button disabled={userTypeError} onClick={() => handleOrderItem(basket)}>Order</button>
+
+            <h1 style={{ textAlign:"center", fontSize: "44px" }}>Summarized Entries</h1>
+            <div style={{padding: "15px"}}>
+            {console.log(summarizedEntries.length)}
+            {console.log(summarizedEntries)}
+            {summarizedEntries.map((entry, index) => (
+                <div className="basket-item" key={index}>
+                    <div className="basket-img-wrapper">
+                        <img onClick={()=> {handleElectronicsClick(entry)}} src={entry.img_url} />
+                    </div>
+                    <div style={{marginLeft: "10px"}}>
+                        <h2 onClick={()=> {handleElectronicsClick(entry)}}>{entry.name}</h2>
+                        <p className="basket-item-subheading">{entry.model}</p>
+                        <p className="price">£{entry.price}</p>
+
+                        <div className="quantity-controller" >
+                            <p className="quantity">In stock: {entry.quantity}</p>
+                            <div className="quantity-adjuster">
+                                <FaMinus className="minus"  onClick={() => handleRemoveItemEntry(entry)}/>
+                                <span>{entry.count}</span>
+                                <FaPlus className="plus"/>
+                            </div>
+                        </div>
+
+                        <button onClick={() => handleRemoveItemAllEntries(index)}>Remove</button>
+                        {/* change using an array method to search basket list */}
+
+                            {/* <td>{entry.count}</td>
+                            <td>{entry.electronics_type}</td>
+                            <td>{entry.storage_in_gb}</td> */}
+                    </div>
+                </div>))}
+            </div>
+            <button disabled={userTypeError} onClick={() => handleOrderItem(basketList)}>Order</button>
         </div>
     )
 }

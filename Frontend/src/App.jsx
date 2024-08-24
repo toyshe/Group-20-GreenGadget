@@ -19,6 +19,7 @@ import NotFound from "./Components/NotFound";
 import ProtectedRoutes from "../utils/ProtectedRoutes";
 import Profile from "./Components/Profile";
 import Settings from "./Components/Settings";
+import ScrollToTop from "../utils/ScrollToTop";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -26,10 +27,14 @@ function App() {
   const [basketList, setBasketList] = useState([])
   const [categoriesList, setCategoriesList] = useState([])
 
+  if(window.location.hash){
+    window.history.replaceState("", document.title, window.location.pathname);
+  }
 
   return (
     <>
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+        <ScrollToTop/>
         <Navigation categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
         <Routes>
           {/* <Route path='/login' element={<Login />} /> */}
