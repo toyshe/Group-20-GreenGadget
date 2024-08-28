@@ -582,5 +582,14 @@ describe("app", () => {
         expect(basket.user_id).toBe(3)
       })
     })
+    test("DELETE 204: deletes an item from the basket", () => {
+      return request(app).delete('/basket/1/9').expect(200).then(({body: {basket}}) => {
+        expect(basket.length).toBe(1)
+        basket.forEach((cart) => {
+          expect(cart.user_id).toBe(1)
+          expect(cart.electronics_id).toBe(1)
+        })
+      })
+    })
   })
 });

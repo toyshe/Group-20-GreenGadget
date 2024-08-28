@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { getBasketByUserId } from "../../utils/utils";
+import { deleteItemInBasket, getBasketByUserId } from "../../utils/utils";
 import UserContext from "../contexts/UserContext";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -7,12 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 
 export default function Basket({ basketList, setBasketList }) {
+    console.log(basketList);
+    
     const { loggedInUser } = useContext(UserContext);
     const navigate = useNavigate();
     const [orderlen, setorderlen] = useState(basketList.length);
     const [userTypeError, setUserTypeError] = useState(loggedInUser.username);
 
-    console.log(orderlen);
+    console.log(orderlen, '<<basket order len');
 
     
 
@@ -26,21 +28,25 @@ export default function Basket({ basketList, setBasketList }) {
     });
 
     const [testprice, settestprice] = useState(totalprice);
-    console.log(totalprice);
-    console.log(testprice);
+    console.log(totalprice, '<<basket total price');
+    console.log(testprice, '<<basket test price');
 
 
     useEffect(() => {
         getBasketByUserId(loggedInUser.user_id).then((data) => {
             setBasketList(data)
         })
-    }, [])
+    }, [basketList])
 
-    const handleRemoveItem = (index) => {
-        const updatedBasketList = [...basketList];
-        updatedBasketList.splice(index, 1);
-        setBasketList(updatedBasketList);
-        setorderlen(prevOrderlen=>prevOrderlen - 1)
+    const handleRemoveItem = (electronics_id) => {
+        deleteItemInBasket(loggedInUser.user_id, electronics_id)
+
+        // const updatedBasketList = [...basketList];
+        // updatedBasketList.splice(index, 1);
+        // setBasketList(updatedBasketList);
+        // if(basketList.length !== 0){
+        //     setorderlen(prevOrderlen=>prevOrderlen - 1)
+        // }
     }
 
     const handleAddItem = (electronics_id) => {
@@ -149,7 +155,7 @@ const summarizeEntries = (entries) => {
                         </div>
                         </div>
 
-                        <button onClick={() => handleRemoveItem(index)}>Remove</button>
+                        <button onClick={() => handleRemoveItem(basket.electronics_id)}>Remove</button>
                         {/* width: 300px;
                         font-weight: 700; */}
                     </div>
