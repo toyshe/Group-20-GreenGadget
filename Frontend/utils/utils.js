@@ -122,3 +122,9 @@ export function postBasket({username, electronics_id, quantity}){
   })
 
 }
+
+export function deleteItemInBasket(user_id, electronics_id){
+  return greengadgetApi.delete(`/basket/${user_id}/${electronics_id}`).then(({data}) => {
+    return data.basket
+  })
+}
