@@ -132,6 +132,8 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
     const toggleSubMenu = () => {
         const subMenu = document.querySelector('.sub-menu');
         subMenu.style.display = subMenu.style.display === 'flex' ? 'none' : 'flex';
+        const subMenuDropper = document.querySelector('ul.sl .dropdown-container div');
+        subMenuDropper.style.backgroundColor = subMenuDropper.style.backgroundColor === '' ?  '#e0dcdc' : '' ;
     };
 
     const handleLogOut = () => {
@@ -184,7 +186,13 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                         </div>
                     </li>
                     <li onClick={handleAllItemsClick}><a>All items</a></li>
+
+                    {loggedInUser.user_type === "shopkeeper" ?
                     <li onClick={handleSellClick}><a>Sell item</a></li>
+                    :
+                    null
+                    }
+
                     <li onClick={handleRepair}><a>Repair</a></li>
                     <li onClick={handleSupportClick}><a>Support</a></li>
                     <li onClick={handleFaqClick}><a>FAQ</a></li>

@@ -636,7 +636,7 @@ body {
 .sub-menu {
   display: none;
   flex-direction: column;
-  background-color: #f9f9f9;
+  background-color: #e0dcdc;
   padding-left: 20px;
 }
 
@@ -1124,12 +1124,14 @@ ul.sl .dropdown-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  border: 1px solid black;
+  z-index: 5;
+  border: none;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
+  padding: 20px 40px;
+  border-radius: 10px;
+
 }
 .electronic-device .popup-content{
   border: 4px solid #e8e7e7;
