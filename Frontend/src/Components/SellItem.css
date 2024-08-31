@@ -112,7 +112,7 @@ button[type='submit'].submit-button:disabled:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 5;
 }
 
 .popup-content {
@@ -126,6 +126,7 @@ button[type='submit'].submit-button:disabled:hover {
 .popup-content p {
   margin-bottom: 20px;
   font-size: 18px;
+  color: black;
 }
 
 .popup-content button {

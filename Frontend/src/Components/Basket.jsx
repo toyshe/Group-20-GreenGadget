@@ -52,6 +52,9 @@ export default function Basket({ basketList, setBasketList }) {
     const handleAddItem = (electronics_id) => {
         //add 1 item
     }
+    const handleRemoveSingleItem = (electronics_id) => {
+        //remove 1 item
+    }
     
     const handleRemoveItemEntry = (entry) => {
         // {console.log("handleRemoveItemEntry")};
@@ -66,13 +69,12 @@ export default function Basket({ basketList, setBasketList }) {
                 updatedBasketList.splice(index, 1);
                 setBasketList(updatedBasketList);
                 setorderlen(prevOrderlen=>prevOrderlen - 1)
-                //only temp no refreshed when loading the page
             }
         });
     }
 
-    const handleRemoveItemAllEntries = (index) => {
-        /////compare to basket list and filter to delete all instancea that matche the conditions
+    const handleRemoveItemAllEntries = (electronics_id) => {
+        deleteItemInBasket(loggedInUser.user_id, electronics_id)
     }
 
     const handleOrderItem = (basketItem) => {
@@ -196,7 +198,7 @@ const summarizeEntries = (entries) => {
                             </div>
                         </div>
 
-                        <button onClick={() => handleRemoveItemAllEntries(index)}>Remove</button>
+                        <button onClick={() => handleRemoveItemAllEntries(entry.electronics_id)}>Remove All</button>
                         {/* change using an array method to search basket list */}
 
                             {/*<td>{entry.electronics_type}</td>

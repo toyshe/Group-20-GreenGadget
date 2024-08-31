@@ -85,7 +85,7 @@ export default function ElectronicDevice({setBasketList}) {
                     <div className="popup-content">
                         {/* Customize the message based on the success or failure */}
                         
-                        <p>Item <strong>{electronic.model}</strong> has been added to Basket!</p>
+                        <p>Item <strong>{electronic.model}</strong> has been added to your Basket!</p>
                         {/* Add additional content or actions if needed */}
                         <div className="flex-space-between-gap10px">
                         <button type="button" onClick={togglePopup}>Close</button>
