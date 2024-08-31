@@ -1564,6 +1564,7 @@ button[type='submit']:hover {
 .basket-item .price {
   font-weight: bold;
   color: green;
+  font-size: 20px;
 }
 
 /* Quantity */
@@ -2358,12 +2359,15 @@ button[type='submit'].neubrutal-btn:active,
 .pagination-buttons{
   display: flex;
   gap: 10px;
+  width: 100%;
+  justify-content: center;
 }
 .pagination-buttons button{
   font-weight: 600;
   background-color: #273731;
   border: 2px solid #04aa6d;
   margin: 0;
+  width: 50px;
 }
 .pagination-buttons button.active{
   font-weight: 600;

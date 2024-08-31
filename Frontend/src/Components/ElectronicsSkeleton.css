@@ -47,3 +47,19 @@
     row-gap: 10px;
     column-gap: 10px;
 }
+
+.ElectronicsSkeleton .pagination-buttons button{
+    border: 2px solid rgb(163 184 194);
+    color: transparent;
+    background-image: linear-gradient(90deg, #f8f8ff 0%, #f8f8ff 40%, #d3d9dc 50%, #d3d9dc 55%, #f8f8ff 65%, #f8f8ff 100%);
+    background-size: 300%;
+    animation: shimmer 1.5s infinite;
+}
+.ElectronicsSkeleton .pagination-buttons button:hover{
+    opacity: 1;
+}
+
+@keyframes shimmer {
+    0%{ background-position: 100% 100%;}
+    100%{ background-position: 0% 0%;}
+}
