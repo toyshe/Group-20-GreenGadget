@@ -1,6 +1,6 @@
 import Home from "./Components/Home"
 import Login from "./Components/Login"
-import { Routes, Route, Link } from "react-router-dom"
+import { Routes, Route, Link, useLocation } from "react-router-dom"
 import './App.css'
 import { useState } from "react";
 import Navigation from "./Components/Navigation"
@@ -25,10 +25,13 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
   const [electronicList, setElectronics] = useState([])
   const [basketList, setBasketList] = useState([])
-  const [categoriesList, setCategoriesList] = useState([])
+  const [categoriesList, setCategoriesList] = useState([]);
+  let location = useLocation();
 
-  if(window.location.hash){
+  if(location.hash){
     window.history.replaceState("", document.title, window.location.pathname);
+    // console.log(document.title + window.location.pathname);
+    console.log(document.title + window.location.pathname + window.location.pathname.hash);
   }
 
   return (

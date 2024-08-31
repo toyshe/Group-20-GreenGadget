@@ -14,7 +14,6 @@ export default function Totop(
                 toTop.classList.remove("active");
             }
         });
-        console.log("test")
     }, []);
     
     return(

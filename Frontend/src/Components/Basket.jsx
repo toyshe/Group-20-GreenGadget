@@ -199,13 +199,12 @@ const summarizeEntries = (entries) => {
                         <button onClick={() => handleRemoveItemAllEntries(index)}>Remove</button>
                         {/* change using an array method to search basket list */}
 
-                            {/* <td>{entry.count}</td>
-                            <td>{entry.electronics_type}</td>
+                            {/*<td>{entry.electronics_type}</td>
                             <td>{entry.storage_in_gb}</td> */}
                     </div>
                 </div>))}
             </div>
-            <button disabled={userTypeError} onClick={() => handleOrderItem(basketList)}>Order</button>
+            <button disabled={!userTypeError} onClick={() => handleOrderItem(basketList)}>Order</button>
         </div>
     )
 }
