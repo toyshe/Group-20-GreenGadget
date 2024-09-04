@@ -562,7 +562,7 @@ describe("app", () => {
           expect(basket).toHaveProperty('user_id')
           expect(basket).toHaveProperty('username')
           expect(basket).toHaveProperty('electronics_id')
-          expect(basket).toHaveProperty('quantity')
+          expect(basket).toHaveProperty('basket_quantity')
           expect(basket).toHaveProperty('created_at')
         })
       })
@@ -576,10 +576,14 @@ describe("app", () => {
       const newBasket = {
         username: 'jessjelly',
         electronics_id: 1,
-        quantity: 1
+        basket_quantity: 1
       }
-      return request(app).post('/basket').send(newBasket).expect(200).then(({body: {basket}}) => {
+      return request(app).post('/basket').send(newBasket).expect(201).then(({body: {basket}}) => {
         expect(basket.user_id).toBe(3)
+      }).then(() => {
+        return request(app).get('/basket/3').expect(200).then(({body: {basket}}) => {
+         expect(basket.length).toBe(3)
+        })
       })
     })
     test("DELETE 204: deletes an item from the basket", () => {

@@ -77,7 +77,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
         basket_id SERIAL PRIMARY KEY,
         user_id INT NOT NULL REFERENCES users(user_id),
         electronics_id SERIAL REFERENCES electronics(electronics_id) ON DELETE CASCADE,
-        quantity INT NOT NULL,
+        basket_quantity INT NOT NULL DEFAULT 1,
         created_at DATE DEFAULT NOW()
         )`);
     })
@@ -205,8 +205,8 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     }).then(({rows}) => {
       const userIdLookup = createRef(rows, "username", "user_id");
       const formatBasketsData = formatBaskets(basketData, userIdLookup);
-      const insertBasketsQueryStr = format(`INSERT INTO baskets (user_id, electronics_id, quantity, created_at) VALUES %L RETURNING *;`, 
-      formatBasketsData.map(({user_id, electronics_id, quantity, created_at}) => [user_id, electronics_id, quantity, created_at]))
+      const insertBasketsQueryStr = format(`INSERT INTO baskets (user_id, electronics_id, basket_quantity, created_at) VALUES %L RETURNING *;`, 
+      formatBasketsData.map(({user_id, electronics_id, basket_quantity, created_at}) => [user_id, electronics_id, basket_quantity, created_at]))
       return db.query(insertBasketsQueryStr);
     })
     // .then(() => {
