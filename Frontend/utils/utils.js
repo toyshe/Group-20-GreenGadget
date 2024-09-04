@@ -114,10 +114,13 @@ export function getBasketByUserId(user_id){
   })
 }
 
-export function postBasket({username, electronics_id, quantity}){
-  return greengadgetApi.post('/basket', {username, electronics_id, quantity}).then(({data}) => {
-    return data.basket
+export function postBasket({username, electronics_id, basket_quantity}){
+  return greengadgetApi.post('/basket', {username, electronics_id, basket_quantity}).then(({data}) => {
+    console.log(data.basket, '<<status in utils');
+    
   }).catch((err) => {
+    console.log("i'm in the catch");
+    
     throw err
   })
 
@@ -125,6 +128,8 @@ export function postBasket({username, electronics_id, quantity}){
 
 export function deleteItemInBasket(user_id, electronics_id){
   return greengadgetApi.delete(`/basket/${user_id}/${electronics_id}`).then(({data}) => {
+    console.log('in here');
+    
     return data.basket
   })
 }
