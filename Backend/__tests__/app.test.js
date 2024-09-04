@@ -578,7 +578,7 @@ describe("app", () => {
         electronics_id: 1,
         basket_quantity: 1
       }
-      return request(app).post('/basket').send(newBasket).expect(200).then(({body: {basket}}) => {
+      return request(app).post('/basket').send(newBasket).expect(201).then(({body: {basket}}) => {
         expect(basket.user_id).toBe(3)
       }).then(() => {
         return request(app).get('/basket/3').expect(200).then(({body: {basket}}) => {

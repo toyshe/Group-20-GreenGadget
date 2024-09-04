@@ -21,7 +21,7 @@ exports.postBaskets = (req, res, next) => {
     const newBasket = req.body
     insertBasketsByUserId(newBasket).then((basket) => {
         console.log(basket);
-        res.status(200).send({basket})
+        res.status(201).send({basket})
     }).catch((err => {
         next(err)
     }))
