@@ -21,11 +21,11 @@ exports.findBasketsByUserId = (userId) => {
     });
 };
 
-exports.insertBasketsByUserId = ({ username, electronics_id, quantity }) => {
+exports.insertBasketsByUserId = ({ username, electronics_id, basket_quantity }) => {
   return db
     .query(
-      `INSERT INTO baskets (user_id, electronics_id, quantity, created_at) SELECT user_id, $1, $2, NOW() FROM users WHERE users.username = $3 RETURNING *`,
-      [electronics_id, quantity, username]
+      `INSERT INTO baskets (user_id, electronics_id, basket_quantity, created_at) SELECT user_id, $1, $2, NOW() FROM users WHERE users.username = $3 RETURNING *`,
+      [electronics_id, basket_quantity, username]
     )
     .then(({ rows }) => {
       // console.log(rows);
