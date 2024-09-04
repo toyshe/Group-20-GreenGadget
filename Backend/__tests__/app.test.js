@@ -595,5 +595,38 @@ describe("app", () => {
         })
       })
     })
+    test("PATCH 200: allows user to change the quantity of an item in basket", () => {
+      const updatedQuantity = { updatedQuantity: 1 };
+      return request(app)
+        .patch("/basket/1/9")
+        .send(updatedQuantity)
+        .expect(200)
+        .then(({ body: { basket } }) => {
+          expect(basket.electronics_id).toBe(9);
+          expect(basket.basket_quantity).toBe(4);
+        });
+    });
+    test("PATCH 200: deletes an item from the basket if the quantity is 0", () => {
+      const updatedQuantity = { updatedQuantity: -3 };
+      return request(app)
+        .patch("/basket/1/9")
+        .send(updatedQuantity)
+        .expect(204)
+        .then(() => {
+          return request(app)
+            .get("/basket/1")
+            .expect(200)
+            .then(({ body: { basket } }) => {
+              const itemExists = basket.some((item) => item.electronics_id === 9)
+              expect(itemExists).toBe(false)
+            });
+        });
+    });
+    test("PATCH 400: does not allow increment beyond available electronics quantity", () => {
+      const updatedQuantity = {updatedQuantity: 15}
+      return request(app).patch('/basket/1/9').send(updatedQuantity).expect(400).then(({body}) => {
+        expect(body.msg).toBe('Not enough stock available')
+      })
+    })
   })
 });

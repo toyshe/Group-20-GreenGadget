@@ -10,7 +10,7 @@ const { psqlErrors, customErrors } = require("./error-handling");
 const { getApi } = require("./controllers/api.controller");
 const { getElectronics, postElectronics, patchElectronicsById, getElectronicById, deleteElectronicsById } = require("./controllers/electronics.controller");
 const { getCategories, postCategories } = require("./controllers/categories.controller");
-const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket } = require("./controllers/basket.controller");
+const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchItemInBasket } = require("./controllers/basket.controller");
 
 const app = express();
 
@@ -38,6 +38,7 @@ app.get('/basket', getBaskets)
 app.get('/basket/:user_id', getBasketsByUserId)
 app.post('/basket', postBaskets)
 app.delete('/basket/:user_id/:electronics_id', deleteItemInBasket)
+app.patch('/basket/:user_id/:electronics_id', patchItemInBasket)
 
 app.use(psqlErrors);
 
