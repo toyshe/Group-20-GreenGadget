@@ -20,7 +20,7 @@ exports.getBasketsByUserId = (req, res, next) => {
 exports.postBaskets = (req, res, next) => {
     const newBasket = req.body
     insertBasketsByUserId(newBasket).then((basket) => {
-        // console.log(basket);
+        console.log(basket);
         res.status(200).send({basket})
     }).catch((err => {
         next(err)
@@ -31,8 +31,6 @@ exports.deleteItemInBasket = (req, res, next) => {
     const {electronics_id, user_id} = req.params;
     
     removeItemByElectronicsId(user_id, electronics_id).then((basket) => {
-        console.log(basket, '<<con');
-        
         res.status(200).send({basket})
         
     })

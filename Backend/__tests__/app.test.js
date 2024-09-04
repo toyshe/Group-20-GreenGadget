@@ -580,6 +580,10 @@ describe("app", () => {
       }
       return request(app).post('/basket').send(newBasket).expect(200).then(({body: {basket}}) => {
         expect(basket.user_id).toBe(3)
+      }).then(() => {
+        return request(app).get('/basket/3').expect(200).then(({body: {basket}}) => {
+         expect(basket.length).toBe(3)
+        })
       })
     })
     test("DELETE 204: deletes an item from the basket", () => {

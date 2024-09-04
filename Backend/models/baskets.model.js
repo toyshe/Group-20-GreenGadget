@@ -34,7 +34,6 @@ exports.insertBasketsByUserId = ({ username, electronics_id, basket_quantity }) 
 };
 
 exports.removeItemByElectronicsId = (user_id, electronics_id) => {
-  console.log(user_id, electronics_id);
   return db
     .query(`DELETE FROM baskets WHERE user_id = $1 AND electronics_id = $2`, [
       user_id,
