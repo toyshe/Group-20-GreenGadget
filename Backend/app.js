@@ -14,7 +14,7 @@ const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchIt
 
 const app = express();
 
-app.use(cors({origin: 'http://foo.com'}));
+app.use(cors({origin: 'http://localhost:5173/'}));
 app.use(express.json());
 
 app.get("/api", getApi)
