@@ -13,12 +13,8 @@ const { getCategories, postCategories } = require("./controllers/categories.cont
 const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchItemInBasket } = require("./controllers/basket.controller");
 
 const app = express();
-const corsOptions = {
-  origin: 'http://localhost:5173', // Update with your frontend origin
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'], // Include all methods you need
-};
 
-app.use(cors(corsOptions));
+app.use(cors({origin: 'http://foo.com'}));
 app.use(express.json());
 
 app.get("/api", getApi)
