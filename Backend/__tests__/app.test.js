@@ -5,7 +5,6 @@ const db = require("../db/connection.js");
 const testData = require("../db/data/test-data/index.js");
 const initializeUserData = require("../db/data/test-data/users");
 const endpoints = require("../endpoints.json");
-const e = require("express");
 
 beforeAll(() => {
   return initializeUserData();

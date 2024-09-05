@@ -13,7 +13,7 @@ const { getCategories, postCategories } = require("./controllers/categories.cont
 const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchItemInBasket } = require("./controllers/basket.controller");
 
 const app = express();
-
+app.options('*', cors()) 
 app.use(express.json());
 
 app.use(cors());
