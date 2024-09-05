@@ -15,16 +15,13 @@ const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchIt
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // or your Netlify domain when deploying
+  origin: 'http://localhost:5173',  // Set this to your frontend URL
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Allows cookies and credentials to be shared
+  credentials: true,
 };
-
 app.use(cors(corsOptions));
 
-// Apply CORS preflight for all routes
-app.options('*', cors(corsOptions));
 app.use(express.json());
 
 app.get("/api", getApi)
