@@ -15,16 +15,16 @@ const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchIt
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // Frontend origin
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'], // Ensure PATCH is included
-  allowedHeaders: ['Content-Type', 'Authorization'], // Add necessary headers if required
-  optionsSuccessStatus: 200, // Some legacy browsers (IE11, etc.) choke on 204
+  origin: 'http://localhost:5173', // or your Netlify domain when deploying
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true, // Allows cookies and credentials to be shared
 };
 
-app.use(cors(corsOptions)); 
+app.use(cors(corsOptions));
 
-app.options('*', cors(corsOptions)); // Preflight requests handler for all routes
-
+// Apply CORS preflight for all routes
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 app.get("/api", getApi)
