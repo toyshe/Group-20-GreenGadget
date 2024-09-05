@@ -10,13 +10,19 @@ const { psqlErrors, customErrors } = require("./error-handling");
 const { getApi } = require("./controllers/api.controller");
 const { getElectronics, postElectronics, patchElectronicsById, getElectronicById, deleteElectronicsById } = require("./controllers/electronics.controller");
 const { getCategories, postCategories } = require("./controllers/categories.controller");
-const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket } = require("./controllers/basket.controller");
+const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchItemInBasket } = require("./controllers/basket.controller");
 
 const app = express();
 
-app.use(express.json());
+const corsOptions = {
+  origin: 'http://localhost:5173',  // Set this to your frontend URL
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
-app.use(cors());
+app.use(express.json());
 
 app.get("/api", getApi)
 
@@ -38,6 +44,7 @@ app.get('/basket', getBaskets)
 app.get('/basket/:user_id', getBasketsByUserId)
 app.post('/basket', postBaskets)
 app.delete('/basket/:user_id/:electronics_id', deleteItemInBasket)
+app.patch('/basket/:user_id/:electronics_id', patchItemInBasket)
 
 app.use(psqlErrors);
 

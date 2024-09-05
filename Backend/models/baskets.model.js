@@ -47,3 +47,30 @@ exports.removeItemByElectronicsId = (user_id, electronics_id) => {
         });
     });
 };
+
+exports.updateItemInBasket = (user_id, electronics_id, updatedQuantity) => {
+  
+  return db.query(`UPDATE baskets SET basket_quantity = basket_quantity + $1 FROM electronics WHERE electronics.electronics_id = baskets.electronics_id AND baskets.electronics_id = $2 AND baskets.user_id = $3 RETURNING *`, [updatedQuantity, electronics_id, user_id]).then(({rows}) => {
+    if(rows.length !== 0 && rows[0].basket_quantity <= 0){
+      return db.query(`DELETE FROM baskets WHERE electronics_id = $1 AND user_id = $2 RETURNING *`, [rows[0].electronics_id, rows[0].user_id]).then(({rows}) => {
+        if(rows.length === 0){
+          return Promise.reject({status: 404, msg: "Item not found in basket"})
+        }
+        return {msg: 'Item removed from basket'}
+      })
+    }
+    else if(rows.length === 0){
+      return Promise.reject({status: 404, msg: "item not found"})
+    }
+    else if(rows[0].basket_quantity > rows[0].quantity){
+      console.log('in here');
+      
+      return Promise.reject({status: 400, msg: "Not enough stock available"})
+    }
+    return rows[0]
+  }).catch((err) => {
+    console.log(err);
+    
+    throw(err)
+  })
+}

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
-import { deleteItemInBasket, getBasketByUserId } from "../../utils/utils";
+import { deleteItemInBasket, getBasketByUserId, patchItemInBasket } from "../../utils/utils";
 
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -12,6 +12,7 @@ export default function Basket({ basketList, setBasketList }) {
     const navigate = useNavigate();
     const [orderlen, setorderlen] = useState(basketList.length);
     const [userTypeError, setUserTypeError] = useState(loggedInUser.username);
+    
 
     useEffect(() => {
         getBasketByUserId(loggedInUser.user_id).then((data) => {
@@ -31,6 +32,41 @@ export default function Basket({ basketList, setBasketList }) {
         deleteItemInBasket(user_id, electronics_id).catch((err) => {
             console.error(err)
         })
+    }
+
+    const handleIncrementItem = (updatedQuantity, user_id, electronics_id) => {
+        setBasketList((prevBasket) => {
+            return prevBasket.map((item) => {
+                if (item.electronics_id === electronics_id && item.user_id === user_id) {
+                    return { ...item, basket_quantity: item.basket_quantity + updatedQuantity };
+                }
+                return item;
+            });
+        });
+        const increment = {updatedQuantity}
+        console.log(increment);
+        patchItemInBasket(user_id, electronics_id, increment).then((data) => {
+            if(data === 'Not enough stock available'){
+                setErr(data)
+                setBasketList((prevBasket) => {
+                    return prevBasket.map((item) => {
+                        if (item.electronics_id === electronics_id && item.user_id === user_id) {
+                            return { ...item, basket_quantity: item.basket_quantity - updatedQuantity };
+                        }
+                        return item;
+                    });
+                });
+            }
+            else if(data === 'item not found'){
+                setErr(data)
+                setBasketList((prevBasketList) =>
+                    prevBasketList.filter(
+                        (item) => !(item.user_id === user_id && item.electronics_id === electronics_id)
+                    )
+                );
+            }
+        })
+        
     }
 
     /* */
@@ -93,7 +129,8 @@ export default function Basket({ basketList, setBasketList }) {
 
         return Object.values(nameCountMap);
     };
-
+    console.log(err, '<<err in basket');
+    
 
     // Summarized entries
     const summarizedEntries = summarizeEntries(basketList);
@@ -134,10 +171,11 @@ export default function Basket({ basketList, setBasketList }) {
                                 <div className="quantity-conroller" >
                                     <p className="quantity">In stock: {basket.quantity}</p>
                                     <div className="quantity-adjuster">
-                                        <FaMinus className="minus" />
+                                        <FaMinus onClick={() => handleIncrementItem(-1, basket.user_id, basket.electronics_id)} className="minus" />
                                         <span>{basket.basket_quantity}</span>
-                                        <FaPlus className="plus" />
+                                        <FaPlus onClick={() => handleIncrementItem(1, basket.user_id, basket.electronics_id)} className="plus" />
                                     </div>
+                                {err ? <h2>{err}</h2>: null}
                                 </div>
                                 <button onClick={() => handleRemoveItem(basket.user_id, basket.electronics_id)}>Remove</button>
                             </div>
