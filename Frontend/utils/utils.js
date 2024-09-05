@@ -128,8 +128,19 @@ export function postBasket({username, electronics_id, basket_quantity}){
 
 export function deleteItemInBasket(user_id, electronics_id){
   return greengadgetApi.delete(`/basket/${user_id}/${electronics_id}`).then(({data}) => {
-    console.log('in here');
-    
     return data.basket
+  })
+}
+
+export function patchItemInBasket(user_id, electronics_id, {updatedQuantity}){
+  console.log(user_id, electronics_id, updatedQuantity);
+  
+  return greengadgetApi.patch(`/basket/${user_id}/${electronics_id}`, {updatedQuantity}).then(({data}) => {
+    return data.basket
+    
+  }).catch(({response: {data}}) => {
+    console.log(data, 'in utils');
+    
+    return data.msg
   })
 }
