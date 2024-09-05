@@ -14,7 +14,17 @@ const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchIt
 
 const app = express();
 
-app.use(cors({origin: 'http://localhost:5173/'}));
+const corsOptions = {
+  origin: 'http://localhost:5173', // Frontend origin
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'], // Ensure PATCH is included
+  allowedHeaders: ['Content-Type', 'Authorization'], // Add necessary headers if required
+  optionsSuccessStatus: 200, // Some legacy browsers (IE11, etc.) choke on 204
+};
+
+app.use(cors(corsOptions)); 
+
+app.options('*', cors(corsOptions)); // Preflight requests handler for all routes
+
 app.use(express.json());
 
 app.get("/api", getApi)
