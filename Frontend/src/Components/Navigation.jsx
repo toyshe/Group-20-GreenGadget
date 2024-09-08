@@ -6,6 +6,12 @@ import UserContext from "../contexts/UserContext";
 import { FaShoppingBasket } from "react-icons/fa";
 import { IoIosSunny } from "react-icons/io";
 import { getCategories } from "../../utils/utils";
+import { FaRegUser, FaArrowRightFromBracket  } from "react-icons/fa6";
+import { IoSettingsSharp } from "react-icons/io5";
+import { MdLiveHelp } from "react-icons/md";
+
+
+
 
 
 
@@ -253,29 +259,43 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                             <summary className="avatar">
                                 <img className='user-avatar' src={loggedInUser.avatar_img_url} />
                             </summary>
-                            <ul>
-                                <li>
-                                    <Link to={'/dashbord/profile'}>
-                                        <span className="material-symbols-outlined"></span> Account
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to={'/dashbord/settings'}>
-                                        <span className="material-symbols-outlined"></span> Settings
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to={'/'}>
-                                        <span className="material-symbols-outlined"></span> Help
-                                    </Link>
-                                </li>
-                                <li className="divider"></li>
-                                <li onClick={handleLogOut}>
-                                    <a>
-                                        <span  className="material-symbols-outlined"> Logout</span>
-                                    </a>
-                                </li>
-                            </ul>
+
+                                <ul>
+                                    <div className="sm-acc-info">
+                                        <img  src={loggedInUser.avatar_img_url} />
+                                        <div className="acctn-info">
+                                            <span className="user-title">{loggedInUser.username}</span>
+                                            <span>{loggedInUser.user_type}</span>
+                                        </div>
+                                    </div>
+
+                                    <li>
+                                        <Link to={'/dashbord/profile'}>
+                                            <FaRegUser />
+                                            <span className="material-symbols-outlined">Account</span> 
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to={'/dashbord/settings'}>
+                                            <IoSettingsSharp/>
+                                            <span className="material-symbols-outlined">Settings</span> 
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to={'/'}>
+                                            <MdLiveHelp/>
+                                            <span className="material-symbols-outlined">Help</span> 
+                                        </Link>
+                                    </li>
+                                    <li className="divider"></li>
+                                    <li onClick={handleLogOut}>
+                                        <a>
+                                            <FaArrowRightFromBracket /> 
+                                            <span  className="material-symbols-outlined"> Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                       
                         </details>
                     </div>
                 </div>

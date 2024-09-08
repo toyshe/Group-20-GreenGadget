@@ -40,6 +40,9 @@ html {
   #slider ul li img{
     width: 750px;
     height: 400px;
+    aspect-ratio: 15 / 8;
+    max-width: 100%;
+    max-height: 100%;
   }
   
   #slider #prev, #slider #next{
