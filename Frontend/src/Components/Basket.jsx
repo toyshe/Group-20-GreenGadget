@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import { deleteItemInBasket, getBasketByUserId, patchItemInBasket } from "../../utils/utils";
-
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
@@ -124,7 +123,7 @@ export default function Basket({ basketList, setBasketList }) {
                     count: 1
                 };
             }
-            console.log(nameCountMap);
+            // console.log(nameCountMap);
         });
 
         return Object.values(nameCountMap);
@@ -140,6 +139,7 @@ export default function Basket({ basketList, setBasketList }) {
     }, [basketList]);
 
     /* */
+     
 
     return (
         <div>
@@ -188,8 +188,8 @@ export default function Basket({ basketList, setBasketList }) {
 
             <h1 style={{ textAlign: "center", fontSize: "44px" }}>Summarized Entries</h1>
             <div style={{ padding: "15px" }}>
-                {console.log(summarizedEntries.length)}
-                {console.log(summarizedEntries)}
+                {/* {console.log(summarizedEntries.length)}
+                {console.log(summarizedEntries)} */}
                 {summarizedEntries.map((entry, index) => (
                     <div className="basket-item" key={index}>
                         <div className="basket-img-wrapper">

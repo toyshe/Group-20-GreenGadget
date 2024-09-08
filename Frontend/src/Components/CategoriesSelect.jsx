@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getCategories } from "../../utils/utils"
 
@@ -33,10 +33,10 @@ export default function CategoriesSelect({ setElectronicsCategory, categoriesLis
                         <option value='' disabled>Select a category</option>
                         {categoriesList.map((category, index) => {
                             return (
-                                <>
-                                    <option key={index} value={category.slug}>{category.slug}</option>
+                                <Fragment key={index}>
+                                    <option value={category.slug}>{category.slug}</option>
                                     {/* {console.log(index)} */}
-                                </>
+                                </Fragment>
                             )
                         })}
                     </select>
