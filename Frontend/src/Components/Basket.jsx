@@ -11,7 +11,8 @@ export default function Basket({ basketList, setBasketList }) {
     const navigate = useNavigate();
     const [orderlen, setorderlen] = useState(basketList.length);
     const [userTypeError, setUserTypeError] = useState(loggedInUser.username);
-    
+    const [oneItem, setOneItem] = useState(false)
+
 
     useEffect(() => {
         getBasketByUserId(loggedInUser.user_id).then((data) => {
@@ -42,10 +43,10 @@ export default function Basket({ basketList, setBasketList }) {
                 return item;
             });
         });
-        const increment = {updatedQuantity}
+        const increment = { updatedQuantity }
         console.log(increment);
         patchItemInBasket(user_id, electronics_id, increment).then((data) => {
-            if(data === 'Not enough stock available'){
+            if (data === 'Not enough stock available') {
                 setErr(data)
                 setBasketList((prevBasket) => {
                     return prevBasket.map((item) => {
@@ -56,7 +57,7 @@ export default function Basket({ basketList, setBasketList }) {
                     });
                 });
             }
-            else if(data === 'item not found'){
+            else if (data === 'item not found') {
                 setErr(data)
                 setBasketList((prevBasketList) =>
                     prevBasketList.filter(
@@ -65,7 +66,7 @@ export default function Basket({ basketList, setBasketList }) {
                 );
             }
         })
-        
+
     }
 
     /* */
@@ -129,7 +130,7 @@ export default function Basket({ basketList, setBasketList }) {
         return Object.values(nameCountMap);
     };
     console.log(err, '<<err in basket');
-    
+
 
     // Summarized entries
     const summarizedEntries = summarizeEntries(basketList);
@@ -139,7 +140,7 @@ export default function Basket({ basketList, setBasketList }) {
     }, [basketList]);
 
     /* */
-     
+
 
     return (
         <div>
@@ -152,7 +153,7 @@ export default function Basket({ basketList, setBasketList }) {
                         <span><strong>Subtotal:</strong> (state:{orderlen} items static:{basketList.length})</span>
                         <span>state:£{testprice} or static:£{totalprice}</span>
                     </div>
-                    <button onClick={()=>{navigate('/electronics')}}> Click here to return back to shopping</button>
+                    <button onClick={() => { navigate('/electronics') }}> Click here to return back to shopping</button>
                 </div>
             </div>
             <div style={{ padding: "15px" }}>
@@ -171,11 +172,27 @@ export default function Basket({ basketList, setBasketList }) {
                                 <div className="quantity-conroller" >
                                     <p className="quantity">In stock: {basket.quantity}</p>
                                     <div className="quantity-adjuster">
-                                        <FaMinus onClick={() => handleIncrementItem(-1, basket.user_id, basket.electronics_id)} className="minus" />
+                                        {/* <button disabled={basket.basket_quantity === 1} onClick={() => handleIncrementItem(-1, basket.user_id, basket.electronics_id)} className="minus" >
+                                            <FaMinus />
+                                        </button>
                                         <span>{basket.basket_quantity}</span>
-                                        <FaPlus onClick={() => handleIncrementItem(1, basket.user_id, basket.electronics_id)} className="plus" />
+                                        <button  onClick={() => handleIncrementItem(1, basket.user_id, basket.electronics_id)} className="plus">
+                                            <FaPlus />
+                                        </button> */}
+
+                                        <div
+                                            className={`icon-container ${basket.basket_quantity === 1 ? 'disabled' : ''}`}
+                                            onClick={() => basket.basket_quantity > 1 && handleIncrementItem(-1, basket.user_id, basket.electronics_id)}
+                                        >
+                                            <FaMinus className="minus" />
+                                        </div>
+                                        <span>{basket.basket_quantity}</span>
+                                        <div className="icon-container" onClick={() => handleIncrementItem(1, basket.user_id, basket.electronics_id)}>
+                                            <FaPlus className="plus" />
+                                        </div>
+
                                     </div>
-                                {err ? <h2>{err}</h2>: null}
+                                    {err ? <h2>{err}</h2> : null}
                                 </div>
                                 <button onClick={() => handleRemoveItem(basket.user_id, basket.electronics_id)}>Remove</button>
                             </div>

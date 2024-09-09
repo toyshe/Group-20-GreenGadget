@@ -1988,6 +1988,7 @@ html.darkmode .electronics_device-icon{
   padding: 2px;
   color: wheat;
   font-weight: 600;
+  width: fit-content;
 }
 .quantity-adjuster span{
   text-align: center;
@@ -2398,4 +2399,25 @@ button[type='submit'].neubrutal-btn:active,
 .sm-acc-info .acctn-info .user-title{
   font-size: 20px;
   color: rgb(0 0 0 / 90%);
+}
+
+
+.icon-container {
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.icon-container:hover {
+  /* background-color: #04aa6d; */
+  opacity: 0.8;
+}
+
+.icon-container.disabled {
+  cursor: not-allowed;
+  opacity: 0.6; 
 }
