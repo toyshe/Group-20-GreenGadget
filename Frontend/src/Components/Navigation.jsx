@@ -6,19 +6,14 @@ import UserContext from "../contexts/UserContext";
 import { FaShoppingBasket } from "react-icons/fa";
 import { IoIosSunny } from "react-icons/io";
 import { getCategories } from "../../utils/utils";
-import { FaRegUser, FaArrowRightFromBracket  } from "react-icons/fa6";
-import { IoSettingsSharp } from "react-icons/io5";
+import { FaRegUser, FaArrowRightFromBracket, FaRightFromBracket } from "react-icons/fa6";
+import { IoSettingsSharp, IoMenu } from "react-icons/io5";
 import { MdLiveHelp } from "react-icons/md";
-
-
-
-
 
 
 export default function Navigation({ categoriesList, setCategoriesList }) {
     const navigate = useNavigate();
     const { loggedInUser, setLoggedInUser } = useContext(UserContext);
-
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const closeOpenDropdowns = (e) => {
@@ -176,8 +171,8 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                     {loggedInUser.username ?
                     null:
                     <>
-                        <li onClick={handleSignIn}><a>Login</a></li>
-                        <li onClick={handleSignUp}><a>Sign Up</a></li>
+                        <li className="side-replace" onClick={handleSignIn}><a>Login</a></li>
+                        <li className="side-replace" onClick={handleSignUp}><a>Sign Up</a></li>
                     </> }
 
                     <li className="dropdown-container">
@@ -192,6 +187,12 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                         </div>
                     </li>
                     <li onClick={handleAllItemsClick}><a>All items</a></li>
+
+                    {loggedInUser.username ?
+                    <li className="side-replace" onClick={handleBasket}><a> <FaShoppingBasket />Basket</a></li>
+                    :
+                    null
+                    }
 
                     {loggedInUser.user_type === "shopkeeper" ?
                     <li onClick={handleSellClick}><a>Sell item</a></li>
@@ -225,23 +226,22 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                             </div>
                         </div>
 
-                        <div id="side-menu-logout">
-                            <i className="fa-solid fa-right-from-bracket"></i>
-                            <span onClick={handleLogOut}>Logout</span>
-                        </div>
-
+                        {loggedInUser.username ? (
+                            <div id="side-menu-logout">
+                                <FaRightFromBracket /> 
+                                <span onClick={handleLogOut}>Logout</span>
+                            </div>
+                        ): null}
+    
                     </div>
                 </div>
 
             </div>
-
-            <input type="checkbox" id="sidebar-active"></input>
-            <label htmlFor="sidebar-active" className="open-sidebar-button" onClick={showSidebar}><i className="fa-solid fa-bars" ></i></label>
-
-            <input type="checkbox" id="account-active"></input>
-
-            <div className="logo"><a onClick={handleHomeButton}>GreenGadget</a></div>
-
+            <div className="logo-menu">
+                <IoMenu className="sidemenu-btn" onClick={showSidebar}/>
+                <div className="logo"><a onClick={handleHomeButton}>GreenGadget</a></div>
+            </div>
+           
             <div className="searchbar">
                 <button /*type="submit"*/ style={{display: "flex", justifyContent: "center"}}><i className="fas fa-search"></i></button>
                 <input type="text" placeholder="Search..." className="navsearchbar"></input>
@@ -251,7 +251,7 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
             {loggedInUser.username ? (
                 <div className="basket-user">
 
-                    <FaShoppingBasket size={35} onClick={handleBasket} title="Basket"/>
+                    <FaShoppingBasket size={45} onClick={handleBasket} title="Basket"/>
                     {console.log(isDropdownOpen)}
 
                     <div className="dropdown-container">
@@ -301,12 +301,16 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                 </div>
             ) : (
                 <>
-                    <Login className="nav-buttons" /> 
-                    {/* ^ causes this error dont know why.
+                    <div className="logup-btns">
+                        <Login className="nav-buttons" /> 
+                        <SignUpButton className="nav-buttons" />
+                    </div>
+                     {/* <Login className="nav-buttons" /> 
+                    {/*^ causes this error dont know why.
                     Warning: Functions are not valid as a React child. 
                     This may happen if you return a Component instead of <Component /> from render. 
-                    Or maybe you meant to call this function rather than return it. */}
-                    <SignUpButton className="nav-buttons" />
+                    Or maybe you meant to call this function rather than return it.* /}
+                    <SignUpButton className="nav-buttons" /> */}
                 </>
             )}
 

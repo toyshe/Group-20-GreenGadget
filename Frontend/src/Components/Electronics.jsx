@@ -16,11 +16,12 @@ export default function Electronics({ electronicList, setElectronics, categories
   const [searchParams] = useSearchParams();
   const [sortBy, setSortBy] = useState("");
   const [order, setOrder] = useState("");
-  const [electronicsCategory, setElectronicsCategory] = useState('')
+  const [electronicsCategory, setElectronicsCategory] = useState('');
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1)
-  const [totalPages, setTotalPages] = useState(1)
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
+  console.log({electronicsCategory});
 
   useEffect(() => {
     getElectronics(electronicsCategory || searchParams.get("electronics_type")).then((electronics) => {

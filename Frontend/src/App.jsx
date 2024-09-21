@@ -65,7 +65,7 @@ function App() {
       </UserContext.Provider>
 
       <footer id="footer">
-                <div className="about" >
+                <div className="about footer-col" >
                     <h2>About</h2>
                     <ul className="footli">
                         <li><Link to={'/about'}>Who are we?</Link></li>
@@ -75,7 +75,7 @@ function App() {
                     </ul>
                 </div>
 
-                <div className="support">
+                <div className="support footer-col">
                     <h2>Support</h2>
                     <ul className="footli">
                         <li><Link to={'/repair'}>Repair</Link></li>
@@ -84,7 +84,7 @@ function App() {
                     </ul>
                 </div>
 
-                <div className="legal">
+                <div className="legal footer-col">
                     <h2>Legal</h2>
                     <ul className="footli">
                         <li><Link to={'/tc'}>Terms & Conditions</Link></li>

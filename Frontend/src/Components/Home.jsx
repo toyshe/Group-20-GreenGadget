@@ -87,28 +87,48 @@ export default function Home({electronicList}){
     
   },[]);
 
+  const currentSlide =(n)=> {
+    //check access to sliderwidth variable
+    console.log(sliderWidth)
+  }
 
     return (
       <div className="home-conatainer">
 
-        <div className="CTA"> 
+        <div className="Hero" style={{display: "none"}}> 
+          <div>
+            <ol>
+              <li>sign up</li>
+              <li>join the family</li>
+              <li>Enjoy our services enjoy</li>
+            </ol>
+          </div>  
         </div>
         
         <div className="img-slider-container">
-        <div id="slider">
-        <ul id="slideWrap">
-          <li><img src= {img1} alt="placeholder img1"></img></li>
-          <li><img src={img2} alt="placeholder img2"></img></li>
-          <li><img src={img3} alt="placeholder img3"></img></li>
-          <li><img src={img4} alt="placeholder img4"></img></li>
-          <li><img src={img5} alt="placeholder img5"></img></li>
-          <li><img src={img6} alt="placeholder img6"></img></li>
-          <li><img src={img7} alt="placeholder img7"></img></li>
-        </ul>
-        <a id="prev" >&#10094;</a>
-        <a id="next" >&#10095;</a>
+          <div id="slider">
+            <ul id="slideWrap">
+              <li><img src={img1} alt="placeholder img1"></img></li>
+              <li><img src={img2} alt="placeholder img2"></img></li>
+              <li><img src={img3} alt="placeholder img3"></img></li>
+              <li><img src={img4} alt="placeholder img4"></img></li>
+              <li><img src={img5} alt="placeholder img5"></img></li>
+              <li><img src={img6} alt="placeholder img6"></img></li>
+              <li><img src={img7} alt="placeholder img7"></img></li>
+            </ul>
+            <a id="prev" >&#10094;</a>
+            <a id="next" >&#10095;</a>
+            <div className="dot-container">
+              <span className="dot" onClick={currentSlide}><span className="inner-dot" ></span></span>
+              <span className="dot"><span className="inner-dot" ></span></span>
+              <span className="dot"><span className="inner-dot" ></span></span>
+              <span className="dot"><span className="inner-dot" ></span></span>
+              <span className="dot"><span className="inner-dot" ></span></span>
+              <span className="dot"><span className="inner-dot" ></span></span>
+              <span className="dot"><span className="inner-dot" ></span></span>
+            </div>
+          </div>
         </div>
-      </div>
 
       <Product electronicList={electronicList} />
 
