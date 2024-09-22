@@ -2005,6 +2005,7 @@ details[open] .select-button svg{
   padding: 2px;
   color: wheat;
   font-weight: 600;
+  width: fit-content;
 }
 .quantity-adjuster span{
   text-align: center;
@@ -2566,3 +2567,25 @@ button[type='submit'][disabled]:hover{
     width: 100%;
   }
 }
+
+
+.icon-container {
+  border-radius: 5px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.icon-container:hover {
+  /* background-color: #04aa6d; */
+  opacity: 0.8;
+}
+
+.icon-container.disabled {
+  cursor: not-allowed;
+  opacity: 0.6; 
+}
+
