@@ -338,7 +338,11 @@ html.darkmode .log-bttm{
 .popup button {
   margin-top: 10px;
 }
-
+.logup-btns{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 .nav-buttons {
   display: block;
   /*  display: inline-block;
@@ -381,10 +385,39 @@ opacity: 0;
 .nav button,
 .Loginbutton {
   display: inline-block;
-  /* border-radius: 300%; */
   border-radius: 3px;
+  margin: 0;
   margin-right: 25px;
   font-weight: 600;
+}
+.Loginbutton{
+  margin-right: 0px;
+}
+.logo-menu{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.sidemenu-btn{
+  font-size: 28px;
+  padding: 2px;
+  min-width: 28px;
+}
+.sidemenu-btn:hover{
+  background-color: #5fdeaf;
+  cursor: pointer;
+}
+
+.nav button.neubrutal-btn{
+  font-size: 14px;
+  margin: 10px 0;
+}
+.nav button.neubrutal-btn:active{
+  font-size: 14px;
+  transform: translate(0px, 0px) scale(0.95);
+}
+.nav button.neubrutal-btn[disabled]:hover{
+  box-shadow: none;
 }
 .Loginbutton button{
   padding: 14px 18px;
@@ -445,13 +478,6 @@ opacity: 0;
   margin-bottom: 20px;
 }
 
-/*hides ckeckbox that is used to*/
-#sidebar-active {
-  display: none;
-}
-#account-active {
-  display: none;
-}
 /*reminder to move gap space8*/
 #footer {
   background-color: var(--footer);
@@ -461,18 +487,16 @@ opacity: 0;
   text-decoration: none;
   margin: 0px;
   padding: 25px;
-}
-
-
-#footer li {
-  list-style: none;
-  text-decoration: none;
+  flex-wrap: wrap;
 }
 
 #footer a {
   text-decoration: none;
   color: black;
   overflow: hidden;
+  transition: all 0.3s ease;
+  display: block;
+  padding-right: 10px;
 }
 * {
   margin: 0px;
@@ -510,11 +534,27 @@ body {
   min-width: 100%;
 }
 #footer h2 {
-  text-align: center;
-  color: black
+  color: black;
+  margin-bottom: 20px;
+  position: relative;
+  font-size: 28px;
+}
+#footer h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: red;
+  height: 3px;
+  width: 60px;
+  box-sizing: border-box;
 }
 #footer ul li{
   position: relative;
+  list-style: none;
+  text-decoration: none;
+  width: fit-content;
+  max-width: 150px;
 }
 #footer ul li::after{
   content: "";
@@ -528,6 +568,18 @@ body {
 }
 #footer ul li:hover::after{
   width: 100%;
+}
+#footer ul li:hover a{
+  transform: translateX(5px);
+  /* color: #0056b3; */
+}
+.footer-col{
+  /* width: 25%; */
+  margin-top: 10px;
+}
+ul.footli{
+  margin: 0;
+  padding: 0;
 }
 
 .user-avatar {
@@ -575,14 +627,6 @@ body {
 .fa-cart-shopping:hover {
   color: rgb(83, 77, 77);
   border-color: white;
-  cursor: pointer;
-}
-.fa-bars {
-  color: white;
-  padding: 5px 5px 5px 5px;
-}
-.fa-bars:hover {
-  background-color: #5fdeaf;
   cursor: pointer;
 }
 /* positions and animates xmark */
@@ -640,11 +684,6 @@ body {
   padding-left: 20px;
 }
 
-.open-sidebar-button {
-  padding: 10px 10px 10px 0;
-  font-size: 20px;
-}
-
 .logo:hover{
   cursor: pointer;
 }
@@ -657,9 +696,8 @@ body {
   background-clip: text;
   color: transparent;
 }
-
 .logo {
-  margin: 10px;
+  margin: 10px 5px;
 }
 .searchbar {
   background-color: white;
@@ -742,7 +780,6 @@ body {
   background-color: rgb(25, 173, 8);;
   color: white;
 }
-
 ul.sl {
   width: 100%;
   padding-left: 0;
@@ -751,15 +788,17 @@ ul.sl {
 ul.sl .dropdown-container{
   padding: 0;
 }
+.side-replace{
+  display: none;
+}
 
 .container button {
   border-radius: 5px;
 }
 
-
 .dropdown-container {
-	display: inline-block;
-	padding: 10px;
+	/* display: inline-block; */
+	padding: 5px 10px;
 
 	.dropdown {
 		position: relative;
@@ -923,91 +962,6 @@ ul.sl .dropdown-container{
   height: 60px;
 }
 
-@media (max-width: 850px){  
-  .logo a{
-    font-size: 26px;
-  }
-  .Loginbutton{
-    margin-right: 0;
-  }
-  .searchbar button {
-    padding: 14px 15px;
-  } 
-  .searchbar .navsearchbar {
-    width: 225px;
-  }
-  .open-sidebar-button {
-    padding: 5px 5px 5px 0;
-    font-size: 18px;
-  } 
-}
-@media (max-width: 700px){
-  a.nava, .Loginbutton{
-    display: none;
-  }
-  .nav {
-    justify-content: space-around;
-}
-}
-@media (max-width: 650px){
-  
-  .logo a{
-    font-size: 24px;
-  }
-  .searchbar .navsearchbar{
-    margin: 0;
-    border-style: hidden;
-    width: 200px;
-  }
-  /* .nav button, .Loginbutton{
-    display: none;
-    
-  } */
-  .nav ul {
-    padding-left: 10px;
-  }
-  .container button.cancelbtn{
-    margin-right: 15px;
-  }
-  span.psw a {
-    /* font-size: 14px; */
-    font-weight: 500;
-  }
-  p.csu {
-    font-size: 14px;
-    margin-bottom: 10px; /*make zero for phones */
-  }
-  .login-heading{
-    margin-bottom: 0px;
-  }
-}
-@media screen and (max-width: 550px) {
-  span.psw {
-    display: block;
-    float: none; /*fix with flex wrap*/
-    padding-top: 4px;
-    text-align: center;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-  .container{
-    padding: 12px;
-  }
-  .login-heading{
-    padding: 18px 0 24px 0;
-    font-size: 28px;
-  }
-}
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none; /*fix with flex wrap*/
-  }
-  .cancelbtn {
-    width: 100%;
-  }
-}
 
 /* Electronics Page */
 
@@ -1021,6 +975,7 @@ ul.sl .dropdown-container{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0;
   margin-top: 40px;
 }
 
@@ -1442,7 +1397,8 @@ ul li {
   text-align: center;
   margin-bottom: 20px;
   line-height: normal;
-  font-family: 'Trebuchet MS', sans-serif;
+  color: black;
+  font-weight: 700;
 }
 
 .support-form {
@@ -1500,17 +1456,6 @@ button[type='submit']:hover {
   background-color: #45a049;
 }
 
-.about h2{
-  margin-left: 40px;
-}
-
-.support h2{
-  margin-left: 60px;
-}
-
-.legal h2{
-  margin-right: 25px;
-}
 .support-spline{
   margin: 10px;
   width: 747px !important;
@@ -1744,7 +1689,7 @@ button[type='submit']:hover {
   margin: 0px 0 0 0;
   background-color: var(--dmt-btn);
   border-radius: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   cursor: pointer;
   transition: all ease 0.5s;
 }
@@ -1776,6 +1721,8 @@ html.darkmode .DM-btn{
 .DM-toggle-text {
   display: inline-block;
   margin: auto 0 auto 15px;
+  font-weight: 600;
+  font-family: "Assistant", sans-serif;
 }
 html.darkmode .DM-toggle-text {
   content: "Light Mode Toggle";
@@ -1835,7 +1782,11 @@ html.darkmode .DM-toggle-text {
 #side-menu-logout i{
   margin-left: 25px;
 }
-
+#side-menu-logout svg{
+  margin-left: 25px;
+  font-size: 22px;
+  overflow: visible;
+}
 /* utility class for external links */
 .extrnal-link{
   font-weight: 600;
@@ -1939,6 +1890,72 @@ html.darkmode .electronics_device-icon{
   outline: none;
   border-color: #007bff;
   box-shadow: 3px 6px 5px rgba(0, 123, 255, 0.5);
+}
+
+.select-box{
+  position: relative;
+  color: #000;
+  z-index: 2;
+  width: 170px;
+}
+.select-button {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 6px 7px;
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+  justify-content: space-between;
+}
+.select-button svg{
+  transition: 0.4s;
+  font-size: 20px;
+}
+details[open] .select-button svg{
+  transform: rotate(180deg);
+}
+.select-box .options{
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  padding: 6px 7px;
+  background-color: white;
+  margin-top: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border-bottom: #ecf242 4px solid;
+}
+.select-box .options .option{
+  margin: 2px 0;
+}
+.select-box .options input:checked + label{
+  background-color: #007bff;
+}
+.select-box .options label .sel-op{
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+.select-box .options input:checked + label .sel-op{
+  display: block;
+}
+.select-box .options .option label{
+  padding: 10px 15px;
+  margin: 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.select-box .options .option label:hover{
+  background-color: rgb(11, 170, 11);
 }
 
 .electronics_button p{
@@ -2381,6 +2398,7 @@ button[type='submit'].neubrutal-btn:active,
   gap: 15px;
   margin: 10px;
   align-items: center;
+  border-bottom: 1px solid black;
 }
 .sm-acc-info img{
   border-radius: 50%;
@@ -2395,10 +2413,159 @@ button[type='submit'].neubrutal-btn:active,
   font-size: 12px;
   color: rgb(0 0 0 / 80%);
   cursor: pointer;
+  text-decoration: underline;
 }
 .sm-acc-info .acctn-info .user-title{
   font-size: 20px;
   color: rgb(0 0 0 / 90%);
+  text-decoration: none;
+}
+
+button[type='submit'][disabled]{
+  cursor: not-allowed;
+  background-color: #ccc;
+  box-shadow: none;
+  transform: none;
+}
+
+button[type='submit'][disabled]:hover{
+  animation: smallswing 0.2s linear 2;
+}
+
+@media (max-width: 900px){ 
+  .logup-btns{
+    gap: 5px;
+  }
+  .logup-btns button.nav-buttons{
+    margin-right: 0px;
+  }
+  .dropdown-container {
+    padding: 5px 5px;
+  }
+}
+@media (max-width: 850px){  
+  .logo a{
+    font-size: 26px;
+  }
+  .Loginbutton{
+    margin-right: 0;
+  }
+  .searchbar button {
+    padding: 14px 15px;
+  } 
+  .searchbar .navsearchbar {
+    width: 225px;
+  }
+  .sidemenu-btn {
+    font-size: 24px;
+    padding: 1px;
+    min-width: 24px;
+}
+}
+@media (max-width: 700px){
+  a.nava, .Loginbutton{
+    display: none;
+  }
+  .basket-user svg{
+    display: none;
+  }
+  .nav {
+    justify-content: space-around;
+  }
+  .dropdown-container {
+    padding: 5px 0px;
+  }
+  .user-avatar {
+    padding:0 10px;
+  }
+  .side-replace{
+    display: block;
+  }
+}
+@media (max-width: 650px){
+  
+  .logo a{
+    font-size: 24px;
+  }
+  .searchbar .navsearchbar{
+    margin: 0;
+    border-style: hidden;
+    width: 200px;
+  }
+  /* .nav button, .Loginbutton{
+    display: none;
+    
+  } */
+  /* .nav ul {
+    padding-left: 10px;
+  } */
+  .container button.cancelbtn{
+    margin-right: 15px;
+  }
+  span.psw a {
+    /* font-size: 14px; */
+    font-weight: 500;
+  }
+  p.csu {
+    font-size: 14px;
+    margin-bottom: 10px; /*make zero for phones */
+  }
+  .login-heading{
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 550px) {
+  span.psw {
+    display: block;
+    float: none; /*fix with flex wrap*/
+    padding-top: 4px;
+    text-align: center;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+  .container{
+    padding: 12px;
+  }
+  .login-heading{
+    padding: 18px 0 24px 0;
+    font-size: 28px;
+  }
+  .side-menu{
+    width: 100%;
+  }
+  .side-menu{
+    width: 100%;
+  }
+  .sl li a{
+    text-align: center;
+  }
+  .sub-menu{
+    padding: 0 20px;
+  }
+  #dmt-toggle {
+    justify-content: center;
+    margin: 0 20px 10px;
+    gap: 15px;
+  }
+  #side-menu-logout {
+    justify-content: center;
+    margin: 0 20px;
+  }
+  .DM-toggle-text {
+    font-weight: 800;
+    font-family: "Assistant", sans-serif;
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none; /*fix with flex wrap*/
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }
 
 
@@ -2421,3 +2588,4 @@ button[type='submit'].neubrutal-btn:active,
   cursor: not-allowed;
   opacity: 0.6; 
 }
+

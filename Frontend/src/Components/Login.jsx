@@ -103,7 +103,7 @@ export default function Login() {
                         <label htmlFor="spassword"><b>Password</b></label>
                         <input type="password" id="spassword" value={password} onChange={handlePassword} placeholder="Enter Password" name="password" required />
 
-                        <button type="submit" className="neubrutal-lbtn">Login</button>
+                        <button type="submit" className="neubrutal-btn" disabled={loading}>Login</button>
                         <div className="remember-me">
                             <input type="checkbox" checked={checked} onChange={handleChecked} name="remember" id="rmber" /> 
                             <span><label htmlFor="rmber">Remember me</label></span>
@@ -122,8 +122,6 @@ export default function Login() {
                     )
                     : 
                     (<p className="csu" >Not a member? <Link to={'/SignUp'} id="id03">Sign up</Link></p>)
-                    
-                    
                     }
 
                     <div className="log-bttm container" >

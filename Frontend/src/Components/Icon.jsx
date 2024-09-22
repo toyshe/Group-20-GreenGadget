@@ -5,7 +5,7 @@ import { IoPhonePortraitSharp } from "react-icons/io5";
 import { AiOutlineLaptop } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
-const Icon = ({props, className = "", size}) => {
+const Icon = ({props, className = "", size= ""}) => {
     const Icontype = props === "Phone" ? IoPhonePortraitSharp 
     : props === 'Laptop' ?  AiOutlineLaptop
     : props === "Smartwatch" ? BsSmartwatch
