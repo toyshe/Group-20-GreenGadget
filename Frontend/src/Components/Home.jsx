@@ -25,10 +25,14 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import Tech from "./Tech.jsx";
 
 
-export default function Home({electronicList}){
+
+export default function Home({electronicList, productlist, productList }){
   
   // console.log("test print at home")
   // console.log(electronicList)
+  // console.log({productlist});
+  // console.log({productList});
+
 
   //fix/reorgainse this 
   useEffect(()=> {
@@ -92,6 +96,7 @@ export default function Home({electronicList}){
     console.log(sliderWidth)
   }
 
+
     return (
       <div className="home-conatainer">
 
@@ -131,6 +136,17 @@ export default function Home({electronicList}){
         </div>
 
       <Product electronicList={electronicList} />
+
+      {/* <div>
+        <h1>productlist</h1>
+      <Product electronicList={productlist} />
+      </div> */}
+      
+      <div>
+        <h1>productList</h1>
+          <Product electronicList={productList} />
+      </div>
+
 
       {/* user benefit  */}
 
