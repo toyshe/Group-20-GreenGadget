@@ -21,7 +21,7 @@ export default function Basket({ basketList, setBasketList }) {
             setErr(err)
 
         })
-    }, [])
+    }, [loggedInUser.username])
 
     const handleRemoveItem = (user_id, electronics_id) => {
         setBasketList((prevBasketList) =>
@@ -129,7 +129,6 @@ export default function Basket({ basketList, setBasketList }) {
 
         return Object.values(nameCountMap);
     };
-    console.log(err, '<<err in basket');
 
 
     // Summarized entries
@@ -168,7 +167,8 @@ export default function Basket({ basketList, setBasketList }) {
                                 <h2 style={{ margin: "0" }} >{basket.name}</h2>
                                 <p>{basket.model}</p>
                                 <p className="price">£{basket.price}</p>
-
+                                {console.log(basketList)
+                                }
                                 <div className="quantity-conroller" >
                                     <p className="quantity">In stock: {basket.quantity}</p>
                                     <div className="quantity-adjuster">

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { getElectronicsById, postBasket } from "../../utils/utils";
+import { getBasketByUserId, getElectronicsById, patchItemInBasket, postBasket } from "../../utils/utils";
 import { useNavigate, useParams } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import Icon from './Icon';
@@ -25,7 +25,9 @@ export default function ElectronicDevice({ basketList, setBasketList }) {
         }).catch((err) => {
             console.error(err);
         })
-    }, [])
+
+        
+    }, [loggedInUser.username])
 
     const handleAddBasket = () => {
         if (loggedInUser.username) {
@@ -34,19 +36,53 @@ export default function ElectronicDevice({ basketList, setBasketList }) {
                 electronics_id: electronics_id,
                 basket_quantity: 1,
                 created_at: new Date().toISOString().slice(0, 10)
+            };
+    
+            const existingItem = basketList.find((basket) => basket.electronics_id === electronics_id);
+            console.log(basketList, '<<<basketList before adding');
+            console.log(electronics_id);
+            
+            console.log(existingItem, '<<existing item before adding');
+    
+            if (existingItem) {
+                // If item exists, update its quantity in the state
+                console.log('Item exists, updating quantity');
+                const updatedBasket = basketList.map((basket) =>
+                    basket.electronics_id === electronics_id
+                        ? { ...basket, basket_quantity: basket.basket_quantity + 1 }
+                        : basket
+                );
+    
+                setBasketList(updatedBasket);
+    
+                // Call patch to update the backend item quantity
+                patchItemInBasket(loggedInUser.user_id, electronics_id, { updatedQuantity: 1 })
+                    .then(() => {
+                        console.log('Item quantity updated in the backend');
+                    })
+                    .catch((err) => {
+                        console.error('Error updating item in the backend:', err);
+                    });
+            } else {
+                // If item does not exist, add it as a new item in the state and backend
+                console.log('Item does not exist, adding new item');
+                setBasketList([...basketList, newItem]);
+    
+                postBasket(newItem)
+                    .then(() => {
+                        console.log('New item added to the backend');
+                    })
+                    .catch((err) => {
+                        console.error('Error adding new item to the backend:', err);
+                    });
             }
-            setBasketList((prevBasket) => {
-                return ([...prevBasket, newItem ])
-            }
-
-            )
-            postBasket(newItem)
-            togglePopup()
-        }
-        else {
+    
+            togglePopup();
+        } else {
             toast.error("Sign in to complete this action");
         }
-    }
+    };
+    
 
     const togglePopup = () => {
         setShowPopup(!showPopup)
@@ -63,6 +99,8 @@ export default function ElectronicDevice({ basketList, setBasketList }) {
     // if(loading){
     //     return <Loading />
     // }
+    console.log(basketList);
+    
     if (!document.startViewTransition) {
         if (loading) {
             return <Loading />
