@@ -12,10 +12,13 @@ const { getElectronics, postElectronics, patchElectronicsById, getElectronicById
 const { getCategories, postCategories } = require("./controllers/categories.controller");
 const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchItemInBasket } = require("./controllers/basket.controller");
 
+// res.setHeader('Access-Control-Allow-Origin', 'https://greengadget.netlify.app');
+
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:5173',  // Set this to your frontend URL
+  // origin: 'http://localhost:5173',  // Set this to your frontend URL
+  origin: 'https://greengadget.netlify.app',  // Set this to your frontend URL
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
