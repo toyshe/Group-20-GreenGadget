@@ -2446,6 +2446,8 @@ button[type='submit'].neubrutal-btn:active,
   cursor: pointer;
   height: 40px;
   box-shadow: 0 0 0 2px #4a6;
+  background-image: radial-gradient(yellow, #4a6);
+  border: transparent 2px solid;
 }
 .sm-acc-info .acctn-info{
   display: flex;
