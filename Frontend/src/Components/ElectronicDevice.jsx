@@ -37,18 +37,24 @@ export default function ElectronicDevice({ basketList, setBasketList }) {
                 basket_quantity: 1,
                 created_at: new Date().toISOString().slice(0, 10)
             };
-    
-            const existingItem = basketList.find((basket) => basket.electronics_id === electronics_id);
+
+            const existingItemmapsome = basketList.some((basket)=>{
+                return basket.electronics_id == electronics_id;
+            })
+
+            console.log({existingItemmapsome});
+            console.log(existingItem);
+            console.log({existingItem});
             console.log(basketList, '<<<basketList before adding');
             console.log(electronics_id);
             
             console.log(existingItem, '<<existing item before adding');
     
-            if (existingItem) {
+            if (existingItemmapsome) {
                 // If item exists, update its quantity in the state
                 console.log('Item exists, updating quantity');
                 const updatedBasket = basketList.map((basket) =>
-                    basket.electronics_id === electronics_id
+                    basket.electronics_id == electronics_id
                         ? { ...basket, basket_quantity: basket.basket_quantity + 1 }
                         : basket
                 );
