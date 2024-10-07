@@ -48,6 +48,9 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
     const handleAllItemsClick = () => {
         navigate('/electronics')
+        setTimeout(() => {
+            hideSidebar();
+        }, 200);
     }
 
     const handleHomeButton = () => {
@@ -56,22 +59,37 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
     const handleFaqClick = () => {
         navigate('/faq')
+        setTimeout(() => {
+            hideSidebar();
+        }, 200);
     }
 
     const handleSellClick = () => {
         navigate('/sell-item')
+        setTimeout(() => {
+            hideSidebar();
+        }, 200);
     }
 
     const handleAboutClick = () => {
         navigate('/about')
+        setTimeout(() => {
+            hideSidebar();
+        }, 200);
     }
 
     const handleSupportClick = () => {
         navigate('/support')
+        setTimeout(() => {
+            hideSidebar();
+        }, 200);
     }
 
     const handleTCclick = () => {
         navigate('/TC')
+        setTimeout(() => {
+            hideSidebar();
+        }, 200);
     }
 
     const handleBasket = () => {
@@ -80,6 +98,9 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
     const handleRepair = () => {
         navigate('/repair')
+        setTimeout(() => {
+            hideSidebar();
+        }, 200);
     }
 
     const handleSignIn = () => {

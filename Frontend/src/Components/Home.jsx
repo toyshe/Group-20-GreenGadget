@@ -183,18 +183,6 @@ export default function Home({electronicList, productlist, productList }){
         </div>
       </div>
 
-
-    {/* <div className="rm-card">
-      <img src={img11} alt="where to start" className="card-img"></img>
-      <div className="card-info">
-        <h3>Help</h3>
-        <p className="sub-heading">How to navigate the site</p>
-        <p></p>
-        <a href="">Read More</a>
-      </div>
-    </div> */}
-
-
     <div className="acit-card">
         <div className="acit-face acit-face1">
             <img src={acit5} alt="where to start" className="card-img"></img>
@@ -210,17 +198,6 @@ export default function Home({electronicList, productlist, productList }){
           </div>
         </div>
       </div>
-
-
-    {/* <div className="rm-card">
-      <img src={img12} alt="where to start" className="card-img"></img>
-      <div className="card-info">
-        <h3>How we keep you safe</h3>
-        <p className="sub-heading"></p>
-        <p></p>
-        <a href="">Read More</a>
-      </div>
-    </div> */}
 
     <div className="acit-card">
         <div className="acit-face acit-face1">
@@ -238,43 +215,6 @@ export default function Home({electronicList, productlist, productList }){
         </div>
       </div>
 
-    {/* <div className="rm-card">
-      <img src={acit1} alt="where to start" className="card-img"></img>
-      <div className="card-info">
-        <h3>How we keep you safe</h3>
-        <p className="sub-heading"></p>
-        <p></p>
-        <a href="">Read More</a>
-      </div>
-    </div>
-    <div className="rm-card">
-      <img src={acit2} alt="where to start" className="card-img"></img>
-      <div className="card-info">
-        <h3>How we keep you safe</h3>
-        <p className="sub-heading"></p>
-        <p></p>
-        <a href="">Read More</a>
-      </div>
-    </div>
-    <div className="rm-card">
-      <img src={acit3} alt="where to start" className="card-img"></img>
-      <div className="card-info">
-        <h3>How we keep you safe</h3>
-        <p className="sub-heading"></p>
-        <p></p>
-        <a href="">Read More</a>
-      </div>
-    </div>
-    <div className="rm-card">
-      <img src={acit4} alt="where to start" className="card-img"></img>
-      <div className="card-info">
-        <h3>How we keep you safe</h3>
-        <p className="sub-heading"></p>
-        <p></p>
-        <a href="">Read More</a>
-      </div>
-    </div> */}
-
       <div className="acit-card">
         <div className="acit-face acit-face1">
             <img src={acit6} alt="where to start" className="card-img"></img>
@@ -291,26 +231,8 @@ export default function Home({electronicList, productlist, productList }){
         </div>
       </div>
 
-
-    {/* <div className="acit-card">
-        <div className="acit-face acit-face1">
-          <div className="acit-content">
-            <img src={acit4} alt="where to start" className="card-img"></img>
-            <h3>Help</h3>
-          </div>
-        </div>
-        <div className="acit-face acit-face2">
-          <div className="acit-content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.  
-            Inventore, cum nisi dolores libero aperiam asperiores.</p>
-            <a href="#">Read More</a>
-          </div>
-        </div>
-      </div> */}
-
-
     </div>
-
+        {/* become a member reference vercel membership card/r3f */}
     <Tech/>
 
         <Totop/>
