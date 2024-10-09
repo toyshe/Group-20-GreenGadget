@@ -628,4 +628,22 @@ describe("app", () => {
       })
     })
   })
+  describe("/products", () => {
+    test("return 10 random products from the electronics list", () => {
+      return request(app).get('/products').expect(200).then(({body: {products}}) => {
+        expect(products).toHaveLength(10)
+        products.forEach((product) => {
+          expect(product).toHaveProperty("name");
+            expect(product).toHaveProperty("model");
+            expect(product).toHaveProperty("price");
+            expect(product).toHaveProperty("description");
+            expect(product).toHaveProperty("img_url");
+            expect(product).toHaveProperty("storage_in_gb");
+            expect(product).toHaveProperty("electronics_type");
+            expect(product).toHaveProperty("quantity");
+            expect(product).toHaveProperty("shopkeeper_id");
+        })
+      })
+    })
+  })
 });
