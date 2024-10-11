@@ -11,14 +11,12 @@ const { getApi } = require("./controllers/api.controller");
 const { getElectronics, postElectronics, patchElectronicsById, getElectronicById, deleteElectronicsById } = require("./controllers/electronics.controller");
 const { getCategories, postCategories } = require("./controllers/categories.controller");
 const { getBaskets, getBasketsByUserId, postBaskets, deleteItemInBasket, patchItemInBasket } = require("./controllers/basket.controller");
-
-// res.setHeader('Access-Control-Allow-Origin', 'https://greengadget.netlify.app');
+const { getProducts } = require("./controllers/products.controller");
 
 const app = express();
 
 const corsOptions = {
-  // origin: 'http://localhost:5173',  // Set this to your frontend URL
-  origin: 'https://greengadget.netlify.app',  // Set this to your frontend URL
+  origin: 'https://greengadget.netlify.app',  
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -48,6 +46,8 @@ app.get('/basket/:user_id', getBasketsByUserId)
 app.post('/basket', postBaskets)
 app.delete('/basket/:user_id/:electronics_id', deleteItemInBasket)
 app.patch('/basket/:user_id/:electronics_id', patchItemInBasket)
+
+app.get('/products', getProducts)
 
 app.use(psqlErrors);
 
