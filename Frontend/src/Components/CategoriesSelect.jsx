@@ -88,7 +88,7 @@ export default function CategoriesSelect({ setElectronicsCategory, categoriesLis
             </details>
             </div>
 
-            <a className="all-items" onClick={handleAllItems}> All Items</a>
+            <span className="all-items" onClick={handleAllItems}> All Items</span>
         </div>
     )
 }

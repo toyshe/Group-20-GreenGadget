@@ -19,6 +19,7 @@ html {
   aspect-ratio: 15 / 8;
   overflow: hidden;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  /* box-shadow: -3px 4px 8px 6px rgba(0, 0, 0, 0.3); */
   border: 5px solid black;
   border-radius: 30px;
   margin-top: 20px;
@@ -196,7 +197,9 @@ html {
   cursor: pointer;
 }
 .acit-card:hover .acit-face1,
-.acit-card:hover .acit-face2{
+.acit-card:hover .acit-face2,
+.acit-card:focus-within .acit-face1,
+.acit-card:focus-within .acit-face2{
   transform: translateY(0px);
 }
 /* .acit-card:hover .acit-face1{
@@ -219,7 +222,8 @@ html {
   transition: 0.5s;
   opacity: 0;
 }
-.acit-card:hover .acit-face1 svg{
+.acit-card:hover .acit-face1 svg,
+.acit-card:focus-within .acit-face1 svg{
   transform: rotate(-45deg) translate(5px, 2px) scale(1.2);
   opacity: 1;
   stroke: green;
@@ -261,6 +265,11 @@ html {
 .acit-content a:hover{
   background-color: #878282;
   background-color: #706868;
+}
+.acit-content a:focus,
+.acit-content a:focus-visible{
+  box-shadow: 0px 0px 0 3px wheat, 0px 0px 0 6px #4caf50;
+  outline: none;
 }
 .acit-content h3{
   font-size: 26px;

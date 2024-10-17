@@ -3,7 +3,8 @@ import UserContext from "../contexts/UserContext";
 import { deleteItemInBasket, getBasketByUserId, patchItemInBasket } from "../../utils/utils";
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UndrawEmptyCart from "./SVG/undrawEmptyCart";
 
 export default function Basket({ basketList, setBasketList }) {
     const { loggedInUser } = useContext(UserContext)
@@ -201,40 +202,63 @@ export default function Basket({ basketList, setBasketList }) {
                 })} </div>
             {!loggedInUser.username ?
                 <p className="login-message">You need to log in to make an order</p>
-                : null}
+                : null
+            }
 
-            <h1 style={{ textAlign: "center", fontSize: "44px" }}>Summarized Entries</h1>
-            <div style={{ padding: "15px" }}>
-                {/* {console.log(summarizedEntries.length)}
-                {console.log(summarizedEntries)} */}
-                {summarizedEntries.map((entry, index) => (
-                    <div className="basket-item" key={index}>
-                        <div className="basket-img-wrapper">
-                            <img onClick={() => { handleElectronicsClick(entry) }} src={entry.img_url} />
-                        </div>
-                        <div style={{ marginLeft: "10px" }}>
-                            <h2 onClick={() => { handleElectronicsClick(entry) }}>{entry.name}</h2>
-                            <p className="basket-item-subheading">{entry.model}</p>
-                            <p className="price">£{entry.price}</p>
-
-                            <div className="quantity-controller" >
-                                <p className="quantity">In stock: {entry.quantity}</p>
-                                <div className="quantity-adjuster">
-                                    <FaMinus className="minus" onClick={() => handleRemoveItemEntry(entry)} />
-                                    <span>{entry.count}</span>
-                                    <FaPlus className="plus" />
-                                </div>
+            {summarizedEntries.length > 0 ?
+            <>
+                <h1 style={{ textAlign: "center", fontSize: "44px" }}>Summarized Entries</h1>
+                <div style={{ padding: "15px" }}>
+                    {/* {console.log(summarizedEntries.length)}
+                    {console.log(summarizedEntries)} */}
+                    {summarizedEntries.map((entry, index) => (
+                        <div className="basket-item" key={index}>
+                            <div className="basket-img-wrapper">
+                                <img onClick={() => { handleElectronicsClick(entry) }} src={entry.img_url} />
                             </div>
+                            <div style={{ marginLeft: "10px" }}>
+                                <h2 onClick={() => { handleElectronicsClick(entry) }}>{entry.name}</h2>
+                                <p className="basket-item-subheading">{entry.model}</p>
+                                <p className="price">£{entry.price}</p>
 
-                            <button onClick={() => handleRemoveItemAllEntries(entry.electronics_id)}>Remove All</button>
-                            {/* change using an array method to search basket list */}
+                                <div className="quantity-controller" >
+                                    <p className="quantity">In stock: {entry.quantity}</p>
+                                    <div className="quantity-adjuster">
+                                        <FaMinus className="minus" onClick={() => handleRemoveItemEntry(entry)} />
+                                        <span>{entry.count}</span>
+                                        <FaPlus className="plus" />
+                                    </div>
+                                </div>
 
-                            {/*<td>{entry.electronics_type}</td>
-                                <td>{entry.storage_in_gb}</td> */}
+                                <button onClick={() => handleRemoveItemAllEntries(entry.electronics_id)}>Remove All</button>
+                                {/* change using an array method to search basket list */}
+
+                                {/*<td>{entry.electronics_type}</td>
+                                    <td>{entry.storage_in_gb}</td> */}
+                            </div>
                         </div>
-                    </div>))}
+                    ))}
+                </div>
+            </>
+            : null}
+
+            {loggedInUser.username & (basketList.length === 0) ?
+                <div className="basket-es">
+                    <UndrawEmptyCart/>
+                    <h2>Your cart is empty</h2>
+                    <p>Looks like you haven't placed anything in your cart yet</p>
+                    <Link to={'/electronics'}>Go shop
+                        <span className="button-reflection"></span>
+                    </Link>
+                 </div>
+                : null
+            }
+            
+            <div className="basket-order-btn-wrapper">
+                <button className="basket-order-btn btn btn-3 hover-border-1" disabled={!userTypeError} onClick={() => handleOrderItem(basketList)}>
+                    <span> Order </span> 
+                </button>
             </div>
-            <button disabled={!userTypeError} onClick={() => handleOrderItem(basketList)}>Order</button>
 
         </div>
     )

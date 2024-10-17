@@ -15,12 +15,27 @@ const { getProducts } = require("./controllers/products.controller");
 
 const app = express();
 
+const allowedOrigins = ['https://greengadget.netlify.app', 'http://localhost:5173']; // Netlify origin and localhost for dev
+
 const corsOptions = {
-  origin: 'https://greengadget.netlify.app',  
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
+
+// const corsOptions = {
+//   origin: 'http://localhost:5173', 
+//   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true,
+// };
 app.use(cors(corsOptions));
 
 app.use(express.json());

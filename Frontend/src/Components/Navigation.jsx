@@ -53,10 +53,6 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
         }, 200);
     }
 
-    const handleHomeButton = () => {
-        navigate('/')
-    }
-
     const handleFaqClick = () => {
         navigate('/faq')
         setTimeout(() => {
@@ -260,11 +256,11 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
             </div>
             <div className="logo-menu">
                 <IoMenu className="sidemenu-btn" onClick={showSidebar}/>
-                <div className="logo"><a onClick={handleHomeButton}>GreenGadget</a></div>
+                <div className="logo"><Link to={'/'}>GreenGadget</Link></div>
             </div>
            
             <div className="searchbar">
-                <button /*type="submit"*/ style={{display: "flex", justifyContent: "center"}}><i className="fas fa-search"></i></button>
+                <button /*type="submit"*/ aria-label="Searchbar button" style={{display: "flex", justifyContent: "center"}}><i className="fas fa-search"></i></button>
                 <input type="text" placeholder="Search..." className="navsearchbar"></input>
             </div>
 
