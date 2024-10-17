@@ -114,12 +114,12 @@ export default function Home({electronicList, productlist, productList }){
           <div id="slider">
             <ul id="slideWrap">
               <li><img src={img1} alt="placeholder img1"></img></li>
-              <li><img src={img2} alt="placeholder img2"></img></li>
-              <li><img src={img3} alt="placeholder img3"></img></li>
-              <li><img src={img4} alt="placeholder img4"></img></li>
-              <li><img src={img5} alt="placeholder img5"></img></li>
-              <li><img src={img6} alt="placeholder img6"></img></li>
-              <li><img src={img7} alt="placeholder img7"></img></li>
+              <li><img loading="lazy" src={img2} alt="placeholder img2"></img></li>
+              <li><img loading="lazy" src={img3} alt="placeholder img3"></img></li>
+              <li><img loading="lazy" src={img4} alt="placeholder img4"></img></li>
+              <li><img loading="lazy" src={img5} alt="placeholder img5"></img></li>
+              <li><img loading="lazy" src={img6} alt="placeholder img6"></img></li>
+              <li><img loading="lazy" src={img7} alt="placeholder img7"></img></li>
             </ul>
             <a id="prev" >&#10094;</a>
             <a id="next" >&#10095;</a>
@@ -141,11 +141,19 @@ export default function Home({electronicList, productlist, productList }){
         <h1>productlist</h1>
       <Product electronicList={productlist} />
       </div> */}
+
+      {productList.length > 0 ?
+        <div>
+          <h1>productList</h1>
+            <Product electronicList={productList} />
+        </div>
+        : null
+      }
       
-      <div>
+      {/* <div>
         <h1>productList</h1>
           <Product electronicList={productList} />
-      </div>
+      </div> */}
 
 
       {/* user benefit  */}
@@ -162,15 +170,15 @@ export default function Home({electronicList, productlist, productList }){
     </div> */}
 
     <div className="acit-card">
-    <Link to={'/FAQ'}>
-      <div className="acit-face acit-face1">
-          <img src={acit1} alt="where to start" className="card-img"></img>
-          <FaArrowRightLong size={30}/>
-          {/* <div style={{position:"absolute", backgroundImage:"linear-gradient(transparent 75%, #edeece)",
-            width:"100%", height:"101%", top:"0"
-          }}></div> */}
-      </div>
-    </Link>
+      <Link to={'/FAQ'} aria-label="Familiarise yourself with the site by reading our FAQ.">
+        <div className="acit-face acit-face1">
+            <img loading="lazy" src={acit1} alt="where to start" className="card-img"></img>
+            <FaArrowRightLong size={30}/>
+            {/* <div style={{position:"absolute", backgroundImage:"linear-gradient(transparent 75%, #edeece)",
+              width:"100%", height:"101%", top:"0"
+            }}></div> */}
+        </div>
+      </Link>
         
         <div className="acit-face acit-face2">
           <div className="acit-content">
@@ -178,14 +186,14 @@ export default function Home({electronicList, productlist, productList }){
             <p>Find anwsers to frequently asked questions, 
               and general help navigating the site.
             </p>
-            <Link to={'/FAQ'}>Read More</Link>
+            <Link to={'/FAQ'} aria-label="Familiarise yourself with the site by reading our FAQ.">Read More</Link>
           </div>
         </div>
       </div>
 
     <div className="acit-card">
         <div className="acit-face acit-face1">
-            <img src={acit5} alt="where to start" className="card-img"></img>
+            <img loading="lazy" src={acit5} alt="where to start" className="card-img"></img>
             <FaArrowRightLong size={30}/>
         </div>
         <div className="acit-face acit-face2">
@@ -201,7 +209,7 @@ export default function Home({electronicList, productlist, productList }){
 
     <div className="acit-card">
         <div className="acit-face acit-face1">
-            <img src={acit2} alt="where to start" className="card-img"></img>
+            <img loading="lazy" src={acit2} alt="where to start" className="card-img"></img>
             <FaArrowRightLong size={30}/>
         </div>
         <div className="acit-face acit-face2">
@@ -217,7 +225,7 @@ export default function Home({electronicList, productlist, productList }){
 
       <div className="acit-card">
         <div className="acit-face acit-face1">
-            <img src={acit6} alt="where to start" className="card-img"></img>
+            <img loading="lazy" src={acit6} alt="where to start" className="card-img"></img>
             <FaArrowRightLong size={30}/>
         </div>
         <div className="acit-face acit-face2">

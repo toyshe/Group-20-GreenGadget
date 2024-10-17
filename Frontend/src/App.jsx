@@ -1,26 +1,36 @@
 import Home from "./Components/Home"
 import { Routes, Route, Link, useLocation } from "react-router-dom"
 import './App.css'
-import { useEffect, useState } from "react";
+import { Suspense ,lazy, useEffect, useState } from "react";
 import Navigation from "./Components/Navigation"
 import SignUp from "./Components/SignUp"
 import Electronics from "./Components/Electronics"
 import ElectronicDevice from "./Components/ElectronicDevice";
 import UserContext from "./contexts/UserContext";
-import FAQ from "./Components/FAQ";
+// import FAQ from "./Components/FAQ";
 import SellItem from "./Components/SellItem";
-import About from "./Components/About";
-import Support from "./Components/Support";
-import TC from "./Components/TermsAndConditions";
+// import About from "./Components/About";
+// import Support from "./Components/Support";
+// import TC from "./Components/TermsAndConditions";
 import Basket from "./Components/Basket";
-import Repair from "./Components/Repair";
+// import Repair from "./Components/Repair";
 import NotFound from "./Components/NotFound";
 import ProtectedRoutes from "../utils/ProtectedRoutes";
-import Profile from "./Components/Profile";
-import Settings from "./Components/Settings";
+// import Profile from "./Components/Profile";
+// import Settings from "./Components/Settings";
 import ScrollToTop from "../utils/ScrollToTop";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+const Repair = lazy(() => import("./Components/Repair"))
+const FAQ = lazy(() => import("./Components/FAQ"))
+const TC = lazy(() => import("./Components/TermsAndConditions"))
+const Support = lazy(() => import("./Components/Support"))
+const About = lazy(() => import("./Components/About"))
+const Settings = lazy(() => import("./Components/Settings"))
+const Profile = lazy(() => import("./Components/Profile"))
+
+
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
@@ -67,6 +77,14 @@ function App() {
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <ScrollToTop/>
         <Navigation categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
+        <Suspense fallback={
+          //replace this with something better
+          <h2 id='load-heading'>Loading please wait
+            <span className='ellipsis'>.</span>
+            <span className='ellipsis'>.</span>
+            <span className='ellipsis'>.</span>
+          </h2>
+        }>
         <Routes>
           {/* <Route path='/login' element={<Login />} /> */}
           <Route path="/signup" element={<SignUp />} />
@@ -80,6 +98,9 @@ function App() {
           <Route path="tc" element={<TC />} />
           <Route path="/basket" element={<Basket basketList={basketList} setBasketList={setBasketList}/>} />
           <Route path="/repair" element={<Repair />}/>
+          
+          <Route path="/products" element={<Settings />}/>
+
 
           <Route element={<ProtectedRoutes/>}>
             <Route path="/dashbord">
@@ -91,6 +112,7 @@ function App() {
           
           <Route path="/*" element={<NotFound />}/>
         </Routes>
+        </Suspense>
       </UserContext.Provider>
 
       <footer id="footer">

@@ -3,6 +3,8 @@ import postLoginInfo from "../../utils/utils";
 import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 import { Link } from "react-router-dom";
+// import { setUsername } from "./SignUp"; 
+//suggestion 1 setUsername is defined in sighup but has no defintion here
 
 
 export default function Login() {
@@ -21,6 +23,8 @@ export default function Login() {
 
         if (savedChecked === 'true' && savedUsername && savedPassword) {
             setUsername(savedUsername);
+            // setUsernameOrEmail(savedUsername); 
+            //suggestion 2 did you mean this method instead
             setPassword(savedPassword);
             setChecked(true);
         }
@@ -63,6 +67,8 @@ export default function Login() {
                 localStorage.setItem('username', username);
                 localStorage.setItem('password', password);
                 localStorage.setItem('checked', Checked);
+                // localStorage.setItem('checked', checked); 
+                //suggestion 3 I think you accidently capitalised checked
             } else {
                 localStorage.removeItem('username');
                 localStorage.removeItem('password');
