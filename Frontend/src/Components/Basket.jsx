@@ -4,7 +4,7 @@ import { deleteItemInBasket, getBasketByUserId, patchItemInBasket } from "../../
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
-import UndrawEmptyCart from "./SVG/undrawEmptyCart";
+// import UndrawEmptyCart from "./SVG/undrawEmptyCart";
 
 export default function Basket({ basketList, setBasketList }) {
     const { loggedInUser } = useContext(UserContext)
