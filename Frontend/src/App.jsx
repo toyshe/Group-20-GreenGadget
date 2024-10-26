@@ -8,6 +8,7 @@ import Electronics from "./Components/Electronics"
 import ElectronicDevice from "./Components/ElectronicDevice";
 import UserContext from "./contexts/UserContext";
 import SellItem from "./Components/SellItem";
+import Basket from "./Components/Basket";
 import NotFound from "./Components/NotFound";
 import ProtectedRoutes from "../utils/ProtectedRoutes";
 import ScrollToTop from "../utils/ScrollToTop";
