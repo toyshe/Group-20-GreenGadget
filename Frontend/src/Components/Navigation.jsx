@@ -46,54 +46,11 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
         document.querySelector("#overlay").style.display = "flex";
     }
 
-    const handleAllItemsClick = () => {
-        navigate('/electronics')
-        setTimeout(() => {
-            hideSidebar();
-        }, 200);
-    }
-
-    const handleFaqClick = () => {
-        navigate('/faq')
-        setTimeout(() => {
-            hideSidebar();
-        }, 200);
-    }
-
-    const handleSellClick = () => {
-        navigate('/sell-item')
-        setTimeout(() => {
-            hideSidebar();
-        }, 200);
-    }
-
-    const handleAboutClick = () => {
-        navigate('/about')
-        setTimeout(() => {
-            hideSidebar();
-        }, 200);
-    }
-
-    const handleSupportClick = () => {
-        navigate('/support')
-        setTimeout(() => {
-            hideSidebar();
-        }, 200);
-    }
-
-    const handleTCclick = () => {
-        navigate('/TC')
-        setTimeout(() => {
-            hideSidebar();
-        }, 200);
-    }
-
     const handleBasket = () => {
         navigate('/basket')
     }
 
-    const handleRepair = () => {
-        navigate('/repair')
+    const hideSidebardelayed = () => {
         setTimeout(() => {
             hideSidebar();
         }, 200);
@@ -167,10 +124,6 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
         navigate(`/electronics?electronics_type=${e.target.innerText}`)
     }
 
-    const handleSignUp = () => {
-        navigate('/signup')
-    }
-
     return (
         <>
 
@@ -188,8 +141,8 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                     {loggedInUser.username ?
                     null:
                     <>
-                        <li className="side-replace" onClick={handleSignIn}><a>Login</a></li>
-                        <li className="side-replace" onClick={handleSignUp}><a>Sign Up</a></li>
+                        <li className="side-replace" onClick={handleSignIn}><span>Login</span></li>
+                        <li className="side-replace"><Link to={"/signup"} onClick={hideSidebardelayed} aria-label="Link to Sign Up page.">Sign Up</Link></li>
                     </> }
 
                     <li className="dropdown-container">
@@ -203,25 +156,24 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                             })}
                         </div>
                     </li>
-                    <li onClick={handleAllItemsClick}><a>All items</a></li>
+                    <li><Link to={"/electronics"} onClick={hideSidebardelayed}>All items</Link></li>
 
                     {loggedInUser.username ?
-                    <li className="side-replace" onClick={handleBasket}><a> <FaShoppingBasket />Basket</a></li>
+                    <li className="side-replace"><Link to={"/basket"} onClick={hideSidebardelayed}>Basket</Link></li>
                     :
                     null
                     }
 
                     {loggedInUser.user_type === "shopkeeper" ?
-                    <li onClick={handleSellClick}><a>Sell item</a></li>
+                    <li><Link to={"/sell-item"} onClick={hideSidebardelayed}>Sell item</Link></li>
                     :
                     null
                     }
-
-                    <li onClick={handleRepair}><a>Repair</a></li>
-                    <li onClick={handleSupportClick}><a>Support</a></li>
-                    <li onClick={handleFaqClick}><a>FAQ</a></li>
-                    <li onClick={handleTCclick}><a>T&C</a></li>
-                    <li onClick={handleAboutClick}><a>About us</a></li>
+                    <li><Link to={"/repair"} onClick={hideSidebardelayed}>Repair</Link></li>
+                    <li><Link to={"/support"} onClick={hideSidebardelayed}>Support</Link></li>
+                    <li><Link to={"/faq"} onClick={hideSidebardelayed}>FAQ</Link></li>
+                    <li><Link to={"/TC"} onClick={hideSidebardelayed}>T&C</Link></li>
+                    <li><Link to={"/about"} onClick={hideSidebardelayed}>About us</Link></li>
                 </ul>
 
                 <div id="side-menu-bottom">

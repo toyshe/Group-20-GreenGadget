@@ -776,7 +776,8 @@ ul.footli{
   padding-left: 10px;
 }
 
-.sl li a {
+.sl li a,
+.sl li span {
   margin: 0 8px 0 6px;
   padding: 0 0 0 5px;
   display: block;
@@ -786,7 +787,8 @@ ul.footli{
   color: #000;
 }
 
-.sl li a:hover {
+.sl li a:hover,
+.sl li span:hover {
   width: auto;
   cursor: pointer;
   background-color: rgb(25, 173, 8);;
@@ -2768,7 +2770,8 @@ button[type='submit'][disabled]:hover{
   .side-menu{
     width: 100%;
   }
-  .sl li a{
+  .sl li a,
+  .sl li span{
     text-align: center;
   }
   .sub-menu{

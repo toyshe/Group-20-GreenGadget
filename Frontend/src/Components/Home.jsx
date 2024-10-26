@@ -23,16 +23,12 @@ import Totop from "./Totop";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Tech from "./Tech.jsx";
+import { getProducts } from "../../utils/utils.js";
 
 
 
-export default function Home({electronicList, productlist, productList }){
+export default function Home({ recData }){
   
-  // console.log("test print at home")
-  // console.log(electronicList)
-  // console.log({productlist});
-  // console.log({productList});
-
 
   //fix/reorgainse this 
   useEffect(()=> {
@@ -96,7 +92,6 @@ export default function Home({electronicList, productlist, productList }){
     console.log(sliderWidth)
   }
 
-
     return (
       <div className="home-conatainer">
 
@@ -135,26 +130,77 @@ export default function Home({electronicList, productlist, productList }){
           </div>
         </div>
 
-      <Product electronicList={electronicList} />
-
-      {/* <div>
-        <h1>productlist</h1>
-      <Product electronicList={productlist} />
-      </div> */}
-
-      {productList.length > 0 ?
-        <div>
-          <h1>productList</h1>
-            <Product electronicList={productList} />
-        </div>
-        : null
-      }
       
-      {/* <div>
-        <h1>productList</h1>
-          <Product electronicList={productList} />
-      </div> */}
-
+      <div className="rec-prod">
+        <div className="rd-scroller">
+          <ul>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+            <li>
+              <span>Recomended</span>
+            </li>
+          </ul>
+        </div>
+        
+        <Product electronicList={recData} />
+      </div>
 
       {/* user benefit  */}
 

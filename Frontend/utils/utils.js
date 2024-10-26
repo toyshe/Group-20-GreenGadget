@@ -144,3 +144,14 @@ export function patchItemInBasket(user_id, electronics_id, {updatedQuantity}){
     return data.msg
   })
 }
+
+export function getProducts(){
+  return greengadgetApi
+    .get(`/products`)
+    .then(({ data }) => {
+      return data.products
+    })
+    .catch((err) => {
+      throw err;
+    });
+}

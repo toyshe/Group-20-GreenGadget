@@ -167,7 +167,6 @@ export default function SellItem({ setElectronics }) {
           <input type="number" id="quantity" value={quantity} onChange={(e) => setQuantity(e.target.value)} required />
         </div>
         <button disabled={userTypeError} type="submit" className="submit-button">Submit</button>
-        {/* test addding shake animation for disabled mode */}
       </form>
       {errorMessage && <p className="input-invalid">{errorMessage}</p>}
       {showPopup && (

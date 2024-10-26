@@ -7,20 +7,13 @@ import SignUp from "./Components/SignUp"
 import Electronics from "./Components/Electronics"
 import ElectronicDevice from "./Components/ElectronicDevice";
 import UserContext from "./contexts/UserContext";
-// import FAQ from "./Components/FAQ";
 import SellItem from "./Components/SellItem";
-// import About from "./Components/About";
-// import Support from "./Components/Support";
-// import TC from "./Components/TermsAndConditions";
-import Basket from "./Components/Basket";
-// import Repair from "./Components/Repair";
 import NotFound from "./Components/NotFound";
 import ProtectedRoutes from "../utils/ProtectedRoutes";
-// import Profile from "./Components/Profile";
-// import Settings from "./Components/Settings";
 import ScrollToTop from "../utils/ScrollToTop";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getProducts } from "../utils/utils";
 
 const Repair = lazy(() => import("./Components/Repair"))
 const FAQ = lazy(() => import("./Components/FAQ"))
@@ -35,10 +28,18 @@ const Profile = lazy(() => import("./Components/Profile"))
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({})
   const [electronicList, setElectronics] = useState([])
-  const [productList, setProducts] = useState([]);
   const [basketList, setBasketList] = useState([])
   const [categoriesList, setCategoriesList] = useState([]);
   let location = useLocation();
+  const [recData, setRecData] = useState([]);
+
+  useEffect(() => {
+    getProducts().then((productData)=>{
+      // console.log(`Home: ${productData}`);
+      console.log(productData);
+      setRecData(productData);
+    })
+  },[])
 
   if(location.hash){
     window.history.replaceState("", document.title, window.location.pathname);
@@ -57,21 +58,7 @@ function App() {
     console.log({rands})
     return rands;
   };
-  
-  useEffect(() => {
-    let choosenproductlist = [];
-    if(electronicList.length > 0){
-      const choosenProducts = generateProductsSelection(5, electronicList.length);
-      // console.log({choosenProducts});
-      choosenproductlist = choosenProducts.map((product, index)=>{
-        return electronicList[product];
-      })
-    }
-    // console.log("{choosenproductlist}");
-    // console.log({choosenproductlist});
-    setProducts(choosenproductlist);
-    // console.log({productList});
-  }, [electronicList.length])
+
   return (
     <>
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
@@ -79,7 +66,7 @@ function App() {
         <Navigation categoriesList={categoriesList} setCategoriesList={setCategoriesList} />
         <Suspense fallback={
           //replace this with something better
-          <h2 id='load-heading'>Loading please wait
+          <h2 id='load-heading'>Staging please wait
             <span className='ellipsis'>.</span>
             <span className='ellipsis'>.</span>
             <span className='ellipsis'>.</span>
@@ -88,7 +75,7 @@ function App() {
         <Routes>
           {/* <Route path='/login' element={<Login />} /> */}
           <Route path="/signup" element={<SignUp />} />
-          <Route path='/' element={<Home electronicList={electronicList} productList={productList} />} />
+          <Route path='/' element={<Home recData={recData}/>} />
           <Route path="/electronics" element={<Electronics electronicList={electronicList} setElectronics={setElectronics} categoriesList={categoriesList} setCategoriesList={setCategoriesList} />} />
           <Route path="/electronics/:electronics_id" element={<ElectronicDevice basketList={basketList} setBasketList={setBasketList} />} />
           <Route path="/faq" element={<FAQ />} />
@@ -98,9 +85,6 @@ function App() {
           <Route path="tc" element={<TC />} />
           <Route path="/basket" element={<Basket basketList={basketList} setBasketList={setBasketList}/>} />
           <Route path="/repair" element={<Repair />}/>
-          
-          <Route path="/products" element={<Settings />}/>
-
 
           <Route element={<ProtectedRoutes/>}>
             <Route path="/dashbord">
