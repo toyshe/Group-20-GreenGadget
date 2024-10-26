@@ -17,7 +17,7 @@ export default function Totop(
     }, []);
     
     return(
-    <a href="#" className={`${className} to-top`}>
+    <a href="#" aria-label="Scroll to the top of the current page" className={`${className} to-top`}>
       <i className="fa-solid fa-chevron-up"></i>
     </a>
     )
