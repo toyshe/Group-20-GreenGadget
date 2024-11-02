@@ -287,14 +287,24 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
 
         <div id="id05" className="modal" >
             {/* style={{ display:"flex" }}*/}
-            <h1> welcome <span>{loggedInUser.username}</span> 
-            </h1>
+            <div className="welcome-message">
+                
+                <h1> welcome <span>{loggedInUser.username}</span>
+                <h2 id='load-heading'>You are being Logged in
+                    <span className='ellipsis'>.</span>
+                    <span className='ellipsis'>.</span>
+                    <span className='ellipsis'>.</span>
+                </h2></h1>
 
-            <h2 id='load-heading'>You are being Logged in
-                <span className='ellipsis'>.</span>
-                <span className='ellipsis'>.</span>
-                <span className='ellipsis'>.</span>
-            </h2>
+                <h1 className="text-stroke1"> welcome <span>{loggedInUser.username}</span>
+                <h2 id='load-heading'>You are being Logged in
+                    <span className='ellipsis'>.</span>
+                    <span className='ellipsis'>.</span>
+                    <span className='ellipsis'>.</span>
+                </h2></h1>
+                
+                <div className="gc"></div>
+            </div>
         </div>
         </>
 

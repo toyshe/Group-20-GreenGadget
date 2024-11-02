@@ -146,6 +146,6 @@ button{
     transform: scale(3);
     z-index: -1;
 }
-.react-multi-carousel-track .react-multiple-carousel__arrow{
-    z-index: 2;
+.react-multi-carousel-track .react-multiple-carousel__arrow, .react-multiple-carousel__arrow{
+    z-index: 2 !important;
 }

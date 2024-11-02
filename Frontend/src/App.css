@@ -2517,20 +2517,58 @@ button[type='submit'].neubrutal-btn:active,
   justify-content: center;
   background-color: var(--background);
 }
+.welcome-message{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
 #id05 h1{
   color: var(--foreground);
   font-family: system-ui, sans-serif;
-    font-size: 44px;
-    letter-spacing: 1px;
+  font-size: 90px;
+  letter-spacing: 1px;
+  text-wrap: nowrap;
+  position: absolute;
+  text-align: center;
+  user-select: none;
 }
 #id05 h1 span{
   font-weight: 100;
 }
 #id05 h2{
-  color: var(--foreground);
+  color: inherit;
   align-self: center;
+  font-size: 48px;
 }
-
+#id05 h1.text-stroke1{
+  color: transparent;
+  -webkit-text-stroke: 1px var(--foreground);
+  z-index: 2;
+  user-select: auto;
+}
+.text-stroke1 .ellipsis{
+  -webkit-text-stroke-width: 0;
+}
+.text-stroke1 .ellipsis:nth-child(1){
+  animation-delay: 0.6s;
+}
+.text-stroke1 .ellipsis:nth-child(2){
+  animation-delay: 0.8s;
+}
+.text-stroke1 .ellipsis:nth-child(3){
+  animation-delay: 1s;
+}
+.gc{
+  height: 300px;
+  width: 300px;
+  height: 400px;
+  width: 400px;
+  position: absolute;
+  background-color: #04aa6d;
+  border-radius: 50%;
+}
 
 /* HTML: <div class="loader"></div> */
 .loader {
