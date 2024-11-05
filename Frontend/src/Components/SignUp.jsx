@@ -136,8 +136,8 @@ export default function SignUp() {
                 <h2 className="avatar-select-title">Choose an avatar</h2><span className="required-fields"> *</span>
                 <div className="avatar-container">
 
-                    <button value="https://iili.io/JUF4dWQ.png" id="juf4dwqpng" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4dWQ.png" /></button>
-                    <button value="https://iili.io/JUF4gEB.png" id="juf4dgebpng" onClick={handleAvatar} className="user-avatar-buttons"><img className="user-avatar-select" src="https://iili.io/JUF4gEB.png" /></button>
+                    <button value="https://iili.io/JUF4dWQ.png" id="juf4dwqpng" onClick={handleAvatar} className="user-avatar-buttons" alt="user icon Male"><img className="user-avatar-select" src="https://iili.io/JUF4dWQ.png" /></button>
+                    <button value="https://iili.io/JUF4gEB.png" id="juf4dgebpng" onClick={handleAvatar} className="user-avatar-buttons" alt="user icon Female"><img className="user-avatar-select" src="https://iili.io/JUF4gEB.png" /></button>
                 </div>
 
                 <label htmlFor="username">Username</label><span className="required-fields"> *</span>
