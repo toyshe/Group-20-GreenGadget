@@ -4,6 +4,7 @@ import './Repair.css'
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { MdLocalPhone } from "react-icons/md";
+import { Helmet } from "react-helmet";
 
 
 export default function Repair() {
@@ -55,6 +56,10 @@ export default function Repair() {
 
     return (
         <div className="repair-page-container">
+        <Helmet>
+            <title>Greengadget | Repair</title>
+            <meta name="description" content="lorem ipsum"/> 
+        </Helmet>
         <div className="form-container">
 
             <h1>Repair Item Form:</h1>

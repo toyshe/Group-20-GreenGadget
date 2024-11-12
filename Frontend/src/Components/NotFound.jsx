@@ -4,10 +4,16 @@ import { TbError404Off } from "react-icons/tb";
 import { BiSolidError } from "react-icons/bi";
 import { FaArrowLeft, FaHome } from "react-icons/fa";
 import Favicon from "./Favicon.jsx";
+import { Helmet } from "react-helmet";
 
 export default function NotFound() {
   return (
     <div className="notFound-page">
+      <Helmet>
+        <title>Not Found</title>
+        <meta name="description" content="Oops! The page you are looking for cannot be found. 
+        Return to our homepage or explore our products to find what you need."/> 
+      </Helmet>
 
 
 

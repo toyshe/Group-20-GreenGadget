@@ -1,9 +1,14 @@
 import Spline from '@splinetool/react-spline';
+import { Helmet } from 'react-helmet';
 
 export default function Support() {
 
   return (
     <div className="support-page-container">
+      <Helmet>
+        <title>Greengadget | Support</title>
+        <meta name="description" content="lorem ipsum"/> 
+      </Helmet>
       <div className="support-container">
         <h1>Support Request Form:</h1>
         <p>

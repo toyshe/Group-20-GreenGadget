@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { postSignUpInfo } from "../../utils/utils"
 import UserContext from "../contexts/UserContext";
 import { Link} from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 
 export default function SignUp() {
@@ -119,6 +120,11 @@ export default function SignUp() {
 
     return (
         <div id="signup-form-container">
+            <Helmet>
+                <title>Greengadget | Sign Up</title>
+                <meta name="description" content="Join our community! 
+                Create your account today to join our commmunity and start enjoying the benefits."/> 
+            </Helmet>
 
             <form id="signup-form" onSubmit={handleSubmit}>
 

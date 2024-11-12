@@ -2,6 +2,7 @@ import Faq from "react-faq-component";
 import "./faq.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 
 export default function FAQ(){
@@ -92,6 +93,11 @@ export default function FAQ(){
 
     return (
         <div>
+            <Helmet>
+                <title>Greengadget | FAQ</title>
+                <meta name="description" content="Find answers to frequently asked questions. 
+                Get the information you need to make your shopping experience smooth and enjoyable."/> 
+            </Helmet>
             <Faq data={data} styles={styles} config={config} />
         </div>
     )

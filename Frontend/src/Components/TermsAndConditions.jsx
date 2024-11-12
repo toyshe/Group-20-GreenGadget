@@ -1,10 +1,14 @@
+import { Helmet } from "react-helmet";
 import Totop from "./Totop";
 
 
 export default function TC() {
     return (
         <div className="tc-wrapper">
-
+        <Helmet>
+            <title>Greengadget | T&C</title>
+            <meta name="description" content="lorem ipsum"/> 
+        </Helmet>
             <ul className="content-headings">
               <li><a href="#tc-Introduction">Introduction & disclamer</a></li>
               <li><a href="#tc-own">Learn about us</a></li>

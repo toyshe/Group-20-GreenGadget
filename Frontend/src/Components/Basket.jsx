@@ -4,6 +4,7 @@ import { deleteItemInBasket, getBasketByUserId, patchItemInBasket } from "../../
 import { FaMinus } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 // import UndrawEmptyCart from "./SVG/undrawEmptyCart";
 
 export default function Basket({ basketList, setBasketList }) {
@@ -145,6 +146,11 @@ export default function Basket({ basketList, setBasketList }) {
 
     return (
         <div>
+            <Helmet>
+                <title>Greengadget | Shopping basket</title>
+                <meta name="description" content="View and manage your basket. 
+                Review your products, update quantities, and proceed to checkout for a seamless shopping experience."/> 
+            </Helmet>
             <div className="summary-wrapper">
                 <div className="summary-container">
                     <div className="order-summary">

@@ -6,6 +6,7 @@ import Icon from './Icon';
 import Loading from "./Loading";
 import { FaArrowLeft } from "react-icons/fa";
 import { toast } from 'react-toastify';
+import { Helmet } from "react-helmet";
 
 
 export default function ElectronicDevice({ basketList, setBasketList }) {
@@ -71,6 +72,11 @@ export default function ElectronicDevice({ basketList, setBasketList }) {
 
     return (
         <>
+        <Helmet>
+            {/* <title>`Greengadget | {electronic.name}</title> causes error try again with async version of react helmet. */}
+            <title>`Greengadget | </title>
+            <meta name="description" content=" Relevent specs and pricing information for the electronic device."/>
+        </Helmet>
         <div className="electronic-device-page-container">
             <div className="electronic-device-wrapper">
                 <div className="electronic-device-meta">
