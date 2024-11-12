@@ -9,6 +9,7 @@ import { FaArrowsSpin } from "react-icons/fa6";
 import ElectronicsSkeleton from './ElectronicsSkeleton';
 import { flushSync } from "react-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { Helmet } from 'react-helmet';
 
 
 export default function Electronics({ electronicList, setElectronics, categoriesList, setCategoriesList }) {
@@ -62,6 +63,11 @@ export default function Electronics({ electronicList, setElectronics, categories
 
   return (
     <>
+    <Helmet>
+      <title>Greengadget | Electronics</title>
+      <meta name="description" content="Explore our wide range of products. Find detailed information
+       and pricing for each item. Shop now and enjoy great deals on top-quality products."/> 
+    </Helmet>
       <div className="electronics">
         <div className='filter-electronics'>
           <CategoriesSelect setElectronicsCategory={setElectronicsCategory} categoriesList={categoriesList} setCategoriesList={setCategoriesList} setPage={setPage} />

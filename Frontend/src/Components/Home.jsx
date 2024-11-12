@@ -24,6 +24,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
 import Tech from "./Tech.jsx";
 import { getProducts } from "../../utils/utils.js";
+import {Helmet} from "react-helmet";
 
 
 
@@ -94,6 +95,11 @@ export default function Home({ recData }){
 
     return (
       <div className="home-conatainer">
+
+      <Helmet>
+        <title>Greengadget: Buy, sell and even repair tech</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
 
         <div className="Hero" style={{display: "none"}}> 
           <div>

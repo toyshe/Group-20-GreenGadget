@@ -1,10 +1,16 @@
 import Totop from "./Totop";
-
+import {Helmet} from "react-helmet";
 
 export default function About() {
     
     return (
         <div className="about-wrapper">
+            
+            <Helmet>
+                <title>Greengadget: About us our mission and how we can help you</title>
+                <meta name="description" content="Learn more about our store, our mission, 
+                and the values that drive us."/>
+            </Helmet>
             
             <ul className="content-headings">
               <li><a href="#AGG">About Green Gadget</a></li>

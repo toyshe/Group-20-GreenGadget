@@ -288,6 +288,7 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
         <div id="id05" className="modal" >
             {/* style={{ display:"flex" }}*/}
             <div className="welcome-message">
+                {/* change h2 tags to something else to get rid of error message */}
                 
                 <h1> welcome <span>{loggedInUser.username}</span>
                 <h2 id='load-heading'>You are being Logged in

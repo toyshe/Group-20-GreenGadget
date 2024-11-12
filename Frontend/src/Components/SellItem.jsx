@@ -4,9 +4,7 @@ import { postElectronics } from "../../utils/utils";
 import './SellItem.css'
 import { MdOutlineMonochromePhotos, MdCloudUpload } from "react-icons/md";
 import { FaCloudUploadAlt } from "react-icons/fa";
-
-
-
+import { Helmet } from "react-helmet";
 
 
 export default function SellItem({ setElectronics }) {
@@ -87,6 +85,10 @@ export default function SellItem({ setElectronics }) {
 
   return (
     <>
+    <Helmet>
+      <title>Greengadget | Sellitem</title>
+      <meta name="description" content="lorem ipsum"/> 
+    </Helmet>
     <div className="sell-item-page-container" >
       {console.log(loggedInUser, loggedInUser.user_type)}
     <div className="sell-item-form-container" >
