@@ -9,6 +9,8 @@ import { getCategories } from "../../utils/utils";
 import { FaRegUser, FaArrowRightFromBracket, FaRightFromBracket } from "react-icons/fa6";
 import { IoSettingsSharp, IoMenu } from "react-icons/io5";
 import { MdLiveHelp } from "react-icons/md";
+import Favicon from "./Favicon.jsx";
+
 
 
 export default function Navigation({ categoriesList, setCategoriesList }) {
@@ -124,6 +126,20 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
         navigate(`/electronics?electronics_type=${e.target.innerText}`)
     }
 
+    //add if statement to limit event to when welcome message is being displayed
+    // or just make the transistion page into a proper transition
+    const cursor = document.getElementById("login-cursor");
+    window.onmousemove = (e)=>{
+        const x = e.clientX - cursor.offsetWidth/2;
+        const y = e.clientY - cursor.offsetHeight/2;
+        // console.log(e.clientX)
+        // console.log({x})
+        // console.log(e.clientY)
+        // console.log({y})
+        console.log({e})
+
+        cursor.style.transform = `translate(${x}px, ${y}px)`;
+    }
     return (
         <>
 
@@ -304,7 +320,12 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
                     <span className='ellipsis'>.</span>
                 </h2></h1>
                 
-                <div className="gc"></div>
+                <div id="login-cursor">
+                    <div className="lcl lcl2">
+                        <div className="lcl lcl3"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
         </>

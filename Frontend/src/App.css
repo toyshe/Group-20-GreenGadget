@@ -2516,6 +2516,7 @@ button[type='submit'].neubrutal-btn:active,
   align-items: center;
   justify-content: center;
   background-color: var(--background);
+  cursor: none;
 }
 .welcome-message{
   display: flex;
@@ -2560,16 +2561,40 @@ button[type='submit'].neubrutal-btn:active,
 .text-stroke1 .ellipsis:nth-child(3){
   animation-delay: 1s;
 }
-.gc{
-  height: 300px;
-  width: 300px;
-  height: 400px;
-  width: 400px;
+#login-cursor{
+  --size: 400px;
+
+  height: var(--size);
+  width: var(--size);
   position: absolute;
   background-color: #04aa6d;
   border-radius: 50%;
+  left: 0;
+  top: 0;
+  /* isolation: isolate; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.lcl{
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+  /* z-index: 2; */
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+.lcl2{
+  --size: 300px;
+  background-color: #2128bd;
+  border-radius: 50%;
+}
+.lcl3{
+  --size: 200px;
+  border-radius: 50%;
+  background-color: rgb(245, 248, 109);
+}
 /* HTML: <div class="loader"></div> */
 .loader {
   /* width: 50px; */
