@@ -292,7 +292,16 @@ export default function Home({ recData }){
       </div>
 
     </div>
-        {/* become a member reference vercel membership card/r3f */}
+    {/* become a member reference vercel membership card/r3f */}
+    <div className="mem-display">
+       <div className="mem-ch">
+
+      </div>
+
+      <div className="mem-text">
+
+      </div>
+    </div>
     <Tech/>
 
         <Totop/>

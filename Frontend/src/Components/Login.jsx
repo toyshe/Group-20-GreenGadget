@@ -57,10 +57,9 @@ export default function Login() {
                 document.getElementById('id01').style.display = "none";
                 document.getElementById('id05').style.display = 'flex'
                 setTimeout(() => {
-                    navigate('/');
                     document.getElementById('id05').style.display = 'none'
                 }, 2500);
-                // navigate('/');
+                navigate('/');
             }
 
             if (checked) {
