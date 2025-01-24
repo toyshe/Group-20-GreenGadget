@@ -126,19 +126,22 @@ export default function Navigation({ categoriesList, setCategoriesList }) {
         navigate(`/electronics?electronics_type=${e.target.innerText}`)
     }
 
-    //add if statement to limit event to when welcome message is being displayed
-    // or just make the transistion page into a proper transition
+    //implemnted if statement to to optimise the onmousemove event when welcome message is not being displayed
     const cursor = document.getElementById("login-cursor");
     window.onmousemove = (e)=>{
-        const x = e.clientX - cursor.offsetWidth/2;
-        const y = e.clientY - cursor.offsetHeight/2;
-        // console.log(e.clientX)
-        // console.log({x})
-        // console.log(e.clientY)
-        // console.log({y})
-        console.log({e})
-
-        cursor.style.transform = `translate(${x}px, ${y}px)`;
+        const lt_tracker = window.getComputedStyle(document.getElementById('id05')).display;
+        if(lt_tracker === "flex"){
+            const x = e.clientX - cursor.offsetWidth/2;
+            const y = e.clientY - cursor.offsetHeight/2;
+            // console.log(e.clientX);
+            // console.log({x});
+            // console.log(e.clientY);
+            // console.log({y});
+            // console.log({e});
+            // console.log(document.getElementById('id05').style.display);
+    
+            cursor.style.transform = `translate(${x}px, ${y}px)`;
+        }
     }
     return (
         <>
