@@ -31,9 +31,51 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
       return db.query(`DROP TABLE IF EXISTS categories`);
     })
     .then(() => {
+      return db.query(`DROP SEQUENCE IF EXISTS users_id_seq`)
+    })
+    .then(() => {
+      return db.query(`DROP SEQUENCE IF EXISTS electronics_id_seq`)
+    })
+        .then(() => {
+      return db.query(`DROP SEQUENCE IF EXISTS baskets_id_seq`)
+    })
+        .then(() => {
+      return db.query(`DROP SEQUENCE IF EXISTS orders_id_seq`)
+    })
+        .then(() => {
+      return db.query(`DROP SEQUENCE IF EXISTS requests_id_seq`)
+    })
+        .then(() => {
+      return db.query(`DROP SEQUENCE IF EXISTS bids_id_seq`)
+    })
+        .then(() => {
+      return db.query(`DROP SEQUENCE IF EXISTS reviews_id_seq`)
+    })
+        .then(() => {
+      return db.query(`CREATE SEQUENCE users_id_seq`)
+    })
+    .then(() => {
+      return db.query(`CREATE SEQUENCE electronics_id_seq`)
+    })
+        .then(() => {
+      return db.query(`CREATE SEQUENCE baskets_id_seq`)
+    })
+        .then(() => {
+      return db.query(`CREATE SEQUENCE orders_id_seq`)
+    })
+        .then(() => {
+      return db.query(`CREATE SEQUENCE requests_id_seq`)
+    })
+        .then(() => {
+      return db.query(`CREATE SEQUENCE bids_id_seq`)
+    })
+        .then(() => {
+      return db.query(`CREATE SEQUENCE reviews_id_seq`)
+    })
+    .then(() => {
       return db.query(
         `CREATE TABLE users (
-        user_id SERIAL PRIMARY KEY,
+        user_id INT PRIMARY KEY DEFAULT nextval('users_id_seq'),
         username VARCHAR(50) UNIQUE NOT NULL,
         name VARCHAR(100) NOT NULL,
         password VARCHAR(100) NOT NULL,
@@ -60,7 +102,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     })
     .then(() => {
       return db.query(`CREATE TABLE electronics (
-        electronics_id SERIAL PRIMARY KEY,
+        electronics_id INT PRIMARY KEY DEFAULT nextval('electronics_id_seq'),
         name VARCHAR(100) NOT NULL,
         model VARCHAR NOT NULL,
         electronics_type VARCHAR(20) NOT NULL REFERENCES categories(slug),
@@ -74,7 +116,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     })
     .then(() => {
       return db.query(`CREATE TABLE baskets (
-        basket_id SERIAL PRIMARY KEY,
+        basket_id INT PRIMARY KEY DEFAULT nextval('baskets_id_seq'),
         user_id INT NOT NULL REFERENCES users(user_id),
         electronics_id SERIAL REFERENCES electronics(electronics_id) ON DELETE CASCADE,
         basket_quantity INT NOT NULL DEFAULT 1,
@@ -83,7 +125,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     })
     .then(() => {
       return db.query(`CREATE TABLE orders (
-        order_id SERIAL PRIMARY KEY,
+        order_id INT PRIMARY KEY DEFAULT nextval('orders_id_seq'),
         user_id INT NOT NULL REFERENCES users(user_id),
         electronics_id SERIAL REFERENCES electronics(electronics_id),
         quantity INT NOT NULL
@@ -91,7 +133,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     })
     .then(() => {
       return db.query(`CREATE TABLE repair_requests (
-        request_id SERIAL PRIMARY KEY,
+        request_id INT PRIMARY KEY DEFAULT nextval('requests_id_seq'),
         customer_id INT NOT NULL REFERENCES users(user_id),
         electronics_id SERIAL REFERENCES electronics(electronics_id),
         description TEXT NOT NULL,
@@ -100,7 +142,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     })
     .then(() => {
       return db.query(`CREATE TABLE bids (
-        bid_id SERIAL PRIMARY KEY,
+        bid_id INT PRIMARY KEY DEFAULT nextval('bids_id_seq'),
         shopkeeper_id INT NOT NULL REFERENCES users(user_id),
         request_id SERIAL REFERENCES repair_requests(request_id),
         status VARCHAR(20) NOT NULL,
@@ -109,7 +151,7 @@ const seed = ({ userDataPromise, electronicsData, categoriesData, basketData }) 
     })
     .then(() => {
       return db.query(`CREATE TABLE reviews (
-        review_id SERIAL PRIMARY KEY,
+        review_id INT PRIMARY KEY DEFAULT nextval('reviews_id_seq'),
         user_id INT NOT NULL REFERENCES users(user_id),
         electronics_id SERIAL REFERENCES electronics(electronics_id),
         rating INT NOT NULL,
